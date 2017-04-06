@@ -8,15 +8,87 @@ body
 
 footer
 {
-    text-align: center;
-    background: #fff;
-    padding: 5px 0px;
+    background: #283E4A;
+    padding: 30px 0px;
 }
+
+.footer-contact
+{
+    text-align: right;
+    padding: 10px;
+}
+
+.footer-contact a
+{
+    display: inline-block;
+    padding: 6px 10px;
+    color: #fff;
+    font-size: 20px;
+}
+
+.footer-contact a.bg-twitter
+{
+    background: #55ACEE;
+}
+
+.footer-contact a.bg-wp
+{
+    background: #0AA7DB;
+}
+
+.footer-contact a.bg-fb
+{
+    background: #3B5998;
+}
+
+.footer-link
+{
+    text-align: right;
+}
+
+.list-link-footer
+{
+    /*width: 30%;*/
+    border-right: 1px solid #C7D1D8;
+    padding: 5px 20px;
+    display: inline-block;
+}
+
+.list-link-footer > ul
+{
+    padding: 0px;
+    margin: 0px;
+    text-decoration: none;
+    list-style: none;
+}
+
+.list-link-footer > ul > li > a
+{
+    text-align: right;
+    display: block;
+    text-decoration: none;
+    color: #C7D1CF;
+    font-size: 12px;
+    padding: 5px;
+}
+
+.list-link-footer > ul > li > a:hover
+{
+    color: #fff;
+}
+
+
 
 header
 {
     background: #283E4A;
     margin: 0px;
+    /*background: url(../imgs/wallpage.jpg);*/
+}
+
+.header-text
+{
+    
 }
 
 .container
