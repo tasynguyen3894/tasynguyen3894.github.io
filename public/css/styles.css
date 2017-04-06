@@ -1,0 +1,150 @@
+body
+{
+    margin: 0px;
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 0px;
+}
+
+footer
+{
+    text-align: center;
+    background: #fff;
+    padding: 5px 0px;
+}
+
+header
+{
+    background: #fff;
+    margin: 0px;
+}
+
+.container
+{
+    width: 1200px;
+    margin: 0 auto;
+}
+
+ul.header_menu
+{
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+}
+
+.header_menu > li
+{
+    display: inline-block;
+}
+
+.header_menu > li > a
+{
+    display: block;
+    text-decoration: none;
+    padding: 20px 35px;
+    color: #A84646;
+}
+
+.header_menu > li > a:hover
+{
+    background: #A84646;
+    color: #fff;
+}
+
+#menu_responsive
+{
+    display: none;
+    padding: 10px 10px;
+    border-bottom: 1px solid #999;
+}
+
+.fb-button
+{
+    color: #fff;
+    background: #3B579D;
+    text-decoration: none;
+    padding: 5px 10px;
+    display: inline-block;
+    border-radius: 2px;
+}
+
+.content
+{
+    width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 20px 0px;
+    background: #fff;
+}
+
+.img_button > img
+{
+    width: 100%;
+}
+
+[class^="width-"]
+{
+    display: inline-block;
+}
+
+.width-30
+{
+    width: 30%;
+}
+
+.width-35
+{
+    width: 35%;
+}
+
+.width-40
+{
+    width: 40%;
+}
+
+/* Responsive */
+
+@media only screen and (max-width: 500px) 
+{
+    .content
+    {
+        width: 100%;
+    }
+
+    .respove_hide
+    {
+        display: none;
+    }
+
+    .respove_show
+    {
+        display: block !important;
+    }
+
+    .container
+    {
+        width: 100%;
+    }
+
+    .header_menu
+    {
+        display: none;
+    }
+
+    .header_menu > li
+    {
+        display: block;
+    }
+
+    #menu_responsive
+    {
+        display: block;
+    }
+
+    [class^="width-"]
+    {
+        width: 100%;
+    }
+}
+
+/* End */
