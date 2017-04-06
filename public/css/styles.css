@@ -15,7 +15,7 @@ footer
 
 header
 {
-    background: #fff;
+    background: #283E4A;
     margin: 0px;
 }
 
@@ -42,19 +42,21 @@ ul.header_menu
     display: block;
     text-decoration: none;
     padding: 20px 35px;
-    color: #A84646;
+    color: #C7D1D8;
 }
 
 .header_menu > li > a:hover
 {
-    background: #A84646;
+    background: #283E4A;
     color: #fff;
 }
 
 #menu_responsive
 {
     display: none;
-    padding: 10px 10px;
+    padding: 15px 15px;
+    color: #fff;
+    font-size: 20px;
     border-bottom: 1px solid #999;
 }
 
