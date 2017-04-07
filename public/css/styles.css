@@ -204,6 +204,19 @@ ul.header_menu
     border-top: 1px solid #ddd;
 }
 
+.table-responsive td a , .table-responsive td a
+{
+    text-decoration: none;
+    color: #283E4A;
+}
+
+.table-responsive td a:hover , .table-responsive td a:hover
+{
+    text-decoration: none;
+    color: #0AA7DB;
+}
+
+
 .table-responsive > thead tr
 {
     text-align: left;
@@ -219,6 +232,8 @@ ul.header_menu
     border-collapse: collapse;
     width: 100%;
 }
+
+
 
 
 /* Responsive */
