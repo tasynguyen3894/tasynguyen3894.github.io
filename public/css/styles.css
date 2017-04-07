@@ -195,6 +195,10 @@ ul.header_menu
     .respove_show
     {
         display: block !important;
+        width: 100%;
+        position: fixed;
+        z-index: 10;
+        background: #283E4A;
     }
 
     .container
