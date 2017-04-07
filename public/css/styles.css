@@ -196,7 +196,7 @@ ul.header_menu
     {
         display: block !important;
         width: 100%;
-        position: fixed;
+        position: absolute;
         z-index: 10;
         background: #283E4A;
     }
