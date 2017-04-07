@@ -42,6 +42,11 @@ footer
     background: #3B5998;
 }
 
+.footer-contact a.bg-github
+{
+    background: #24292E;
+}
+
 .footer-link
 {
     text-align: right;
