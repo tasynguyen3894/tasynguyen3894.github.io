@@ -317,7 +317,7 @@ ul.header_menu
         content: attr(data-title);
         width: 30%;
         position: absolute;
-        top: 5px;
+        top: 6px;
         left: 5px;  
     }
 }
