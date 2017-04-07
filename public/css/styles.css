@@ -16,6 +16,7 @@ footer
 {
     text-align: right;
     padding: 10px;
+    box-sizing: border-box;
 }
 
 .footer-contact a
