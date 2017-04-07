@@ -44,13 +44,14 @@ footer
 .footer-link
 {
     text-align: right;
+    padding-top: 15px;
 }
 
 .list-link-footer
 {
     /*width: 30%;*/
     border-right: 1px solid #C7D1D8;
-    padding: 5px 20px;
+    padding: 5px 20px 5px 50px  ;
     display: inline-block;
 }
 
