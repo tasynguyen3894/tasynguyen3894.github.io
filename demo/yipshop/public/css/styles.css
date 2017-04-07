@@ -535,6 +535,7 @@ button.form-btn:hover
     .search-bar
     {
         float: right;
+        width: 150px;
     }
 
     .user-menu ul 
