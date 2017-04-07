@@ -209,6 +209,11 @@ ul.header_menu
     text-align: left;
 }
 
+.table-responsive > tbody tr:hover
+{
+    background: #F9F9F9;
+}
+
 .table-responsive
 {
     border-collapse: collapse;
