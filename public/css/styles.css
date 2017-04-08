@@ -323,7 +323,7 @@ ul.header_menu
 
     .table-responsive > tbody > tr td
     {
-        padding-left: 30%;
+        padding-left: 110px;
         position: relative;
     }
 
@@ -335,7 +335,7 @@ ul.header_menu
     .table-responsive > tbody > tr td::before
     {
         content: attr(data-title);
-        width: 30%;
+        width: 100px;
         position: absolute;
         top: 6px;
         left: 5px;  
