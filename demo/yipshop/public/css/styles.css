@@ -469,6 +469,11 @@ button.form-btn:hover
     background: #2C334D;
 }
 
+.user-nav
+{
+    float: right;
+}
+
 
 @media only screen and (max-width: 500px) 
 {
@@ -519,6 +524,11 @@ button.form-btn:hover
     {
         display: block;
         padding: 5px 15px;
+    }
+
+    .user-nav
+    {
+        float: none;
     }
 
     .search-bar input
