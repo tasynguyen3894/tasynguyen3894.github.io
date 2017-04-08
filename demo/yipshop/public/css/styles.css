@@ -400,43 +400,51 @@ button.form-btn:hover
 
 .cart-content
 {
-    text-align: center;
     padding-top: 20px;
 }
 
-.cart-content table
+.cart-content .cart-item
 {
-    width: 100%;
-    margin: auto;
+    padding: 5px 0px;
+    border-bottom: 1px solid #999;
 }
 
-.cart-content tr
+.cart-content .cart-item .cart-item-info
 {
-    border-bottom: 1px solid black;
+    width: calc(100% - 140px);
+    float: left;
 }
 
-.cart-content th
+.cart-content .cart-item .cart-item-info .cart-good-name
 {
-    padding: 10px 20px;
+    display: block;
+    font-size: 16px;
+    font-weight: bold;
 }
 
-.cart-content td
+.cart-content .cart-item .cart-item-info .cart-good-price
 {
-    text-align: left;
-    padding: 10px 20px;
+    display: block;
 }
 
-.cart-content td input
+.cart-content .cart-item .cart-item-form
 {
-    width: 75px;
-    padding-left: 10px;
+    float: right;
+    width: 130px;
 }
 
-.cart-content td button
+.cart-content .cart-item .cart-item-form button
 {
+    background: #FFF;
     border: none;
-    background: none;
 }
+
+.cart-content .cart-item .cart-item-form input
+{
+    width: 45px;
+}
+
+
 
 .cart-total
 {
