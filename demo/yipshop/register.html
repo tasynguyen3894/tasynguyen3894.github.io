@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>HOME</title>
+	<title>YipShop Theme | Register | Demo Tasynguyen</title>
 	<meta charset="utf-8">
-	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="css/mycss.css">
-    <link rel="stylesheet" type="text/css" href="fa-icon/css/font-awesome.min.css">
-	<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="public/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="public/css/styles.css">
+    <link rel="stylesheet" type="text/css" href="public/fa-icon/css/font-awesome.min.css">
 </head>
 <body>
 <div class="container">
     <div class="row">
-        <div class="col-md-12 clearfix">
-            <div style="float: right;">
+        <div class="col-md-12 clearfix ">
+            <div class="user-nav">
                 <div class="user-menu">
                     <ul>
                         <li><a href="register.html">Register</a></li>
@@ -22,20 +22,21 @@
                 <div class="search-bar">
                     <from>
                         <input type="text" />
-                       <button><i class="fa fa-search"></i></button>
+                        <button><i class="fa fa-search"></i></button>
                     </from>
                 </div>
             </div>
         </div>
         <div class="col-md-12 logo-menu no-padding">
             <div class="logo">
-                <a href="index.html"><img src="img/yip_logo.png" /></a>
+                <a href="index.html"><img src="public/img/yip_logo.png" /></a>
             </div>
             <div class="main-menu">
-                <ul>
+                <span id="menu_responsive"><span class="fa fa-navicon"></span> YipShop</span>
+                <ul id="header_menu">
                     <li><a href="index.html">HOME</a></li>
-                    <li><a href="#">ABOUT</a></li>
-                    <li><a href="#">CONTACT</a></li>
+                    <li><a href="about.html">ABOUT</a></li>
+                    <li><a href="contact.html">CONTACT</a></li>
                 </ul>
             </div>
         </div>
@@ -44,7 +45,7 @@
 <header class="container">
 	<div class="row">
 		<div class="col-md-12" style="text-align: center;">
-            <img src="img/yip_logo.png" />
+            <img src="public/img/yip_logo.png" />
         </div>
 	</div>
 </header>
@@ -104,7 +105,7 @@
             <div class="col-md-12 show-title">
             REGISTER
             </div>
-            <div class="col-md-12">
+            <div class="">
                 <form>
                     <div class="col-md-1"></div>
                     <div class="col-md-8 form">
@@ -153,7 +154,7 @@
                             </div>
                             <div class="col-md-7">
                                 <div class="col-md-10 no-padding">
-                                <img style="width: 100%;" src="img/capt.png">
+                                <img style="width: 100%;" src="public/img/capt.png">
                                 </div>
                                 <div class="col-md-2">
                                     <button style=" border: none; background: none;">
@@ -186,9 +187,11 @@
 </section>
 <footer class="container">
     <div class="row footer">
-	&copy 2016 YipShop<br />
-    Email: info@YipShop.com
+	&copy 2017 YipShop Theme - Tasynguyen<br />
+    Email: thaisang.nguyen3894@gmail.com
     </div>    
 </footer>
+<script type="text/javascript" src="public/jquery.min.js"></script>
+<script type="text/javascript" src="public/js/main.js"></script>
 </body>
 </html>

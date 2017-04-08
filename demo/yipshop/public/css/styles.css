@@ -572,6 +572,17 @@ button.form-btn:hover
         display: none;
     }
 
+    .form-group-user
+    {
+        padding: 0px;
+    }
+
+    .form-label
+    {
+        text-align: left;
+        margin-bottom: 10px;
+    }
+
 }
 
 
