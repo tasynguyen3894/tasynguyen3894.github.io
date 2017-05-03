@@ -238,12 +238,113 @@ ul.header_menu
     width: 100%;
 }
 
+.about
+{
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.title-header
+{
+    border-bottom: 1px solid #ccc;
+}
+
+.timeline ul
+{
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+}
+
+.timeline ul li
+{
+    border: 3px solid #283E4A;
+    margin: 20px 0px;
+    padding: 10px;
+}
+
+.timeline ul li .time
+{
+    font-style: italic;
+    font-size: 13px;
+}
+
+.timeline ul .timeline-place
+{
+    font-size: 18px;
+    font-weight: bold;
+}
+
+ul.tags 
+{
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+}
+
+ul.tags li
+{
+    display: inline-block;
+    border: 1px solid #283E4A;
+    background: #283E4A;
+    padding: 10px 20px;
+    color: #fff;
+    cursor: pointer;
+    margin-bottom: 5px;
+}
+
+ul.tags li:hover
+{
+    border: 1px solid #283E4A;
+    background: #fff;
+    color: #283E4A;
+    box-sizing: border-box;
+}
+
+.talent
+{
+
+}
+
+.talent > div
+{
+    width: calc(25% - 5px);
+    margin-bottom: 5px;
+    margin-right: 5px;
+    float: left;
+    position: relative;
+}
+
+.talent > div > img
+{
+    width: 100%;
+}
+
+.talent > div > .talent-name
+{
+    position: absolute;
+    bottom: 4px;
+    padding: 10px;
+    background: #333;
+    color: #FFF;
+    box-sizing: border-box;
+    width: 100%;
+    display: none;
+}
+
+.talent > div:hover  .talent-name
+{
+    display: block;
+}
+
+
+
 
 
 
 /* Responsive */
 
-@media only screen and (max-width: 500px) 
+@media only screen and (max-width: 750px) 
 {
     .content
     {
@@ -340,6 +441,18 @@ ul.header_menu
         top: 6px;
         left: 5px;  
     }
+
+    .talent > div
+    {
+        width: 100%;
+    }
+
+    .talent > div > .talent-name
+    {
+        display: block;
+    }
 }
+
+
 
 /* End */

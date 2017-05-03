@@ -1,0 +1,222 @@
+
+body
+{
+    margin: 0px;
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 0px;
+}
+
+header
+{
+    background: #222222;
+    margin: 0px;
+}
+
+.warehouse-home
+{
+    background: url('../imgs/homewarehouse.png');
+    padding: 30px;
+}
+
+.home-container
+{
+    overflow: hidden;
+    padding: 30px 20px;
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.home-container > h1, .home-container > p
+{
+    color: #FFF;
+}
+
+.header-text
+{
+    
+}
+
+.container
+{
+    width: 1200px;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+ul.header_menu
+{
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+}
+
+.header_menu > li
+{
+    display: inline-block;
+}
+
+.header_menu > li > a
+{
+    display: block;
+    text-decoration: none;
+    padding: 20px 35px;
+    color: #C7D1D8;
+}
+
+.header_menu > li > a:hover
+{
+    background: #222222;
+    color: #fff;
+}
+
+
+#menu_responsive
+{
+    display: none;
+    padding: 15px 15px;
+    color: #fff;
+    font-size: 20px;
+    border-bottom: 1px solid #999;
+}
+
+footer
+{
+    background: #222222;
+    padding: 30px 0px;
+    text-align: center;
+    color: #FFF;
+}
+
+.btn-download
+{
+    text-decoration: none;
+    color: #FFF;
+    background: #4BA54F;
+    padding: 10px 25px;
+    display: inline-block;
+    border: 1px solid #4BA54F;
+    font-size: 22px;
+}
+
+
+.btn-download:hover
+{
+    border-color: #4BA54F;
+    background: #FFF;
+    color: #4BA54F;
+}
+
+
+/* Responsive */
+
+@media only screen and (max-width: 750px) 
+{
+    .content
+    {
+        width: 100%;
+    }
+
+    .respove_hide
+    {
+        display: none;
+    }
+
+    .respove_show
+    {
+        display: block !important;
+        width: 100%;
+        position: absolute;
+        z-index: 10;
+        background: #222222;
+    }
+
+    .container
+    {
+        width: 100%;
+    }
+
+    .header_menu
+    {
+        display: none;
+    }
+
+    .header_menu > li
+    {
+        display: block;
+    }
+
+    #menu_responsive
+    {
+        display: block;
+    }
+
+    [class^="width-"]
+    {
+        width: 100%;
+    }
+
+    .list-link-footer
+    {
+        width: 100%;
+        padding-left: 20px;
+
+    }
+
+    .list-link-footer > ul > li > a
+    {
+        text-align: left;
+    }
+
+    .footer-contact
+    {
+        text-align: left;
+    }
+
+    .table-responsive > thead tr
+    {
+        display: none; 
+    }
+
+    .table-responsive > tbody > tr > td, 
+    .table-responsive > tbody > tr > th, 
+    .table-responsive > tfoot > tr > td, 
+    .table-responsive > tfoot > tr > th, 
+    .table-responsive > thead > tr > td, 
+    .table-responsive > thead > tr > th
+    {
+        display: block;
+    }
+
+    .table-responsive > tbody > tr td
+    {
+        padding-left: 110px;
+        position: relative;
+    }
+
+    .table-responsive > tbody > tr td:first-child
+    {
+        border-top: 3px solid #999;
+    }
+
+    .table-responsive > tbody > tr td::before
+    {
+        content: attr(data-title);
+        width: 100px;
+        position: absolute;
+        top: 6px;
+        left: 5px;  
+    }
+
+    .talent > div
+    {
+        width: 100%;
+    }
+
+    .talent > div > .talent-name
+    {
+        display: block;
+    }
+}
+
+
+
