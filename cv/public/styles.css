@@ -10,16 +10,14 @@ body
     margin: 0px auto;
     width: 1024px;
     border: 1px solid #333;
+    display: flex;
 }
 
 .info
 {
-    background: #FFF;
-    color: #333;
-    width: 30%;
-    float: left;
-    padding: 0px 25px;
-    box-sizing: border-box;
+    background: #425370;
+    color: #FFF;
+    flex: 3;
 }
 
 .avatar
@@ -91,9 +89,9 @@ body
 .skills ul li 
 {
     display: inline-block;
-    background: #425370;
-    color: #FFF;
-    padding: 3px 10px;
+    background: #FFF;
+    color: #333;
+    padding: 3px 5px;
     margin-bottom: 3px;
     font-weight: bold;
 
@@ -108,8 +106,7 @@ body
 
 .content
 {
-    width: 70%;
-    float: left;
+    flex: 7;
     padding: 10px;
     box-sizing: border-box;
 }
@@ -233,4 +230,3 @@ body
     width: 100%;
     font-size: 20px;
 }
-
