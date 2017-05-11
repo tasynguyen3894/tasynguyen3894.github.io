@@ -14,10 +14,12 @@ body
 
 .info
 {
-    background: #425370;
-    color: #FFF;
+    background: #FFF;
+    color: #333;
     width: 30%;
     float: left;
+    padding: 0px 25px;
+    box-sizing: border-box;
 }
 
 .avatar
@@ -89,9 +91,9 @@ body
 .skills ul li 
 {
     display: inline-block;
-    background: #FFF;
-    color: #333;
-    padding: 3px 5px;
+    background: #425370;
+    color: #FFF;
+    padding: 3px 10px;
     margin-bottom: 3px;
     font-weight: bold;
 
