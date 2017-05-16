@@ -251,6 +251,10 @@ body
 
     }
 
+    .title
+    {
+        font-size: 15px;
+    }
     
     .history-time
     {
