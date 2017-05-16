@@ -9,8 +9,10 @@ body
 {
     margin: 0px auto;
     width: 900px;
+    box-sizing: border-box;
     border: 1px solid #333;
     display: flex;
+    height: 1270px;
 }
 
 .info
@@ -230,3 +232,55 @@ body
     width: 100%;
     font-size: 20px;
 }
+
+
+
+/* Responsive */
+
+@media only screen and (max-width: 750px) 
+{
+    .container
+    {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+
+    .info
+    {
+
+    }
+
+    
+    .history-time
+    {
+        width: 100%;
+        float: none;
+        padding: 15px 0px;
+        box-sizing: border-box;
+    }
+
+    .history-time ul li
+    {
+        display: inline-block;
+    }
+
+    .history-time ul li:after
+    {
+        display: inline-block;
+    }
+
+    .history-content
+    {
+        width: 100%;
+        float: none;
+        padding: 0px;
+    }
+
+}
+
+
+
+
+
+
