@@ -268,12 +268,18 @@ body
     .history-time ul li:after
     {
         display: inline-block;
+        content: '\f101';
     }
 
     .history-content
     {
         width: 100%;
         float: none;
+        padding: 0px;
+    }
+
+    .about-me ul
+    {
         padding: 0px;
     }
 
