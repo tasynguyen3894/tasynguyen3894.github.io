@@ -275,6 +275,17 @@ ul.header_menu
     font-weight: bold;
 }
 
+.timeline-title
+{
+    font-style: italic;
+}
+
+.timeline-content
+{
+    padding: 3px 0px;
+    font-size: 15px;
+}
+
 ul.tags 
 {
     list-style: none;
