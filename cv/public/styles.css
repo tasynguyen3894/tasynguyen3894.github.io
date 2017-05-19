@@ -61,6 +61,12 @@ body
     font-size: 12px;
 }
 
+.contact ul li a
+{
+    color: #FFF;
+    text-decoration: none;
+}
+
 .contact ul li > span.fa
 {
     margin-right: 4px;
