@@ -348,15 +348,47 @@ ul.tags li:hover
     display: block;
 }
 
+.contact-me
+{
+    background: #333;
+    padding: 5px 10px;
+    color: #FFF;
+    margin: 5px 10px;
+    box-sizing: border-box;
+}
 
+ul.list-contact
+{
+    padding: 0px;
+    margin: 0px;
+    list-style: none;
+}
 
+ul.list-contact li .mobile
+{
+    display: none;
+}
 
+ul.list-contact li .desktop
+{
+    display: inline-block;
+}
 
+ul.list-contact li a
+{
+    color: #FFF;
+    text-decoration: none;
+}
 
 /* Responsive */
 
 @media only screen and (max-width: 750px) 
 {
+    h1
+    {
+        padding: 0px 5px;
+    }
+
     .content
     {
         width: 100%;
@@ -462,6 +494,17 @@ ul.tags li:hover
     {
         display: block;
     }
+
+    ul.list-contact li .mobile
+    {
+        display: inline-block;
+    }
+
+    ul.list-contact li .desktop
+    {
+        display: none;
+    }
+
 }
 
 
