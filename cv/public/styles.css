@@ -239,6 +239,22 @@ body
     font-size: 20px;
 }
 
+.skill-list {
+    margin: 3px auto;
+    width: 90%;
+    padding: 5px 0px;
+}
+
+.skill-list ul
+{
+    padding: 0px;
+    margin: 0px;
+    list-style: none;
+}
+
+.skill-list ul li {
+    margin-bottom: 10px;
+}
 
 
 /* Responsive */
