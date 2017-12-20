@@ -1,6 +1,7 @@
 const gulp = require('gulp');
 const browser_sync = require('browser-sync');
 const template_html = require('gulp-template-html');
+const ghPages = require('gulp-gh-pages');
 
 gulp.task('browser-sync', function () {
     browser_sync.init({
@@ -24,6 +25,13 @@ gulp.task('assets-build', function () {
 gulp.task('homepage-build', function () {
     gulp.src('./src/html/*.html', { base: 'src/html' })
         .pipe(gulp.dest('./dist'))
+});
+
+gulp.task('deploy', function () {
+    return gulp.src('./dist/**/*')
+            .pipe(ghPages({
+                branch: 'master'
+            }));
 });
 
 gulp.task('watch', ['browser-sync'], function () {
