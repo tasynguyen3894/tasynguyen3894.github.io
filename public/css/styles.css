@@ -89,30 +89,87 @@ body {
     margin-right: 15px;
 }
 
+.navbar-info {
+    text-align: center;
+    color: #FFF;
+}
+
+.navbar-info h3 {
+    font-size: 23px;
+    margin: 0px;
+}
+
+.navbar-info h3 a {
+    color: #FFF;
+    text-decoration: none;
+}
+
+.navbar-info h4 {
+    font-size: 12px;
+    margin-top: 10px;
+}
+
 .navbar-fixed {
     position: fixed;
     width: 200px;
     height: 100%;
-    padding-top: 35px;
 }
 
-.navbar-fixed ul {
-    padding: 0px;
-    margin: 25px 0px;
+.navbar-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+}
+
+.navbar-menu > ul {
+    padding: 15px 0px;
+    margin: 25px;
     list-style: none;
+    border-top: 1px solid #FFF;
+    border-bottom: 1px solid #FFF;
 }
 
-.navbar-fixed ul li {
+.navbar-menu > ul > li {
     padding: 0px;
 }
 
-.navbar-fixed ul li a {
+.navbar-menu > ul > li > a {
     display: block;
     color: #FFF;
     text-decoration: none;
     text-align: center;
     padding: 5px 0px;
     top: 0px;
+}
+
+.navbar-footer {
+    text-align: center;
+}
+
+.navbar-footer > ul {
+    padding: 0px;
+    margin: 25px 0px;
+    list-style: none;
+}
+
+.navbar-footer > ul > li {
+    display: inline-block;
+    padding: 0px;
+}
+
+.navbar-footer > ul > li > a {
+    margin-right: 10px;
+    color: #FFF;
+    text-decoration: none;
+    text-align: center;
+    padding: 5px 0px;
+    top: 0px;
+}
+
+.navbar-footer > ul > li:last-child a {
+    margin-right: 0px;
 }
 
 .container {
@@ -122,13 +179,54 @@ body {
     height: 100%;
 }
 
+.blog-list {
+    padding: 10px 25px;
+}
+
+.blog-list ul {
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+}
+
+.blog-list ul li h3 {
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+.blog-list ul li h3 a {
+    color: #333;
+    text-decoration: none;
+    display: inline-block;
+    padding: 5px 0px;
+}
+
+.blog-list ul li h3 a:hover {
+    text-decoration: underline;
+}
+
+.blog-list ul li span.blog-category {
+    color: #999;
+    font-style: italic;
+    font-size: 15px;
+}
+
+.blog-list ul li p {
+    font-size: 13px;
+}
+
+footer {
+    display: none;
+}
+
+
+
 @media screen and (max-width: 767px) {
     .home-page-info {
         position: unset;
         top: unset;
         left: unset;
         transform: unset;
-
         text-align: center;
     }
 
@@ -151,21 +249,28 @@ body {
         position: fixed;
         width: 100%;
         height: auto;
-        padding: 10px 0px;
+        padding: 0px 0px;
     }
 
-    .navbar-fixed ul {
+    .navbar-fixed .navbar-content {
+        position: relative;
+        top: unset;
+        left: unset;
+        transform: unset;
+    }
+
+    .navbar-menu > ul {
         padding: 0px;
         margin: 0px;
         list-style: none;
     }
 
-    .navbar-fixed ul li {
+    .navbar-menu > ul > li {
         padding: 0px;
         display: inline-block;
     }
 
-    .navbar-fixed ul li a {
+    .navbar-menu > ul > li > a {
         display: block;
         color: #FFF;
         text-decoration: none;
@@ -174,11 +279,55 @@ body {
         top: 0px;
     }
 
+    .navbar-info {
+        display: none;
+    }
+
+    .navbar-footer {
+        display: none;
+    }
+
     .container {
         width: 100%;
         float: none;
         height: auto;
-        padding-top: 60px;
+        padding-top: 35px;
     }
 
+    .blog-list {
+        padding: 10px 10px;
+    }
+
+    footer {
+        display: block;
+        background: #333;
+        color: #FFF;
+        overflow: hidden;
+        padding: 20px 15px;
+    }
+
+    footer .footer-info {
+        float: left;
+        font-size: 13px;
+    }
+
+    footer .footer-contact {
+        float: right;
+    }
+
+    footer .footer-contact ul {
+        padding: 0px;
+        margin: 0px;
+        list-style: none;
+    }
+
+    footer .footer-contact ul li {
+        display: inline-block;
+    }
+
+    footer .footer-contact ul li a {
+        color: #FFF;
+        padding: 3px;
+        margin-left: 5px;
+    }
 }
