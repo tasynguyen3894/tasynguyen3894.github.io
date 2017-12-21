@@ -99,6 +99,11 @@ body {
     margin: 0px;
 }
 
+.navbar-info h3 a {
+    color: #FFF;
+    text-decoration: none;
+}
+
 .navbar-info h4 {
     font-size: 12px;
     margin-top: 10px;
@@ -187,22 +192,27 @@ body {
 .blog-list ul li h3 {
     margin: 0px;
     box-sizing: border-box;
-    margin-bottom: 12px;
 }
 
 .blog-list ul li h3 a {
+    color: #333;
+    text-decoration: none;
     display: inline-block;
     padding: 5px 0px;
-    border-bottom: 2px solid red;
+}
+
+.blog-list ul li h3 a:hover {
+    text-decoration: underline;
 }
 
 .blog-list ul li span.blog-category {
     color: #999;
     font-style: italic;
+    font-size: 15px;
 }
 
 .blog-list ul li p {
-    font-size: 14px;
+    font-size: 13px;
 }
 
 footer {
@@ -282,6 +292,10 @@ footer {
         float: none;
         height: auto;
         padding-top: 35px;
+    }
+
+    .blog-list {
+        padding: 10px 10px;
     }
 
     footer {
