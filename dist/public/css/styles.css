@@ -108,10 +108,17 @@ body {
     position: fixed;
     width: 200px;
     height: 100%;
-    padding-top: 35px;
 }
 
-.navbar-fixed > ul {
+.navbar-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+}
+
+.navbar-menu > ul {
     padding: 15px 0px;
     margin: 25px;
     list-style: none;
@@ -119,11 +126,11 @@ body {
     border-bottom: 1px solid #FFF;
 }
 
-.navbar-fixed > ul > li {
+.navbar-menu > ul > li {
     padding: 0px;
 }
 
-.navbar-fixed > ul > li > a {
+.navbar-menu > ul > li > a {
     display: block;
     color: #FFF;
     text-decoration: none;
@@ -167,6 +174,37 @@ body {
     height: 100%;
 }
 
+.blog-list {
+    padding: 10px 25px;
+}
+
+.blog-list ul {
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+}
+
+.blog-list ul li h3 {
+    margin: 0px;
+    box-sizing: border-box;
+    margin-bottom: 12px;
+}
+
+.blog-list ul li h3 a {
+    display: inline-block;
+    padding: 5px 0px;
+    border-bottom: 2px solid red;
+}
+
+.blog-list ul li span.blog-category {
+    color: #999;
+    font-style: italic;
+}
+
+.blog-list ul li p {
+    font-size: 14px;
+}
+
 footer {
     display: none;
 }
@@ -179,7 +217,6 @@ footer {
         top: unset;
         left: unset;
         transform: unset;
-
         text-align: center;
     }
 
@@ -205,18 +242,25 @@ footer {
         padding: 0px 0px;
     }
 
-    .navbar-fixed ul {
+    .navbar-fixed .navbar-content {
+        position: relative;
+        top: unset;
+        left: unset;
+        transform: unset;
+    }
+
+    .navbar-menu > ul {
         padding: 0px;
         margin: 0px;
         list-style: none;
     }
 
-    .navbar-fixed ul li {
+    .navbar-menu > ul > li {
         padding: 0px;
         display: inline-block;
     }
 
-    .navbar-fixed ul li a {
+    .navbar-menu > ul > li > a {
         display: block;
         color: #FFF;
         text-decoration: none;
@@ -237,7 +281,7 @@ footer {
         width: 100%;
         float: none;
         height: auto;
-        padding-top: 60px;
+        padding-top: 35px;
     }
 
     footer {
