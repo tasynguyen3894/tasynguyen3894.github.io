@@ -89,6 +89,21 @@ body {
     margin-right: 15px;
 }
 
+.navbar-info {
+    text-align: center;
+    color: #FFF;
+}
+
+.navbar-info h3 {
+    font-size: 23px;
+    margin: 0px;
+}
+
+.navbar-info h4 {
+    font-size: 12px;
+    margin-top: 10px;
+}
+
 .navbar-fixed {
     position: fixed;
     width: 200px;
@@ -96,17 +111,19 @@ body {
     padding-top: 35px;
 }
 
-.navbar-fixed ul {
-    padding: 0px;
-    margin: 25px 0px;
+.navbar-fixed > ul {
+    padding: 15px 0px;
+    margin: 25px;
     list-style: none;
+    border-top: 1px solid #FFF;
+    border-bottom: 1px solid #FFF;
 }
 
-.navbar-fixed ul li {
+.navbar-fixed > ul > li {
     padding: 0px;
 }
 
-.navbar-fixed ul li a {
+.navbar-fixed > ul > li > a {
     display: block;
     color: #FFF;
     text-decoration: none;
@@ -115,12 +132,46 @@ body {
     top: 0px;
 }
 
+.navbar-footer {
+    text-align: center;
+}
+
+.navbar-footer > ul {
+    padding: 0px;
+    margin: 25px 0px;
+    list-style: none;
+}
+
+.navbar-footer > ul > li {
+    display: inline-block;
+    padding: 0px;
+}
+
+.navbar-footer > ul > li > a {
+    margin-right: 10px;
+    color: #FFF;
+    text-decoration: none;
+    text-align: center;
+    padding: 5px 0px;
+    top: 0px;
+}
+
+.navbar-footer > ul > li:last-child a {
+    margin-right: 0px;
+}
+
 .container {
     background: #FFF;
     width: calc(100% - 200px);
     float: right;
     height: 100%;
 }
+
+footer {
+    display: none;
+}
+
+
 
 @media screen and (max-width: 767px) {
     .home-page-info {
@@ -151,7 +202,7 @@ body {
         position: fixed;
         width: 100%;
         height: auto;
-        padding: 10px 0px;
+        padding: 0px 0px;
     }
 
     .navbar-fixed ul {
@@ -174,6 +225,14 @@ body {
         top: 0px;
     }
 
+    .navbar-info {
+        display: none;
+    }
+
+    .navbar-footer {
+        display: none;
+    }
+
     .container {
         width: 100%;
         float: none;
@@ -181,4 +240,36 @@ body {
         padding-top: 60px;
     }
 
+    footer {
+        display: block;
+        background: #333;
+        color: #FFF;
+        overflow: hidden;
+        padding: 20px 15px;
+    }
+
+    footer .footer-info {
+        float: left;
+        font-size: 13px;
+    }
+
+    footer .footer-contact {
+        float: right;
+    }
+
+    footer .footer-contact ul {
+        padding: 0px;
+        margin: 0px;
+        list-style: none;
+    }
+
+    footer .footer-contact ul li {
+        display: inline-block;
+    }
+
+    footer .footer-contact ul li a {
+        color: #FFF;
+        padding: 3px;
+        margin-left: 5px;
+    }
 }

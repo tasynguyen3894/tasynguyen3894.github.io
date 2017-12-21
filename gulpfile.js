@@ -6,7 +6,7 @@ const ghPages = require('gulp-gh-pages');
 gulp.task('browser-sync', function () {
     browser_sync.init({
         server: {
-            baseDir: "./"
+            baseDir: "./dist"
         }
     });
 });
