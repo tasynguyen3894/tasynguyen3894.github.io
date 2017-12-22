@@ -94,6 +94,15 @@ body {
     color: #FFF;
 }
 
+.navbar-info > a {
+    margin-bottom: 25px;
+    display: block;
+}
+
+.navbar-info a img {
+    width: calc(100% - 35px);
+}
+
 .navbar-info h3 {
     font-size: 23px;
     margin: 0px;
@@ -117,7 +126,7 @@ body {
 
 .navbar-content {
     position: absolute;
-    top: 50%;
+    top: 35%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 100%;
@@ -142,6 +151,11 @@ body {
     text-align: center;
     padding: 5px 0px;
     top: 0px;
+    border: 1px solid transparent;
+}
+
+.navbar-menu > ul > li > a:hover {
+    border: 1px solid #FFF;
 }
 
 .navbar-footer {
