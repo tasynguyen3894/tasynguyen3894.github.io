@@ -94,6 +94,15 @@ body {
     color: #FFF;
 }
 
+.navbar-info > a {
+    margin-bottom: 25px;
+    display: block;
+}
+
+.navbar-info a img {
+    width: calc(100% - 35px);
+}
+
 .navbar-info h3 {
     font-size: 23px;
     margin: 0px;
@@ -117,7 +126,7 @@ body {
 
 .navbar-content {
     position: absolute;
-    top: 50%;
+    top: 35%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 100%;
@@ -135,6 +144,10 @@ body {
     padding: 0px;
 }
 
+.navbar-menu > ul > li.menu-homepage {
+    display: none;
+}
+
 .navbar-menu > ul > li > a {
     display: block;
     color: #FFF;
@@ -142,6 +155,11 @@ body {
     text-align: center;
     padding: 5px 0px;
     top: 0px;
+    border: 1px solid transparent;
+}
+
+.navbar-menu > ul > li > a:hover {
+    border: 1px solid #FFF;
 }
 
 .navbar-footer {
@@ -166,6 +184,18 @@ body {
     text-align: center;
     padding: 5px 0px;
     top: 0px;
+}
+
+.navbar-footer > ul > li > a.link-twitter:hover {
+  color: #2AA3EF;
+}
+
+.navbar-footer > ul > li > a.link-linkedin:hover {
+  color: #117CB4;
+}
+
+.navbar-footer > ul > li > a.link-wordpress:hover {
+  color: #464646;
 }
 
 .navbar-footer > ul > li:last-child a {
@@ -267,6 +297,10 @@ footer {
 
     .navbar-menu > ul > li {
         padding: 0px;
+        display: inline-block;
+    }
+
+    .navbar-menu > ul > li.menu-homepage {
         display: inline-block;
     }
 
