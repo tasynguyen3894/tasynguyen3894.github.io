@@ -267,6 +267,16 @@ body {
     text-align: center;
 }
 
+.about .about-content .about-basic-info h1 {
+    color: #FF0000;
+    margin: 10px 0px;
+    font-size: 25px;
+}
+
+.about .about-content .about-basic-info p {
+    margin: 5px 0px;
+}
+
 .about .about-content .about-basic-info p {
     text-align: center;
 }
@@ -274,6 +284,38 @@ body {
 .about .about-content .about-basic-info img {
     max-width: 350px;
     margin: 15px auto;
+}
+
+.about .about-content .about-block {
+    padding: 20px 30px;
+}
+
+.about .about-content .about-block h3::after {
+    content: '';
+    display: block;
+    border-bottom: 3px solid #FF0000;
+    width: 65px;
+    margin-top: 5px;
+}
+
+.about .about-content .about-btn-group {
+    padding: 5px 20px;
+}
+
+.about .about-content .about-btn-group a {
+    text-decoration: none;
+    display: inline-block;
+    background: #FF0000;
+    color: #FFF;
+    padding: 10px 20px;
+    font-weight: bold;
+    border: 1px solid #FF0000;
+}
+
+.about .about-content .about-btn-group a:hover {
+    color: #FF0000;
+    background: #FFF;
+    border-color: #FF0000;
 }
 
 footer {
@@ -361,6 +403,21 @@ footer {
 
     .blog-list {
         padding: 10px 10px;
+    }
+
+    .about .about-cover {
+        display: none;
+    }
+
+    .about .about-content .about-basic-info img {
+        width: 80%;
+        margin: 15px auto;
+    }
+
+    .about .about-content {
+        width: auto;
+        position: unset;
+        margin: 0px;
     }
 
     footer {
