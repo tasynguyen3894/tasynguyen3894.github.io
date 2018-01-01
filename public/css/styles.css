@@ -318,6 +318,17 @@ body {
     border-color: #FF0000;
 }
 
+.contact-content > h1 {
+    padding: 0px 20px;
+    display: inline-block;
+}
+
+.contact-content > h1::after {
+    content: '';
+    display: block;
+    border-bottom: 2px solid red;
+}
+
 .contact-content ul {
     padding: 20px 35px;
     margin: 0px;
@@ -496,6 +507,15 @@ footer {
         width: auto;
         position: unset;
         margin: 0px;
+    } 
+
+    .contact-content > h1 {
+        margin: 0px;
+        padding: 0px;
+    }
+
+    .contact-content ul {
+        padding: 5px;
     }
 
     footer {
