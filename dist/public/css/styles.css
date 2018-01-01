@@ -318,6 +318,84 @@ body {
     border-color: #FF0000;
 }
 
+.contact-content ul {
+    padding: 20px 35px;
+    margin: 0px;
+    list-style: none;
+}
+
+.contact-content ul li {
+    padding: 0px;
+    margin: 10px 0px;
+}
+
+.contact-content ul li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 17px;
+    transition: 0.35s;
+}
+
+.contact-content ul li a span.fa {
+    padding: 3px;
+    transition: 0.35s;
+}
+
+.contact-content ul li a span.fa-wordpress {
+    color: #464646;
+}
+
+.contact-content ul li a span.fa-twitter {
+    color: #2AA3EF;
+}
+
+.contact-content ul li a span.fa-linkedin {
+    color: #117CB4;
+}
+
+.contact-content ul li a span.fa-github {
+    color: #24292E;
+}
+
+/* link contact hover */
+
+.contact-content ul li a:hover {
+    padding-left: 10px;
+    transition: 0.35s;
+}
+
+.contact-content ul li a:hover span.fa-wordpress {
+    color: #FFF;
+    background: #464646;
+    transition: 0.35s;
+}
+
+.contact-content ul li a:hover span.fa-twitter {
+    color: #FFF;
+    background: #2AA3EF;
+    transition: 0.35s;
+}
+
+.contact-content ul li a:hover span.fa-linkedin {
+    color: #FFF;
+    background: #117CB4;
+    transition: 0.35s;
+}
+
+.contact-content ul li a:hover span.fa-github {
+    color: #FFF;
+    background: #24292E;
+    transition: 0.35s;
+}
+
+.contact-content ul li a:hover span.contact-link-content {
+    font-style: italic;
+    font-weight: bold;
+    color: #999;
+    border-bottom: 2px solid red;
+}
+
+
 footer {
     display: none;
 }
