@@ -1,0 +1,334 @@
+body
+{
+    padding: 0px;
+    margin: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.container
+{
+    margin: 0px auto;
+    width: 900px;
+    box-sizing: border-box;
+    border: 1px solid #333;
+    display: flex;
+    height: 1270px;
+}
+
+.info
+{
+    background: #425370;
+    color: #FFF;
+    flex: 3;
+}
+
+.avatar
+{
+    padding: 20px 30px;
+}
+
+.avatar img
+{
+    width: 100%;
+    border-radius: 50%;
+}
+
+.name
+{
+    text-align: center;
+    font-size: 25px;
+    color: #DE5246;
+    font-weight: bold;
+}
+
+.title
+{
+    margin: 7px 0px 20px 0px;
+    text-align: center;
+    font-size: 12px;
+}
+
+.contact ul
+{
+    padding: 0px;
+    margin: 0px;
+    list-style: none;
+}
+
+.contact ul li
+{
+    padding: 5px 15px;
+    font-size: 12px;
+}
+
+.contact ul li a
+{
+    color: #FFF;
+    text-decoration: none;
+}
+
+.contact ul li > span.fa
+{
+    margin-right: 4px;
+}
+
+.titlte-header
+{
+    padding: 0px 1px;
+    border-bottom: 1px solid #FFF;
+    margin: 7px auto;
+    width: 90%;
+}
+
+.skills
+{
+    margin: 3px auto;
+    width: 90%;
+    padding: 5px 0px;
+}
+
+.skills ul
+{
+    padding: 0px;
+    margin: 0px;
+    list-style: none;
+}
+
+.skills ul li 
+{
+    display: inline-block;
+    background: #FFF;
+    color: #333;
+    padding: 3px 5px;
+    margin-bottom: 3px;
+    font-weight: bold;
+
+}
+
+.intro
+{
+    padding: 5px 15px;
+    font-size: 15px;
+    line-height: 18px;
+}
+
+.content
+{
+    flex: 7;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.clearfix
+{
+    clear: both;
+}
+
+
+.container-header
+{
+    margin: 10px 0px;
+    border-bottom: 1px solid #333;
+}
+
+
+.history ul
+{
+    padding: 0px;
+    margin: 0px;
+    list-style: none;
+}
+
+.history > ul > li 
+{
+    margin-bottom: 10px;
+}
+
+.history-time
+{
+    width: 120px;
+    float: left;
+    padding: 15px 0px;
+    box-sizing: border-box;
+}
+
+.history-time ul li
+{
+    text-align: center;
+    color: #DE5246;
+    font-weight: bold;
+}
+
+.history-time ul li:after
+{
+    font-family: FontAwesome;
+    content: '\f103';
+    display: block;
+}
+
+.history-time ul li:last-child:after
+{
+    content: '';
+}
+
+.history-time ul
+{
+    padding: 0px;
+    margin: 0px;
+    list-style: none;
+}
+
+.history-content
+{
+    width: calc(100% - 120px);
+    float: left;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.history-content > div
+{
+    margin-bottom: 5px;
+}
+
+.history-content .content-name
+{
+    font-size: 18px;
+    font-weight: 600;
+    color: #425370;
+}
+
+.history-content .role
+{
+    font-style: italic;
+    font-size: 12px;
+}
+
+.history-content .sumary
+{
+    font-size: 0.85rem;
+}
+
+.about-me ul
+{
+    padding: 10px 25px;
+    margin: 0px;
+    list-style: none;
+}
+
+.about-me ul li
+{
+    margin: 20px 0px;
+    line-height: 25px;
+}
+
+.about-me ul li::before
+{
+    font-family: FontAwesome;
+    content: '\f101';
+    margin-right: 10px;
+    color: #DE5246;
+}
+
+.footer
+{
+    text-align: center;
+    padding: 20px 0px;
+    float: left;
+    width: 100%;
+    font-size: 20px;
+}
+
+.skill-list {
+    margin: 3px auto;
+    width: 90%;
+    padding: 5px 0px;
+}
+
+.skill-list ul
+{
+    padding: 0px;
+    margin: 0px;
+    list-style: none;
+}
+
+.skill-list ul li {
+    margin-bottom: 10px;
+}
+
+.list-skills-group ul {
+  list-style: none;
+  padding: 10px 15px;
+}
+
+.list-skills-group ul li {
+  margin-bottom: 5px;
+}
+
+.list-skills-group ul li {
+  font-size: 14px;
+}
+
+.list-skills-group ul li b {
+  text-decoration: underline;
+}
+
+/* Responsive */
+
+@media only screen and (max-width: 750px) 
+{
+    .container
+    {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+
+    .info
+    {
+
+    }
+
+    .title
+    {
+        font-size: 15px;
+    }
+    
+    .history-time
+    {
+        width: 100%;
+        float: none;
+        padding: 15px 0px;
+        box-sizing: border-box;
+    }
+
+    .history-time ul li
+    {
+        display: inline-block;
+    }
+
+    .history-time ul li:after
+    {
+        display: inline-block;
+        content: '\f101';
+    }
+
+    .history-content
+    {
+        width: 100%;
+        float: none;
+        padding: 0px;
+    }
+
+    .about-me ul
+    {
+        padding: 0px;
+    }
+
+}
+
+
+
+
+
+
