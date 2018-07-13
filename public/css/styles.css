@@ -14,7 +14,7 @@ body {
       position: absolute;
       padding: 3px;
       top: 0; }
-      body .navbar-fixed .navbar-button span {
+      body .navbar-fixed .navbar-button > span {
         cursor: pointer;
         padding: 10px;
         display: inline-block;
@@ -22,10 +22,14 @@ body {
         background: #333;
         color: #FFF;
         border: 2px solid #FFF; }
+        body .navbar-fixed .navbar-button > span .toggle-content {
+          display: none; }
       body .navbar-fixed .navbar-button span:hover {
         color: #333;
         background: #FFF;
         border-color: #333; }
+        body .navbar-fixed .navbar-button span:hover .toggle-content {
+          display: inline; }
     body .navbar-fixed .navbar-button-close {
       display: none; }
     body .navbar-fixed .navbar-content .navbar-title {
