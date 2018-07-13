@@ -164,7 +164,16 @@ body {
   body .home-content .about p {
     font-size: 14px; }
   body .home-content .about ul {
-    font-size: 14px; }
+    font-size: 14px;
+    list-style: none;
+    padding-left: 20px; }
+  body .home-content .about ul > li > a {
+    text-decoration: none;
+    color: #333;
+    margin-bottom: 5px;
+    display: inline-block; }
+  body .home-content .about ul > li > a:hover {
+    text-decoration: underline; }
   body .home-content .product-list .product-item h3 {
     text-decoration: underline;
     font-size: 20px; }
