@@ -7,7 +7,7 @@ $('#nav-info-toggle').click(function () {
 		$('#navbar-quotes').addClass('hide');
 	}
 });
-hide
+
 $('#nav-info-mobile-open').click(function () {
 	if($('.navbar-fixed').hasClass('show-info')) {
 		$('.navbar-fixed').removeClass('show-info');
