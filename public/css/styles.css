@@ -249,6 +249,8 @@ body {
       display: block; }
     body .navbar-fixed .navbar-button {
       display: none; }
+    body .navbar-fixed .navbar-quotes {
+      display: none; }
     body .navbar-fixed .navbar-button-close {
       display: block;
       position: absolute;
