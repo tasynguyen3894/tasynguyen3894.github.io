@@ -1,11 +1,13 @@
 $('#nav-info-toggle').click(function () {
 	if($('#nav-info').hasClass('show-info')) {
 		$('#nav-info').removeClass('show-info');
+		$('#navbar-quotes').removeClass('hide');
 	} else {
 		$('#nav-info').addClass('show-info');
+		$('#navbar-quotes').addClass('hide');
 	}
 });
-
+hide
 $('#nav-info-mobile-open').click(function () {
 	if($('.navbar-fixed').hasClass('show-info')) {
 		$('.navbar-fixed').removeClass('show-info');

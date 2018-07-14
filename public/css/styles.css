@@ -38,8 +38,35 @@ body {
       font-size: 20px;
       border-bottom: 1px solid #FFF;
       margin-bottom: 10px; }
+    body .navbar-fixed .navbar-content .navbar-quotes {
+      background-color: rgba(153, 153, 153, 0.75);
+      padding: 15px;
+      width: 80%;
+      margin: 10px 10%;
+      box-sizing: border-box;
+      position: absolute;
+      top: 30%; }
+      body .navbar-fixed .navbar-content .navbar-quotes .navbar-quotes-content {
+        color: #333;
+        font-size: 15px;
+        font-style: italic;
+        text-align: center; }
+      body .navbar-fixed .navbar-content .navbar-quotes .navbar-quotes-content::before {
+        content: "\f10d";
+        font-family: FontAwesome; }
+      body .navbar-fixed .navbar-content .navbar-quotes .navbar-quotes-content::after {
+        content: "\f10e";
+        font-family: FontAwesome; }
+      body .navbar-fixed .navbar-content .navbar-quotes .navbar-quotes-speaker {
+        text-align: center;
+        color: #333;
+        font-weight: bold;
+        font-size: 13px;
+        margin-top: 10px; }
+    body .navbar-fixed .navbar-content .navbar-quotes.hide {
+      display: none; }
     body .navbar-fixed .navbar-short-info {
-      opacity: 0;
+      display: none;
       width: 90%;
       margin: 50px 5%;
       padding: 15px 0px;
@@ -64,13 +91,14 @@ body {
       body .navbar-fixed .navbar-short-info p {
         width: 80%;
         margin: 10px 10%;
+        box-sizing: border-box;
         padding: 10px;
         border-radius: 3px;
-        box-sizing: border-box;
         font-style: italic; }
       body .navbar-fixed .navbar-short-info .navbar-shor-info-contact {
         width: 80%;
         margin: 10px 10%;
+        box-sizing: border-box;
         display: flex; }
         body .navbar-fixed .navbar-short-info .navbar-shor-info-contact a {
           box-sizing: border-box;
@@ -84,7 +112,7 @@ body {
         body .navbar-fixed .navbar-short-info .navbar-shor-info-contact a.linkedin {
           color: #0077B5; }
     body .navbar-fixed .navbar-short-info.show-info {
-      opacity: 1; }
+      display: block; }
   body .container {
     background: #FFF;
     width: calc(100% - 300px);
@@ -218,12 +246,11 @@ body {
     transition: 0.3s;
     z-index: 5; }
     body .navbar-fixed .navbar-short-info {
-      opacity: 1; }
+      display: block; }
     body .navbar-fixed .navbar-button {
       display: none; }
     body .navbar-fixed .navbar-button-close {
-      display: block; }
-    body .navbar-fixed .navbar-button-close {
+      display: block;
       position: absolute;
       padding: 3px;
       top: 0; }
