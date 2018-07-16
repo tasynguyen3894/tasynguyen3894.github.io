@@ -208,14 +208,14 @@ body {
     color: #FFF;
     padding: 10px 20px 20px 20px;
     border-radius: 5px;
-    font-size: 14px;
+    font-size: 15px;
     margin-bottom: 10px; }
   body .home-content .blog-detail .blog-detail-quote {
     background: #ccc;
     color: #333;
     font-style: italic;
     padding: 10px 10px;
-    font-size: 13px;
+    font-size: 14px;
     margin: 10px 0px;
     border-left: 3px solid #333; }
   body .home-content .blog-detail .blog-detail-quote::before {
@@ -225,7 +225,7 @@ body {
     content: "\f10e";
     font-family: FontAwesome; }
   body .home-content .blog-detail p {
-    font-size: 13px;
+    font-size: 15px;
     margin: 5px 0px 15px 0px;
     line-height: 18px;
     word-spacing: 0.075em; }
