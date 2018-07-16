@@ -216,6 +216,7 @@ body {
     font-style: italic;
     padding: 10px 10px;
     font-size: 13px;
+    margin: 10px 0px;
     border-left: 3px solid #333; }
   body .home-content .blog-detail .blog-detail-quote::before {
     content: "\f10d";
@@ -224,9 +225,13 @@ body {
     content: "\f10e";
     font-family: FontAwesome; }
   body .home-content .blog-detail p {
-    font-size: 13px; }
+    font-size: 13px;
+    margin: 5px 0px 15px 0px;
+    line-height: 18px;
+    word-spacing: 0.075em; }
   body .home-content .blog-detail h4 {
-    font-size: 15px; }
+    font-size: 15px;
+    margin-bottom: 10px; }
   body .home-content .blog-detail a {
     color: #333;
     text-decoration: none;
@@ -235,11 +240,13 @@ body {
   body .home-content .blog-detail a:hover {
     color: #999; }
   body .home-content .blog-detail ul.series {
-    margin: 0px;
-    padding: 5px;
+    margin: 20px 0px;
+    padding: 0px;
     list-style: none; }
   body .home-content .blog-detail ul.series li a {
-    font-weight: inherit; }
+    font-weight: inherit;
+    font-size: 15px;
+    padding-left: 10px; }
   body .home-content .blog-detail ul.series li a.current {
     font-weight: bold; }
   body .home-content .blog-detail img {
@@ -286,6 +293,10 @@ body {
       color: #999;
       font-style: italic;
       font-size: 15px; }
+    body .blog-list .blog-item .blog-type span::after {
+      content: ','; }
+    body .blog-list .blog-item .blog-type span:last-child::after {
+      content: ''; }
     body .blog-list .blog-item p {
       font-size: 13px;
       margin: 5px 0px; }
