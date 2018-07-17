@@ -14,7 +14,7 @@ body {
       position: absolute;
       padding: 3px;
       top: 0; }
-      body .navbar-fixed .navbar-button span {
+      body .navbar-fixed .navbar-button > span {
         cursor: pointer;
         padding: 10px;
         display: inline-block;
@@ -22,10 +22,14 @@ body {
         background: #333;
         color: #FFF;
         border: 2px solid #FFF; }
+        body .navbar-fixed .navbar-button > span .toggle-content {
+          display: none; }
       body .navbar-fixed .navbar-button span:hover {
         color: #333;
         background: #FFF;
         border-color: #333; }
+        body .navbar-fixed .navbar-button span:hover .toggle-content {
+          display: inline; }
     body .navbar-fixed .navbar-button-close {
       display: none; }
     body .navbar-fixed .navbar-content .navbar-title {
@@ -34,8 +38,35 @@ body {
       font-size: 20px;
       border-bottom: 1px solid #FFF;
       margin-bottom: 10px; }
+    body .navbar-fixed .navbar-content .navbar-quotes {
+      background-color: rgba(153, 153, 153, 0.75);
+      padding: 15px;
+      width: 80%;
+      margin: 10px 10%;
+      box-sizing: border-box;
+      position: absolute;
+      top: 30%; }
+      body .navbar-fixed .navbar-content .navbar-quotes .navbar-quotes-content {
+        color: #333;
+        font-size: 15px;
+        font-style: italic;
+        text-align: center; }
+      body .navbar-fixed .navbar-content .navbar-quotes .navbar-quotes-content::before {
+        content: "\f10d";
+        font-family: FontAwesome; }
+      body .navbar-fixed .navbar-content .navbar-quotes .navbar-quotes-content::after {
+        content: "\f10e";
+        font-family: FontAwesome; }
+      body .navbar-fixed .navbar-content .navbar-quotes .navbar-quotes-speaker {
+        text-align: center;
+        color: #333;
+        font-weight: bold;
+        font-size: 13px;
+        margin-top: 10px; }
+    body .navbar-fixed .navbar-content .navbar-quotes.hide {
+      display: none; }
     body .navbar-fixed .navbar-short-info {
-      opacity: 0;
+      display: none;
       width: 90%;
       margin: 50px 5%;
       padding: 15px 0px;
@@ -60,13 +91,14 @@ body {
       body .navbar-fixed .navbar-short-info p {
         width: 80%;
         margin: 10px 10%;
+        box-sizing: border-box;
         padding: 10px;
         border-radius: 3px;
-        box-sizing: border-box;
         font-style: italic; }
       body .navbar-fixed .navbar-short-info .navbar-shor-info-contact {
         width: 80%;
         margin: 10px 10%;
+        box-sizing: border-box;
         display: flex; }
         body .navbar-fixed .navbar-short-info .navbar-shor-info-contact a {
           box-sizing: border-box;
@@ -80,7 +112,7 @@ body {
         body .navbar-fixed .navbar-short-info .navbar-shor-info-contact a.linkedin {
           color: #0077B5; }
     body .navbar-fixed .navbar-short-info.show-info {
-      opacity: 1; }
+      display: block; }
   body .container {
     background: #FFF;
     width: calc(100% - 300px);
@@ -160,7 +192,79 @@ body {
   body .home-content .about p {
     font-size: 14px; }
   body .home-content .about ul {
-    font-size: 14px; }
+    font-size: 14px;
+    list-style: none;
+    padding-left: 20px; }
+  body .home-content .about ul > li > a {
+    text-decoration: none;
+    color: #333;
+    margin-bottom: 5px;
+    display: inline-block; }
+  body .home-content .about ul > li > a:hover {
+    text-decoration: underline; }
+  body .home-content .blog-detail .blog-detail-date {
+    font-style: italic;
+    color: #999999;
+    margin: 10px 0px; }
+  body .home-content .blog-detail .blog-detail-code {
+    white-space: pre-line;
+    background: #333;
+    color: #FFF;
+    padding: 10px 20px 20px 20px;
+    border-radius: 5px;
+    font-size: 15px;
+    margin-bottom: 10px; }
+  body .home-content .blog-detail .blog-detail-quote {
+    background: #ccc;
+    color: #333;
+    font-style: italic;
+    padding: 10px 10px;
+    font-size: 14px;
+    margin: 10px 0px;
+    border-left: 3px solid #333; }
+  body .home-content .blog-detail .blog-detail-quote::before {
+    content: "\f10d";
+    font-family: FontAwesome; }
+  body .home-content .blog-detail .blog-detail-quote::after {
+    content: "\f10e";
+    font-family: FontAwesome; }
+  body .home-content .blog-detail p {
+    font-size: 15px;
+    margin: 5px 0px 15px 0px;
+    line-height: 18px;
+    word-spacing: 0.075em; }
+  body .home-content .blog-detail h4 {
+    font-size: 15px;
+    margin-bottom: 10px; }
+  body .home-content .blog-detail a {
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 13px; }
+  body .home-content .blog-detail a:hover {
+    color: #999; }
+  body .home-content .blog-detail ul.series {
+    margin: 20px 0px;
+    padding: 0px;
+    list-style: none; }
+  body .home-content .blog-detail ul.series li a {
+    font-weight: inherit;
+    font-size: 15px;
+    padding-left: 10px; }
+  body .home-content .blog-detail ul.series li a.current {
+    font-weight: bold; }
+  body .home-content .blog-detail img {
+    max-width: 100%; }
+  body .home-content .blog-detail .tags span {
+    background: #333;
+    color: #FFF;
+    font-size: 12px;
+    padding: 3px 5px; }
+  body .home-content .blog-detail .tags span::before {
+    content: '\f292';
+    font-family: FontAwesome; }
+  body .home-content .blog-detail .blog-detail-comments {
+    margin-top: 55px; }
   body .home-content .product-list .product-item h3 {
     text-decoration: underline;
     font-size: 20px; }
@@ -195,6 +299,10 @@ body {
       color: #999;
       font-style: italic;
       font-size: 15px; }
+    body .blog-list .blog-item .blog-type span::after {
+      content: ','; }
+    body .blog-list .blog-item .blog-type span:last-child::after {
+      content: ''; }
     body .blog-list .blog-item p {
       font-size: 13px;
       margin: 5px 0px; }
@@ -205,12 +313,13 @@ body {
     transition: 0.3s;
     z-index: 5; }
     body .navbar-fixed .navbar-short-info {
-      opacity: 1; }
+      display: block; }
     body .navbar-fixed .navbar-button {
       display: none; }
+    body .navbar-fixed .navbar-quotes {
+      display: none; }
     body .navbar-fixed .navbar-button-close {
-      display: block; }
-    body .navbar-fixed .navbar-button-close {
+      display: block;
       position: absolute;
       padding: 3px;
       top: 0; }

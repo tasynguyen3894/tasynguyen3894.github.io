@@ -1,56 +1,61 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="no-js"> <!--<![endif]-->
     <head>
-        <title>nguyenthaisang | <!-- build:title --></title>
-        <meta charset="UTF-8">
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title><!-- build:title --> | Tasy Nguyen</title>
+        <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="public/lib/font-awesome-4.6.3/css/font-awesome.min.css">
-        <link href="public/css/styles.css" rel="stylesheet">
-        <link rel="icon" type="image/x-icon" href="public/imgs/avatar.jpg">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="public/css/styles.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     </head>
     <body>
-        <div class="home-page-bg">
-            <div class="navbar-fixed bg-impage">
-                <div class="navbar-content">
-                    <div class="navbar-info">
-                        <a href="index.html">
-                            <img src="public/imgs/avatar.jpg" alt="">
-                        </a>
-                        <h3><a href="index.html">NGUYEN THAI SANG</a></h3>
-                        <h4>WEB DEVELOPER</h4>
+        <!-- build:menu -->
+            <div class="navbar-content">
+                <div class="navbar-button">
+                    <span id="nav-info-toggle"><span class="fa fa-code" ></span> <span class="toggle-content">Tasy Nguyen</span></span>
+                </div>
+                <div class="navbar-button-close" id="nav-info-mobile-close">
+                    <span class="fa fa-arrow-left"></span>
+                </div>
+                <div class="navbar-short-info" id="nav-info">
+                    <div class="navbar-short-info-avatar">
+                        <img src="https://avatars3.githubusercontent.com/u/18634365?s=400&v=4" alt="">
                     </div>
-                    <div class="navbar-menu">
-                        <ul>
-                            <li class="menu-homepage"><a href="index.html">HOME</a></li>
-                            <li><a href="blog.html">Blog</a></li>
-                            <li><a href="contact.html">Contact</a></li>
-                            <li><a href="about.html">About</a></li>
-                        </ul>
-                    </div>
-                    <div class="navbar-footer">
-                        <ul>
-                            <li><a class="link-twitter" href="https://twitter.com/tasyit" target="_blank"><span class="fa fa-twitter"></span></a></li>
-                            <li><a class="link-linkedin" href="https://www.linkedin.com/in/thaisangnguyen3894/" target="_blank"><span class="fa fa-linkedin"></span></a></li>
-                            <li><a class="link-wordpress" href="https://chickendeveloper.wordpress.com/" target="_blank"><span class="fa fa-wordpress"></span></a></li>
-                        </ul>
+                    <h3>Nguyen Thai Sang</h3>
+                    <h4>Web developer</h4>
+                    <p>Hello world!</p>
+                    <div class="navbar-shor-info-contact">
+                        <a class="twitter" target="_blank" href="https://twitter.com/tasyit"><span class="fa fa-twitter"></span></a>
+                        <a class="linkedin" target="_blank" href="https://linkedin.com/in/thaisangnguyen3894/"><span class="fa fa-linkedin"></span></a>
+                        <a class="github" target="_blank" href="https://github.com/tasynguyen3894/"><span class="fa fa-github"></span></a>
                     </div>
                 </div>
+                <div class="navbar-quotes" id="navbar-quotes">
+                    <!-- build:quotes -->
+                </div>
             </div>
-            <div class="container">
-                <!-- build:content -->
+        </div>
+        <div class="container">
+            <div class="navbar-button">
+                <span class="fa fa-arrow-right" id="nav-info-mobile-open"></span>
+            </div>
+            <div class="navbar-menu">
+                <ul>
+                    <li><a href="index.html">Blog</a></li>
+                    <li><a href="product.html">Products</a></li>
+                    <li><a href="me.html">Me</a></li>
+                </ul>
+            </div>
+            <div class="main-content">
+                <!-- build:body -->
             </div>
             <footer>
-                <div class="footer-info">
-                    &copy 2017 Tasy nguyen
-                </div>
-                <div class="footer-contact">
-                    <ul>
-                        <li><a href="https://twitter.com/tasyit" target="_blank"><span class="fa fa-twitter"></span></a></li>
-                        <li><a href="https://www.linkedin.com/in/thaisangnguyen3894/" target="_blank"><span class="fa fa-linkedin"></span></a></li>
-                        <li><a href="https://chickendeveloper.wordpress.com/" target="_blank"><span class="fa fa-wordpress"></span></a></li>
-                    </ul>
-                </div>
+                tasynguyen3894.github.io &copy 2018 <br>
+                thaisang.nguyen3894@gmail.com
             </footer>
         </div>
+        <script src="public/js/main.js"></script>
     </body>
 </html>
