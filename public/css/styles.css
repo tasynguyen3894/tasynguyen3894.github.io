@@ -202,6 +202,10 @@ body {
     display: inline-block; }
   body .home-content .about ul > li > a:hover {
     text-decoration: underline; }
+  body .home-content .blog-detail .blog-detail-date {
+    font-style: italic;
+    color: #999999;
+    margin: 10px 0px; }
   body .home-content .blog-detail .blog-detail-code {
     white-space: pre-line;
     background: #333;
@@ -259,6 +263,8 @@ body {
   body .home-content .blog-detail .tags span::before {
     content: '\f292';
     font-family: FontAwesome; }
+  body .home-content .blog-detail .blog-detail-comments {
+    margin-top: 55px; }
   body .home-content .product-list .product-item h3 {
     text-decoration: underline;
     font-size: 20px; }
