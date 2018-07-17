@@ -49,6 +49,19 @@ $left-content-witdh: 300px;
     font-family: FontAwesome;
 }
 
+body::-webkit-scrollbar {
+	width: 7px;
+	height: 5px;
+}
+
+body::-webkit-scrollbar-track {
+	background: none;
+}
+
+body::-webkit-scrollbar-thumb {
+	background: #333;
+}
+
 body {
 	font-family: $font;
 	background: $background;
@@ -153,7 +166,6 @@ body {
 				@include personal-navbar-content;
 				padding: 10px;
 				border-radius: 3px;
-				
 				font-style: italic;
 			}
 			.navbar-shor-info-contact {
@@ -346,7 +358,7 @@ body {
 			p {
 				font-size: 15px;
 				margin: 5px 0px 15px 0px;
-				line-height: 18px;
+				line-height: 20px;
 				word-spacing: 0.075em;
 			}
 			h4 {
@@ -379,6 +391,7 @@ body {
 				max-width: 100%;
 			}
 			.tags {
+				margin-bottom: 30px;
 				span {
 					background: #333;
 					color: #FFF;

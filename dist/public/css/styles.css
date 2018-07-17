@@ -1,4 +1,14 @@
 @charset "UTF-8";
+body::-webkit-scrollbar {
+  width: 7px;
+  height: 5px; }
+
+body::-webkit-scrollbar-track {
+  background: none; }
+
+body::-webkit-scrollbar-thumb {
+  background: #333; }
+
 body {
   font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
   background: #FFF;
@@ -231,7 +241,7 @@ body {
   body .home-content .blog-detail p {
     font-size: 15px;
     margin: 5px 0px 15px 0px;
-    line-height: 18px;
+    line-height: 20px;
     word-spacing: 0.075em; }
   body .home-content .blog-detail h4 {
     font-size: 15px;
@@ -255,14 +265,16 @@ body {
     font-weight: bold; }
   body .home-content .blog-detail img {
     max-width: 100%; }
-  body .home-content .blog-detail .tags span {
-    background: #333;
-    color: #FFF;
-    font-size: 12px;
-    padding: 3px 5px; }
-  body .home-content .blog-detail .tags span::before {
-    content: '\f292';
-    font-family: FontAwesome; }
+  body .home-content .blog-detail .tags {
+    margin-bottom: 30px; }
+    body .home-content .blog-detail .tags span {
+      background: #333;
+      color: #FFF;
+      font-size: 12px;
+      padding: 3px 5px; }
+    body .home-content .blog-detail .tags span::before {
+      content: '\f292';
+      font-family: FontAwesome; }
   body .home-content .blog-detail .blog-detail-comments {
     margin-top: 55px; }
   body .home-content .product-list .product-item h3 {

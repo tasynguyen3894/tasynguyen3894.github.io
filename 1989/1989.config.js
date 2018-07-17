@@ -27,7 +27,7 @@ exports.config = {
 	},
 	deploy: {
 		use: true,
-		branch: 'release'
+		branch: 'master'
 	},
 	prefix: '1989'
 }
