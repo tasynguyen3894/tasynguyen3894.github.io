@@ -388,13 +388,19 @@ body {
 				padding: 0px;
 				list-style: none;
 			}
-			ul.series li a {
-				font-weight: inherit;
-				font-size: 15px;
-				padding-left: 10px;
-			}
-			ul.series li a.current {
-				font-weight: bold;
+			ul.series {
+				li {
+					margin: 3px 0px;
+					a {
+						font-weight: inherit;
+						font-size: 15px;
+						padding-left: 10px;
+						font-style: italic;
+						&.current {
+							font-weight: bold;
+						}
+					}
+				}
 			}
 			img {
 				max-width: 100%;
