@@ -139,29 +139,32 @@ body {
     padding: 20px 80px;
     display: block;
     box-sizing: border-box; }
-    body .container .navbar-button {
-      display: none; }
-    body .container .navbar-menu ul {
-      list-style: none;
-      margin: 0px;
-      padding: 0px; }
-      body .container .navbar-menu ul li {
-        display: inline-block; }
-        body .container .navbar-menu ul li a {
-          display: inline-block;
-          color: #333;
-          text-decoration: none;
-          padding: 25px 40px 25px 10px;
-          box-sizing: border-box;
-          text-align: left;
-          text-decoration: none;
-          font-size: 20px; }
-        body .container .navbar-menu ul li a:hover {
-          text-decoration: underline; }
-    body .container .main-content {
-      padding: 15px; }
-      body .container .main-content h1 {
-        border-bottom: 1px solid #333; }
+    body .container .container-content {
+      width: 750px;
+      margin: 0px auto; }
+      body .container .container-content .navbar-button {
+        display: none; }
+      body .container .container-content .navbar-menu ul {
+        list-style: none;
+        margin: 0px;
+        padding: 0px; }
+        body .container .container-content .navbar-menu ul li {
+          display: inline-block; }
+          body .container .container-content .navbar-menu ul li a {
+            display: inline-block;
+            color: #333;
+            text-decoration: none;
+            padding: 25px 40px 25px 10px;
+            box-sizing: border-box;
+            text-align: left;
+            text-decoration: none;
+            font-size: 20px; }
+          body .container .container-content .navbar-menu ul li a:hover {
+            text-decoration: underline; }
+      body .container .container-content .main-content {
+        padding: 15px; }
+        body .container .container-content .main-content h1 {
+          border-bottom: 1px solid #333; }
   body footer {
     text-align: center;
     border-top: 1px solid #ccc;
@@ -361,29 +364,32 @@ body {
   body .container {
     width: 100%;
     padding: 10px; }
-    body .container .navbar-menu {
-      text-align: right; }
-      body .container .navbar-menu ul li a {
-        padding: 0px 15px 5px 0px; }
-    body .container .main-content {
-      padding: 15px 0px 0px 0px; }
-      body .container .main-content h1 {
-        margin: 15px 0px 10px 0px;
-        font-size: 30px; }
-    body .container .navbar-button {
-      display: block;
-      position: absolute;
-      padding: 5px 0px;
-      top: 0; }
-      body .container .navbar-button span {
-        cursor: pointer;
-        padding: 10px;
-        display: inline-block;
-        border-radius: 5px;
-        background: #333;
-        color: #FFF;
-        border: 2px solid #FFF; }
-      body .container .navbar-button span:hover {
-        color: #333;
-        background: #FFF;
-        border-color: #333; } }
+    body .container .container-content {
+      width: 100%;
+      margin: 0px; }
+      body .container .container-content .navbar-menu {
+        text-align: right; }
+        body .container .container-content .navbar-menu ul li a {
+          padding: 0px 15px 5px 0px; }
+      body .container .container-content .main-content {
+        padding: 15px 0px 0px 0px; }
+        body .container .container-content .main-content h1 {
+          margin: 15px 0px 10px 0px;
+          font-size: 30px; }
+      body .container .container-content .navbar-button {
+        display: block;
+        position: absolute;
+        padding: 5px 0px;
+        top: 0; }
+        body .container .container-content .navbar-button span {
+          cursor: pointer;
+          padding: 10px;
+          display: inline-block;
+          border-radius: 5px;
+          background: #333;
+          color: #FFF;
+          border: 2px solid #FFF; }
+        body .container .container-content .navbar-button span:hover {
+          color: #333;
+          background: #FFF;
+          border-color: #333; } }
