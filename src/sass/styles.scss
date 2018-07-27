@@ -210,36 +210,40 @@ body {
 		padding: 20px 80px;
 		display: block;
 		box-sizing: border-box;
-		.navbar-button {
-			display: none;
-		}
-		.navbar-menu {
-			ul {
-				list-style: none;
-				margin: 0px;
-				padding: 0px;
-				li {
-					display: inline-block;
-					a {
+		.container-content {
+			width: 750px;
+			margin: 0px auto;
+			.navbar-button {
+				display: none;
+			}
+			.navbar-menu {
+				ul {
+					list-style: none;
+					margin: 0px;
+					padding: 0px;
+					li {
 						display: inline-block;
-						color: #333;
-						text-decoration: none;
-						padding: 25px 40px 25px 10px;
-						box-sizing: border-box;
-						text-align: left;
-						text-decoration: none;
-						font-size: 20px;
-					}
-					a:hover {
-						text-decoration: underline;
+						a {
+							display: inline-block;
+							color: #333;
+							text-decoration: none;
+							padding: 25px 40px 25px 10px;
+							box-sizing: border-box;
+							text-align: left;
+							text-decoration: none;
+							font-size: 20px;
+						}
+						a:hover {
+							text-decoration: underline;
+						}
 					}
 				}
 			}
-		}
-		.main-content {
-			padding: 15px;
-			h1 {
-				border-bottom: 1px solid #333;
+			.main-content {
+				padding: 15px;
+				h1 {
+					border-bottom: 1px solid #333;
+				}
 			}
 		}
 	}
@@ -528,37 +532,41 @@ body {
 		.container {
 			width: 100%;
 			padding: 10px;
-			.navbar-menu {
-				text-align: right;
-				ul {
-					li {
-						a {
-							padding: 0px 15px 5px 0px;
+			.container-content {
+				width: 100%;
+				margin: 0px;
+				.navbar-menu {
+					text-align: right;
+					ul {
+						li {
+							a {
+								padding: 0px 15px 5px 0px;
+							}
 						}
 					}
 				}
-			}
-			.main-content {
-				padding: 15px 0px 0px 0px;
-				h1 {
-					margin: 15px 0px 10px 0px;
-					font-size: 30px;
+				.main-content {
+					padding: 15px 0px 0px 0px;
+					h1 {
+						margin: 15px 0px 10px 0px;
+						font-size: 30px;
+					}
 				}
-			}
-			.navbar-button {
-				display: block;
-				position: absolute;
-				padding: 5px 0px;
-				top: 0;
-				span {
-					cursor: pointer;
-					padding: 10px;
-					display: inline-block;
-					border-radius: 5px;
-					@include nav-bar;
-				}
-				span:hover {
-					@include nav-bar-hover;
+				.navbar-button {
+					display: block;
+					position: absolute;
+					padding: 5px 0px;
+					top: 0;
+					span {
+						cursor: pointer;
+						padding: 10px;
+						display: inline-block;
+						border-radius: 5px;
+						@include nav-bar;
+					}
+					span:hover {
+						@include nav-bar-hover;
+					}
 				}
 			}
 		}
