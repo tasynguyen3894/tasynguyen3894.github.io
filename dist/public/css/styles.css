@@ -310,6 +310,8 @@ body {
       body .home-content .tags-content .tags-list a:hover {
         background: #FFF;
         color: #333; }
+  body .home-content .tags-content #tag-load span {
+    font-size: 30px; }
   body .home-content .tags-content #tag-post {
     width: calc(100% - 20px);
     margin: 10px auto; }
