@@ -170,6 +170,12 @@ body {
     border-top: 1px solid #ccc;
     padding: 20px 0px;
     color: #999; }
+    body footer div {
+      margin: 5px 0px; }
+      body footer div a {
+        color: #333;
+        font-weight: bold;
+        text-decoration: none; }
   body .home-content {
     min-height: calc(100vh - 350px); }
   body .code-content {
@@ -231,9 +237,9 @@ body {
     white-space: pre-line;
     background: #333;
     color: #FFF;
-    padding: 10px 20px 20px 20px;
+    padding: 10px 20px 25px 20px;
     border-radius: 5px;
-    font-size: 15px;
+    font-size: 16px;
     margin-bottom: 10px; }
   body .home-content .blog-detail .blog-detail-quote {
     background: #ccc;
@@ -250,32 +256,34 @@ body {
     content: "\f10e";
     font-family: FontAwesome; }
   body .home-content .blog-detail p {
-    font-size: 15px;
+    font-size: 16px;
     margin: 5px 0px 15px 0px;
-    line-height: 20px;
-    word-spacing: 0.075em; }
+    line-height: 22px;
+    word-spacing: 2px; }
   body .home-content .blog-detail h4 {
-    font-size: 15px;
+    font-size: 16px;
     margin-bottom: 10px; }
   body .home-content .blog-detail a {
     color: #333;
     text-decoration: none;
     font-weight: bold;
-    font-size: 13px; }
-  body .home-content .blog-detail a:hover {
-    color: #999; }
+    font-size: 16px; }
+    body .home-content .blog-detail a:hover {
+      color: #999; }
   body .home-content .blog-detail ul.series {
     margin: 20px 0px;
     padding: 0px;
     list-style: none; }
-  body .home-content .blog-detail ul.series li a {
-    font-weight: inherit;
-    font-size: 15px;
-    padding-left: 10px; }
-  body .home-content .blog-detail ul.series li a.current {
-    font-weight: bold; }
+    body .home-content .blog-detail ul.series li a {
+      font-weight: inherit;
+      font-size: 16px;
+      padding-left: 10px; }
+      body .home-content .blog-detail ul.series li a.current {
+        font-weight: bold; }
   body .home-content .blog-detail img {
-    max-width: 100%; }
+    max-width: calc(100% - 25px);
+    display: block;
+    margin: 20px auto 35px auto; }
   body .home-content .blog-detail .tags {
     margin-bottom: 30px; }
     body .home-content .blog-detail .tags span {
@@ -283,9 +291,9 @@ body {
       color: #FFF;
       font-size: 12px;
       padding: 3px 5px; }
-    body .home-content .blog-detail .tags span::before {
-      content: '\f292';
-      font-family: FontAwesome; }
+      body .home-content .blog-detail .tags span::before {
+        content: '\f292';
+        font-family: FontAwesome; }
   body .home-content .blog-detail .blog-detail-comments {
     margin-top: 55px; }
   body .home-content .product-list .product-item h3 {
@@ -316,18 +324,18 @@ body {
       body .blog-list .blog-item h3 a {
         color: #333;
         text-decoration: none; }
-      body .blog-list .blog-item h3 a:hover {
-        text-decoration: underline; }
+        body .blog-list .blog-item h3 a:hover {
+          text-decoration: underline; }
     body .blog-list .blog-item .blog-type span {
       color: #999;
       font-style: italic;
       font-size: 15px; }
-    body .blog-list .blog-item .blog-type span::after {
-      content: ','; }
-    body .blog-list .blog-item .blog-type span:last-child::after {
-      content: ''; }
+      body .blog-list .blog-item .blog-type span::after {
+        content: ','; }
+      body .blog-list .blog-item .blog-type span:last-child::after {
+        content: ''; }
     body .blog-list .blog-item p {
-      font-size: 13px;
+      font-size: 16px;
       margin: 5px 0px; }
 
 @media screen and (max-width: 767px) {
