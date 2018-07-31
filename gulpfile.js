@@ -58,6 +58,13 @@ if(conf.typescript.use) {
     });
 }
 
+if(conf.data.use) {
+	gulp.task(conf.cmd.data, function () {
+        gulp.src(conf.data.src, { base: conf.data.srcFolder })
+        	.pipe(gulp.dest(conf.data.release))
+    });
+}
+
 if(conf.deploy.use) {
 	const ghPages = require('gulp-gh-pages');
 	gulp.task(conf.cmd.deploy, function () {
@@ -67,7 +74,6 @@ if(conf.deploy.use) {
 				}));
 	});
 }
-
 
 gulp.task('watch', listWatch, function () {
     if(conf.sass.use) {
@@ -79,6 +85,9 @@ gulp.task('watch', listWatch, function () {
 		gulp.watch([conf.typescript.src], [conf.cmd.typescript]);
 	} else {
 		gulp.watch([conf.typescript.srcNoUse], [conf.cmd.No_typescript]);
+	}
+	if(conf.data.use) {
+		gulp.watch([conf.data.src], [conf.cmd.data]);
 	}
 	if(conf.htmlTemplate.use) {
 		gulp.watch([conf.htmlTemplate.page, conf.htmlTemplate.template], [conf.cmd.htmlTemplate]);

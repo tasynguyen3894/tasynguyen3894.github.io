@@ -27,6 +27,12 @@ var configForRun = {
 		srcNoUse: config.src.path + '/' + config.src.typescript.src + '/*.js',
 		release: config.release.path + '/' + config.release.assets + '/' + config.src.typescript.release
 	},
+	data: {
+		use: config.src.data.use,
+		srcFolder: config.src.path + '/' + config.src.data.src,
+		src: config.src.path + '/' + config.src.data.src + '/*.json',
+		release: config.release.path + '/' + config.src.data.release
+	},
 	deploy: {
 		use: config.deploy.use,
 		branch: config.deploy.branch,
@@ -37,6 +43,7 @@ var configForRun = {
 		htmlTemplate: config.prefix + '_gulp-template-html',
 		sass: config.prefix + '_sass',
 		typescript: config.prefix + '_typescript',
+		data: config.prefix + '_data',
 		deploy: config.prefix + '_deploy',
 		lib: config.prefix + '_lib',
 		image: config.prefix + '_image',

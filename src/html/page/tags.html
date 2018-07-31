@@ -1,0 +1,74 @@
+<!-- build:title -->Products<!-- /build:title -->
+<!-- build:menu --><div class="navbar-fixed product-bg"><!-- /build:menu -->
+
+<!-- build:quotes -->
+<div class="navbar-quotes-content">
+	If I would have asked them what they wanted they would have said faster horses.
+</div>
+<div class="navbar-quotes-speaker">
+	Henry Ford
+</div>
+<!-- /build:quotes -->
+
+<!-- build:body -->
+	<h1>Tags</h1>
+	<div class="home-content">
+        <div class="tags-content">
+            <div id="post-by-tag" style="display: none">
+                <div id="tag-load">
+                    Loading...
+                </div>
+                <div id="tag-post" style="display: none">
+                    <h3 id="tag-search"></h3>
+                </div>
+            </div>
+            <div class="tags-list">
+                Tags: 
+                    <a href="?tag=javascript">javascript</a>
+                    <a href="?tag=my-stories">my stories</a>
+                    <a href="?tag=angulario">angulario</a>
+            </div>
+        </div>
+    </div>
+<!-- /build:body -->
+
+<!-- build:script -->
+<script>
+    function getParameterByName(name, url) {
+        if (!url) url = window.location.href;
+        name = name.replace(/[\[\]]/g, '\\$&');
+        var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+            results = regex.exec(url);
+        if (!results) return null;
+        if (!results[2]) return '';
+        return decodeURIComponent(results[2].replace(/\+/g, ' '));
+    }
+
+    function init() {
+        var tag = getParameterByName('tag');
+        if(tag) {
+            $('#post-by-tag').show();
+            $.ajax({
+                url: "/data/tags.json", 
+                success: function(result){
+                    var listPost = '';
+                    result.forEach(post => {
+                        if(post.tags.indexOf(tag) > -1) {
+                            listPost += '<a href="' + post.url + '">- ' + post.title + '</a>';
+                        }
+                    });
+                    setTimeout(function() {
+                        $('#tag-post').append(listPost);
+                        $('#tag-load').hide();
+                        $('#post-by-tag').show();
+                        $('#tag-post').show();
+                    }, 1000);
+                }
+            });
+            $('#tag-search').text('#' + tag);
+        }
+    }
+
+    init();
+</script>
+<!-- /build:script -->

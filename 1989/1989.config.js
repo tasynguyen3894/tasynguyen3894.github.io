@@ -20,6 +20,11 @@ exports.config = {
 			use:  false,
 			src: 'ts',
 			release: 'js'
+		},
+		data: {
+			use:  true,
+			src: 'data',
+			release: 'data' 
 		}
 	},
 	browserSync: {

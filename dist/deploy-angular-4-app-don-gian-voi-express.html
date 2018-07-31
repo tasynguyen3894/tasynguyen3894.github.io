@@ -63,14 +63,14 @@
 	<div class="blog-detail">
 		<div class="blog-detail-date">Đăng lúc 02/11/2017</div>
 		<div class="tags">
-			<span>ExpressJS</span>
-			<span>Angular 4</span>
+			<span><a href="tags.html?tag=expressjs">ExpressJS</a></span>
+			<span><a href="tags.html?tag=angulario">Angular IO</a></span>
 		</div>
         <p>Đã rất lâu rồi mình không viết blog, hôm nay mình xin chia sẻ về cách deploy đơn giản một project Angular 4 cùng với ExpressJS.</p>
         <h4>Build Angular 4 app</h4>
         <p>Công việc đầu tiên của chúng ta sẽ là build Angular 2 app. Để build các bạn sử dụng lệnh bên dưới để build</p>
         <div class="blog-detail-code">
-            ng build ---prod
+            ng build --prod
         </div>
         <p>Nếu quá trình build không gặp lỗi gì thì các bạn sẽ có một folder dist. Trong đó folder chính là sản phẩm được build từ project của các bạn.  Lúc này cấu trúc thư mục của chúng ta sẽ tương tự như sau:</p>
         <img src="https://chickendeveloper.files.wordpress.com/2017/11/b1.png" class="center" alt="">
@@ -147,5 +147,6 @@
             </div>
         </div>
         <script src="public/js/main.js"></script>
+        <!-- build:script -->
     </body>
 </html>
