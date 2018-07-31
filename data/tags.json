@@ -1,0 +1,37 @@
+[
+    {
+        "title": "Tôi đã đến với javascript như thế nào (Phần 2): Đây là game sinh tồn!",
+        "url": "toi-da-den-voi-javascript-nhu-the-nao-p2.html",
+        "tags": [
+            "javascript", "my-stories"
+        ]
+    },
+    {
+        "title": "Tôi đã đến với javascript như thế nào (Phần 1): Javascript thật đáng sợ",
+        "url": "toi-da-den-voi-javascript-nhu-the-nao-p1.html",
+        "tags": [
+            "javascript", "my-stories"
+        ]
+    },
+    {
+        "title": "Cải thiện khả năng giao tiếp (Phần 0): Nước tương và tô hủ tíu gõ",
+        "url": "cai-thien-kha-nang-giao-tiep-p0.html",
+        "tags": [
+            "soft-skill", "communication-skill", "teamwork"
+        ]
+    },
+    {
+        "title": "Deploy Angular 4 app đơn giản với Express",
+        "url": "deploy-angular-4-app-don-gian-voi-express.html",
+        "tags": [
+            "javascript", "angulario", "expressjs"
+        ]
+    },
+    {
+        "title": "Những điều nên tránh khi làm việc với những lập trình viên mới vào nghề",
+        "url": "nhung-dieu-nen-tranh-khi-lam-viec-voi-lap-trinh-vien-moi-vao-nghe.html",
+        "tags": [
+            "soft-skill", "medium"
+        ]
+    }
+]

@@ -58,23 +58,25 @@
                 </div>
                 <div class="main-content">
                     
-	<h1>Products</h1>
+	<h1>Tags</h1>
 	<div class="home-content">
-		<div class="product-list">
-			<div class="product-item">
-				<h3>1989 Stack</h3>
-				<div class="tags">
-					<span>javascript</span>
-					<span>gulp</span>
-					<span>html</span>
-				</div>
-				<p>Auto build with template html, convert sass and typescript. Auto reload browser with browser-sync. Auto deploy production with Github pages</p>
-				<div class="links">
-					<a href="https://github.com/tasynguyen3894/1989stack" target="_blank"><span class="fa fa-github"></span> Github</a>
-				</div>
-			</div>
-		</div>
-	</div>
+        <div class="tags-content">
+            <div id="post-by-tag" style="display: none">
+                <div id="tag-load">
+                    Loading...
+                </div>
+                <div id="tag-post" style="display: none">
+                    <h3 id="tag-search"></h3>
+                </div>
+            </div>
+            <div class="tags-list">
+                Tags: 
+                    <a href="?tag=javascript">javascript</a>
+                    <a href="?tag=my-stories">my stories</a>
+                    <a href="?tag=angulario">angulario</a>
+            </div>
+        </div>
+    </div>
 
                 </div>
                 <footer>
@@ -84,6 +86,45 @@
             </div>
         </div>
         <script src="public/js/main.js"></script>
-        <!-- build:script -->
+        
+<script>
+    function getParameterByName(name, url) {
+        if (!url) url = window.location.href;
+        name = name.replace(/[\[\]]/g, '\\$&');
+        var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+            results = regex.exec(url);
+        if (!results) return null;
+        if (!results[2]) return '';
+        return decodeURIComponent(results[2].replace(/\+/g, ' '));
+    }
+
+    function init() {
+        var tag = getParameterByName('tag');
+        if(tag) {
+            $('#post-by-tag').show();
+            $.ajax({
+                url: "/data/tags.json", 
+                success: function(result){
+                    var listPost = '';
+                    result.forEach(post => {
+                        if(post.tags.indexOf(tag) > -1) {
+                            listPost += '<a href="' + post.url + '">- ' + post.title + '</a>';
+                        }
+                    });
+                    setTimeout(function() {
+                        $('#tag-post').append(listPost);
+                        $('#tag-load').hide();
+                        $('#post-by-tag').show();
+                        $('#tag-post').show();
+                    }, 1000);
+                }
+            });
+            $('#tag-search').text('#' + tag);
+        }
+    }
+
+    init();
+</script>
+
     </body>
 </html>

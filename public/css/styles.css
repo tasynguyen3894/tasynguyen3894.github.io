@@ -286,16 +286,38 @@ body {
     margin: 20px auto 35px auto; }
   body .home-content .blog-detail .tags {
     margin-bottom: 30px; }
-    body .home-content .blog-detail .tags span {
+    body .home-content .blog-detail .tags span a {
+      display: inline-block;
       background: #333;
-      color: #FFF;
+      padding: 3px 5px;
       font-size: 12px;
-      padding: 3px 5px; }
-      body .home-content .blog-detail .tags span::before {
+      color: #FFF; }
+      body .home-content .blog-detail .tags span a::before {
         content: '\f292';
         font-family: FontAwesome; }
   body .home-content .blog-detail .blog-detail-comments {
     margin-top: 55px; }
+  body .home-content .tags-content .tags-list {
+    width: calc(100% - 30px);
+    margin: 45px auto 25px auto; }
+    body .home-content .tags-content .tags-list a {
+      display: inline-block;
+      background: #333;
+      color: #fff;
+      text-decoration: none;
+      padding: 5px 10px;
+      border: 1px solid #333; }
+      body .home-content .tags-content .tags-list a:hover {
+        background: #FFF;
+        color: #333; }
+  body .home-content .tags-content #tag-post {
+    width: calc(100% - 20px);
+    margin: 10px auto; }
+    body .home-content .tags-content #tag-post a {
+      display: block;
+      text-decoration: none;
+      color: #333;
+      margin: 10px 5px; }
   body .home-content .product-list .product-item h3 {
     text-decoration: underline;
     font-size: 20px; }
@@ -334,6 +356,9 @@ body {
         content: ','; }
       body .blog-list .blog-item .blog-type span:last-child::after {
         content: ''; }
+      body .blog-list .blog-item .blog-type span a {
+        text-decoration: none;
+        color: #999; }
     body .blog-list .blog-item p {
       font-size: 16px;
       margin: 5px 0px; }
