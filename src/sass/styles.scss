@@ -6,6 +6,7 @@ $container-background: $background;
 $nav-background: #333;
 $nav-color: #FFF;
 $left-content-witdh: 300px;
+$blog-font-size: 16px;
 
 // mixin and function
 @mixin nav-bar {
@@ -253,6 +254,14 @@ body {
 		border-top: 1px solid #ccc;
 		padding: 20px 0px;
 		color: #999;
+		div {
+			margin: 5px 0px;
+			a {
+				color: #333;
+				font-weight: bold;
+				text-decoration: none;
+			}
+		}
 	}
 	
 	.home-content {
@@ -348,9 +357,9 @@ body {
 				white-space: pre-line;
 				background: #333;
 				color: #FFF;
-				padding: 10px 20px 20px 20px;
+				padding: 10px 20px 25px 20px;
 				border-radius: 5px;
-				font-size: 15px;
+				font-size: $blog-font-size;
 				margin-bottom: 10px;
 			}
 			.blog-detail-quote {
@@ -369,39 +378,43 @@ body {
 				@include last-quote;
 			}
 			p {
-				font-size: 15px;
+				font-size: $blog-font-size;
 				margin: 5px 0px 15px 0px;
-				line-height: 20px;
-				word-spacing: 0.075em;
+				line-height: 22px;
+				word-spacing: 2px;
 			}
 			h4 {
-				font-size: 15px;
+				font-size: $blog-font-size;
 				margin-bottom: 10px;
 			}
 			a {
 				color: #333;
 				text-decoration: none;
 				font-weight: bold;
-				font-size: 13px;
-			}
-			a:hover {
-				color: #999;
+				font-size: $blog-font-size;
+				&:hover {
+					color: #999;
+				}
 			}
 			ul.series {
 				margin: 20px 0px;
 				padding: 0px;
 				list-style: none;
-			}
-			ul.series li a {
-				font-weight: inherit;
-				font-size: 15px;
-				padding-left: 10px;
-			}
-			ul.series li a.current {
-				font-weight: bold;
+				li {
+					a {
+						font-weight: inherit;
+						font-size: $blog-font-size;
+						padding-left: 10px;
+						&.current {
+							font-weight: bold;
+						}
+					}
+				}
 			}
 			img {
-				max-width: 100%;
+				max-width: calc(100% - 25px);
+				display: block;
+				margin: 20px auto 35px auto;
 			}
 			.tags {
 				margin-bottom: 30px;
@@ -410,10 +423,10 @@ body {
 					color: #FFF;
 					font-size: 12px;
 					padding: 3px 5px;
-				}
-				span::before {
-					content: '\f292';
-					font-family: FontAwesome;
+					&::before {
+						content: '\f292';
+						font-family: FontAwesome;
+					}
 				}
 			}
 			.blog-detail-comments {
@@ -463,9 +476,9 @@ body {
 				a {
 					color: #333;
 					text-decoration: none;
-				}
-				a:hover {
-					text-decoration: underline;
+					&:hover {
+						text-decoration: underline;
+					}
 				}
 			}
 			.blog-type {
@@ -473,16 +486,16 @@ body {
 					color: #999;
 					font-style: italic;
 					font-size: 15px;
-				}
-				span::after {
-					content: ','
-				}
-				span:last-child::after {
-					content: ''
+					&::after {
+						content: ','
+					}
+					&:last-child::after {
+						content: ''
+					}
 				}
 			}
 			p {
-				font-size: 13px;
+				font-size: $blog-font-size;
 				margin: 5px 0px;
 			}
 		}
