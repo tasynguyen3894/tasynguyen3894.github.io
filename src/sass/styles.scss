@@ -103,6 +103,9 @@ body {
 					display: inline;
 				}
 			}
+			a {
+				color: #FFF;
+			}
 		}
 		.navbar-button-close {
 			display: none;
@@ -450,6 +453,7 @@ body {
 					text-decoration: none;
 					padding: 5px 10px;
 					border: 1px solid #333;
+					margin: 3px 1px;
 					&:hover {
 						background: #FFF;
 						color: #333;

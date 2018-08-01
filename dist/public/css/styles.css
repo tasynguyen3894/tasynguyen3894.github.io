@@ -48,6 +48,8 @@ body {
         border-color: #333; }
         body .navbar-fixed .navbar-button span:hover .toggle-content {
           display: inline; }
+      body .navbar-fixed .navbar-button a {
+        color: #FFF; }
     body .navbar-fixed .navbar-button-close {
       display: none; }
     body .navbar-fixed .navbar-content .navbar-title {
@@ -306,7 +308,8 @@ body {
       color: #fff;
       text-decoration: none;
       padding: 5px 10px;
-      border: 1px solid #333; }
+      border: 1px solid #333;
+      margin: 3px 1px; }
       body .home-content .tags-content .tags-list a:hover {
         background: #FFF;
         color: #333; }
