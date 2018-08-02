@@ -1,5 +1,12 @@
 [
     {
+        "title": "Seminar: Thiết kế RESTFUL API document với Swagger",
+        "url": "seminar-swagger.html",
+        "tags": [
+            "seminar", "swagger", "laravel"
+        ]
+    },
+    {
         "title": "Trên đại lộ, ngoài cửa kính đến căn phòng nhỏ. Mưa và sự vô định.",
         "url": "tren-dai-lo-ben-ngoai-cua-kinh-den-can-phong-nho-mua-va-su-vo-dinh.html",
         "tags": [

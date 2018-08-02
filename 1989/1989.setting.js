@@ -1,4 +1,5 @@
 const {config} = require('./1989.config');
+const {ignore} = require('./1989.ignore');
 
 var configForRun = {
 	browserSync: {
@@ -55,3 +56,4 @@ var configForRun = {
 }
 
 exports.conf = configForRun;
+exports.ignore = ignore;

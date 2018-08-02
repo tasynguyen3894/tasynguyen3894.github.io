@@ -1,5 +1,5 @@
 var gulp = require('gulp');
-var { conf } = require('./1989/1989.setting');
+var { conf, ignore } = require('./1989/1989.setting');
 var listWatch = [];
 
 if(conf.browserSync.use) {
@@ -28,34 +28,38 @@ if(conf.htmlTemplate.use) {
     });
 }
 
-if(conf.sass.use) {
-	var sass = require('gulp-sass');
-    gulp.task(conf.cmd.sass, function () {
-        return gulp.src(conf.sass.src)
-                    .pipe(sass({errLogToConsole: true}).on("error", sass.logError))
-                    .pipe(gulp.dest(conf.sass.release));
-    });
-} else {
-	gulp.task(conf.cmd.No_sass, function () {
-        gulp.src(conf.sass.srcNoUse, { base: conf.sass.srcFolder })
-        	.pipe(gulp.dest(conf.sass.release))
-    });
+if(!ignore.css) {
+	if(conf.sass.use) {
+		var sass = require('gulp-sass');
+		gulp.task(conf.cmd.sass, function () {
+			return gulp.src(conf.sass.src)
+						.pipe(sass({errLogToConsole: true}).on("error", sass.logError))
+						.pipe(gulp.dest(conf.sass.release));
+		});
+	} else {
+		gulp.task(conf.cmd.No_sass, function () {
+			gulp.src(conf.sass.srcNoUse, { base: conf.sass.srcFolder })
+				.pipe(gulp.dest(conf.sass.release))
+		});
+	}
 }
 
-if(conf.typescript.use) {
-	var ts = require('gulp-typescript');
-    gulp.task(conf.cmd.typescript, function () {
-        return gulp.src(conf.typescript.src)
-            .pipe(ts({
-                noImplicitAny: true
-            }))
-            .pipe(gulp.dest(conf.typescript.release));
-    });
-} else {
-	gulp.task(conf.cmd.No_typescript, function () {
-        gulp.src(conf.typescript.srcNoUse, { base: conf.typescript.srcFolder })
-        	.pipe(gulp.dest(conf.typescript.release))
-    });
+if(!ignore.js) {
+	if(conf.typescript.use) {
+		var ts = require('gulp-typescript');
+		gulp.task(conf.cmd.typescript, function () {
+			return gulp.src(conf.typescript.src)
+				.pipe(ts({
+					noImplicitAny: true
+				}))
+				.pipe(gulp.dest(conf.typescript.release));
+		});
+	} else {
+		gulp.task(conf.cmd.No_typescript, function () {
+			gulp.src(conf.typescript.srcNoUse, { base: conf.typescript.srcFolder })
+				.pipe(gulp.dest(conf.typescript.release))
+		});
+	}
 }
 
 if(conf.data.use) {
@@ -76,15 +80,19 @@ if(conf.deploy.use) {
 }
 
 gulp.task('watch', listWatch, function () {
-    if(conf.sass.use) {
-		gulp.watch([conf.sass.src], [conf.cmd.sass]);
-	} else {
-		gulp.watch([conf.sass.srcNoUse], [conf.cmd.No_sass]);
+	if(!ignore.css) {
+		if(conf.sass.use) {
+			gulp.watch([conf.sass.src], [conf.cmd.sass]);
+		} else {
+			gulp.watch([conf.sass.srcNoUse], [conf.cmd.No_sass]);
+		}
 	}
-    if(conf.typescript.use) {
-		gulp.watch([conf.typescript.src], [conf.cmd.typescript]);
-	} else {
-		gulp.watch([conf.typescript.srcNoUse], [conf.cmd.No_typescript]);
+    if(!ignore.js) {
+		if(conf.typescript.use) {
+			gulp.watch([conf.typescript.src], [conf.cmd.typescript]);
+		} else {
+			gulp.watch([conf.typescript.srcNoUse], [conf.cmd.No_typescript]);
+		}
 	}
 	if(conf.data.use) {
 		gulp.watch([conf.data.src], [conf.cmd.data]);
