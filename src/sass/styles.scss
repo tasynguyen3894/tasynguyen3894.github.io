@@ -404,6 +404,7 @@ body {
 				padding: 0px;
 				list-style: none;
 				li {
+					margin: 5px 0px;
 					a {
 						font-weight: inherit;
 						font-size: $blog-font-size;
@@ -414,6 +415,11 @@ body {
 					}
 				}
 			}
+			ul {
+				li {
+					margin: 5px 0px;
+				}
+			}
 			img {
 				max-width: calc(100% - 25px);
 				display: block;
@@ -422,9 +428,6 @@ body {
 			.tags {
 				margin-bottom: 30px;
 				span {
-					
-					
-					
 					a {
 						display: inline-block;
 						background: #333;
