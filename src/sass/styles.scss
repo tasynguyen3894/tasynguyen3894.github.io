@@ -78,6 +78,13 @@ body {
 	color: $color;
 	padding: 0px;
 	margin: 0px;
+	#show-comment-box {
+		text-align: center; 
+		padding: 5px 0px; 
+		border: 1px solid #ccc; 
+		margin: 10px 0px; 
+		cursor: pointer
+	}
 	.navbar-fixed {
 		position: fixed;
 		height: 100%;
@@ -421,6 +428,30 @@ body {
 					margin: 5px 0px;
 				}
 			}
+			.blog-break-line {
+				width: 100%; 
+				border-bottom: 1px solid #ccc;
+			}
+			.blog-recommend {
+				h4 {
+					text-decoration: underline;
+				}
+				ul {
+					padding: 0px 10px;
+					list-style: none;
+					li {
+						padding: 3px 0px;
+						a {
+							color: #333;
+							font-weight: 100;
+							&:hover {
+								text-decoration: underline;
+							}
+						}
+					}
+				}
+			}
+			
 			img {
 				max-width: calc(100% - 25px);
 				display: block;

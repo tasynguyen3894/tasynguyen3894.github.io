@@ -23,6 +23,12 @@ body {
   color: #333;
   padding: 0px;
   margin: 0px; }
+  body #show-comment-box {
+    text-align: center;
+    padding: 5px 0px;
+    border: 1px solid #ccc;
+    margin: 10px 0px;
+    cursor: pointer; }
   body .navbar-fixed {
     position: fixed;
     height: 100%;
@@ -287,6 +293,21 @@ body {
           font-weight: bold; }
   body .home-content .blog-detail ul li {
     margin: 5px 0px; }
+  body .home-content .blog-detail .blog-break-line {
+    width: 100%;
+    border-bottom: 1px solid #ccc; }
+  body .home-content .blog-detail .blog-recommend h4 {
+    text-decoration: underline; }
+  body .home-content .blog-detail .blog-recommend ul {
+    padding: 0px 10px;
+    list-style: none; }
+    body .home-content .blog-detail .blog-recommend ul li {
+      padding: 3px 0px; }
+      body .home-content .blog-detail .blog-recommend ul li a {
+        color: #333;
+        font-weight: 100; }
+        body .home-content .blog-detail .blog-recommend ul li a:hover {
+          text-decoration: underline; }
   body .home-content .blog-detail img {
     max-width: calc(100% - 25px);
     display: block;
