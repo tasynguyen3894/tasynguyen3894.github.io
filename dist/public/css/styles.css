@@ -210,6 +210,10 @@ body {
     background: url("https://cdna.artstation.com/p/assets/images/images/006/638/346/large/martyna-nejman-knight1.jpg");
     background-size: cover;
     background-position: 57% 50%; }
+  body .note-bg {
+    background: url("https://i0.wp.com/www.maloneeditorial.com/wp-content/uploads/2018/06/Practice-writing.jpg?ssl=1");
+    background-size: cover;
+    background-position: 40% 50%; }
   body .home-content .about h4 {
     text-align: center;
     margin: 5px 0px; }
@@ -325,6 +329,29 @@ body {
         font-family: FontAwesome; }
   body .home-content .blog-detail .blog-detail-comments {
     margin-top: 55px; }
+  body .home-content .blog-detail .note-link {
+    overflow: hidden;
+    margin: 35px 0px; }
+    body .home-content .blog-detail .note-link a {
+      display: inline-block; }
+      body .home-content .blog-detail .note-link a::before {
+        display: inline-block;
+        border: 1px solid #333;
+        background: #333;
+        color: #FFF;
+        padding: 5px;
+        font-size: 13px; }
+      body .home-content .blog-detail .note-link a.prev {
+        float: left; }
+        body .home-content .blog-detail .note-link a.prev::before {
+          content: 'Chương trước'; }
+      body .home-content .blog-detail .note-link a.next {
+        float: right; }
+        body .home-content .blog-detail .note-link a.next::before {
+          content: 'Chương sau'; }
+      body .home-content .blog-detail .note-link a:hover::before {
+        color: #333;
+        background: #FFF; }
   body .home-content .tags-content .tags-list {
     width: calc(100% - 30px);
     margin: 45px auto 25px auto; }

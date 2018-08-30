@@ -331,6 +331,12 @@ body {
 		background-position: 57% 50%;
 	}
 
+	.note-bg {
+		background: url('https://i0.wp.com/www.maloneeditorial.com/wp-content/uploads/2018/06/Practice-writing.jpg?ssl=1');
+		@include bg-cover;
+		background-position: 40% 50%;
+	}
+
 	.home-content {
 		.about {
 			h4 {
@@ -488,6 +494,38 @@ body {
 			}
 			.blog-detail-comments {
 				margin-top: 55px;
+			}
+			.note-link {
+				overflow: hidden;
+				margin: 35px 0px;
+				// text-align: center;
+				a {
+					display: inline-block;
+					&::before {
+						display: inline-block;
+						border: 1px solid #333;
+						background: #333;
+						color: #FFF;
+						padding: 5px;
+						font-size: 13px;
+					}
+					&.prev {
+						float: left;
+						&::before {
+							content: 'Chương trước';
+						}
+					}
+					&.next {
+						float: right;
+						&::before {
+							content: 'Chương sau';
+						}
+					}
+					&:hover::before {
+						color: #333;
+						background: #FFF;
+					}
+				}
 			}
 		}
 		.tags-content {
