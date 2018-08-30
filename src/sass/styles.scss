@@ -50,6 +50,19 @@ $blog-font-size: 16px;
     font-family: FontAwesome;
 }
 
+@mixin blog-list-title {
+	color: #333;
+	text-decoration: none;
+	&:hover {
+		text-decoration: underline;
+	}
+}
+
+@mixin blog-list-item {
+	background: #fff;
+	margin-bottom: 45px;
+}
+
 ::selection {
 	background: #333; 
 	color: #fff;
@@ -544,19 +557,81 @@ body {
 			}
 		}
 	}
-	
+	.notes {
+		.note-list {
+			.note-item {
+				@include blog-list-item;
+				> span {
+					font-style: italic;
+					font-size: 15px;
+				}
+				h3 {
+					margin: 5px 0px;
+					a {
+						@include blog-list-title;
+					}
+					span {
+						position: relative;
+						&.not-complete::before {
+							background: #FF8800;
+							width: 85px;
+							content: 'Chưa hoàn thành';
+						}
+						&.complete::before {
+							background: #007E33;
+							width: 55px;
+							content: 'Hoàn thành';
+						}
+						&.drop::before {
+							background: #3E4551;
+							width: 55px;
+							content: 'Ngừng viết';
+						}
+						&::before {
+							font-size: 10px;
+							padding: 4px;
+							color: #FFF;
+							margin: 5px;
+							position: absolute;
+							bottom: -5px;
+							
+						}
+					}
+				}
+			}
+		}
+	}
+	.notes-detail {
+		.notes-info {
+			.note-list-chap {
+				h4 {
+					margin: 0px;
+				}
+				ul {
+					list-style: none;
+					margin: 0px;
+					padding: 10px;
+					li {
+						margin: 5px;
+						a {
+							text-decoration: none;
+							color: #3E4551;
+							&:hover {
+								text-decoration: underline;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
 	.blog-list {
 		.blog-item {
-			background: #fff;
-			margin-bottom: 45px;
+			@include blog-list-item;
 			h3 {
 				margin: 5px 0px;
 				a {
-					color: #333;
-					text-decoration: none;
-					&:hover {
-						text-decoration: underline;
-					}
+					@include blog-list-title;
 				}
 			}
 			.blog-type {

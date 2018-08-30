@@ -1,0 +1,101 @@
+<!-- build:title -->Deploy Angular 4 app đơn giản với Express<!-- /build:title -->
+
+<!-- build:menu --><div class="navbar-fixed home-bg"><!-- /build:menu -->
+
+<!-- build:quotes -->
+<div class="navbar-quotes-content">
+        European merchants supply the best weaponry, contributing to their own defeat.
+    </div>
+    <div class="navbar-quotes-speaker">
+        Saladin
+    </div>
+    <!-- /build:quotes -->
+    
+    <!-- build:body -->
+    <h1>Deploy Angular 4 app đơn giản với Express</h1>
+    <div class="home-content">
+        <div class="blog-detail">
+            <div class="blog-detail-date">Đăng lúc 02/11/2017</div>
+            <div class="tags">
+                <span><a href="tags.html?tag=expressjs">ExpressJS</a></span>
+                <span><a href="tags.html?tag=angulario">Angular IO</a></span>
+            </div>
+            <p>Đã rất lâu rồi mình không viết blog, hôm nay mình xin chia sẻ về cách deploy đơn giản một project Angular 4 cùng với ExpressJS.</p>
+            <h4>Build Angular 4 app</h4>
+            <p>Công việc đầu tiên của chúng ta sẽ là build Angular 2 app. Để build các bạn sử dụng lệnh bên dưới để build</p>
+            <div class="blog-detail-code">
+                ng build --prod
+            </div>
+            <p>Nếu quá trình build không gặp lỗi gì thì các bạn sẽ có một folder dist. Trong đó folder chính là sản phẩm được build từ project của các bạn.  Lúc này cấu trúc thư mục của chúng ta sẽ tương tự như sau:</p>
+            <img src="https://chickendeveloper.files.wordpress.com/2017/11/b1.png" class="center" alt="">
+            <h4>Thêm Express vào project Angular 4</h4>
+            <p>Bước tiếp theo chúng ta sẽ thêm Express vào project Angular 4. Đầu tiên chúng ta sẽ install Express vào trong project bằng đoạn lệnh sau:</p>
+            <div class="blog-detail-code">
+                npm install express --save
+            </div>
+            <p>Sau khi install Express chúng ta sẽ tạo một file server ở thư mục gốc. Ở đây mình tạo một file tên là app.js có nội dung như sau:</p>
+            <div class="blog-detail-code">
+                const express = require('express');
+                const http = require('http');
+                const path = require('path');
+                
+                const app = express();
+                app.use(express.static(path.join(__dirname, 'dist')));
+                
+                app.get('*', function(req, res) {
+                res.sendFile(path.join(__dirname, 'dist/index.html'));
+                });
+                
+                app.set('port', process.env.PORT || 3000);
+                
+                const server = http.createServer(app);
+                server.listen(app.get('port'), () => {console.log('running')});
+            </div>
+            <p>Lúc này project của bạn sẽ có thêm một file như sau:</p>
+            <img src="https://chickendeveloper.files.wordpress.com/2017/11/b2.png" alt="">
+            <p>Trong file app.js trên bao gồm các setting cơ bản để angular 4 sau khi build có thể chạy trên Express như:</p>
+            <ul>
+                <li>Khởi tạo server express</li>
+                <li>Setting đường dẫn file vào thư mục dist</li>
+                <li>Dẫn các request vào file index.html</li>
+                <li>Setting port cho project (nếu ở local sẽ có port 3000)</li>
+                <li>Cho chạy server với port 3000</li>
+            </ul>
+            <p>Để chạy project chúng ta dùng lệnh</p>
+            <div class="blog-detail-code">
+                node app.js
+            </div>
+            <p>Sau khi chạy chúng ta vào localhost:3000 sẽ có kết quả như sau:</p>
+            <img src="https://chickendeveloper.files.wordpress.com/2017/11/b3.png" alt="">
+            <p>Hy vọng với bài viết này các bạn có thể tự deploy project Angular 4 với ExpressJS.</p>
+    
+            <div class="blog-detail-comments">
+                <!-- <div id="show-comment-box">
+                    Comment
+                </div> -->
+                <div id="post-comment" >
+                    <div id="disqus_thread"></div>
+                    <script>
+                    /**
+                    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+                    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+                    /*
+                    var disqus_config = function () {
+                    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+                    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                    };
+                    */
+                    (function() { // DON'T EDIT BELOW THIS LINE
+                    var d = document, s = d.createElement('script');
+                    s.src = 'https://https-tasynguyen3894-github-io.disqus.com/embed.js';
+                    s.setAttribute('data-timestamp', +new Date());
+                    (d.head || d.body).appendChild(s);
+                    })();
+                    </script>
+                    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                </div>
+            </div>
+            <div class="blog-break-line"></div>
+        </div>
+    </div>
+    <!-- /build:body -->

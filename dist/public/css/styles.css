@@ -369,6 +369,53 @@ body {
     padding: 5px 10px;
     border-radius: 3px;
     font-size: 13px; }
+  body .notes .note-list .note-item {
+    background: #fff;
+    margin-bottom: 45px; }
+    body .notes .note-list .note-item > span {
+      font-style: italic;
+      font-size: 15px; }
+    body .notes .note-list .note-item h3 {
+      margin: 5px 0px; }
+      body .notes .note-list .note-item h3 a {
+        color: #333;
+        text-decoration: none; }
+        body .notes .note-list .note-item h3 a:hover {
+          text-decoration: underline; }
+      body .notes .note-list .note-item h3 span {
+        position: relative; }
+        body .notes .note-list .note-item h3 span.not-complete::before {
+          background: #FF8800;
+          width: 85px;
+          content: 'Chưa hoàn thành'; }
+        body .notes .note-list .note-item h3 span.complete::before {
+          background: #007E33;
+          width: 55px;
+          content: 'Hoàn thành'; }
+        body .notes .note-list .note-item h3 span.drop::before {
+          background: #3E4551;
+          width: 55px;
+          content: 'Ngừng viết'; }
+        body .notes .note-list .note-item h3 span::before {
+          font-size: 10px;
+          padding: 4px;
+          color: #FFF;
+          margin: 5px;
+          position: absolute;
+          bottom: -5px; }
+  body .notes-detail .notes-info .note-list-chap h4 {
+    margin: 0px; }
+  body .notes-detail .notes-info .note-list-chap ul {
+    list-style: none;
+    margin: 0px;
+    padding: 10px; }
+    body .notes-detail .notes-info .note-list-chap ul li {
+      margin: 5px; }
+      body .notes-detail .notes-info .note-list-chap ul li a {
+        text-decoration: none;
+        color: #3E4551; }
+        body .notes-detail .notes-info .note-list-chap ul li a:hover {
+          text-decoration: underline; }
   body .blog-list .blog-item {
     background: #fff;
     margin-bottom: 45px; }
