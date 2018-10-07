@@ -25,4 +25,9 @@ $('#nav-info-mobile-close').click(function () {
 	}
 });
 
+$('#show-comment-box').click(function () {
+	$('#post-comment').show();
+	$(this).hide();
+})
+
 

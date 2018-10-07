@@ -50,6 +50,19 @@ $blog-font-size: 16px;
     font-family: FontAwesome;
 }
 
+@mixin blog-list-title {
+	color: #333;
+	text-decoration: none;
+	&:hover {
+		text-decoration: underline;
+	}
+}
+
+@mixin blog-list-item {
+	background: #fff;
+	margin-bottom: 45px;
+}
+
 ::selection {
 	background: #333; 
 	color: #fff;
@@ -78,6 +91,13 @@ body {
 	color: $color;
 	padding: 0px;
 	margin: 0px;
+	#show-comment-box {
+		text-align: center; 
+		padding: 5px 0px; 
+		border: 1px solid #ccc; 
+		margin: 10px 0px; 
+		cursor: pointer
+	}
 	.navbar-fixed {
 		position: fixed;
 		height: 100%;
@@ -311,6 +331,12 @@ body {
 		background-position: 57% 50%;
 	}
 
+	.note-bg {
+		background: url('https://i0.wp.com/www.maloneeditorial.com/wp-content/uploads/2018/06/Practice-writing.jpg?ssl=1');
+		@include bg-cover;
+		background-position: 40% 50%;
+	}
+
 	.home-content {
 		.about {
 			h4 {
@@ -421,6 +447,30 @@ body {
 					margin: 5px 0px;
 				}
 			}
+			.blog-break-line {
+				width: 100%; 
+				border-bottom: 1px solid #ccc;
+			}
+			.blog-recommend {
+				h4 {
+					text-decoration: underline;
+				}
+				ul {
+					padding: 0px 10px;
+					list-style: none;
+					li {
+						padding: 3px 0px;
+						a {
+							color: #333;
+							font-weight: 100;
+							&:hover {
+								text-decoration: underline;
+							}
+						}
+					}
+				}
+			}
+			
 			img {
 				max-width: calc(100% - 25px);
 				display: block;
@@ -444,6 +494,38 @@ body {
 			}
 			.blog-detail-comments {
 				margin-top: 55px;
+			}
+			.note-link {
+				overflow: hidden;
+				margin: 35px 0px;
+				// text-align: center;
+				a {
+					display: inline-block;
+					&::before {
+						display: inline-block;
+						border: 1px solid #333;
+						background: #333;
+						color: #FFF;
+						padding: 5px;
+						font-size: 13px;
+					}
+					&.prev {
+						float: left;
+						&::before {
+							content: 'Chương trước';
+						}
+					}
+					&.next {
+						float: right;
+						&::before {
+							content: 'Chương sau';
+						}
+					}
+					&:hover::before {
+						color: #333;
+						background: #FFF;
+					}
+				}
 			}
 		}
 		.tags-content {
@@ -513,19 +595,81 @@ body {
 			}
 		}
 	}
-	
+	.notes {
+		.note-list {
+			.note-item {
+				@include blog-list-item;
+				> span {
+					font-style: italic;
+					font-size: 15px;
+				}
+				h3 {
+					margin: 5px 0px;
+					a {
+						@include blog-list-title;
+					}
+					span {
+						position: relative;
+						&.not-complete::before {
+							background: #FF8800;
+							width: 85px;
+							content: 'Chưa hoàn thành';
+						}
+						&.complete::before {
+							background: #007E33;
+							width: 55px;
+							content: 'Hoàn thành';
+						}
+						&.drop::before {
+							background: #3E4551;
+							width: 55px;
+							content: 'Ngừng viết';
+						}
+						&::before {
+							font-size: 10px;
+							padding: 4px;
+							color: #FFF;
+							margin: 5px;
+							position: absolute;
+							bottom: -5px;
+							
+						}
+					}
+				}
+			}
+		}
+	}
+	.notes-detail {
+		.notes-info {
+			.note-list-chap {
+				h4 {
+					margin: 0px;
+				}
+				ul {
+					list-style: none;
+					margin: 0px;
+					padding: 10px;
+					li {
+						margin: 5px;
+						a {
+							text-decoration: none;
+							color: #3E4551;
+							&:hover {
+								text-decoration: underline;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
 	.blog-list {
 		.blog-item {
-			background: #fff;
-			margin-bottom: 45px;
+			@include blog-list-item;
 			h3 {
 				margin: 5px 0px;
 				a {
-					color: #333;
-					text-decoration: none;
-					&:hover {
-						text-decoration: underline;
-					}
+					@include blog-list-title;
 				}
 			}
 			.blog-type {

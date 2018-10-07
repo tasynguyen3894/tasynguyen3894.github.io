@@ -23,6 +23,12 @@ body {
   color: #333;
   padding: 0px;
   margin: 0px; }
+  body #show-comment-box {
+    text-align: center;
+    padding: 5px 0px;
+    border: 1px solid #ccc;
+    margin: 10px 0px;
+    cursor: pointer; }
   body .navbar-fixed {
     position: fixed;
     height: 100%;
@@ -204,6 +210,10 @@ body {
     background: url("https://cdna.artstation.com/p/assets/images/images/006/638/346/large/martyna-nejman-knight1.jpg");
     background-size: cover;
     background-position: 57% 50%; }
+  body .note-bg {
+    background: url("https://i0.wp.com/www.maloneeditorial.com/wp-content/uploads/2018/06/Practice-writing.jpg?ssl=1");
+    background-size: cover;
+    background-position: 40% 50%; }
   body .home-content .about h4 {
     text-align: center;
     margin: 5px 0px; }
@@ -287,6 +297,21 @@ body {
           font-weight: bold; }
   body .home-content .blog-detail ul li {
     margin: 5px 0px; }
+  body .home-content .blog-detail .blog-break-line {
+    width: 100%;
+    border-bottom: 1px solid #ccc; }
+  body .home-content .blog-detail .blog-recommend h4 {
+    text-decoration: underline; }
+  body .home-content .blog-detail .blog-recommend ul {
+    padding: 0px 10px;
+    list-style: none; }
+    body .home-content .blog-detail .blog-recommend ul li {
+      padding: 3px 0px; }
+      body .home-content .blog-detail .blog-recommend ul li a {
+        color: #333;
+        font-weight: 100; }
+        body .home-content .blog-detail .blog-recommend ul li a:hover {
+          text-decoration: underline; }
   body .home-content .blog-detail img {
     max-width: calc(100% - 25px);
     display: block;
@@ -304,6 +329,29 @@ body {
         font-family: FontAwesome; }
   body .home-content .blog-detail .blog-detail-comments {
     margin-top: 55px; }
+  body .home-content .blog-detail .note-link {
+    overflow: hidden;
+    margin: 35px 0px; }
+    body .home-content .blog-detail .note-link a {
+      display: inline-block; }
+      body .home-content .blog-detail .note-link a::before {
+        display: inline-block;
+        border: 1px solid #333;
+        background: #333;
+        color: #FFF;
+        padding: 5px;
+        font-size: 13px; }
+      body .home-content .blog-detail .note-link a.prev {
+        float: left; }
+        body .home-content .blog-detail .note-link a.prev::before {
+          content: 'Chương trước'; }
+      body .home-content .blog-detail .note-link a.next {
+        float: right; }
+        body .home-content .blog-detail .note-link a.next::before {
+          content: 'Chương sau'; }
+      body .home-content .blog-detail .note-link a:hover::before {
+        color: #333;
+        background: #FFF; }
   body .home-content .tags-content .tags-list {
     width: calc(100% - 30px);
     margin: 45px auto 25px auto; }
@@ -348,6 +396,53 @@ body {
     padding: 5px 10px;
     border-radius: 3px;
     font-size: 13px; }
+  body .notes .note-list .note-item {
+    background: #fff;
+    margin-bottom: 45px; }
+    body .notes .note-list .note-item > span {
+      font-style: italic;
+      font-size: 15px; }
+    body .notes .note-list .note-item h3 {
+      margin: 5px 0px; }
+      body .notes .note-list .note-item h3 a {
+        color: #333;
+        text-decoration: none; }
+        body .notes .note-list .note-item h3 a:hover {
+          text-decoration: underline; }
+      body .notes .note-list .note-item h3 span {
+        position: relative; }
+        body .notes .note-list .note-item h3 span.not-complete::before {
+          background: #FF8800;
+          width: 85px;
+          content: 'Chưa hoàn thành'; }
+        body .notes .note-list .note-item h3 span.complete::before {
+          background: #007E33;
+          width: 55px;
+          content: 'Hoàn thành'; }
+        body .notes .note-list .note-item h3 span.drop::before {
+          background: #3E4551;
+          width: 55px;
+          content: 'Ngừng viết'; }
+        body .notes .note-list .note-item h3 span::before {
+          font-size: 10px;
+          padding: 4px;
+          color: #FFF;
+          margin: 5px;
+          position: absolute;
+          bottom: -5px; }
+  body .notes-detail .notes-info .note-list-chap h4 {
+    margin: 0px; }
+  body .notes-detail .notes-info .note-list-chap ul {
+    list-style: none;
+    margin: 0px;
+    padding: 10px; }
+    body .notes-detail .notes-info .note-list-chap ul li {
+      margin: 5px; }
+      body .notes-detail .notes-info .note-list-chap ul li a {
+        text-decoration: none;
+        color: #3E4551; }
+        body .notes-detail .notes-info .note-list-chap ul li a:hover {
+          text-decoration: underline; }
   body .blog-list .blog-item {
     background: #fff;
     margin-bottom: 45px; }
