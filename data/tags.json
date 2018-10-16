@@ -1,5 +1,22 @@
 [
     {
+<<<<<<< HEAD
+=======
+        "title": "Quyển văn mẫu lớp tám",
+        "url": "quyen-van-mau-lop-tam.html",
+        "tags": [
+            "lan-man", "my-stories"
+        ]
+    },
+    {
+        "title": "[Dịch] Các designer học frontend như thế nào?",
+        "url": "cac-designer-hoc-frontend-nhu-the-nao.html",
+        "tags": [
+            "frontend", "translate", "html"
+        ]
+    },
+    {
+>>>>>>> d5a99e3f4b5b06a1c7df3ffec442574251dc9580
         "title": "Seminar: Thiết kế RESTFUL API document với Swagger",
         "url": "seminar-swagger.html",
         "tags": [
