@@ -41,10 +41,10 @@
                 <div class="navbar-quotes" id="navbar-quotes">
                     
     <div class="navbar-quotes-content">
-        Without training, they lacked knowledge. Without knowledge, they lacked confidence. Without confidence, they lacked victory.
+        Go as far as you can see; when you get there, you'll be able to see farther.
     </div>
     <div class="navbar-quotes-speaker">
-        Julius Caesar
+        JP Morgan 
     </div>
     
                 </div>
@@ -74,13 +74,13 @@
                 <span><a href="tags.html?tag=vue">vue</a></span>
                 <span><a href="tags.html?tag=javascript">javascript</a></span>
             </div>
-            <p>Hôm nay mình sẽ chia sẽ một tí về những thứ hay được hỏi trong cuộc phỏng vấn Vue. Mình khá thích framework này và cũng đang làm việc với Vue trong các dự án. Dưới đây là các mục mà mình sẽ đề cập trong bài viết hôm nay.</p>
+            <p>Hôm nay mình sẽ chia sẽ một tí về những thứ hay ho được hỏi trong cuộc phỏng vấn Vue. Mình khá thích framework này và cũng đang làm việc với Vue trong các dự án. Dưới đây là các mục mà mình sẽ đề cập trong bài viết hôm nay.</p>
             <ul>
                 <li>Sự khác biệt và các trường hợp sử dụng của <b>computed</b>, <b>methods</b> và <b>watch</b></li>
                 <li>Sự hiểu biết về Vue life cycle</li>
-                <li>Vue two-way binding. Tại sao khi bạn thay đổi data và view biết được sự thay đổi đó</li>
+                <li>Vue two-way binding. Tại sao khi bạn thay đổi data và view biết được sự thay đổi đó?</li>
                 <li>Diễn tả ngắn gọn mô hình MVVM của Vue</li>
-                <li>Diễn tả sự khác biệt giữa history và hash mode của Vue-router</li>
+                <li>Diễn tả sự khác biệt giữa history mode và hash mode của Vue-router</li>
                 <li>Sự khác biệt giữa $route và $router trong Vue-router</li>
             </ul>
             <h4>Sự khác biệt và các trường hợp sử dụng của <b>computed</b>, <b>methods</b> và <b>watch</b></h4>
@@ -88,10 +88,8 @@
                 methods vs computed
             </div>
             <p>
-                Chúng ta có thể định nghĩa một hàm là <b>method</b> thay vì là <b>computed</b>. Cơ bản hai phương thức này
-                điều trả về kết quả giống nhau. Tuy nhiên điểm khác nhau nằm ở chổ những data mà chúng phụ thuộc vào. Computed
-                chỉ được tính toán lại khi các thuộc tính mà nó phụ thuộc thay đổi. Ví dụ như có nghĩa là chỉ cần một state
-                (hoặc prop) là <i>message</i> không thay đổi thì những truy vấn vào computed tương tác với <i>message</i>                là <i>reversedMessage</i> sẽ lập tức trả về kết quả của phép tính trước đó mà không cần tính toán lại. Ngược
+                Chúng ta có thể định nghĩa một hàm là <b>method</b> thay vì là <b>computed</b>. Bởi vì cơ bản hai thứ này điều trả về kết quả giống nhau. Tuy nhiên điểm khác nhau nằm ở chổ những dữ liệu mà chúng phụ thuộc vào. Computed
+                chỉ được tính toán lại khi các dữ liệu mà nó phụ thuộc thay đổi. Ví dụ như ta có một state (hoặc prop) là <i>message</i> không thay đổi thì những truy vấn vào computed tương tác với <i>message</i> là <i>reversedMessage</i> sẽ lập tức trả về kết quả của phép tính trước đó mà không cần tính toán lại. Ngược
                 lại, chỉ cần được gọi ra thì <b>method</b> sẽ luôn luôn thực thi tính toán. Tóm lại, nếu thuật toán của bạn
                 cần tính toán lớn và nặng bạn nên chọn <b>computed</b>. Nhưng nếu bạn không muốn dùng lại những kết quả bị
                 "cache" lại thì bạn có thể chọn <b>method</b>.
@@ -103,10 +101,8 @@
                 Khi bạn sử dụng các phương thức logic phức tạp với template, bạn nên sử dụng computed
             </p>
             <p>
-                watch được viết dưới dạng là một object mà key của nó là một thức cần được <i>"watch"</i> (ví dụ như data,
-                prop) và giá trị là một function sẽ được gọi tương ứng khi có thay đổi. Giá trị cũng có thể là một method
-                hoặc là một object chứa các tùy chọn. Nếu bạn có một số dữ liệu cần thay đổi khi dữ liệu khác thay đổi. Hoặc
-                khi bạn cần phải thực hiện asynchronous hoặc các hành động tốn kém khi dữ liệu thay đổi thì bạn có thể dùng
+                watch được viết dưới dạng là một object mà key của nó là một thứ cần được <i>"watch"</i> (ví dụ như data, prop) và giá trị là một function sẽ được gọi tương ứng khi có thay đổi. Giá trị cũng có thể là một method
+                hoặc là một object chứa các tùy chọn. Nếu bạn có một số dữ liệu cần thay đổi khi dữ liệu khác thay đổi. Hoặc khi bạn cần phải thực hiện asynchronous hoặc các hành động tốn kém khi dữ liệu thay đổi thì bạn có thể dùng
                 <b>watch</b>
             </p>
 
@@ -166,12 +162,9 @@
                     event listener sẽ bị xóa bỏ và tất cả các component con cũng đều bị hủy.
                 </p>
                 <h4>Vue two-way binding. Tại sao khi bạn thay đổi data và view biết được sự thay đổi đó</h4>
-                <p>Vue chứa một tập hợp các phương thức có thể quan sát sự thay đổi của mảng và những phương thức đó sẽ trigger
-                    để update lại view. Những phương thức đó là:</p>
+                <p>Vue chứa một tập hợp các phương thức có thể quan sát sự thay đổi của mảng và những phương thức đó sẽ trigger để update lại view. Những phương thức đó là:</p>
                 <p>push(), pop(), shift() ,unshift(), splice(), sort(), reverse()</p>
-                <p>filter(), concat() và slice(). Những phương thức này không làm thay đổi mảng ban đầu nhưng sẽ trả về một
-                    mảng mới. Do vậy khi bạn sử dụng những phương thức này bạn có thể thay đổi mảng cũ bằng mảng mới (được
-                    trả về)</p>
+                <p>Với filter(), concat() và slice(). Những phương thức này không làm thay đổi mảng ban đầu nhưng sẽ trả về một mảng mới. Do vậy khi bạn sử dụng những phương thức này bạn có thể thay đổi mảng cũ bằng mảng mới (được trả về)</p>
                 <p>Do sự giới hạn của Javascript, Vue không thể detect được sự thay đổi của mảng với những thay đổi như sau:</p>
                 <ul>
                     <li>Khi bạn cập nhật trực tiếp bằng index (chỉ mục): vm.items[indexOfItem] = newValue</li>
@@ -183,12 +176,11 @@
                     <li>vm.items.splice(indexOfItem, 1, newValue)</li>
                 </ul>
                 <h4>Diễn tả ngắn gọn mô hình MVVM của Vue</h4>
-                <p>Vue là một data-driven mà chính bản thân Vue liên kết DOM với dữ liệu. Khi "binding" được khởi tạo, thù DOM
+                <p>Vue là một data-driven mà chính bản thân Vue liên kết DOM với dữ liệu. Khi "binding" được khởi tạo, thì DOM
                     và dữ liệu sẽ được giữ liên kết với nhau. Những khi dữ liệu bị thay đổi, DOM sẽ được thay đổi theo.</p>
                 <p>ViewModel là cốt lõi của Vue, nó là một instance của Vue. Vue instance sau khi được áp dụng cho một phần
-                    tử HTML, phần tử HTML đó có thể là body, cũng có thể là một phần tử được chỉ định bằng id.Các DOM Listener
-                    và các Data Binding chính là chìa khóa trong việc thực hiện two-way binding. Các DOM Listener thì lắng
-                    nghe các sự thay đổi trong tất cả các View trên các phần tử DOM của page，mỗi khi có sự biến đổi xảy ra，các
+                    tử HTML, phần tử HTML đó có thể là body, cũng có thể là một phần tử được chỉ định bằng id. Các DOM Listener
+                    và các Data Binding chính là chìa khóa trong việc thực hiện two-way binding. Các DOM Listener thì lắng nghe các sự thay đổi trong tất cả các View trên các phần tử DOM của page，mỗi khi có sự biến đổi xảy ra，các
                     dự liệu được liên kết với model sẽ thay đổi theo. Các Data Binding lắng nghe các dữ liệu từ Model. Khi
                     dữ liệu thay đổi thì DOM chứa View của dữ liệu đó sẽ thay đổi theo.</p>
                 <h4>Diễn tả sự khác biệt giữa history và hash mode của Vue-router</h4>
@@ -198,10 +190,10 @@
                     replaceState(). Hai phương thức này được áp dụng cho browser record stack, cung cấp khả năng sửa đổi
                     history ngay ở trang hiện tại. Khi thực hiện các cập nhật, mặc dù URL hiện tại bị thay đổi nhưng trình
                     duyệt không lập tức gửi yêu cầu tới backend ngay lúc đó.</p>
-                Nguyên tắc
+                <b>Nguyên tắc</b>   
                 <p>Nguyên tắc của hash mode là sự kiện onhashchange được lắng nghe từ window</p>
-                <p>history: hashchange thì chỉ có thể thay đổi những nội dung phía sau dấu #. Nhưng history api (pushState,
-                    replaceState, go, back, forward) giúp có frontend có thể tự do tương tác bởi nó được lắng nghe bởi event
+                <p>history: nếu hashchange thì chỉ có thể thay đổi những nội dung phía sau dấu #. Thì history api (pushState,
+                    replaceState, go, back, forward) giúp có frontend có thể tự do tương tác với URL bởi nó được lắng nghe bởi event
                     popState() từ window.</p>
                 <h4>Sự khác biệt giữa $route và $router trong Vue-router</h4>
                 <p><b>$route</b> là "đối tượng thông tin định tuyến" chứa các thông tin của một thông số của một định tuyến
