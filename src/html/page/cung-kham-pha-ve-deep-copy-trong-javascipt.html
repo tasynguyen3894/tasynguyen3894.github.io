@@ -1,0 +1,76 @@
+<!-- build:title -->[Dịch] Cùng khám phá về deep copy trong javascript<!-- /build:title -->
+
+<!-- build:menu --><div class="navbar-fixed home-bg"><!-- /build:menu -->
+
+<!-- build:quotes -->
+<div class="navbar-quotes-content">
+	Attack if you can attack, defend if you can't attack, flee if you can't defend, surrender if you can't flee, die if you can't surrender!
+</div>
+<div class="navbar-quotes-speaker">
+	Sima Yi
+</div>
+<!-- /build:quotes -->
+
+<!-- build:body -->
+<h1>[Dịch] Cùng khám phá về deep copy trong javascript</h1>
+<div class="home-content">
+    <div class="blog-detail">
+        <div class="blog-detail-date">Đăng lúc 27/07/2018</div>
+        <div class="tags">
+            <span><a href="tags.html?tag=javascript">javascript</a></span>
+			<span><a href="tags.html?tag=translate">translate</a></span>
+        </div>
+        <p>Tập trung vào trọng điểm thì đây là một câu hỏi phỏng vấn như bao câu hỏi phỏng vấn thôi. Những đã có kha khá ứng viên bị tôi loại bởi vấn đề này đấy.</p>
+        <p>Thứ nhất, đây là một câu hỏi phỏng vấn khá hay. Các bạn có thể xem xét khá nhiều khía cạnh của ứng viên như kỹ năng cơ bản, khả năng code, logic cùng sự linh hoạt. Tùy theo từng cấp độ của ứng viên mà chúng ta có các xem xét đánh giá khác nhau. Ví dụ như một cô nàng xinh đẹp thì ngại gì cho câu hỏi ở độ khó 1 sao nhỉ. Còn với các đấng nam tử thì cũng không ngại đối đồi với những câu hỏi 5 sao đâu nhỉ (*^__^*) 嘻嘻...</p>
+        <!--<p>Nhưng cho dù ứng viên có giỏi đến như thế nào, câu trả lời có tuyệt vời đến đâu. Tôi luôn có thể đưa ra một câu hỏi làm cho họ ngạc nhiên </p>-->
+        <p>Trong bài viết hôm nay, tôi sẽ cung cấp cho các bạn bố phương thức deep copy, với mỗi cách sẽ có đặc điểm và tính chất riêng.</p>
+        <h4>Deep copy VS shallow copy</h4>
+        <p>Trước khi bắt đầu, bạn cần phải biết một chút về deep copy. Nếu bạn đã biết rồi thì bạn có thể bỏ qua bước này</p>
+        <p>Thực tế thì Deep copy và shallow copy đều là các kiểu tham chiếu. Các kiểu biến trong JS được chia ra làm các loại là kiểu tham chiếu và kiểu giá trị. Đối với kiểu giá trị thì quá trình copy sẽ là việc copy giá trị sang biến mới. Đối với kiểu tham chiếu thì quá trình copy sẽ là copy địa chỉ qua biến mới, nghĩa là cả hai biến sẽ chỉ vào cùng một giá trị.</p>
+        
+    <pre><code class="javascript">
+    // copy giá trị cơ bản
+    var a = 1;
+    var b = a;
+    a = 2;
+    console.log(a, b); // 2, 1 ，a và b có giá trị khác nhau
+
+    // copy kiểu tham chiếu với cùng một dữ liệu
+    var a = {c: 1};
+    var b = a;
+    a.c = 2;
+    console.log(a.c, b.c); // 2, 2 => tất cả đều là 2，a và b có giá trị như nhau
+    </code></pre>
+    <p>Vì là kiểu tham chiếu, nên a và b sẽ được dẫn đến cùng một dữ liệu. Nếu bạn thay đổi một trong số chúng, những thay đổi đó sẽ tác động đến tất cả các biến cùng tham chiếu đến. Đôi khi điều này sẽ gây ra những kết quả không muốn. Nên nếu bạn không thông suốt những khái niệm này thì nó có thể gây ra những bug không cần thiết.</p>
+    <p>Vậy làm sau để cắt đứt mối quan hệ giữa a và b?</p>
+
+        <div class="blog-detail-comments">
+            <!-- <div id="show-comment-box">
+                Comment
+            </div> -->
+            <div id="post-comment" >
+                <div id="disqus_thread"></div>
+                <script>
+                /**
+                *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+                *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+                /*
+                var disqus_config = function () {
+                this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+                this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                };
+                */
+                (function() { // DON'T EDIT BELOW THIS LINE
+                var d = document, s = d.createElement('script');
+                s.src = 'https://https-tasynguyen3894-github-io.disqus.com/embed.js';
+                s.setAttribute('data-timestamp', +new Date());
+                (d.head || d.body).appendChild(s);
+                })();
+                </script>
+                <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+            </div>
+        </div>
+        <div class="blog-break-line"></div>
+    </div>
+</div>
+<!-- /build:body -->
