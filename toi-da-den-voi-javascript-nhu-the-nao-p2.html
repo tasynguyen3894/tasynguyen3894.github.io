@@ -8,6 +8,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="/public/css/styles.css">
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.13.1/build/styles/default.min.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     </head>
     <body>
@@ -75,17 +76,18 @@
 			<li>Các bài viết trong series</li>
 			<li><a href="toi-da-den-voi-javascript-nhu-the-nao-p1.html">Javascript thật đáng sợ</a></li>
 			<li><a class="current" href="toi-da-den-voi-javascript-nhu-the-nao-p2.html">Đây là game sinh tồn!</a></li>
+            <li><a href="toi-da-den-voi-javascript-nhu-the-nao-p3.html">First love</a></li>
 		</ul>
         <p>Cuộc sống là một trò chơi nhưng tùy vào mỗi người mà nó sẽ mang thể loại khác nhau. Đi làm cũng thế, với mình những ngày đầu thì đi làm đúng nghĩa là một trò chơi sinh tồn.</p>
 		<h4>Khoảng thời gian khó khăn</h4>
 		<p>Như đã kể trong phần trước thì mình có nói về việc mình bị tống cổ ra khỏi căn nhà PHP, mặc áo tơi lao vào một cơn bão mang tên Javascript. Thì trong phần này mình xin kể sơ về vụ việc trước đó. Mình đã trãi qua một khoảng thời gian chật vật nếu không muốn nói là khủng hoảng trong vài tháng. Khi ra trường nhưng không xin được việc làm, thi rớt liên thông lên hệ hoàn chỉnh của trường. Mỗi ngày trôi qua là một ngày áp lực khi mà cái bóng đen thất nghiệp cứ treo lơ lững trên đầu. Trong thời gian đó mình cũng bí quá đi làm một số nghề như internet sale, quản lý channel Youtube nhưng vài ngày rồi quit khi được gọi đi làm chổ khác tốt hơn. Hay đúng hơn là gần với chuyên ngành hơn. Đến một lần mình được nhận vào làm trong một công ty nhỏ chỉ có vài mạng ở Tân Phú. Công ty làm Java, mình được nhận vào và ngày đầu tiên của mình là được dạy sơ sơ về system admin. Đến ngày thứ hai, mình có được một cú điện thoại định mệnh. Một người gọi tên lên và phỏng vấn về công việc PHP developer. Thế là mình lại quit công việc hiện tại. Cuối cùng mình cũng tìm được một công việc phù hợp với chuyên môn PHP của mình. Lúc lên công ty, mình được đưa ra task là làm một project đăng tin và quản lý đơn giản bằng Phalcon. Mình nhớ là mình làm xong trong vòng 3,5 ngày thì phải. Sau này, mình mới biết luật bất thành văn của ông ty là nếu sau một tuần mà không xong thì cho đi bụi hết. Sau đó, mình làm một lô lốc công việc trước khi join vào một dự án product của công ty. Lúc này, mình đảm nhận một phần khá lớn frontend lẫn backend (PHP) của project. Chỉ trừ phần tương tác với database là mình không chạm vào. Do lúc đó công ty sử dụng API kèm với elasticsearch để xử lý. Do mình không đủ khả năng làm nên phần đó công ty giao cho một ông anh làm (các bạn có thể follow him tại <a href="https://nodeplusplus.com/" target="_blank">Node++</a>). Nếu hỏi lúc đó mình ngán cái gì nhất thì mình có thể khẳng định đó là HTML, CSS, Javascript. Mình code xấu cực kì và rất tệ. Sử dụng các class có sẵn của Foundation cực kì bừa bãi. Bất lực trước các thứ như plugin slider hoặc là menu, map. Do chất lượng kém thêm phải sửa liên tục nên đống source đó nhìn chả khác gì một mớ hỗn độn. Thời gian đó mình cực kỳ stress và thường xuyên tự nhủ là "mình tuyển vào đây để làm backend mà?". Có một chuyện vui là đến tận sau này sếp mới biết mình làm backend, chứ trước đó ổng toàn đinh ninh là mình là frontend dev. Đến một ngày, mọi thứ thay đổi khi sếp cử hai anh qua hỗ trợ phần frontend của project (cuối cùng một anh sa lầy trong cái project này luôn). Code ở tầng frontend được đập đi và cơ cấu lại. Cả về trúc file và folder cũng được gom gọn lại để đảm bảo DRY (Don't repeat yourself). Code css thì được tổ chức chỉnh chu lại. Nói đơn giản chứ nó mất cũng gần nửa tháng. Liên tục là những đêm thức tới 2, 3 giờ sáng để deploy. Chủ nhật thì hai anh em  đi cafe ở BlackBerry Cafe nằm bên quận 4 (thời gian đó cũng chính là cái thời gian mình đang mơ về em BlackBerry Classic). Ngồi đến tận lúc quán sắp đóng cửa anh vẫn cố nói với bạn phục vụ <i>"chờ tí nha em, để bọn anh up cái này lên đã"</i>. Xong hai anh em ra ăn hủ tíu gõ (vì giờ đó chỉ còn bán hủ tíu gõ). Về ngủ vài tiếng sau là phải thức tiếp để làm nối một số phần và kiểm tra trên production sau khi deploy.</p>
 		<h4>Những bước đầu tiên</h4>
 		<p>Sau khi được refactor đống code cũ. Mình lại tiếp tục những ngày code frontend của mình, chỉ khác là giờ được hướng dẫn nhiều thứ nên công việc cũng thú vị hơn. Mình dần nhận ra là frontend không quá đáng ghét như mình nghĩ. Mình nhớ cái lần mà được dạy  về absolute và relative hay là dùng jQuery để listen event cho các element được render theo dạng dưới đây:</p>
-		<div class="blog-detail-code">
-			$("body").on("click", ".btn-delete" function () {
-				//
-			})
-		</div>
+    <pre><code class="javascript">
+    $("body").on("click", ".btn-delete" function () {
+        //
+    })
+    </code></pre>
 		<p>Mỗi lần như thế cảm giác đầu như được khai sáng một ít. Lại được các anh dạy cả cách search google để dễ ra được solution đúng, cách tổ chức file, function. Đặc biệt là leader có nhắc mình một câu là không biết phải hỏi ngay những vấn đề mới. Mình nhớ một lần anh nói với mình:</p>
 		<div class="blog-detail-quote">
 			Cái gì mà không biết là phải hỏi ngay. Cứ việc hỏi đi. Ngày xưa vào đây anh cũng không biết gì. Nhưng mà anh chịu hỏi. Lúc đó, anh ngồi kế anh Khánh, không biết cái gì là anh hỏi liền. Hỏi riết ổng bực luôn :lol
@@ -137,6 +139,8 @@
             </div>
         </div>
         <script src="/public/js/main.js"></script>
+        <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.13.1/build/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
         <!-- build:script -->
     </body>
 </html>

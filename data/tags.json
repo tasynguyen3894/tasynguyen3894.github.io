@@ -1,9 +1,16 @@
 [
     {
-        "title": "Những câu hỏi phổ biến khi phỏng vấn Vue. Có thể bạn đã biết.",
+        "title": "Tôi đã đến với javascript như thế nào (Phần 3): First Love",
+        "url": "toi-da-den-voi-javascript-nhu-the-nao-p2.html",
+        "tags": [
+            "javascript", "my-stories", "vue"
+        ]
+    },
+    {
+        "title": "[Dịch] Những câu hỏi phổ biến khi phỏng vấn Vue. Có thể bạn đã biết?",
         "url": "nhung-cau-hoi-khi-phong-van-vue-va-ban-co-the-tra-loi-khong.html",
         "tags": [
-            "vue", "javascript"
+            "vue", "javascript", "translate"
         ]
     },
     {
