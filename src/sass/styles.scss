@@ -7,6 +7,7 @@ $nav-background: #333;
 $nav-color: #FFF;
 $left-content-witdh: 300px;
 $blog-font-size: 16px;
+$comment-bg: #F4F4F4;
 
 // mixin and function
 @mixin nav-bar {
@@ -83,6 +84,17 @@ body::-webkit-scrollbar-track {
 
 body::-webkit-scrollbar-thumb {
 	background: #333;
+}
+
+ul {
+	&.noted {
+		list-style: none;
+		padding: 5px;
+		font-size: 15px;
+		li {
+			padding: 5px;
+		}
+	}
 }
 
 body {
@@ -418,6 +430,8 @@ body {
 				margin-bottom: 10px;
 			}
 			a {
+				white-space: pre-wrap;
+				word-wrap: break-word;
 				color: #333;
 				text-decoration: none;
 				font-weight: bold;
@@ -433,6 +447,8 @@ body {
 				li {
 					margin: 5px 0px;
 					a {
+						white-space: pre-wrap;
+						word-wrap: break-word;
 						font-weight: inherit;
 						font-size: $blog-font-size;
 						padding-left: 10px;
@@ -524,6 +540,43 @@ body {
 					&:hover::before {
 						color: #333;
 						background: #FFF;
+					}
+				}
+			}
+			.comment {
+				padding: 10px;
+				.comment-item {
+					font-size: 15px;
+					font-style: italic;
+					border-bottom: 1px solid #ccc;
+					margin-bottom: 10px;
+					&:last-child {
+						border-bottom: none;
+					}
+					h3 {
+						font-size: 15px;
+						margin: 0px;
+					}
+					p {
+						font-size: 15px;
+						background: $comment-bg;
+						border-left: 3px solid #ccc;
+						padding: 5px;
+						margin-bottom: 3px;
+					}
+					ul {
+						list-style: none;
+						padding: 5px 0px 5px 15px;
+    					margin: 5px 0px;
+						li {
+							b {
+								display: block;
+							}
+							margin: 10px 0px;
+							padding: 5px;
+							background: $comment-bg;
+							border-left: 3px solid #ccc;
+						}
 					}
 				}
 			}
@@ -781,10 +834,18 @@ body {
 	}
 }
 
+.overflow-scroll {
+	width: 100%;
+	overflow-x: scroll;
+	overflow-y: auto;
+	overflow: auto;
+}
+
 table {
 	width: 100%;
 	border-collapse: collapse;
 	border: 1px solid #ccc;
+	overflow:auto;
 }
 
 table td, table th {
@@ -792,3 +853,10 @@ table td, table th {
 	padding: 10px 15px;
 	border: 1px solid #ccc;
 }
+
+a.note-item::before {
+	content: '(*)';
+	color: #E4630B;
+}
+
+

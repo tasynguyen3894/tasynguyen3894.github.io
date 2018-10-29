@@ -7,7 +7,6 @@
     Raised up by Xiao He, cast down by Xiao He.
 </div>
 <div class="navbar-quotes-speaker">
-    Han Xin
 </div>
 <!-- /build:quotes -->
 
@@ -355,7 +354,7 @@ cloneForce(a)
 // Kết quả hơi bị trất's nhé. LUL
 </code></pre>
 <p>Có vẻ không được hoàn hảo lắm nhỉ? Chúng ta hãy nhìn vào hai vấn đề của cloneForce.</p>
-<p>Vấn đề thứ nhất có thể dùng một câu nói của cổ nhân đó là <i>"Thành cũng Tiêu Hà, bại cũng Tiêu Hà"</i>. Nếu giữ lại những tham chiếu là điều bạn không muốn thì trong trường hợp này bạn không thể dùng cloneForce</p>
+<p>Vấn đề thứ nhất có thể dùng một câu nói của cổ nhân đó là <i>"Thành cũng Tiêu Hà, bại cũng Tiêu Hà"</i><a id="thanh-cung-tieu-ha-bai-cung-tieu-ha-in-page" title="Thành cũng Tiêu Hà, bại cũng Tiêu Hà" class="note-item" href="#thanh-cung-tieu-ha-bai-cung-tieu-ha"></a>. Nếu giữ lại những tham chiếu là điều bạn không muốn thì trong trường hợp này bạn không thể dùng cloneForce</p>
 <p>Thứ hai là khi đối tượng chứa dữ liệu tương đối lớn thì cloneForce sẽ không phải là một phương pháp thích hợp.</p>
 <h4>So sánh hiệu suất</h4>
 <p>Nếu các nội dung ở phía trên có vẻ khó nuốt thì... hãy cố thêm một tí gì khó nuốt nửa nhé (lỡ rồi tới luôn). Chúng ta hãy so sánh hiệu suất của các phương pháp ở trên.</p>
@@ -377,6 +376,7 @@ function runTime(fn, time) {
 runTime(function () { clone(createData(500, 1)) }, 2000);
 </code></pre>
 <p>Trong lần thử nghiệm đầu tiên, chúng ta giữ động rộng là 100 và cho thay đổi độ sâu từ nhỏ đến lớn. Sau đó, ghi lại số lần thực hiện trong thời gian là một giây.</p>
+<div class="overflow-scroll">
 <table>
     <thead>
         <th>Chiều sâu</th>
@@ -393,11 +393,12 @@ runTime(function () { clone(createData(500, 1)) }, 2000);
 
     </tbody>
 </table>
+</div>
 <p>
     Dựa vào bảng dữ thống kê ở phía trên chúng ta có thể đưa ra một số điều như sau:
 </p>
 <ul>
-    <li>Ở những độ sâu nhỏ, độ chênh lệch là không lớn.</li>
+    <li>Ở những độ sâu lơn dân, độ chênh lệch sẽ dần được thu hẹp.</li>
     <li>Độ chênh lệch giữa <b>clone</b> và <b>cloneLoop</b> thì không lớn lắm</li>
     <li>cloneLoop > cloneForce > cloneJSON</li>
 </ul>
@@ -414,6 +415,7 @@ runTime(function () { clone(createData(500, 1)) }, 2000);
 <p>1 + 2 + 3 ... + n = n^2/2 - 1</p>
 <p>Có một vấn đề với <b>clone</b> và <b>cloneLoop</b> đó là kết quả thử nghiệm có vẻ không được khớp với những gì chúng ta đã suy luận. Chắc hẳn chúng ta đã có những lổ hổng trong suy luận</p>
 <p>Tiếp theo, chúng ta sẽ lại thử nghiệm với bài kiểm thử thứ hai. Chiều sâu lúc này sẽ là 10000 đồng thời chiều rộng cố định là 0 và chúng ta sẽ đếm số lần thực hiện được trong 2 giây.</p>
+<div class="overflow-scroll">
 <table>
     <thead>
         <th>Chiều rộng</th>
@@ -432,6 +434,7 @@ runTime(function () { clone(createData(500, 1)) }, 2000);
         </tr>
     </tbody>
 </table>
+</div>
 <p>Sau khi loại trừ sự can thiệp của chiều rộng trong các thí nghiệm. Chúng ta hãy tìm hiểu xem những ảnh hưởng của chiều sâu đến kết quả.</p>
 <ul>
     <li>Khi có sự gia tăng của chiều sâu thì hiệu năng của <b>cloneForce</b> bị giảm đi hẳn.</li>
@@ -455,8 +458,9 @@ cloneForce(data5)
 <p>Qua quá trình kiểm tra, chúng ta có thể thấy rằng thời gian cần thiết để thực hiện sẽ phát triển theo cấp số nhân. Khi độ sâu đạt hơn 10000, độ trễ có thể lên tới 300ms.</p>
 <img src="public/img/cung-kham-pha-ve-deep-copy-trong-javascipt/2.png" alt="">
 <h4>Kết</h4>
-<p>Trên thực tế thì mỗi phương pháp đều sẽ có ưu và khuyết điểm riêng. Nhưng như chúng ta vẫn hay nói <i>nhân tận kỳ tài, vật tất kỳ dụng</i>. Tùy mỗi hoàn cảnh mà sẽ có cách sử dụng khác nhau.</p>
+<p>Trên thực tế thì mỗi phương pháp đều sẽ có ưu và khuyết điểm riêng. Nhưng như chúng ta vẫn hay nói <i>nhân tận kỳ tài, vật tất kỳ dụng <a title="Nhân tận kỳ tài, vật tất kỳ dụng" class="note-item" id="nhan-tan-ky-tai-vat-tat-ky-dung-in-page" href="#nhan-tan-ky-tai-vat-tat-ky-dung"></a></i>. Tùy mỗi hoàn cảnh mà sẽ có cách sử dụng khác nhau.</p>
 <p>Với những thông tin dưới đây, tôi hy vọng sẽ giúp được các bạn trong việc chọn lựa được phương pháp phù hợp.</p>
+<div class="overflow-scroll">
 <table>
     <thead>
         <th></th>
@@ -510,6 +514,7 @@ cloneForce(data5)
         </tr>
     </tbody>
 </table>
+</div>
 <p>Nguồn cảm hứng cho bài viết này đến từ <a target="_blank" href="https://github.com/jsmini/clone">@jsmini/clone</a>. Nếu các bạn muốn sử dụng thử bốn phương pháp deep copy thì bạn có thể sử dụng thư viện <b>@jsmini/clone</b> như trong đoạn code phía dưới.</p>
 <pre><code class="javascript">
 // npm install --save @jsmini/clone
@@ -523,13 +528,48 @@ import { clone, cloneJSON, cloneLoop, cloneForce } from '@jsmini/clone';
 <p>JD.com：<a href="https://item.jd.com/12403508.html">https://item.jd.com/12403508.html</a></p>
 <p>Dangdang：<a href="http://product.dangdang.com/25308679.html">http://product.dangdang.com/25308679.html</a></p>
 <p>Tôi cũng xin có một số thông tin về tuyển dụng frontend, backend, di động. Địa điểm làm việc <b>Bắc Kinh</b>, <b>Thượng Hải</b>, <b>Thành Đô</b>. Nào các sinh viên tinh anh và ưu tú, các bạn có thể gửi thông tin cho tôi qua địa chỉ email <b>yanhaijing@yeah.net</b></p>
+<h4>Một số bình luận:</h4>
+<div class="comment">
+    <div class="comment-item">
+        <h3>huangzhhui</h3>
+        <p>
+            Mục đích của một cuộc phỏng vấn không phải là loại bỏ người phỏng vấn
+        </p>
+        <ul>
+            <li><b>Tác giả</b> Để tìm được người tốt trong cuộc phỏng vấn, chúng ta cần sự sàng lọc</li>
+            <li><b>flcwl</b> Điều đó có phải là những ứng viên đã đọc rất nhiều bài viết?</li>
+            <li><b>Tác giả</b> Mày đã biết quá nhiều (^o^)/~</li>
+        </ul>
+    </div>
+    <div class="comment-item">
+        <h3>CoyPan</h3>
+        <p>
+            Rất hay, nhưng có vẻ sử dụng <b>JSON.parse(JSON.stringify(source));</b> sẽ làm biến mất cái function
+        </p>
+        <ul>
+            <li><b>Tác giả</b> Vâng, tôi hiểu điều đó. Nhưng điều đó lại làm tôi cảm thấy trăn trở rằng liệu chúng ta có nên đặt phương thức vào trong dữ liệu?</li>
+        </ul>
+    </div>
+    <div class="comment-item">
+        <h3>Beats0</h3>
+        <p>
+            Hiện nay, có rất nhiều người sử dụng các thư viện có sẵn như lodash, underscore để thực những việc trên. Tác giả có suy nghĩ gì về điều này.
+        </p>
+        <ul>
+            <li><b>Tác giả</b> Tất nhiên là chúng ta vẫn cứ sử dụng. Nhưng nếu bạn muốn cái thiện cái hiện tại thì trước tiên bạn phải nắm được nguyên tắc hoạt động trước đã.</li>
+        </ul>
+    </div>
+</div>
 <div class="blog-break-line"></div>
 <h4>Kết (Người dịch)</h4>
-<p>Đây là một bài viết khá hay mà mình tìm được. Nhan tiên sinh vẫn còn khá nhiều bài khác cũng rất chất lượng nếu có thời gian. Hoặc nếu có thể các bạn có thể lên trang cá nhân của anh ta để đọc. Mình đã để link ở đầu bài. Thêm một phần là khác với <a href="cac-designer-hoc-frontend-nhu-the-nao.html" target="_blank">bài viết lần trước</a> của tác giả <b>Huang Xuan</b>. Bài viết này mới vừa được viết gần đây thôi nên phần tuyển dụng phía dưới (tính đến thời điểm mình đăng bài dịch này) vẫn còn tác dụng nhé. Nếu các bạn có khả năng có thể gửi email vào địa chỉ phía trên để thử sức mình ở Bắc Kinh, Thượng Hải hoặc Thành Đô.</p>
+<p>Đây là một bài viết khá hay mà mình tìm được. Nhan tiên sinh vẫn còn khá nhiều bài khác cũng rất chất lượng nếu có thời gian mình sẽ dịch tiếp. Hoặc nếu có thể các bạn có thể lên trang cá nhân của anh ta để đọc. Mình đã để link ở đầu bài. Thêm một phần là khác với <a href="cac-designer-hoc-frontend-nhu-the-nao.html" target="_blank">bài viết lần trước</a> của tác giả <b>Huang Xuan</b>. Bài viết này mới vừa được viết gần đây thôi nên phần tuyển dụng phía dưới (tính đến thời điểm mình đăng bài dịch này) vẫn còn tác dụng nhé. Nếu các bạn có khả năng có thể gửi email vào địa chỉ phía trên để thử sức mình ở Bắc Kinh, Thượng Hải hoặc Thành Đô.</p>
 <p>Cuối cùng xin chân thành cảm ơn Nhan tiên sinh vì bài viết hết sức chi tiết và "có tâm" này. Các bạn có thể vào trang github của anh ta (có khá nhiều open source) để tham khảo và đừng quên "star" nếu thấy hữu ích nhé. <a href="https://github.com/yanhaijing">github.com/yanhaijing</a></p>
-<p></p>
-
-
+<div class="blog-break-line"></div>
+<h4><i>Chú thích</i></h4>
+<ul class="noted">
+    <li id="nhan-tan-ky-tai-vat-tat-ky-dung"><b>Nhân tận kỳ tài, vật tất kỳ dụng:</b> Người tài sẽ có nơi để thể hiện, đồ vật ắt có chổ hữu dụng. Ý câu này là mỗi phương pháp hoặc con người chỉ cần được sử dụng đúng nơi đúng việc thì hết thảy đều hữu dụng.</li>
+    <li id="thanh-cung-tieu-ha-bai-cung-tieu-ha"><b>Thành cũng Tiêu Hà, bại cũng Tiêu Hà:</b> Dự vào điển tích thời Hán Cao Tổ. Chỉ những việc mà thành bại đều có cùng một nguồn gốc.</li>
+</ul>
         <div class="blog-detail-comments">
             <!-- <div id="show-comment-box">
                 Comment
