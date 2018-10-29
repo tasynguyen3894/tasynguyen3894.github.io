@@ -4,10 +4,10 @@
 
 <!-- build:quotes -->
 <div class="navbar-quotes-content">
-	Attack if you can attack, defend if you can't attack, flee if you can't defend, surrender if you can't flee, die if you can't surrender!
+    Raised up by Xiao He, cast down by Xiao He.
 </div>
 <div class="navbar-quotes-speaker">
-	Sima Yi
+    Han Xin
 </div>
 <!-- /build:quotes -->
 
@@ -15,15 +15,20 @@
 <h1>[Dịch] Cùng khám phá về deep copy trong javascript</h1>
 <div class="home-content">
     <div class="blog-detail">
-        <div class="blog-detail-date">Đăng lúc 27/07/2018</div>
+        <div class="blog-detail-date">Đăng lúc 29/10/2018</div>
         <div class="tags">
             <span><a href="tags.html?tag=javascript">javascript</a></span>
 			<span><a href="tags.html?tag=translate">translate</a></span>
         </div>
+        <p>Hôm trước khi làm việc với Vue mình gặp phải một vấn đề với JavaScript về việc sao chép các đối tượng tham chiếu. Trong lúc lang thang trên <a target="_blank"  href="https://segmentfault.com">segmentfault</a> mình vô tình tìm được một bài viết khá hay và chi tiết về vấn đề này. Nên mình quyết định dịch ra tiếng Việt để chia sẽ cho các bạn.</p>
+        <p>Nói một tí về vị tiền bối này. Anh ta có tên tiếng Trung là <b>颜海镜</b> (Nhan Hải Kính). Xin Nhan tiên sinh thứ lỗi nếu mình lỡ dịch sai tên sang Hán Việt. Là một lập trình viên thuộc thế hệ 9x (90后). Hoạt động trong nhiều lĩnh vực kỹ thuật khác nhau. Các bạn có thể theo dõi anh ta ở địa chỉ <a target="_blank" href="https://yanhaijing.com">yanhaijing.com</a>.</p>
+        <p>Hiện tại Nhan tiên sinh đang làm việc tại một công ty cũng khá nổi tiếng bên Trung Quốc là <b>美团点评 - Meituan Dianping</b>  với công việc là lập trình viên frontend. Một trong các dịch vụ của công ty là giao thức ăn. Các bạn có thể xem clip <a target="_blank" href="https://www.youtube.com/watch?v=H70fEIVVevI">quảng cáo này</a> của họ. Khá hay đấy :))</p>
+        <p>Link bài viết gốc: <a target="_blank" href="https://segmentfault.com/a/1190000016672263">深拷贝的终极探索（99%的人都不知道）</a></p>
+        <div class="blog-break-line"></div>
         <p>Tập trung vào trọng điểm thì đây là một câu hỏi phỏng vấn như bao câu hỏi phỏng vấn thôi. Những đã có kha khá ứng viên bị tôi loại bởi vấn đề này đấy.</p>
-        <p>Thứ nhất, đây là một câu hỏi phỏng vấn khá hay. Các bạn có thể xem xét khá nhiều khía cạnh của ứng viên như kỹ năng cơ bản, khả năng code, logic cùng sự linh hoạt. Tùy theo từng cấp độ của ứng viên mà chúng ta có các xem xét đánh giá khác nhau. Ví dụ như một cô nàng xinh đẹp thì ngại gì cho câu hỏi ở độ khó 1 sao nhỉ. Còn với các đấng nam tử thì cũng không ngại đối đồi với những câu hỏi 5 sao đâu nhỉ (*^__^*) 嘻嘻...</p>
-        <!--<p>Nhưng cho dù ứng viên có giỏi đến như thế nào, câu trả lời có tuyệt vời đến đâu. Tôi luôn có thể đưa ra một câu hỏi làm cho họ ngạc nhiên </p>-->
-        <p>Trong bài viết hôm nay, tôi sẽ cung cấp cho các bạn bố phương thức deep copy, với mỗi cách sẽ có đặc điểm và tính chất riêng.</p>
+        <p>Thứ nhất, đây là một câu hỏi phỏng vấn khá hay. Các bạn có thể xem xét khá nhiều khía cạnh của ứng viên như kỹ năng cơ bản, khả năng code, logic cùng sự linh hoạt. Tùy theo từng cấp độ của ứng viên mà chúng ta có các xem xét đánh giá khác nhau. Ví dụ như một cô nàng xinh đẹp thì ngại gì cho câu hỏi ở độ khó 1 sao nhỉ. Còn với các đấng nam tử thì cũng không ngại đối đầu với những câu hỏi 5 sao đâu nhỉ (*^__^*) 嘻嘻...</p>
+        <!-- <p>Nhưng cho dù ứng viên có giỏi đến như thế nào, câu trả lời có tuyệt vời đến đâu. Tôi luôn có thể đưa ra một câu hỏi làm cho họ ngạc nhiên với một cú xoa</p> -->
+        <p>Trong bài viết hôm nay, tôi sẽ cung cấp cho các bạn bốn phương thức deep copy, với mỗi cách sẽ có đặc điểm và tính chất riêng.</p>
         <h4>Deep copy VS shallow copy</h4>
         <p>Trước khi bắt đầu, bạn cần phải biết một chút về deep copy. Nếu bạn đã biết rồi thì bạn có thể bỏ qua bước này</p>
         <p>Thực tế thì Deep copy và shallow copy đều là các kiểu tham chiếu. Các kiểu biến trong JS được chia ra làm các loại là kiểu tham chiếu và kiểu giá trị. Đối với kiểu giá trị thì quá trình copy sẽ là việc copy giá trị sang biến mới. Đối với kiểu tham chiếu thì quá trình copy sẽ là copy địa chỉ qua biến mới, nghĩa là cả hai biến sẽ chỉ vào cùng một giá trị.</p>
@@ -66,18 +71,18 @@ function shallowClone(source) {
 }
 </code></pre>
     <h4>Cách thực hiện deep copy đơn giản nhất</h4>
-    <p>Deep copy này được xây dựng từ hai điều là <b>shallow copy</b> hoặc <b>đệ quy</b>. Giả sử chúng ta có một biến như bên dưới.</p>
+    <p>Phương pháp deep copy này được xây dựng từ hai điều là <b>shallow copy</b> và <b>đệ quy</b>. Giả sử chúng ta có một biến như bên dưới.</p>
 <pre><code class="javascript">
 var a1 = {b: {c: {d: 1}};
 </code></pre>
-<p>Cập nhật lại function một tí từ function của shallow copy. Các bạn hãy chú ý đến điểm khác biệt nhé.</p>
+<p>Chúng ta sẽ cập nhật lại hàm một tí từ hàm của shallow copy bên trên. Các bạn hãy chú ý đến điểm khác biệt nhé.</p>
 <pre><code class="javascript">
 function clone(source) {
     var target = {};
     for(var i in source) {
         if (source.hasOwnProperty(i)) {
             if (typeof source[i] === 'object') {
-                target[i] = clone(source[i]); // 注意这里
+                target[i] = clone(source[i]); // cần lưu ý một tí ở đây
             } else {
                 target[i] = source[i];
             }
@@ -88,29 +93,29 @@ function clone(source) {
 }
 </code></pre>
 <p>Hầu hết mọi người đều có thể viết được đoạn code trên. Nhưng khi tôi hỏi về những vấn đề nằm trong đoạn code trên thì không nhiều người có thể trả lời được. Còn bạn, bạn có thấy được những vấn đề trong đó không?</p>
-<p>Thực tế mà nói, đoạn code trên có quá nhiều vấn đề. Tôi sẽ đưa ra một vài ví dụ:</p>
+<p>Thực tế thì đoạn code trên có quá nhiều vấn đề. Tôi sẽ đưa ra một vài ví dụ:</p>
 <ul>
-    <li>Không hề kiểm tra các parameter</li>
+    <li>Không hề kiểm tra các giá trị đầu vào</li>
     <li>Xác định logic của đối tượng không đủ nghiêm ngặt</li>
     <li>Không hề xem xét khả năng tương thích đối với mảng</li>
 </ul>
-<p>Chúng ta hãy cùng nhìn nhận các vấn đề và các giải pháp tương ứng cho chúng. Trước tiên, chúng ta cần tìm cách để xác định đối tượng là object. Thực tế cũng chỉ ra rằng có khá nhiều cách thông thường để làm việc này ví dụ như cách dưới đây. Và thực tế cũng cho thấy cách này cũng có một số vấn đề, sẽ thật tốt nếu như bạn tìm được những vấn đề đó. Còn nếu bạn quan tâm đến các hoàn hoản nhất trong trước hợp này bạn có thể xem ở <a href="https://github.com/jsmini/type/blob/master/src/index.js" target="_blank">đây</a></p>
+<p>Chúng ta hãy cùng nhìn nhận các vấn đề trên và tìm các giải pháp tương ứng cho chúng. Trước tiên, chúng ta cần tìm cách để xác định giá trị đầu vào là dạng đối tượng. Thực tế cũng chỉ ra rằng có khá nhiều cách thông thường để làm việc này ví dụ như cách dưới đây. Và thực tế cũng cho thấy cách này cũng có một số vấn đề, sẽ thật tốt nếu như bạn tìm được những vấn đề đó. Còn nếu bạn quan tâm đến các hoàn hoản nhất trong trước hợp này bạn có thể xem ở <a href="https://github.com/jsmini/type/blob/master/src/index.js" target="_blank">đây</a></p>
 <pre><code class="javascript">
 function isObject(x) {
     return Object.prototype.toString.call(x) === '[object Object]';
 }
 </code></pre>
-<p>deep copy function sẽ kiểm tra các tham số đầu vào. Nếu nó không phải là object thì sẽ được trả về ngay lập tức.</p>
+<p>Hàm deep copy sẽ bổ sung đoạn kiểm tra các tham số đầu vào. Nếu nó không phải là object thì sẽ được trả về ngay lập tức.</p>
 <pre><code class="javascript">
 function clone(source) {
     if (!isObject(source)) return source;
 
-    // xxx
+    // xử lý
 }
 </code></pre>
-<p>======= đoạn 3 ===========</p>
-<p>Thật ra, đó chỉ là ba vấn đề nhỏ thôi. Vấn đề lớn nhất cần quan tâm đó chính là việc sử dụng đệ quy có thể gây ra tràn stack. Khi mà dữ liệu chúng ta cần copy có độ sâu cao và kích thước lớn nó có thể gây ra các sự cố về bộ nhớ và ảnh hưởng xấu đến hiệu năng.</p>
-<p>Bây giờ, các bạn hãy tập trung vào đoạn code dưới đây. Đây là đoạn code với chức năng generate ra đối tượng với những quy định về độ rộng và sâu của đối tượng. Đoạn code này sẽ được dùng lại khá nhiều trong bài viết hôm nay.</p>
+<p>Còn về vấn đề thứ ba thì tôi sẽ để các bạn tự suy nghĩ về điều đó. Đồng thời để giảm bớt gánh nặng cho việt đọc bàn viết này nên tôi sẽ không xem xét vấn đề này. Hiện nay, sau ES6 các bạn có thể xem xét một số phương thứ như sau set, map, weakset, weakmap</p>
+<p>Thật ra thì đó cũng chỉ là ba vấn đề nhỏ thôi. Vấn đề lớn nhất cần quan tâm đó chính là việc sử dụng đệ quy có thể gây ra stack overflow. Khi mà dữ liệu chúng ta cần sao chép có độ sâu cao và kích thước lớn nó có thể gây ra các sự cố về bộ nhớ và ảnh hưởng xấu đến hiệu năng.</p>
+<p>Bây giờ, các bạn hãy tập trung vào đoạn code dưới đây. Đây là đoạn code với chức năng tạo ra đối tượng với những quy định về độ rộng và sâu của đối tượng. Đoạn code này sẽ được dùng lại khá nhiều trong bài viết hôm nay đấy.</p>
 <pre><code class="javascript">
 function createData(deep, breadth) {
     var data = {};
@@ -129,21 +134,21 @@ function createData(deep, breadth) {
 createData(1, 3); // dữ liệu được tạo ra với độ rộng là 3 và độ sâu là 1 {data: {0: 0, 1: 1, 2: 2}}
 createData(3, 0); // dữ liệu được tạo ra với độ rộng là 0 và độ sâu là 3 {data: {data: {data: {}}}}
 </code></pre>
-<p>Khi chúng ta gọi hàm clone với đối tượng có độ sâu lớn thì stack bị tràn nhưng với những dữ liệu có độ rộng lớn thì không xảy ra những hiện tượng trên. Các bạn có thể chứng minh với đoạn code bên dưới.</p>
+<p>Khi chúng ta gọi hàm clone với đối tượng có độ sâu lớn thì xảy ra hiện tương stack overflow nhưng với những dữ liệu có độ rộng lớn thì không xảy ra những hiện tượng trên. Các bạn có thể chứng minh với đoạn code bên dưới.</p>
 <pre><code class="javascript">
 clone(createData(1000)); // ok
 clone(createData(10000)); // Maximum call stack size exceeded
 
 clone(createData(10, 100000)); // vẫn ổn với độ rộng lên đến 100000
 </code></pre>
-<p>Trong thực tế thì những dữ liệu có độ sâu như trên (10000) hiếm khi xuất hiện. Nhưng lại có một vấn đề nghiêm trọng xảy ra với cách copy này đó là hiện tượng tham chiếu vòng tròn. Ví dụ</p>
+<p>Trong thực tế thì những dữ liệu có độ sâu như trên (10000) hiếm khi xuất hiện. Nhưng lại có một vấn đề nghiêm trọng xảy ra với cách sao chép này đó là hiện tượng tham chiếu vòng tròn. Ví dụ</p>
 <pre><code class="javascript">
 var a = {};
 a.a = a;
 
 clone(a) // Maximum call stack size exceeded (Đệ quy vô tận nhé)，/(ㄒoㄒ)/~~
 </code></pre>
-<p>Có hai hướng để giải quyết vấn đề tham chiếu vòng tròn trong đệ quy. Gồm có là phát hiện ra hiện tượng tham chiếu vòng tròn. Hai là !! Dịch sau !!</p>
+<p>Có hai hướng để giải quyết vấn đề tham chiếu vòng tròn trong đệ quy. Thứ nhất là phát hiện ra hiện tượng đó (để đối phó). Hai là tìm cách phá vỡ cái vòng tròn tham chiếu đáng sợ đó. Các bạn có thể suy nghĩ về cách đầu tiên. Còn về việc phá vỡ vòng tròn tôi sẽ nhắc đến ngay sau đây.</p>
 <h4>Thực hiện deep copy chỉ với một dòng code</h4>
 <p>Một số bạn sinh viên có thể đã từng biết về việc sử dụng JSON để thực hiện deep copy. Chúng ta có thể xem một đoạn code được miêu tả dưới đây</p>
 <pre><code class="javascript">
@@ -152,7 +157,7 @@ function cloneJSON(source) {
 }
 </code></pre>
 <p>Thật lòng mà nói trong lần đầu tôi tiếp cận phương pháp này. Tôi đã rất ngưỡng mộ nó. Bởi lẻ nó đã dùng những phương pháp có sẵn một cách rất thông minh để hoàn thành công việc.</p>
-<p>Tôi cũng đã thử kiểm tra những vấn đề liên quan đến tràn stack của phương pháp này. Nó có vẻ như cũng đáp áp dụng đệ quy (chứ không đơn giản như một dòng code phía trên).</p>
+<p>Tôi cũng đã thử kiểm tra những vấn đề liên quan đến stack overflow của phương pháp này. Nó cho thấy phương pháp này có vẻ như cũng đã áp dụng đệ quy (chứ không đơn giản như một dòng code phía trên).</p>
 <pre><code class="javascript">
 function cloneJSON(source) {cloneJSON(createData(10000)); // Maximum call stack size exceeded
 </code></pre>
@@ -163,8 +168,8 @@ a.a = a;
 
 cloneJSON(a) // Uncaught TypeError: Converting circular structure to JSON
 </code></pre>
-<h4>破解递归爆栈</h4> <!-- crack de uy -->
-<p>Theo tôi, có hai phương pháp dùng để crack dòng đệ quy. Các đầu tiên đó là loại bỏ đệ quy đuôi nhưng trong trường hợp này điều đó có vẻ không khả thi lắm. Các thứ hai thì đơn giản hơn đó là ngừng sử dụng đệ quy, thay vào đó chúng ta sẽ loop. Nhưng khi tôi đề xuất dùng loop thì có khoảng 90% lập trình viên frontend không thể code được theo hướng đó. Điều này thật sự gây bất ngờ cho tôi.</p>
+<h4>Phá bỏ đệ quy</h4> <!-- crack de uy -->
+<p>Theo tôi, có hai phương pháp dùng để hủy dòng đệ quy. Cách đầu tiên đó là loại bỏ đệ quy đuôi nhưng trong trường hợp này điều đó có vẻ không khả thi lắm. Các thứ hai thì đơn giản hơn đó là ngừng sử dụng đệ quy, thay vào đó chúng ta sẽ vòng lặp. Nhưng khi tôi đề xuất dùng vòng lặp thì có khoảng 90% lập trình viên frontend không thể code được theo hướng đó. Điều này thật sự gây bất ngờ cho tôi.</p>
 <p>Giả sử chúng ta có dữ liệu được cấu trúc như sau:</p>
 <pre><code class="javascript">
 var a = {
@@ -189,9 +194,9 @@ var a = {
          |
          1
 </code></pre>
-<p>Loop thông qua một cây thì chúng ta đòi hỏi một stack. Điều kiện là khi nào stack đó không rỗng thì là hợp lệ. Stack đó sẽ lưu trữ các node sẽ được copy.</p>
-<p>Đầu tiên, chúng ta sẽ đặt các dự liệu ban đầu vào trong stack, key được dùng để lưu trữ những phần tử cha của các phần tử cần copy.</p>
-<p>Trong vòng lặp đó, chúng ta sẽ duyệt qua các phần tử con của node hiện tại. Nếu nó là một đối tượng chúng ta sẽ bỏ nó vào stack bên trên. Nếu là giá trị thì chúng ta sẽ copy trực tiếp.</p>
+<p>Để duyệt qua một cái cây thì chúng ta đòi hỏi một stack. Điều kiện là khi nào stack đó không rỗng thì là hợp lệ. Stack đó sẽ lưu trữ các node cần được sao chép.</p>
+<p>Đầu tiên, chúng ta sẽ đặt các dự liệu ban đầu vào trong stack, key được dùng để lưu trữ những phần tử cha của các phần tử cần sao chép.</p>
+<p>Trong vòng lặp đó, chúng ta sẽ duyệt qua các phần tử con của node hiện tại. Nếu nó là một đối tượng chúng ta sẽ bỏ nó vào stack bên trên. Nếu là giá trị thì chúng ta sẽ sao chép trực tiếp.</p>
 <pre><code class="javascript">
 function cloneLoop(x) {
     const root = {};
@@ -212,7 +217,7 @@ function cloneLoop(x) {
         const key = node.key;
         const data = node.data;
 
-        // 初始化赋值目标，key为undefined则拷贝到父元素，否则拷贝到子元素
+        // khởi tạo đối tượng sao chép, nếy key bằng undefined thì sẽ sao chép vào phần tử cha, nếu không thì sao chép vào các phần tử con.
         let res = parent;
         if (typeof key !== 'undefined') {
             res = parent[key] = {};
@@ -221,7 +226,7 @@ function cloneLoop(x) {
         for(let k in data) {
             if (data.hasOwnProperty(k)) {
                 if (typeof data[k] === 'object') {
-                    // 下一次循环
+                    // Bỏ dữ liệu vào để dành cho chu kì tiếp theo
                     loopList.push({
                         parent: res,
                         key: k,
@@ -237,7 +242,7 @@ function cloneLoop(x) {
     return root;
 }
 </code></pre>
-<p>Sau khi chuyển sang phương pháp loop, chúng ta có thể thấy sẽ không còn vấn đề với việc tràn stack. Nhưng chúng ta vẫn chưa thể giải quyết được vấn đề tham chiếu vòng tròn.</p>
+<p>Sau khi chuyển sang phương pháp vòng lặp, chúng ta có thể thấy sẽ không còn vấn đề với việc stack overflow. Nhưng chúng ta vẫn chưa thể giải quyết được vấn đề tham chiếu vòng tròn.</p>
 <h4>Giải quyết tham chiếu vòng tròn</h4>
 <p>Liệu có cách nào để giải quyết việc tham chiếu vòng tròn? Đừng lo lắng, chúng ta hãy xem xét một vấn đề khác. Một trong những vấn đề của ba phương pháp trên đó là việc mất tham chiếu. Trong một vài trường hợp thì điều này khó mà chấp nhận được.</p>
 <p>Ví dụ nhé, nếu bạn có một đối tượng a có hai key và cùng tham chiếu đến b. Sau khi thực hiện deep copy xong, hai key đó sẽ mất mối quan hệ tham chiếu dẫn đến chúng trở thành hai đối tượng khác nhau.</p>
@@ -250,9 +255,9 @@ a.a1 === a.a2 // true
 var c = clone(a);
 c.a1 === c.a2 // false
 </code></pre>
-<p>Khi mà chúng ta phát hiện được một đối tượng mới cần copy. Trước khi copy nó, chúng ta nên kiểm tra xem đối tượng đó đã được copy hay chưa. Nếu đã copy rồi thì chúng ta không cần copy lại lần nửa để đảm bảo giữ được mối quan hệ cũ.</p>
-<p>Vậy chúng ta code như thế nào để hiện thực hóa ý tưởng đó? Đừng vội nhìn xuống code phía dưới nhé. Thực tế phần code này khá giống với đoạn dùng loop ở trên và những chổ khác biệt tôi đã comment lại cho các bạn rồi.</p>
-<p>Tôi cũng xin giải thích một tí về mảng uniqueList, đây là một mảng lưu trữ những phần tử đã được sao chép. Cứ mỗi lần duyệt qua mảng thì việc đầu tiên cần làm là kiểm tra xem đối tượng hiện tại có được copy hay chưa (nằm trong array uniqueList). Nếu có, chúng ta sẽ bỏ qua bước sao chép.</p>
+<p>Khi mà chúng ta phát hiện được một đối tượng mới cần sao chép. Trước khi sao chép nó, chúng ta nên kiểm tra xem đối tượng đó đã được sao chép hay chưa. Nếu đã sao chép rồi thì chúng ta không cần sao chép lại lần nửa để đảm bảo giữ được mối quan hệ cũ.</p>
+<p>Vậy chúng ta code như thế nào để hiện thực hóa ý tưởng đó? Đừng vội nhìn xuống code phía dưới nhé. Thực tế phần code này khá giống với đoạn dùng vòng lặp ở trên và những chổ khác biệt tôi đã comment lại cho các bạn rồi.</p>
+<p>Tôi cũng xin giải thích một tí về mảng uniqueList, đây là một mảng lưu trữ những phần tử đã được sao chép. Cứ mỗi lần duyệt qua mảng thì việc đầu tiên cần làm là kiểm tra xem đối tượng hiện tại có được sao chép hay chưa (nằm trong array uniqueList). Nếu có, chúng ta sẽ bỏ qua bước sao chép.</p>
 <p><b>find</b> là một hàm đảm nhận chức năng duyệt và kiểm tra đối tượng và mảng <b>uniqueList</b></p>
 <pre><code class="javascript">
 // function này sẽ giữ lại các mối quan hệ tham chiếu
@@ -350,7 +355,7 @@ cloneForce(a)
 // Kết quả hơi bị trất's nhé. LUL
 </code></pre>
 <p>Có vẻ không được hoàn hảo lắm nhỉ? Chúng ta hãy nhìn vào hai vấn đề của cloneForce.</p>
-<p>Vấn đề thứ nhất có thể gọi là <i>"Thành cũng Tiêu Hà, bại cũng Tiêu Hà"</i>. Nếu bạn muốn giữ lại những tham chiếu bạn muốn trong trường hợp này thì bạn không thể dùng cloneForce</p>
+<p>Vấn đề thứ nhất có thể dùng một câu nói của cổ nhân đó là <i>"Thành cũng Tiêu Hà, bại cũng Tiêu Hà"</i>. Nếu giữ lại những tham chiếu là điều bạn không muốn thì trong trường hợp này bạn không thể dùng cloneForce</p>
 <p>Thứ hai là khi đối tượng chứa dữ liệu tương đối lớn thì cloneForce sẽ không phải là một phương pháp thích hợp.</p>
 <h4>So sánh hiệu suất</h4>
 <p>Nếu các nội dung ở phía trên có vẻ khó nuốt thì... hãy cố thêm một tí gì khó nuốt nửa nhé (lỡ rồi tới luôn). Chúng ta hãy so sánh hiệu suất của các phương pháp ở trên.</p>
@@ -371,7 +376,7 @@ function runTime(fn, time) {
 
 runTime(function () { clone(createData(500, 1)) }, 2000);
 </code></pre>
-<p>Trong lần thử nghiệm đầu tiên, chúng ta giữ động rộng là 100 và cho thay đổi độ sâu từ nhỏ đến lớn. Sau đó, ghi lại số lần thực hiện với thời gian là một giây.</p>
+<p>Trong lần thử nghiệm đầu tiên, chúng ta giữ động rộng là 100 và cho thay đổi độ sâu từ nhỏ đến lớn. Sau đó, ghi lại số lần thực hiện trong thời gian là một giây.</p>
 <table>
     <thead>
         <th>Chiều sâu</th>
@@ -396,8 +401,8 @@ runTime(function () { clone(createData(500, 1)) }, 2000);
     <li>Độ chênh lệch giữa <b>clone</b> và <b>cloneLoop</b> thì không lớn lắm</li>
     <li>cloneLoop > cloneForce > cloneJSON</li>
 </ul>
-<img src="https://image-static.segmentfault.com/345/148/3451481688-5bc1b06935a25_articlex" alt="">
-<p>Trước hết, hãy phân tích độ phức tạp của từng phương thức. Có một điều mà các phương thức đều làm mà ở đây chúng ta không tính toán ví dụ như xác định xem đối tượng có phải object không</p>
+<img src="public/img/cung-kham-pha-ve-deep-copy-trong-javascipt/1.png" alt="">
+<p>Trước hết, hãy phân tích độ phức tạp của từng phương thức. Có một điều mà các phương thức đều làm mà ở đây chúng ta không tính toán ví dụ như xác định xem kiểu biến có phải là dạng đối tượng không</p>
 <ul>
     <li>Thời gian <b>clone</b>  = thời gian tạo đệ quy + thời gian xử lý cho từng đối tượng</li>
     <li>Thời gian <b>cloneJSON</b> = thời gian phát hiện loop + thời gian xử lý từng đối tượng * 2 (Đệ quy đưa về chuỗi + đệ quy đưa về object)</li>
@@ -427,7 +432,7 @@ runTime(function () { clone(createData(500, 1)) }, 2000);
         </tr>
     </tbody>
 </table>
-<p>Sâu khi loại trừ sự can thiệp của chiều rộng trong các thí nghiệm. Chúng ta hãy tìm hiểu xem những ảnh hưởng của chiều sâu đến kết quả.</p>
+<p>Sau khi loại trừ sự can thiệp của chiều rộng trong các thí nghiệm. Chúng ta hãy tìm hiểu xem những ảnh hưởng của chiều sâu đến kết quả.</p>
 <ul>
     <li>Khi có sự gia tăng của chiều sâu thì hiệu năng của <b>cloneForce</b> bị giảm đi hẳn.</li>
     <li>Riêng với <b>cloneJSON</b> cũng giảm đi đáng kể.</li>
@@ -448,9 +453,9 @@ cloneForce(data4)
 cloneForce(data5)
 </code></pre>
 <p>Qua quá trình kiểm tra, chúng ta có thể thấy rằng thời gian cần thiết để thực hiện sẽ phát triển theo cấp số nhân. Khi độ sâu đạt hơn 10000, độ trễ có thể lên tới 300ms.</p>
-<img src="https://image-static.segmentfault.com/387/585/3875855552-5bc1b0692b297_articlex" alt="">
+<img src="public/img/cung-kham-pha-ve-deep-copy-trong-javascipt/2.png" alt="">
 <h4>Kết</h4>
-<p>Trên thực tế thì mỗi phương pháp đều sẽ có ưu và khuyết điểm riêng. Tùy mỗi hoàn cảnh mà sẽ có cách sử dụng khác nhau. Như các chân lý mà chúng ta hay nói nhân tận kỳ tài, vật tất kỳ dụng</p>
+<p>Trên thực tế thì mỗi phương pháp đều sẽ có ưu và khuyết điểm riêng. Nhưng như chúng ta vẫn hay nói <i>nhân tận kỳ tài, vật tất kỳ dụng</i>. Tùy mỗi hoàn cảnh mà sẽ có cách sử dụng khác nhau.</p>
 <p>Với những thông tin dưới đây, tôi hy vọng sẽ giúp được các bạn trong việc chọn lựa được phương pháp phù hợp.</p>
 <table>
     <thead>
@@ -515,9 +520,15 @@ import { clone, cloneJSON, cloneLoop, cloneForce } from '@jsmini/clone';
 <p>Sự ra đời của <b>jsmini</b> thì không thể tách rời khỏi <a target="_blank" href="https://github.com/yanhaijing/jslib-base">jslib-base</a>. Thật cảm kích <b>jslib-base</b> vì những công nghệ cơ bản được được áp dụng cho <b>jsmini</b>.</p>
 <p>Rất cám ơn những bạn đã dành thời gian đọc bài biết này. Tôi tin rằng ngay lúc này các bạn có thể xử lý được kha khá các câu hỏi liên quan đến deep copy. Nếu có bất kì câu hỏi nào các bạn có thể bàn luận với tôi.</p>
 <p>Cuối cùng, tôi cũng xin giới thiệu với các bạn cuốn sách mới của tôi <b>React状态管理与同构实战 (React State Management and Isomorphism)</b> để hiểu hơn về công nghệ Isomorphic. Cám ơn các bạn đã ủng hộ.</p>
-<p>京东：<a href="https://item.jd.com/12403508.html">https://item.jd.com/12403508.html</a></p>
-<p>当当：<a href="http://product.dangdang.com/25308679.html">http://product.dangdang.com/25308679.html</a></p>
+<p>JD.com：<a href="https://item.jd.com/12403508.html">https://item.jd.com/12403508.html</a></p>
+<p>Dangdang：<a href="http://product.dangdang.com/25308679.html">http://product.dangdang.com/25308679.html</a></p>
 <p>Tôi cũng xin có một số thông tin về tuyển dụng frontend, backend, di động. Địa điểm làm việc <b>Bắc Kinh</b>, <b>Thượng Hải</b>, <b>Thành Đô</b>. Nào các sinh viên tinh anh và ưu tú, các bạn có thể gửi thông tin cho tôi qua địa chỉ email <b>yanhaijing@yeah.net</b></p>
+<div class="blog-break-line"></div>
+<h4>Kết (Người dịch)</h4>
+<p>Đây là một bài viết khá hay mà mình tìm được. Nhan tiên sinh vẫn còn khá nhiều bài khác cũng rất chất lượng nếu có thời gian. Hoặc nếu có thể các bạn có thể lên trang cá nhân của anh ta để đọc. Mình đã để link ở đầu bài. Thêm một phần là khác với <a href="cac-designer-hoc-frontend-nhu-the-nao.html" target="_blank">bài viết lần trước</a> của tác giả <b>Huang Xuan</b>. Bài viết này mới vừa được viết gần đây thôi nên phần tuyển dụng phía dưới (tính đến thời điểm mình đăng bài dịch này) vẫn còn tác dụng nhé. Nếu các bạn có khả năng có thể gửi email vào địa chỉ phía trên để thử sức mình ở Bắc Kinh, Thượng Hải hoặc Thành Đô.</p>
+<p>Cuối cùng xin chân thành cảm ơn Nhan tiên sinh vì bài viết hết sức chi tiết và "có tâm" này. Các bạn có thể vào trang github của anh ta (có khá nhiều open source) để tham khảo và đừng quên "star" nếu thấy hữu ích nhé. <a href="https://github.com/yanhaijing">github.com/yanhaijing</a></p>
+<p></p>
+
 
         <div class="blog-detail-comments">
             <!-- <div id="show-comment-box">

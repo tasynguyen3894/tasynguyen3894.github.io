@@ -1,4 +1,4 @@
 exports.ignore = {
-    css: true,
+    css: false,
     js: true
 }

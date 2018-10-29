@@ -314,25 +314,25 @@ body {
 	}
 	
 	.home-bg {
-		background: url('http://doanarae.com/doanarae/8478-library-background-image_17509.jpg');
+		background: url('../img/css/home.jpg');
 		@include bg-cover;
 		background-position: 50% 50%;
 	}
 	
 	.product-bg {
-		background: url('https://i.pinimg.com/originals/51/eb/44/51eb44587c819fecf49bd3b63e38f31a.jpg');
+		background: url('../img/css/product.jpg');
 		@include bg-cover;
 		background-position: 48% 50%;
 	}
 	
 	.me-bg {
-		background: url('https://cdna.artstation.com/p/assets/images/images/006/638/346/large/martyna-nejman-knight1.jpg');
+		background: url('../img/css/me.jpg');
 		@include bg-cover;
 		background-position: 57% 50%;
 	}
 
 	.note-bg {
-		background: url('https://i0.wp.com/www.maloneeditorial.com/wp-content/uploads/2018/06/Practice-writing.jpg?ssl=1');
+		background: url('../img/css/notes.jpg');
 		@include bg-cover;
 		background-position: 40% 50%;
 	}
@@ -781,3 +781,14 @@ body {
 	}
 }
 
+table {
+	width: 100%;
+	border-collapse: collapse;
+	border: 1px solid #ccc;
+}
+
+table td, table th {
+	text-align: left;
+	padding: 10px 15px;
+	border: 1px solid #ccc;
+}
