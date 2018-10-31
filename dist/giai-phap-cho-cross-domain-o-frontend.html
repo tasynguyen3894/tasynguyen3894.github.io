@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>[Dịch] Những giải pháp cho vấn đề cross-domain ở frontend | Tasy Nguyen</title>
+        
+<meta name="description" content="Phần đầu trong chuỗi bài về quá trình học Javascipt của mình">
+<meta name="keywords" content="Javascipt, jQuery, html, css, my stories">
+<meta name="author" content="Tasy Nguyen">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="/public/css/styles.css">
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.13.1/build/styles/default.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    </head>
+    <body>
+        <div class="navbar-fixed home-bg">
+            <div class="navbar-content">
+                <div class="navbar-button">
+                    <span id="nav-info-toggle">
+                        <span class="fa fa-code" ></span> 
+                        <span class="toggle-content">Tasy Nguyen</span>
+                    </span>
+                </div>
+                <div class="navbar-button-close" id="nav-info-mobile-close">
+                    <span class="fa fa-arrow-left"></span>
+                </div>
+                <div class="navbar-short-info" id="nav-info">
+                    <div class="navbar-short-info-avatar">
+                        <img src="https://avatars3.githubusercontent.com/u/18634365?s=400&v=4" alt="">
+                    </div>
+                    <h3>Nguyen Thai Sang</h3>
+                    <h4>Web developer</h4>
+                    <p>Hello world!</p>
+                    <div class="navbar-shor-info-contact">
+                        <a class="twitter" target="_blank" href="https://twitter.com/tasyit"><span class="fa fa-twitter"></span></a>
+                        <a class="linkedin" target="_blank" href="https://linkedin.com/in/thaisangnguyen3894/"><span class="fa fa-linkedin"></span></a>
+                        <a class="github" target="_blank" href="https://github.com/tasynguyen3894/"><span class="fa fa-github"></span></a>
+                    </div>
+                </div>
+                <div class="navbar-quotes" id="navbar-quotes">
+                    
+<div class="navbar-quotes-content">
+If you want rainbow, you have to deal with the rain.
+</div>
+<div class="navbar-quotes-speaker">
+Augustus
+</div>
+
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="container-content">
+                <div class="navbar-button">
+                    <span class="fa fa-arrow-right" id="nav-info-mobile-open"></span>
+
+                </div>
+                <div class="navbar-menu">
+                    <ul>
+                        <li><a href="index.html">Blog</a></li>
+                        <li><a href="product.html">Products</a></li>
+                        <li><a href="me.html">Me</a></li>
+                        <li><a href="notes.html">Notes</a></li>
+                    </ul>
+                </div>
+                <div class="main-content">
+                    
+<h1>[Dịch] Những giải pháp cho vấn đề cross-domain ở frontend</h1>
+<div class="home-content">
+<div class="blog-detail">
+<div class="blog-detail-date">Đăng lúc 16/07/2018</div>
+<div class="tags">
+    <span><a href="tags.html?tag=javascript">javascript</a></span>
+    <span><a href="tags.html?tag=html">html</a></span>
+    <span><a href="tags.html?tag=server">server</a></span>
+    <span><a href="tags.html?tag=node.js">node.js</a></span>
+    <span><a href="tags.html?tag=frontend">frontend</a></span>
+</div>
+<h4>Browser Same Origin Policy</h4>
+<h4>Browser Same Origin Policy là gì?</h4>
+<p>Same Origin Policy là một nền tảng bảo mật của trình duyệt.</p>
+<p>Same Origin Policy là một cách để hạn chế những tài liệu hoặc mã được tải từ một nguồn khác với nguồn của tài nguyên. Đây là một cơ chế quan trọng để chống lại những nguy hại có thể xảy ra do mã độc.</p>
+<p>Trước khi quyết định về việc hai url có cùng một nguồn không, chúng ta hãy xem xét về các thành của một url (Uniform Resource Locator).</p>
+<p>Nói về url thì url có các thành phần cơ bản là: giao thức://tên domain (hoặc ip):cổng (nếu có chỉ định)/path</p>
+<p>Hãy xem thử ví dụ dưới đây:</p>
+<p>Đối với <b>http://www.example.com/static</b> giao thức chính là <b>http</b>, tên miền là <b>www.example.com</b>, path chính là <b>static</b>.Số cổng thì bị bỏ qua trong url này vì nó đang dùng cổng mặc định (80).</p>
+<p>Điều cần chú ý ở đây là phần tên miền. <b>example.com</b> là tên miền chính và <b>www.example.com</b> là tên miền phụ. Và cả với <b>a.example.com</b> cũng có thể là tên miền cấp hai. Và cả ba tên miền tên là ba tên miền khác nhau.</p>
+<p>Về chi tiết cũng chúng tôi sẽ không đi sâu ở đây. Để biết thêm thông tin, các bạn có thể tìm hiểu thêm các tài liệu về mạng máy tính.</p>
+<p>Trở lại với câu hỏi cũ. Liệu có cách nào để nhận biết các trang có cùng tên miền không?</p>
+<p>Nếu giao thức và cổng (nếu được chỉ định) và hai tên miền đều giống nhau thì cả hai trang được xem là cùng một nguồn.</p>
+<p>Hãy nói dễ hiểu hơn là ba yếu tố để xác định sự tương đồng chính là: giao thức, tên miền và cổng.</p>
+<p>Cần lưu ý là nếu tên miền đó là tên miền cấp hai chẳng hạn như <b>www.example.com</b> được đề cập ở trên, đồng thời tên miền đó được liên kết với một tên miền cấp hai khác là <b>a.example.com</b>. Mặc dù có tên miền chính giống nhau, nhưng tên miền phụ khác nhau nên chúng không phải cùng tên miền. Do đó, kéo theo hai tên miền này không thể tính là tương đồng. Điều này cũng tương tự với tên miền cấp ba, v.v...</p>
+<p>Bảng dưới đây cung cấp những ví dụ về việc đánh giá độ tương đồ của các url với <b>http://store.company.com/dir/page.html</b></p>
+<div class="overflow-scroll">
+    <table>
+        <thead>
+            <th>url</th>
+            <th>Kết quả</th>
+            <th>Lý do</th>
+        </thead>
+        <tbody>
+            <tr>
+                <td>http://store.company.com/dir2/other.html</td>
+                <td>Tương đồng</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>http://store.company.com/dir/inner/another.html</td>
+                <td>Tương đồng</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>https://store.company.com/secure</td>
+                <td>Không tương đồng</td>
+                <td>Khác giao thức (http và https)</td>
+            </tr>
+            <tr>
+                <td>http://store.company.com:81/dir/etc.html</td>
+                <td>Không tương đồng</td>
+                <td>Khác cổng (80 và 81)</td>
+            </tr>
+            <tr>
+                <td>http://news.company.com/dir/other.html</td>
+                <td>Không tương đồng</td>
+                <td>Khác tên miền (news và store)</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<h4>Giới thiệu về Cookie và Session</h4>
+<p>Khi bàn về Same Origin Policy, có một số điều cần thiết phải làm. Đó là nói về điều về Cookie</p>
+<p>Khi nói về Cookie, chúng ta nên liên kết về Session</p>
+<p>Đối với cả hai, đây không phải một phần giới thiệu lớn.</p>
+<p>Nếu ở đây, chúng ta tóm tắt ngắn gọn nhau sau:</p>
+<ul>
+    <li>Cookie bị hạn chế bởi same-origin policy. Cookie ở trang A không thể được truy cập và chỉnh sửa khi bạn đang ở trang B.</li>
+    <li>Sức lưu trữ tối đa của Cookie thường phổ biến ở mức 4KB và được thiết lập bởi server. Có thể chỉ định nội dung và vòng đời của Cookie được tạo ra bằng cách thiết lập giá trị cho Set-Cookie trong HTTP headers. Nếu được tạo ra bởi trình duyệt, nó sẽ bị vô hiệu hóa sau khi trình duyệt đóng lại.</li>
+    <li>Cookie được lưu trữ ở trình duyệt, bởi vì mỗi lần một HTTP request được gửi, Cookie được gắn vào HTTP header một cách mặc định. Do điều đó nên Cookie chủ yếu được sử dụng nhầm xác thực thông tin. Đồng thời Cookie cũng không thường dùng để lưu trữ thông tin vì như vậy sẽ làm Cookie bị phình ra.</li>
+    <li>Session được lưu trữ trên server và thường được kết hợp sử dụng với Cookie nhằm thực hiện xác thực và duy trì trạng thái.</li>
+</ul>
+
+<div class="blog-detail-comments">
+    <!-- <div id="show-comment-box">
+        Comment
+    </div> -->
+    <div id="post-comment">
+        <div id="disqus_thread"></div>
+        <script>
+        /**
+        *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+        *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+        /*
+        var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        };
+        */
+        (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = 'https://https-tasynguyen3894-github-io.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+</div>
+<div class="blog-break-line"></div>
+</div>
+</div>
+
+                </div>
+                <footer>
+                    <div>Created with <a href="https://github.com/tasynguyen3894/1989stack">1989Stack</a>
+                        | <a href="tags.html"><span class="fa fa-tag"></span></a>
+                        <a href="https://twitter.com/tasyit"><span class="fa fa-twitter"></span></a>
+                        <a href="https://github.com/tasynguyen3894"><span class="fa fa-github"></span></a>
+                    </div>
+                    <div><a href="/">thaisang.nguyen3894.github.io</a> - <a href="versions.html">Verison 1.1.0b</a> &copy 2018</div>
+                </footer>
+            </div>
+        </div>
+        <script src="/public/js/main.js"></script>
+        <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.13.1/build/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+        <!-- build:script -->
+    </body>
+</html>
