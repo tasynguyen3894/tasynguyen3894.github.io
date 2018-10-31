@@ -580,6 +580,31 @@ body {
 					}
 				}
 			}
+			ul {
+				&.tabs {
+					padding: 0px;
+					overflow: hidden;
+					border-bottom: 1px solid #ccc;
+					box-sizing: border-box;
+					list-style: none;
+					li {
+						padding: 15px 15px;
+						margin: 0px;
+						cursor: pointer;
+						border: 1px solid #FFF;
+						border-bottom: none;
+						float: left;
+						&.active {
+							border: 1px solid #ccc;
+							border-bottom: none;
+						}
+						&:hover {
+							border: 1px solid #ccc;
+							border-bottom: none;
+						}
+					}
+				}
+			}
 		}
 		.tags-content {
 			.tags-list {
