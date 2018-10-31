@@ -141,6 +141,13 @@ Augustus
     <li>Cookie được lưu trữ ở trình duyệt, bởi vì mỗi lần một HTTP request được gửi, Cookie được gắn vào HTTP header một cách mặc định. Do điều đó nên Cookie chủ yếu được sử dụng nhầm xác thực thông tin. Đồng thời Cookie cũng không thường dùng để lưu trữ thông tin vì như vậy sẽ làm Cookie bị phình ra.</li>
     <li>Session được lưu trữ trên server và thường được kết hợp sử dụng với Cookie nhằm thực hiện xác thực và duy trì trạng thái.</li>
 </ul>
+<p>Một số ví dụ về Cookie và Session</p>
+<p>Giả sử chúng ta có một hệ thống quản lý thông tin sinh viên. Tại một thời điểm mà cơ sở dữ liệu đã có đủ các thông tin liên quan đến sinh viên như tài khoản, mật khẩu, các thông tin cá nhân... Sau đó, sinh viên đăng nhập vào hệ thống bằng các gửi thông tin tài khoản qua mật khẩu tới server backend bằng phương thức POST. Khi đó server sẽ thực hiện kiểm tra các tham số gửi lên và kiểm tra xem nó có khớp với những gì được lưu trong cơ sở dữ liệu.</p>
+<p>Nếu quá trình kiểm tra thành công, tức là thông tin gửi lên là chính xác. Server backend sẽ ghi lại giá trị trong Session. Thường là tên tài khoản hoặc một trường duy nhất nào có của người dù (id chẳng hạn).</p>
+<p>Sau khi lưu dữ liệu lại trong Session, server sẽ phản hồi về cho phía client rằng quá trình đăng nhập đã thành công và client có thể thực hiện các chức năng tiếp theo (đòi hỏi phải đăng nhập). Đồng thời, cũng trong thời điểm này server backend sẽ thêm một thuộc tính là Set-Cookie trong HTTP response, giá trị của nó chính là SessionID của Sesion hiện tại (SessionID này đang trỏ đến Session hiện tại của chúng ta. Trong Express thì express-session sẽ thực hiện thiết lập quá trình này). Tất nhiên quá trình này cũng bao gồm việt thiết lập một số thuộc tính khác của Cookie như Expire time...</p>
+<p>Khi trình duyệt nhận được HTTP response, nó sẽ thiết lập một cookie local. Thời gian hết hạn chính được xác định bởi giá trị của trường Expires trong Set-Cookie thuộc response trả về. Nếu trình duyệt bị đóng (hoặc khi Session hết hạn) mọi thứ sẽ bị vô hiệu hóa.</p>
+<!--?-->
+
 
 <div class="blog-detail-comments">
     <!-- <div id="show-comment-box">
