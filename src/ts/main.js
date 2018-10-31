@@ -30,4 +30,13 @@ $('#show-comment-box').click(function () {
 	$(this).hide();
 })
 
+// tabs
+
+$('.tabs li').click(function () {
+	$('.tabs li').removeClass('active');
+	$(this).addClass('active');
+	let target = $(this).attr('tab-target');
+	$('.tab-content > div').hide();
+	$('.tab-content > div[data-tab='+target+']').show();
+})
 
