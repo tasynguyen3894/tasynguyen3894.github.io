@@ -158,9 +158,9 @@ Erwin Rommel
 <p>CORS cho phép trình duyệt đưa ra các XMLHttpRequest tới các cross-origin server. Đồng thời request đó có thể vượt qua các giới hạn của AJAX khi chỉ có thể gửi request đến những nơi có cùng một nguồn.</p>
 <p>Việc triển khai CORS chủ yếu dựa vào những cài đặt ở phía server. <!-- còn 1 đoạn -->. Phần frontend thì gần như không thay đổi mấy so với việc sử dụng AJAX bình thường. Chỉ là chúng ta cần cập nhật một số cài đặt liên quan tới AJAX mà tôi sẽ nói trong phần tiếp theo.</p>
 <h4>Hai loại request của CORS</h4>
-<p>Để có thể chia sẽ được tài nguyên từ cross-domain, chúng ta cần xem xét hai loại requeset dưới đây.</p>
+<p>Để có thể chia sẽ được tài nguyên từ cross-domain, chúng ta cần xem xét hai loại request dưới đây.</p>
 <p>Trình duyệt chia CORS ra làm hai loại request. Loại đầu tiên là loại đơn giản còn loại còn lại thì... chắc chắn là loại không đơn giản rồi. (Người dịch: vãi ông viết bài -_-)</p>
-<p>Chỉ cần đạt được hai yêu cầu sau thì chúng ta có thể đánh giá một request là "đơn giản".</p>
+<p>Chỉ cần đạt được hai yêu cầu sau thì chúng ta có thể đánh giá đó là single request.</p>
 <p>Phương thức yêu cầu là một trong ba phương thức sau đây:</p>
 <ul>
     <li>HEAD</li>
@@ -175,6 +175,31 @@ Erwin Rommel
     <li>Last-Event-ID</li>
     <li>Content-Type: Giới hạn trong ba giá trị sau đây <b>application/x-www-form-urlencoded</b>, <b>multipart/formdata</b> và <b>text/plain</b></li>
 </ul>
+<p>Còn nếu request không thõa mãn bất kỳ một điều kiện nào trong những điều kiện kể trên thì đó là preflighted request</p>
+<p>Trình duyệt cũng có cách xử lý khác nhau đối với các loại request.</p>
+<h4>Simple request</h4>
+<p>Đối với simple request thì trình duyệt sẽ gửi CORS request trực tiếp. Cụ thể, sẽ thêm trường <b>Origin</b> vào bên trong phần HTTP header như sau:</p>
+<pre><code class="http">
+GET /cors HTTP/1.1
+Origin: http://api.bob.com
+Host: api.alice.com
+Accept-Language: en-US
+Connection: keep-alive
+User-Agent: Mozilla/5.0...
+</code></pre>
+<p>Trường <b>Origin</b> ở phía trên được dùng để chỉ định nguồn (protocol + tên miền + cổng) mà request đến. Dựa trên giá trị này, server sẽ quyết định là có thông qua request hay không.</p>
+<p>Nếu tên nguồn được khai báo trong <b>Origin</b> không nằm trong phạm vi những nguồn được cho phép của server thì server sẽ trả về một HTTP response bình thường. Khi nhận được HTTP response từ server và không hề chứ trường <b>Access-Control-Allow-Origin</b> (như bên dưới) thì có nghĩa đã có đó không đúng xảy ra. Và lỗi đó sẽ được tìm thấy ở function onerror của XMLHttpRequest. Lưu ý một tí là các bạn không nên dùng status code để phát hiện lỗi này vì đôi lúc status code trả về sẽ là 200 (dù có phát sinh lỗi).</p>
+<p>Còn trong trường hợp tên nguồn nằm trong <b>Origin</b> nằm trong phạm vi những nguồn được cho phép của server thì phần header được phản hồi lại sẽ có dạng tương tự như sau:</p>
+<pre><code class="http">
+Access-Control-Allow-Origin: http://api.bob.com
+Access-Control-Allow-Credentials: true
+Access-Control-Expose-Headers: FooBar
+Content-Type: text/html; charset=utf-8
+</code></pre>
+<p>Trong HTTP response header trên thì có ba trường có liên quan đến CORS được bắt đầu bằng <i>Access-Control-</i></p>
+
+
+
 
 
 <div class="blog-detail-comments">
