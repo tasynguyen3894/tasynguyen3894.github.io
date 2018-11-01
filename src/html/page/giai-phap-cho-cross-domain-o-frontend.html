@@ -10,10 +10,10 @@
 
 <!-- build:quotes -->
 <div class="navbar-quotes-content">
-If you want rainbow, you have to deal with the rain.
+Sweat saves blood, blood saves lives, but brains saves both.
 </div>
 <div class="navbar-quotes-speaker">
-Augustus
+Erwin Rommel
 </div>
 <!-- /build:quotes -->
 <!-- https://segmentfault.com/a/1190000012256432 -->
@@ -30,6 +30,7 @@ Augustus
     <span><a href="tags.html?tag=frontend">frontend</a></span>
 </div>
 <h4>Browser Same Origin Policy</h4>
+<div class="blog-break-line"></div>
 <h4>Browser Same Origin Policy là gì?</h4>
 <p>Same Origin Policy là một nền tảng bảo mật của trình duyệt.</p>
 <p>Same Origin Policy là một cách để hạn chế những tài liệu hoặc mã được tải từ một nguồn khác với nguồn của tài nguyên. Đây là một cơ chế quan trọng để chống lại những nguy hại có thể xảy ra do mã độc.</p>
@@ -94,9 +95,86 @@ Augustus
 <p>Một số ví dụ về Cookie và Session</p>
 <p>Giả sử chúng ta có một hệ thống quản lý thông tin sinh viên. Tại một thời điểm mà cơ sở dữ liệu đã có đủ các thông tin liên quan đến sinh viên như tài khoản, mật khẩu, các thông tin cá nhân... Sau đó, sinh viên đăng nhập vào hệ thống bằng các gửi thông tin tài khoản qua mật khẩu tới server backend bằng phương thức POST. Khi đó server sẽ thực hiện kiểm tra các tham số gửi lên và kiểm tra xem nó có khớp với những gì được lưu trong cơ sở dữ liệu.</p>
 <p>Nếu quá trình kiểm tra thành công, tức là thông tin gửi lên là chính xác. Server backend sẽ ghi lại giá trị trong Session. Thường là tên tài khoản hoặc một trường duy nhất nào có của người dù (id chẳng hạn).</p>
-<p>Sau khi lưu dữ liệu lại trong Session, server sẽ phản hồi về cho phía client rằng quá trình đăng nhập đã thành công và client có thể thực hiện các chức năng tiếp theo (đòi hỏi phải đăng nhập). Đồng thời, cũng trong thời điểm này server backend sẽ thêm một thuộc tính là Set-Cookie trong HTTP response, giá trị của nó chính là SessionID của Sesion hiện tại (SessionID này đang trỏ đến Session hiện tại của chúng ta. Trong Express thì express-session sẽ thực hiện thiết lập quá trình này). Tất nhiên quá trình này cũng bao gồm việt thiết lập một số thuộc tính khác của Cookie như Expire time...</p>
+<p>Sau khi lưu dữ liệu lại trong Session, server sẽ phản hồi về cho phía client rằng quá trình đăng nhập đã thành công và client có thể thực hiện các chức năng tiếp theo (đòi hỏi phải đăng nhập). Đồng thời, cũng trong thời điểm này server backend sẽ thêm một thuộc tính là Set-Cookie trong HTTP response, giá trị của nó chính là SessionID của Session hiện tại (SessionID này đang trỏ đến Session hiện tại của chúng ta. Trong Express thì express-session sẽ thực hiện thiết lập quá trình này). Tất nhiên quá trình này cũng bao gồm việt thiết lập một số thuộc tính khác của Cookie như Expire time...</p>
 <p>Khi trình duyệt nhận được HTTP response, nó sẽ thiết lập một cookie local. Thời gian hết hạn chính được xác định bởi giá trị của trường Expires trong Set-Cookie thuộc response trả về. Nếu trình duyệt bị đóng (hoặc khi Session hết hạn) mọi thứ sẽ bị vô hiệu hóa.</p>
 <!--?-->
+<p>Sau quá trình đăng nhập, mỗi request gửi đến server từ trình duyệt sẽ được thêm những thông tin vài cookie một cách mặt định. Theo cách thức này, mỗi khi nhận được request từ client thì server sẽ tìm kiếm Session của chúng ta dựa vào SessionID trong cookie.</p>
+<p>Nếu SessionID gửi lên được tìm thấy thì có nghĩa là client đã đăng nhập và chúng ta có thể thực hiện các chức năng tiếp theo.</p>
+<p>Có một điều đáng lưu ý là cơ chế xác minh Session này người dùng hiện tại chỉ có thể lấy được Session của họ và sẽ không thể lấy được những Session khác. Mỗi Session của mỗi người dùng cũng giữ sự độc lập với nhau. Đồng nghĩa với việc khi có nhiều người dùng hệ thống trong một thời gian thì hệ thống cũng sẽ lưu trữ nhiều Session tương ứng.</p>
+<p>Trên đây, tôi đã trình bày về các ví dụ của Session và Cookie.</p>
+<h4>Giới thiệu về iframe</h4>
+<p>Khi nói về các hạn chế của Same Origin Policy thì chúng ta có thể đề cập đến iframe.</p>
+<p>iframe dùng để nhúng một trang con trong một trang lớn. Trong quá trình phát triển sản phẩm hằng ngày chúng ta không thể tránh được những vấn đề khi giao tiếp giữa các iframe khác nhau trong trang. Như sử dụng DON, function hoặc biến của các iframe khác.</p>
+<p>iframe cũng chịu ảnh hưởng bởi Same Origin Policy. Thuộc tính src của iframe chính là url trong Same Origin Policy. Còn về việc tương tác với DOM, biến và function của iframe cũng không quá phức tạp, chúng ta có thể dùng <b>contentDocument</b> và <b>contentWindow</b></p>
+<p>Nếu hai iframe không tương đồng thì khả năng truy cập sẽ bị giới hạn.</p>
+<p>Để giải quyết vấn đề trên. HTML5 giới thiệu một API mới đó là <b>postMessage</b>, một phương thức chủ yếu để giải quyết vấn đề liên lạc giữa iframe và cross-domain.</p>
+<p>Sau đâu là một ví dụ: Nếu có hai trang khác nhau. Url của trang A là <i>http://localhost:4002/parent.html</i> còn url của trang B là <i>http://localhost:4003/child.html</i>. Bây giờ, tôi sẽ nhúng trang B vào trang A dưới dạng iframe cùng với đoạn code được đặt như bên dưới.. Bây giờ tôi muốn gửi một thông điệp vào trang con B.</p>
+<p>Code ở trang A</p>
+<pre><code class="html">
+&lt;body&gt;
+&lt;h1&gt;A页面&lt;/h1&gt;
+&lt;iframe src="http://localhost:4003/child.html" id="child"&gt;
+&lt;/iframe&gt;
+&lt;script&gt;
+    window.onload = function() {
+        document.getElementById("child").contentWindow.postMessage("父页面发来贺电", "http://localhost:4003");
+    } // 父页面发来贺电 => lời nhắn từ trang gốc
+&lt;/script&gt;
+&lt;/body&gt;
+</code></pre>
+<p>Code ở trang B</p>
+<pre><code class="html">
+&lt;body&gt;
+    &lt;h1&gt;B页面&lt;/h1&gt;
+    &lt;script&gt;
+        window.onload = function() {
+            window.addEventListener("message", function(e) {
+                //Kiểm tra xem tin nhắn có phải đến trang gốc hay không để đảm bảo tính bảo mật
+                if(e.source != window.parent) return;
+                alert(e.data);
+            });
+        };
+    &lt;/script&gt;
+&lt;/body&gt;
+</code></pre>
+<p>Kết quả như sau:</p>
+<img src="https://image-static.segmentfault.com/249/684/2496843760-5a229c047e2e8_articlex" alt="">
+<p><b>postMessage</b> nhận hai tham số đó là dữ liệu gửi đi và nguồn của iframe cần gửi (như ở đoạn code phía trên là <i>http://localhost:4003</i>). Trong trường hợp bạn muốn gửi cho tất cả các iframe bất kể nguồn nào bạn có đặt giá trị là "*". Về phần iframe muốn nhận được thông tin thì có thể sử dụng <i>window.addEventListener ("message", function () {})</i>.</p>
+<h4>Những trường hợp không bị giới hạn bởi Same Origin Policy</h4>
+<ul>
+    <li>Thẻ <b>script</b> được phép nhúng các đoạn script từ cross-domain. JSONP được xem như một công nghệ dùng để khai thác "lỗ hổng" này.</li>
+    <li>Các thẻ <b>img</b>, <b>link</b> và <b>@font-face</b> không bị ảnh hưởng bởi cross-domain</li>
+    <li>Phần tài nguyên trong các thẻ <b>video</b> và <b>audio</b> cũng không bị giới hạn.</li>
+    <li>Bất cứ tài nguyên nào cũng iframe (Các iframe không giao tiếp được với nhau).</li>
+    <li>Plugins dành cho &lt;object&gt;, &lt;embed&gt;, và &lt;applet&gt;</li>
+    <li>WebSocket cũng không chịu sự giới hạn của Same Origin Policy</li>
+</ul>
+<h4>Giải pháp chung cho các developer</h4>
+<div class="blog-break-line"></div>
+<h4>CORS - Chia sẽ tài nguyên của cross-domain</h4>
+<p>Lưu ý: Hai hướng phân tích sau đây về việc chia sẽ tài nguyên với cross-domain được trích xuất trong bài viết <a href="">Chia sẽ cross-domain (跨域资源共享)</a> của <b>阮一峰 (Nguyễn Nhất Phong)</b></p>
+<h4>Chia sẽ tài nguyên cross-domain là cái gì?</h4>
+<p>CORS là một tiêu chuẩn của <b>W3C</b>, tên gọi đầy đủ là Cross-origin resource sharing</p>
+<p>CORS cho phép trình duyệt đưa ra các XMLHttpRequest tới các cross-origin server. Đồng thời request đó có thể vượt qua các giới hạn của AJAX khi chỉ có thể gửi request đến những nơi có cùng một nguồn.</p>
+<p>Việc triển khai CORS chủ yếu dựa vào những cài đặt ở phía server. <!-- còn 1 đoạn -->. Phần frontend thì gần như không thay đổi mấy so với việc sử dụng AJAX bình thường. Chỉ là chúng ta cần cập nhật một số cài đặt liên quan tới AJAX mà tôi sẽ nói trong phần tiếp theo.</p>
+<h4>Hai loại request của CORS</h4>
+<p>Để có thể chia sẽ được tài nguyên từ cross-domain, chúng ta cần xem xét hai loại requeset dưới đây.</p>
+<p>Trình duyệt chia CORS ra làm hai loại request. Loại đầu tiên là loại đơn giản còn loại còn lại thì... chắc chắn là loại không đơn giản rồi. (Người dịch: vãi ông viết bài -_-)</p>
+<p>Chỉ cần đạt được hai yêu cầu sau thì chúng ta có thể đánh giá một request là "đơn giản".</p>
+<p>Phương thức yêu cầu là một trong ba phương thức sau đây:</p>
+<ul>
+    <li>HEAD</li>
+    <li>GET</li>
+    <li>POST</li>
+</ul>
+<p>Thông tin của HTTP Header không vượt quá các trường sau đây:</p>
+<ul>
+    <li>Accept</li>
+    <li>Accept-Language</li>
+    <li>Content-Language</li>
+    <li>Last-Event-ID</li>
+    <li>Content-Type: Giới hạn trong ba giá trị sau đây <b>application/x-www-form-urlencoded</b>, <b>multipart/formdata</b> và <b>text/plain</b></li>
+</ul>
 
 
 <div class="blog-detail-comments">
