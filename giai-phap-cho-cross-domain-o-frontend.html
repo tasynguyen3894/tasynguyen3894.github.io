@@ -89,7 +89,7 @@ Erwin Rommel
 <p>Hãy xem thử ví dụ dưới đây:</p>
 <p>Đối với <b>http://www.example.com/static</b> giao thức chính là <b>http</b>, tên miền là <b>www.example.com</b>, path chính là <b>static</b>.Số cổng thì bị bỏ qua trong url này vì nó đang dùng cổng mặc định (80).</p>
 <p>Điều cần chú ý ở đây là phần tên miền. <b>example.com</b> là tên miền chính và <b>www.example.com</b> là tên miền phụ. Và cả với <b>a.example.com</b> cũng có thể là tên miền cấp hai. Và cả ba tên miền tên là ba tên miền khác nhau.</p>
-<p>Về chi tiết cũng chúng tôi sẽ không đi sâu ở đây. Để biết thêm thông tin, các bạn có thể tìm hiểu thêm các tài liệu về mạng máy tính.</p>
+<p>Về chi tiết cũng chúng tôi sẽ không đi sâu ở đây. Để biết thêm thông tin, bạn có thể tìm hiểu thêm các tài liệu về mạng máy tính.</p>
 <p>Trở lại với câu hỏi cũ. Liệu có cách nào để nhận biết các trang có cùng tên miền không?</p>
 <p>Nếu giao thức và cổng (nếu được chỉ định) và hai tên miền đều giống nhau thì cả hai trang được xem là cùng một nguồn.</p>
 <p>Hãy nói dễ hiểu hơn là ba yếu tố để xác định sự tương đồng chính là: giao thức, tên miền và cổng.</p>
@@ -208,9 +208,9 @@ Erwin Rommel
 <p>CORS cho phép trình duyệt đưa ra các XMLHttpRequest tới các cross-origin server. Đồng thời request đó có thể vượt qua các giới hạn của AJAX khi chỉ có thể gửi request đến những nơi có cùng một nguồn.</p>
 <p>Việc triển khai CORS chủ yếu dựa vào những cài đặt ở phía server. <!-- còn 1 đoạn -->. Phần frontend thì gần như không thay đổi mấy so với việc sử dụng AJAX bình thường. Chỉ là chúng ta cần cập nhật một số cài đặt liên quan tới AJAX mà tôi sẽ nói trong phần tiếp theo.</p>
 <h4>Hai loại request của CORS</h4>
-<p>Để có thể chia sẽ được tài nguyên từ cross-domain, chúng ta cần xem xét hai loại requeset dưới đây.</p>
+<p>Để có thể chia sẽ được tài nguyên từ cross-domain, chúng ta cần xem xét hai loại request dưới đây.</p>
 <p>Trình duyệt chia CORS ra làm hai loại request. Loại đầu tiên là loại đơn giản còn loại còn lại thì... chắc chắn là loại không đơn giản rồi. (Người dịch: vãi ông viết bài -_-)</p>
-<p>Chỉ cần đạt được hai yêu cầu sau thì chúng ta có thể đánh giá một request là "đơn giản".</p>
+<p>Chỉ cần đạt được hai yêu cầu sau thì chúng ta có thể đánh giá đó là single request.</p>
 <p>Phương thức yêu cầu là một trong ba phương thức sau đây:</p>
 <ul>
     <li>HEAD</li>
@@ -225,7 +225,44 @@ Erwin Rommel
     <li>Last-Event-ID</li>
     <li>Content-Type: Giới hạn trong ba giá trị sau đây <b>application/x-www-form-urlencoded</b>, <b>multipart/formdata</b> và <b>text/plain</b></li>
 </ul>
-
+<p>Còn nếu request không thõa mãn bất kỳ một điều kiện nào trong những điều kiện kể trên thì đó là preflighted request</p>
+<p>Trình duyệt cũng có cách xử lý khác nhau đối với các loại request.</p>
+<h4>Simple request</h4>
+<p>Đối với simple request thì trình duyệt sẽ gửi CORS request trực tiếp. Cụ thể, sẽ thêm trường <b>Origin</b> vào bên trong phần HTTP header như sau:</p>
+<pre><code class="http">
+GET /cors HTTP/1.1
+Origin: http://api.bob.com
+Host: api.alice.com
+Accept-Language: en-US
+Connection: keep-alive
+User-Agent: Mozilla/5.0...
+</code></pre>
+<p>Trường <b>Origin</b> ở phía trên được dùng để chỉ định nguồn (protocol + tên miền + cổng) mà request đến. Dựa trên giá trị này, server sẽ quyết định là có thông qua request hay không.</p>
+<p>Nếu tên nguồn được khai báo trong <b>Origin</b> không nằm trong phạm vi những nguồn được cho phép của server thì server sẽ trả về một HTTP response bình thường. Khi nhận được HTTP response từ server và không hề chứ trường <b>Access-Control-Allow-Origin</b> (như bên dưới) thì có nghĩa đã có đó không đúng xảy ra. Và lỗi đó sẽ được tìm thấy ở function onerror của XMLHttpRequest. Lưu ý một tí là bạn không nên dùng status code để phát hiện lỗi này vì đôi lúc status code trả về sẽ là 200 (dù có phát sinh lỗi).</p>
+<p>Còn trong trường hợp tên nguồn nằm trong <b>Origin</b> nằm trong phạm vi những nguồn được cho phép của server thì phần header được phản hồi lại sẽ có dạng tương tự như sau:</p>
+<pre><code class="http">
+Access-Control-Allow-Origin: http://api.bob.com
+Access-Control-Allow-Credentials: true
+Access-Control-Expose-Headers: FooBar
+Content-Type: text/html; charset=utf-8
+</code></pre>
+<p>Trong HTTP response header trên thì có ba trường có liên quan đến CORS được bắt đầu bằng <i>Access-Control-</i></p>
+<p><b>Access-Control-Allow-Origin</b></p>
+<p>Đây là một trường bắt buộc, giá trị của trường này là những thứ mà Origin yêu cầu hoặc là "*" (cho biết rằng mọi tên miền đều được chấp nhận).</p>
+<p><b>Access-Control-Allow-Credentials</b></p>
+<p>Đây là một trường không hề bắt buộc. Kiểu giá trị của trường này là Boolean quy định rằng Cookie có cần được gửi hay không. Mặc định thì CORS không bật trường này lên. Còn nếu có giá trị là true thì có nghĩa server quy định rằng bạn phải gửi cookie lên kèm trong request. Giá trị của trường này luôn là true. Nếu không dùng thì bạn chỉ cần xóa nó đi (thay vì set lại là false).</p>
+<p>Một điều lưu tâm là đển CORS có thể hỗ trợ Cookie thì bạn không chỉ phải thiết lập trong HTTP response từ server. Mà còn phải dùng <b>withCredentials</b> dành cho AJAX như sau (cấu hình dành cho jQuery sẽ được đề cập sau):</p>
+<pre><code class="javascript">
+var xhr = new XMLHttpRequest();
+xhr.withCredentials = true;
+</code></pre>
+<p>Đôi khi một số trình duyệt vẫn gửi Cookie dù bạn đã bỏ qua thuộc tính <b>withCredentials</b>. Vì vậy, trong trường hợp đó, để tắt nó thì chúng ta có thể thao tác đơn giản như bên dưới:</p>
+<pre><code class="javascript">
+xhr.withCredentials = false;
+</code></pre>
+<p><b>Chú ý rằng nếu bạn muốn gửi Cookie lên thì Access-Control-Allow-Origin không được phép set là * mà phải đặt một tên miền cụ thế. Nếu bạn đang thực hiện debug ở local thì bạn có thể xem xét để chuyển đổi cài đặt sang null.</b></p>
+<h4>Access-Control-Expose-Headers</h4>
+<p>Giống như Access-Control-Allow-Credentials, đây cũng không phải là một trường bắt buộc. Trong CORS, phương thức <b>getResponseHeader()</b> của <b>XMLHttpRequest</b> chi có thể lấy được sáu trường là: <i>Cache-Control</i>, <i>Content-Language</i>, <i>Content-Type</i>, <i>Expires</i>, <i>Last-Modified</i> và <i>Pragma</i>. Nếu bạn muốn lấy thêm những trường khác, bạn bắt buộc phải chỉ định chúng trong <b>Access-Control-Expose-Headers</b>. Kết hợp với ví dụ ở trên, bạn có thể dùng <b>getResponseHeader('FooBar')</b> để lấy dữ liệu của <b>FooBar</b></p>
 
 <div class="blog-detail-comments">
     <!-- <div id="show-comment-box">
