@@ -225,7 +225,7 @@ Erwin Rommel
     <li>Last-Event-ID</li>
     <li>Content-Type: Giới hạn trong ba giá trị sau đây <b>application/x-www-form-urlencoded</b>, <b>multipart/formdata</b> và <b>text/plain</b></li>
 </ul>
-<p>Còn nếu request không thõa mãn bất kỳ một điều kiện nào trong những điều kiện kể trên thì đó là preflighted request</p>
+<p>Còn nếu request không thõa mãn bất kỳ một điều kiện nào trong những điều kiện kể trên thì đó là preflight request</p>
 <p>Trình duyệt cũng có cách xử lý khác nhau đối với các loại request.</p>
 <h4>Simple request</h4>
 <p>Đối với simple request thì trình duyệt sẽ gửi CORS request trực tiếp. Cụ thể, sẽ thêm trường <b>Origin</b> vào bên trong phần HTTP header như sau:</p>
@@ -263,6 +263,69 @@ xhr.withCredentials = false;
 <p><b>Chú ý rằng nếu bạn muốn gửi Cookie lên thì Access-Control-Allow-Origin không được phép set là * mà phải đặt một tên miền cụ thế. Nếu bạn đang thực hiện debug ở local thì bạn có thể xem xét để chuyển đổi cài đặt sang null.</b></p>
 <h4>Access-Control-Expose-Headers</h4>
 <p>Giống như Access-Control-Allow-Credentials, đây cũng không phải là một trường bắt buộc. Trong CORS, phương thức <b>getResponseHeader()</b> của <b>XMLHttpRequest</b> chi có thể lấy được sáu trường là: <i>Cache-Control</i>, <i>Content-Language</i>, <i>Content-Type</i>, <i>Expires</i>, <i>Last-Modified</i> và <i>Pragma</i>. Nếu bạn muốn lấy thêm những trường khác, bạn bắt buộc phải chỉ định chúng trong <b>Access-Control-Expose-Headers</b>. Kết hợp với ví dụ ở trên, bạn có thể dùng <b>getResponseHeader('FooBar')</b> để lấy dữ liệu của <b>FooBar</b></p>
+<h4>Preflight request</h4>
+<p>Preflight request là loại request đặc biệt dành cho server. Ví dụ như sẽ dụng phương thức như <b>PUT</b> hoặc <b>DELETE</b> hay trường <b>Content-Type</b> có giá trị là <b>application/json</b>.</p>
+<p>Một CORS request đối với preflight request sẽ được bổ sung thêm một HTTP request, được gọi là "pre flight (tiền trạm)" request sẽ được gửi đi. Sau đó, mới đến request chính thức.</p>
+<p>Ở request đầu tiên từ browser, server sẽ kiểm tra xem tên miền hiện tại có nằm trong danh sách được phép không. XMLHttpRequest sẽ chỉ gửi đi yêu cầu chính thức nếu nhận được một response tích cực từ server. Nếu response trả về không được như mong đợi thì server cũng sẽ trả lỗi về.</p>
+<p>Đây là đoạn code JavaScript</p>
+<pre><code class="javascript">
+var url = 'http://api.alice.com/cors';
+var xhr = new XMLHttpRequest();
+xhr.open('PUT', url, true);
+xhr.setRequestHeader('X-Custom-Header', 'value');
+xhr.send();
+</code></pre>
+<p>Rõ ràng chúng ta có thể thấy rằng đây là một preflight request. Phương thức được gửi đi là <b>PUT</b>, đồng thời kèm theo một trường được custom trong HTTP header.</p>
+<p>Do vậy, nên trình duyệt sẽ đánh giá đây là một preflight request, đồng thời sẽ tự động gửi ra một request "tiền trạm" đến server. Dưới đây là thông tin HTTP header request của preflight request này.</p>
+<pre><code class="http">
+OPTIONS /cors HTTP/1.1
+Origin: http://api.bob.com
+Access-Control-Request-Method: PUT
+Access-Control-Request-Headers: X-Custom-Header
+Host: api.alice.com
+Accept-Language: en-US
+Connection: keep-alive
+User-Agent: Mozilla/5.0...
+</code></pre>
+<p>Phương thức sử dụng trong request tiền trạm này là <b>OPTIONS</b>, để cho phía server biết được request này là request thăm dò. Trong thông tin của Header gồm có trường <b>Origin</b> cho biết nguồn của yêu cầu đến từ đâu.</p>
+<p>Ngoài <b>Origin</b> ra thì phần header của request "tiền tạm" cũng có hai trường cần để ý.</p>
+<p><b>Access-Control-Request-Method</b></p>
+<p>Trường này là bắt buộc, nhằm để khai báo phương thức của CORS request. Như ở trên chúng ta có thể thấy là <b>PUT</b></p>
+<p><b>Access-Control-Request-Headers</b></p>
+<p>Trường này là một chuỗi được phân cách bằng dấu phẩy chỉ định những thông tin mà trong header của CORS request sẽ gửi thêm (ngoài những thông tin mặc định). Như đã thất ở trên đó là <b>X-Custom-Header</b>.</p>
+<p><b>Access-Control-Request-Headers</b></p>
+<p>Sau khi nhận được request "tiền trạm" thì server sẽ kiểm tra các trường <b>Origin</b>, <b>Access-Control-Request-Method</b> vaf <b>Access-Control-Request-Headers</b>. Nếu hợp lệ, server sẽ phản hồi lại cho trình duyệt như sau:</p>
+<pre><code class="http">
+HTTP/1.1 200 OK
+Date: Mon, 01 Dec 2008 01:15:39 GMT
+Server: Apache/2.0.61 (Unix)
+Access-Control-Allow-Origin: http://api.bob.com
+Access-Control-Allow-Methods: GET, POST, PUT
+Access-Control-Allow-Headers: X-Custom-Header
+Content-Type: text/html; charset=utf-8
+Content-Encoding: gzip
+Content-Length: 0
+Keep-Alive: timeout=2, max=100
+Connection: Keep-Alive
+Content-Type: text/plain
+</code></pre>
+<p>Nếu server từ chối request tiền trạm này, server sẽ trả về một HTTP response bình thường và không có trường nào liên quan đến CORS. Đồng thời ngay lúc này, trình duyệt sẽ giả định rằng server không đồng ý với với yêu cầu tiền trạm. Vì thế nên XMLHttpRequest sẽ kích hoạt lỗi trong onerror dưới dạng như bên dưới:</p>
+<pre><code class="sql">
+XMLHttpRequest cannot load http://api.alice.com.
+Origin http://api.bob.com is not allowed by Access-Control-Allow-Origin.
+</code></pre>
+<p>Ngoài ra còn một số trường khác có liên quan đến CORS mà server phản hồi:</p>
+<pre><code class="http">
+Access-Control-Allow-Methods: GET, POST, PUT
+Access-Control-Allow-Headers: X-Custom-Header
+Access-Control-Allow-Credentials: true
+Access-Control-Max-Age: 1728000
+</code></pre>
+<p>So sánh với nhưng gì mà CORS trả về cho simple request thì ở đây chúng ta có thể thấy được ba trường khác biệt như sau:</p>
+<p><b>Access-Control-Allow-Methods</b></p>
+<p>Đây là một trường bắt buộc, giá trị của nó là một chuỗi được ngăn cách bằng dấu phẩy. Liệt tất cả những phương thức của cross-domain được hỗ trợ bởi server. Lưu ý rằng tất cả các phương thức mà server hổ trợ sẽ được trả về. Tôi lặp lại điều này để tránh việc nhầm lẫn với <b>Access-Control-Allow-Methods</b> của request tiền trạm mà tôi đã đề cập ở phía trên.</p>
+<p><b>Access-Control-Allow-Headers</b></p>
+
 
 <div class="blog-detail-comments">
     <!-- <div id="show-comment-box">
