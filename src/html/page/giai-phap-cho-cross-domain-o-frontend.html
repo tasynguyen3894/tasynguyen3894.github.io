@@ -275,6 +275,237 @@ Access-Control-Max-Age: 1728000
 <p><b>Access-Control-Allow-Methods</b></p>
 <p>Đây là một trường bắt buộc, giá trị của nó là một chuỗi được ngăn cách bằng dấu phẩy. Liệt tất cả những phương thức của cross-domain được hỗ trợ bởi server. Lưu ý rằng tất cả các phương thức mà server hổ trợ sẽ được trả về. Tôi lặp lại điều này để tránh việc nhầm lẫn với <b>Access-Control-Allow-Methods</b> của request tiền trạm mà tôi đã đề cập ở phía trên.</p>
 <p><b>Access-Control-Allow-Headers</b></p>
+<p>Nếu trình duyệt gửi request có chứa <b>Access-Control-Allow-Headers</b>, thì trường <b>Access-Control-Allow-Headers</b> sẽ là bắt buộc. Giá trị của trường này là mỗi chuỗi được phân cách bởi dấu phẩy, bao gồm các trường custom được server hỗ trợ. Giống như ở trên, những giá trị của <b>Access-Control-Allow-Headers</b> ở đây cũng không bị giới hạn bởi những giá của request tiền trạm ở trên.</p>
+<p><b>Access-Control-Max-Age</b></p>
+<p>Đây là một trường không bắt buộc, dùng để chỉ định thời hạn của request tiền trạm này và đơn vị sử dụng là giây. Trong đoạn kết quả ở trên chúng ta có thể thấy giá trị là 1728000 giây (20 ngày). Nghĩa là phản hồi này sẽ được cache lại trong 20 ngày. Trong thời gian này, sẽ không cần phải gửi yêu cầu tiền trạm nửa.</p>
+<p>Do đó, mỗi khi mà trình duyệt vượt qua được "trạm soát vé" ở phía server, mỗi request CORS tiếp theo sẽ được xem như một simple request, vẫn có trường <b>Origin</b>. Phản hồi của server cũng sẽ có <b>Access-Control-Allow-Origin</b>. Nếu bạn có sử dụng Cookie thì <b>Access-Control-Allow-Credentials</b> cũng sẽ được thiết lập là <i>true</i> (như ở trên đã đền cập).</p>
+<h4>Làm thể nào để có thể dùng CORS cho cross-domain khi sử dụng Node?</h4>
+<p>Câu hỏi của phần này là cách thức để thực hiện chia sẽ tài nguyên cho cross-domain với <b>Express</b>.</p>
+<p>Thực tế, cách thức khá đơn giản. Bạn chỉ cần phải thiết lập các trường đã được đề cập ở trên. Đồng thời cần để ý các vấn đề như hai loại yêu cầu, có sử dụng Cookie hay không. Bạn có thể tham khảo đoạn code dưới đây.</p>
+<pre><code class="javascript">
+app.all("*", function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", /* url | * | null */);
+    res.header("Access-Control-Allow-Headers", "Authorization, X-Requested-With");
+    res.header("Access-Control-Allow-Methods", "PUT,POST,GET,DELETE,OPTIONS"); /* Những phương thức mà server sẽ hỗ trợ */
+    res.header("Access-Control-Allow-Credentials", "true"); /* Bật lên khi bạn sử dụng Cookie */
+    res.header("Access-Control-Max-Age", 300000); /* Thời gian hiệu lực của yêu cầu tiền trạm */
+    if (req.method === "OPTIONS") return res.send(200); /* Cho phép các request với phương thức OPTIONS phản hồi lại nhanh */
+    else next();
+});
+</code></pre>
+<p>Nhìn vào đoạn code trên, có một số phần tôi cần các bạn lưu ý:</p>
+<ul>
+    <li>Nếu bạn cần debug ở local, bạn cần đặt giá trị <b>Access-Control-Allow-Origin</b> thành <i>null</i> để có thể sử dụng Cookie. Vì mặc dù bạn vẫn có thể gửi các request nếu đặt giá trị là <i>*</i>, nhưng lúc này sẽ không thể nào dùng được Cookie.</li>
+    <li><b>Access-Control-Allow-Headers</b> là không bắt buộc phải thiết lập, cho nên phải chỉ cần phải thiết lập nó khi nào những request được gửi lên có <b>Access-Control-Allow-Headers</b></li>
+    <li>Hãy nhớ config <b>Access-Control-Allow-Methods</b> khi bạn muốn dùng Cookie.</li>
+    <li>Request tiền trạm có thể được được thiết lập cache. Điều đó sẽ đảm bảo cho bạn rằng không xảy ra hiện tượng nhiều request tiền trạm được gửi đi cùng một lúc.</li>
+    <li>Cần xác định request hiện tại có phải là request tiền trạm hay không. Nếu phải thì return ngay. (<b>Người dịch:</b> <i>Các bạn có thể tham khảo đoạn if phía trên. Làm thế nhầm đảm bảo không xảy ra các thao tác thừa thãi. Vì đôi khi các thao tác thừa đó có thể gây ra các bug tiềm ẩn.</i>).</li>
+</ul>
+<p>Như đã từng nói ở trên. Trong trường hợp bạn dùng jQuery để gửi AJAX thì các bạn có thể tham khảo đoạn code dưới đây.</p>
+<pre><code class="javascript">
+$.ajaxSetup({ xhrFields: { withCredentials: true }, crossDomain: true });
+</code></pre>
+<p>
+    Bật <b>withCredentials</b> nếu bạn muốn gửi đi Cookie. Mặc định thì jQuery sẽ không gửi. <br />
+    Bật <b>crossDomain</b> để AJAX có thể sử dụng cross-domain.
+</p>
+<p>Như vậy, trên đây tôi đã giới thiệu sơ về CORS dành cho cross-domain. Sau đây, chung ta sẽ đến phần tiếp theo của bài viết.</p>
+<h4>Triển khai cross-domain với công nghệ JSONP</h4>
+
+<h4>JSONP</h4>
+<p>Về <b>JSONP</b>, như tôi đã đề cập trước đó. Thực tế, việc dùng nó để giải quyết vấn đề Same Origin Policy được xem là lợi dụng một "lổ hỏng". Nhưng không sao, tất cả cũng là để hoàn thành đại cuộc "khúc tuyến cứu quốc" <a title="Khúc tuyến cứu quốc" class="note-item" id="khuc-tuyen-cuu-quoc-in-page" href="#khuc-tuyen-cuu-quoc"></a>.</p>
+<p>Như đã biết, thẻ <b>script</b> không bị giới hạn bởi <b>Same Origin Policy</b>. Và phương pháp này thì tận dụng điều đó bằng các thêm tự động các thẻ <b>script</b> vào trang. Đồng thời dùng các xử lý có sẵn (từ server) để lấy được dữ liệu.</p>
+<p>Có một điều tôi muốn nhấn mạnh, đó là phương pháp này hoàn toàn khác với CORS. Đây cũng không phải là một đặc điểm kỹ thuật. Cái thứ mà chúng ta gọi là <b>JSONP</b> thật ra là một các mới trong việc ứng dụng JSON. Hay nói đơn giản, nó chỉ là một đoạn JSON được thêm vào trang thông qua một function.</p>
+<p>Hai thành phần của <b>JSONP</b> đó chính là dữ liệu và callback function. Trong đó, callback function sẽ được gọi khi trang hiện tại có phản hồi. Dữ liệu JSON sẽ được truyền vào bên trong callback function đó. Dưới đây, tôi sẽ mô phỏng quá trình đó của <b>JSONP</b></p>
+<p>Nguyễn tắc của <b>JSONP</b> có thể được tham khảo ở <a target="_blank" href="https://www.cnblogs.com/dowinning/archive/2012/04/19/json-jsonp-jquery.html">đây (tiếng Trung)</a>.</p>
+<p>Mô phỏng ngắn gọn quá tình giao tiếp của JSONP</p>
+<pre><code class="javascript">
+function handleResponse(response) {
+    console.log(response.data);
+}
+var script = document.createElement("script");
+script.src = "http://example.com/jsonp/getSomething?uid=123&callback=hadleResponse"
+document.body.insertBefore(script, document.body.firstChild);
+/*handleResponse({"data": "hey"})*/
+</code></pre>
+<p>Quy trình trong đoạn code trên được diễn ra như sau:</p>
+<ul>
+    <li>Khi chúng ta request một thẻ <b>script</b> mới, một dữ liệu JSON tương ứng sẽ được tạo ra (từ nguồn trong src mà chúng ta đã chỉ định). Ví dụ như ở trên, chúng ta có thể thấy <b>handleResponse</b> được thêm vào link với tên là callback. 
+    <!--Sau khi có dữ liệu, dữ liệu sẽ được tương tác như sau: <i>handleResponse({"data": "hey"})</i>-->
+    .</li>
+    <li>Sau đó, dữ liệu JSON được trả về (chúng ta có thể xem nó như một file js). Thứ mà sẽ là tham số được gọn trong function.</li>
+    <li>Do chúng ta đã khai báo function ở phía trên. Nên ngay khi dữ liệu được tải về (bên trong thẻ script). Function đó sẽ được gọi trực tiếp với dữ liệu mà chúng ta vừa thu được.</li>
+    <li>Tại thời điểm này, việc giao tiếp với cross-domain xem như đã được hoàn tất.</li>
+</ul>
+<p>Ngoài ra, để có thể thực hiện <b>JSONP</b> thì chúng ta không thể thiếu đi sự cài đặt tương ứng ở phía server.</p>
+<p>Đương nhiên, <b>JSONP</b> cũng có những hạn chế nhất định:</p>
+<ul>
+    <li>Chỉ có thể dùng phương thức GET</li>
+    <li>Có kha khá khả năng rủi ro về bảo mật trong quá trình gửi yêu cầu.</li>
+    <li>Sẽ không dễ để xác định một request JSONP bị thất bại.</li>
+</ul>
+<h4>Một cách triển khai JSONP đơn giản</h4>
+<p>Dưới đây là một thư viện dùng để triển khai <b>JSONP</b>. Hãy thử phân tích source code của nó. Đồng thời các bạn có thể tham khảo nó ở <a target="_blank" href="https://github.com/webmodules/jsonp">Github</a>.</p>
+<pre><code class="javascript">
+/**
+ * Module dependencies
+ */
+
+var debug = require('debug')('jsonp');
+// Gọi thư viện ra
+
+/**
+ * Module exports.
+ */
+
+module.exports = jsonp;
+// exports jsonp
+
+/**
+ * Callback index.
+ */
+
+var count = 0;
+// Biến này được xem như một index, dùng để generate ra id (không trùng lặp)。
+
+/**
+ * Noop function.
+ */
+
+function noop(){}
+//đây là một function trống. Thuộc tính window[id] sẽ được gán vào function này sau.
+
+/**
+ * JSONP handler
+ *
+ * Options:
+ *  - param {String} qs parameter (`callback`)
+ *  - prefix {String} qs parameter (`__jp`)
+ *  - name {String} qs parameter (`prefix` + incr)
+ *  - timeout {Number} how long after a timeout error is emitted (`60000`)
+ *
+ * @param {String} url
+ * @param {Object|Function} optional options / callback // callback function ở đây là function được gọi sau khi có dữ liệu, không phải là callback function gửi lên server
+ * @param {Function} optional callback
+ */
+
+
+function jsonp(url, opts, fn){
+  if ('function' == typeof opts) {
+    fn = opts;
+    opts = {};
+  }
+  if (!opts) opts = {};
+
+  var prefix = opts.prefix || '__jp';
+
+  // use the callback name that was passed if one was provided.
+  // otherwise generate a unique name by incrementing our counter.
+  var id = opts.name || (prefix + (count++));
+
+  var param = opts.param || 'callback';
+  var timeout = null != opts.timeout ? opts.timeout : 60000;
+  var enc = encodeURIComponent;
+  var target = document.getElementsByTagName('script')[0] || document.head;
+  var script;
+  var timer;
+
+  //Server sẽ không trả dữ liệu về nếu hết thời gian chờ.
+  if (timeout) {
+    timer = setTimeout(function(){
+      cleanup();
+      if (fn) fn(new Error('Timeout'));
+    }, timeout);
+  }
+  // Dọn dẹn, trở về trạng thái ban đầu (Người dịch: sử dụng phương thức noop như mình đã đề cập phía trên.)
+  function cleanup(){
+    if (script.parentNode) script.parentNode.removeChild(script);
+    window[id] = noop;
+    if (timer) clearTimeout(timer);
+  }
+  // Hủy hoạt động
+  function cancel(){
+    if (window[id]) {
+      cleanup();
+    }
+  }
+    
+  // Khai báo function mà sau khi url được tải vào trong thẻ script sẽ được gọi
+  window[id] = function(data){
+    debug('jsonp got', data);
+    cleanup();
+    if (fn) fn(null, data);// tham số đầu tiên trong node là err, nếu không thể truyền vào ở đây thì null sẽ được truyền vào.
+  };
+
+  // add qs component
+  url += (~url.indexOf('?') ? '&' : '?') + param + '=' + enc(id);
+  url = url.replace('?&', '?');
+
+  debug('jsonp req "%s"', url);
+
+  // create script
+  script = document.createElement('script');
+  script.src = url;
+  target.parentNode.insertBefore(script, target);
+  // sau khi được khởi tạo, function được khai báo sẽ được gọi trực tiếp với những dữ liệu được lấy từ thẻ script
+
+  return cancel;
+  // quay lại trạng thái ban đầu.
+}
+</code></pre>
+<h4>Đóng gói thư viện JSONP</h4>
+<p>Sử dụng thư viện trên cho quá trình đóng gói, dưới đây sẽ là function _jsonp của chúng ta:</p>
+<pre><code class="javascript">
+/* Đây là một function _jsonp được định nghĩa bởi chính tôi */
+/**
+ * @param {String} url 
+ * @param {Object} data 
+ * @param {Object} option 
+ * @returns 
+ */
+function _jsonp(url, data, option) {
+  url += (url.indexOf('?') < 0 ? '?' : '&') + param(data);
+
+  return new Promise((resolve, reject) => {
+    jsonp(url, option, (err, data) => {
+      if (!err) {
+        resolve(data);
+      } else {
+        reject(err);
+      }
+    });
+  });
+  /* jsonp sẽ được trả về dưới dạng Promise. Nếu mọi chuyện ổn thì dữ liệu sẽ được đưa vào resolve */
+}
+// Tiếp theo là một function để xử lý các tham số
+function param(data) {
+  let url = '';
+  for (var k in data) {
+    let value = data[k] !== undefined ? data[k] : '';
+    url += `&${k}=${encodeURIComponent(value)}`;
+  }
+  return url ? url.substring(1) : '';/*  những substring dưới đây sẽ đảm bảo không có thêm & */
+}
+</code></pre>
+<h4>Sử dụng JSONP với jQuery</h4>
+<p>Ngoài ra, chúng ta có thể sử dụng JSONP với jQuery. Đây là một đoạn code mẫu ngắn gọn về cách dùng.</p>
+<pre><code class="javascript">
+$.ajax({  
+    type: "get",  
+    url: "http://example.com",  
+    dataType: "jsonp",  
+    jsonp: "callback",
+    jsonpCallback: "responseCallback",
+    success: function (data) {  
+        console.log(data);
+    },  
+    error: function (data) {  
+        console.log(data);
+    }  
+});
+</code></pre>
+<p>Trong AJAX, thiết lập dataType là jsonp. Còn đối với jsonp thì có mặc định là callback. Còn với jsonpCallback thì giá trị được jQuery tạo mặc định. Nếu bạn muốn tự định nghĩa function lại, các bạn có thể thiết lập lại jsonpCallback như trong đoạn code trên. Trong đoạn code trên, đoạn url cuối cùng được gửi sẽ là <i>http://example.com?callback=responseCallback</i></p>
+<h4>Sử dụng proxy server để chuyển tiếp các request</h4>
 
 
 <div class="blog-detail-comments">
