@@ -71,7 +71,7 @@ Erwin Rommel
 <h1>[Dịch] Những giải pháp cho vấn đề cross-domain của frontend</h1>
 <div class="home-content">
 <div class="blog-detail">
-<div class="blog-detail-date">Đăng lúc 16/07/2018</div>
+<div class="blog-detail-date">Đăng lúc 05/10/2018</div>
 <div class="tags">
     <span><a href="tags.html?tag=javascript">javascript</a></span>
     <span><a href="tags.html?tag=html">html</a></span>
@@ -83,19 +83,19 @@ Erwin Rommel
 <h4>Browser Same Origin Policy</h4>
 <div class="blog-break-line"></div>
 <h4>Browser Same Origin Policy là gì?</h4>
-<p>Same Origin Policy là một nền tảng bảo mật của trình duyệt.</p>
-<p>Same Origin Policy là một cách để hạn chế những tài liệu hoặc mã được tải từ một nguồn khác với nguồn của tài nguyên. Đây là một cơ chế quan trọng để chống lại những nguy hại có thể xảy ra do mã độc.</p>
-<p>Trước khi quyết định về việc hai url có cùng một nguồn không, chúng ta hãy xem xét về các thành của một url (Uniform Resource Locator).</p>
-<p>Nói về url thì url có các thành phần cơ bản là: giao thức://tên domain (hoặc ip):cổng (nếu có chỉ định)/path</p>
+<p>Same Origin Policy là một cơ chế bảo mật của trình duyệt.</p>
+<p>Same Origin Policy có thể giải thích là cách để hạn chế những tài liệu hoặc mã được tải từ một nguồn khác với nguồn của tài nguyên. Đây là một cơ chế quan trọng để chống lại những nguy hại có thể xảy ra do mã độc.</p>
+<p>Trước khi quyết định về việc hai url có cùng một nguồn hay không, hãy xem xét về các thành của một url (Uniform Resource Locator).</p>
+<p>Nói về url thì url có các thành phần cơ bản là: <b>Giao thức</b>://<b>Tên domain (hoặc ip)</b>:<b>cổng (nếu có chỉ định)</b>/path</p>
 <p>Hãy xem thử ví dụ dưới đây:</p>
-<p>Đối với <b>http://www.example.com/static</b> giao thức chính là <b>http</b>, tên miền là <b>www.example.com</b>, path chính là <b>static</b>.Số cổng thì bị bỏ qua trong url này vì nó đang dùng cổng mặc định (80).</p>
-<p>Điều cần chú ý ở đây là phần tên miền. <b>example.com</b> là tên miền chính và <b>www.example.com</b> là tên miền phụ. Và cả với <b>a.example.com</b> cũng có thể là tên miền cấp hai. Và cả ba tên miền tên là ba tên miền khác nhau.</p>
-<p>Về chi tiết cũng chúng tôi sẽ không đi sâu ở đây. Để biết thêm thông tin, bạn có thể tìm hiểu thêm các tài liệu về mạng máy tính.</p>
+<p>Đối với <b>http://www.example.com/static</b> giao thức chính là <b>http</b>, tên miền là <b>www.example.com</b>, path chính là <b>static</b>. Số cổng thì bị bỏ qua trong url này vì nó đang dùng cổng mặc định (80).</p>
+<p>Điều cần chú ý ở đây là phần tên miền. <b>example.com</b> là tên miền chính và <b>www.example.com</b> là tên cấp hai. Và cả với <b>a.example.com</b> (cũng có thể là tên miền cấp hai). Cả ba tên miền trên là ba tên miền khác nhau.</p>
+<p>Tôi sẽ không đi sâu vào chi tiết ở đây. Để biết thêm thông tin, bạn có thể tìm hiểu thêm các tài liệu về mạng máy tính.</p>
 <p>Trở lại với câu hỏi cũ. Liệu có cách nào để nhận biết các trang có cùng tên miền không?</p>
-<p>Nếu giao thức và cổng (nếu được chỉ định) và hai tên miền đều giống nhau thì cả hai trang được xem là cùng một nguồn.</p>
+<p>Câu trả lời là nếu giao thức và cổng (nếu được chỉ định) và hai tên miền đều giống nhau thì cả hai trang được xem là cùng một nguồn.</p>
 <p>Hãy nói dễ hiểu hơn là ba yếu tố để xác định sự tương đồng chính là: giao thức, tên miền và cổng.</p>
 <p>Cần lưu ý là nếu tên miền đó là tên miền cấp hai chẳng hạn như <b>www.example.com</b> được đề cập ở trên, đồng thời tên miền đó được liên kết với một tên miền cấp hai khác là <b>a.example.com</b>. Mặc dù có tên miền chính giống nhau, nhưng tên miền phụ khác nhau nên chúng không phải cùng tên miền. Do đó, kéo theo hai tên miền này không thể tính là tương đồng. Điều này cũng tương tự với tên miền cấp ba, v.v...</p>
-<p>Bảng dưới đây cung cấp những ví dụ về việc đánh giá độ tương đồ của các url với <b>http://store.company.com/dir/page.html</b></p>
+<p>Bảng dưới đây cung cấp những ví dụ về việc đánh giá độ tương đồng của các url với <b>http://store.company.com/dir/page.html</b></p>
 <div class="overflow-scroll">
     <table>
         <thead>
@@ -133,10 +133,10 @@ Erwin Rommel
     </table>
 </div>
 <h4>Giới thiệu về Cookie và Session</h4>
-<p>Khi bàn về Same Origin Policy, có một số điều cần thiết phải làm. Đó là nói về điều về Cookie</p>
-<p>Khi nói về Cookie, chúng ta nên liên kết về Session</p>
-<p>Đối với cả hai, đây không phải một phần giới thiệu lớn.</p>
-<p>Nếu ở đây, chúng ta tóm tắt ngắn gọn nhau sau:</p>
+<p>Khi bàn về Same Origin Policy, có một số điều cần thiết phải làm. Đó là nói về Cookie</p>
+<p>Khi nói về Cookie, chúng ta nên tìm hiểu thêm về Session</p>
+<p>Đối với cả hai, đây không cần phải có một phần giới thiệu lớn.</p>
+<p>Nên ở đây, chúng ta tóm tắt ngắn gọn nhau sau:</p>
 <ul>
     <li>Cookie bị hạn chế bởi same-origin policy. Cookie ở trang A không thể được truy cập và chỉnh sửa khi bạn đang ở trang B.</li>
     <li>Sức lưu trữ tối đa của Cookie thường phổ biến ở mức 4KB và được thiết lập bởi server. Có thể chỉ định nội dung và vòng đời của Cookie được tạo ra bằng cách thiết lập giá trị cho Set-Cookie trong HTTP headers. Nếu được tạo ra bởi trình duyệt, nó sẽ bị vô hiệu hóa sau khi trình duyệt đóng lại.</li>
@@ -145,21 +145,21 @@ Erwin Rommel
 </ul>
 <p>Một số ví dụ về Cookie và Session</p>
 <p>Giả sử chúng ta có một hệ thống quản lý thông tin sinh viên. Tại một thời điểm mà cơ sở dữ liệu đã có đủ các thông tin liên quan đến sinh viên như tài khoản, mật khẩu, các thông tin cá nhân... Sau đó, sinh viên đăng nhập vào hệ thống bằng các gửi thông tin tài khoản qua mật khẩu tới server backend bằng phương thức POST. Khi đó server sẽ thực hiện kiểm tra các tham số gửi lên và kiểm tra xem nó có khớp với những gì được lưu trong cơ sở dữ liệu.</p>
-<p>Nếu quá trình kiểm tra thành công, tức là thông tin gửi lên là chính xác. Server backend sẽ ghi lại giá trị trong Session. Thường là tên tài khoản hoặc một trường duy nhất nào có của người dù (id chẳng hạn).</p>
-<p>Sau khi lưu dữ liệu lại trong Session, server sẽ phản hồi về cho phía client rằng quá trình đăng nhập đã thành công và client có thể thực hiện các chức năng tiếp theo (đòi hỏi phải đăng nhập). Đồng thời, cũng trong thời điểm này server backend sẽ thêm một thuộc tính là Set-Cookie trong HTTP response, giá trị của nó chính là SessionID của Session hiện tại (SessionID này đang trỏ đến Session hiện tại của chúng ta. Trong Express thì express-session sẽ thực hiện thiết lập quá trình này). Tất nhiên quá trình này cũng bao gồm việt thiết lập một số thuộc tính khác của Cookie như Expire time...</p>
+<p>Nếu quá trình kiểm tra thành công, tức là thông tin gửi lên là chính xác. Server backend sẽ ghi lại giá trị trong Session. Thường là tên tài khoản hoặc một trường duy nhất nào có của người dùng (id chẳng hạn).</p>
+<p>Sau khi lưu dữ liệu lại trong Session, server sẽ phản hồi về cho phía client rằng quá trình đăng nhập đã thành công và client có thể thực hiện các chức năng (đòi hỏi phải đăng nhập) tiếp theo. Đồng thời, cũng trong thời điểm này server backend sẽ thêm một thuộc tính là Set-Cookie trong HTTP response, giá trị của nó chính là SessionID của Session hiện tại (SessionID này đang trỏ đến Session hiện tại của chúng ta, trong Express thì express-session sẽ thực hiện thiết lập quá trình này). Tất nhiên quá trình này cũng bao gồm việc thiết lập một số thuộc tính khác của Cookie như Expire time...</p>
 <p>Khi trình duyệt nhận được HTTP response, nó sẽ thiết lập một cookie local. Thời gian hết hạn chính được xác định bởi giá trị của trường Expires trong Set-Cookie thuộc response trả về. Nếu trình duyệt bị đóng (hoặc khi Session hết hạn) mọi thứ sẽ bị vô hiệu hóa.</p>
 <!--?-->
-<p>Sau quá trình đăng nhập, mỗi request gửi đến server từ trình duyệt sẽ được thêm những thông tin vài cookie một cách mặt định. Theo cách thức này, mỗi khi nhận được request từ client thì server sẽ tìm kiếm Session của chúng ta dựa vào SessionID trong cookie.</p>
+<p>Sau quá trình đăng nhập, mỗi request gửi đến server từ trình duyệt sẽ được thêm những thông tin vài cookie một cách mặc định. Theo cách thức này, mỗi khi nhận được request từ client thì server sẽ tìm kiếm Session của chúng ta dựa vào SessionID trong cookie.</p>
 <p>Nếu SessionID gửi lên được tìm thấy thì có nghĩa là client đã đăng nhập và chúng ta có thể thực hiện các chức năng tiếp theo.</p>
 <p>Có một điều đáng lưu ý là cơ chế xác minh Session này người dùng hiện tại chỉ có thể lấy được Session của họ và sẽ không thể lấy được những Session khác. Mỗi Session của mỗi người dùng cũng giữ sự độc lập với nhau. Đồng nghĩa với việc khi có nhiều người dùng hệ thống trong một thời gian thì hệ thống cũng sẽ lưu trữ nhiều Session tương ứng.</p>
 <p>Trên đây, tôi đã trình bày về các ví dụ của Session và Cookie.</p>
 <h4>Giới thiệu về iframe</h4>
-<p>Khi nói về các hạn chế của Same Origin Policy thì chúng ta có thể đề cập đến iframe.</p>
-<p>iframe dùng để nhúng một trang con trong một trang lớn. Trong quá trình phát triển sản phẩm hằng ngày chúng ta không thể tránh được những vấn đề khi giao tiếp giữa các iframe khác nhau trong trang. Như sử dụng DON, function hoặc biến của các iframe khác.</p>
+<p>Khi nói về các hạn chế của Same Origin Policy thì chúng ta còn có thể đề cập đến iframe.</p>
+<p>iframe dùng để nhúng một trang con trong một trang lớn. Trong quá trình phát triển sản phẩm hằng ngày chúng ta không thể tránh được những vấn đề khi giao tiếp giữa các iframe khác nhau trong trang. Như sử dụng DOM, function hoặc biến của các iframe khác.</p>
 <p>iframe cũng chịu ảnh hưởng bởi Same Origin Policy. Thuộc tính src của iframe chính là url trong Same Origin Policy. Còn về việc tương tác với DOM, biến và function của iframe cũng không quá phức tạp, chúng ta có thể dùng <b>contentDocument</b> và <b>contentWindow</b></p>
 <p>Nếu hai iframe không tương đồng thì khả năng truy cập sẽ bị giới hạn.</p>
 <p>Để giải quyết vấn đề trên. HTML5 giới thiệu một API mới đó là <b>postMessage</b>, một phương thức chủ yếu để giải quyết vấn đề liên lạc giữa iframe và cross-domain.</p>
-<p>Sau đâu là một ví dụ: Nếu có hai trang khác nhau. Url của trang A là <i>http://localhost:4002/parent.html</i> còn url của trang B là <i>http://localhost:4003/child.html</i>. Bây giờ, tôi sẽ nhúng trang B vào trang A dưới dạng iframe cùng với đoạn code được đặt như bên dưới.. Bây giờ tôi muốn gửi một thông điệp vào trang con B.</p>
+<p>Sau đâu là một ví dụ: Nếu có hai trang khác nhau. Url của trang A là <i>http://localhost:4002/parent.html</i> còn url của trang B là <i>http://localhost:4003/child.html</i>. Bây giờ, tôi sẽ nhúng trang B vào trang A dưới dạng iframe cùng với đoạn code được đặt như bên dưới... Bây giờ tôi muốn gửi một thông điệp vào trang con B.</p>
 <p>Code ở trang A</p>
 <pre><code class="html">
 &lt;body&gt;
@@ -189,7 +189,7 @@ Erwin Rommel
 &lt;/body&gt;
 </code></pre>
 <p>Kết quả như sau:</p>
-<img src="https://image-static.segmentfault.com/249/684/2496843760-5a229c047e2e8_articlex" alt="">
+<img src="public/img/giai-phap-cho-cross-domain-o-frontend/0.png" alt="">
 <p><b>postMessage</b> nhận hai tham số đó là dữ liệu gửi đi và nguồn của iframe cần gửi (như ở đoạn code phía trên là <i>http://localhost:4003</i>). Trong trường hợp bạn muốn gửi cho tất cả các iframe bất kể nguồn nào bạn có đặt giá trị là "*". Về phần iframe muốn nhận được thông tin thì có thể sử dụng <i>window.addEventListener ("message", function () {})</i>.</p>
 <h4>Những trường hợp không bị giới hạn bởi Same Origin Policy</h4>
 <ul>
@@ -267,7 +267,7 @@ xhr.withCredentials = false;
 <h4>Preflight request</h4>
 <p>Preflight request là loại request đặc biệt dành cho server. Ví dụ như sẽ dụng phương thức như <b>PUT</b> hoặc <b>DELETE</b> hay trường <b>Content-Type</b> có giá trị là <b>application/json</b>.</p>
 <p>Một CORS request đối với preflight request sẽ được bổ sung thêm một HTTP request, được gọi là "pre flight (tiền trạm)" request sẽ được gửi đi. Sau đó, mới đến request chính thức.</p>
-<p>Ở request đầu tiên từ browser, server sẽ kiểm tra xem tên miền hiện tại có nằm trong danh sách được phép không. XMLHttpRequest sẽ chỉ gửi đi yêu cầu chính thức nếu nhận được một response tích cực từ server. Nếu response trả về không được như mong đợi thì server cũng sẽ trả lỗi về.</p>
+<p>Ở request đầu tiên từ trình duyệt, server sẽ kiểm tra xem tên miền hiện tại có nằm trong danh sách được phép hay không. XMLHttpRequest sẽ chỉ gửi đi yêu cầu chính thức nếu nhận được một response tích cực từ server. Nếu response trả về không được như mong đợi thì server cũng sẽ trả lỗi về.</p>
 <p>Đây là đoạn code JavaScript</p>
 <pre><code class="javascript">
 var url = 'http://api.alice.com/cors';
@@ -362,11 +362,11 @@ $.ajaxSetup({ xhrFields: { withCredentials: true }, crossDomain: true });
 </p>
 <p>Như vậy, trên đây tôi đã giới thiệu sơ về CORS dành cho cross-domain. Sau đây, chung ta sẽ đến phần tiếp theo của bài viết.</p>
 <h4>Triển khai cross-domain với công nghệ JSONP</h4>
-
+<div class="blog-break-line"></div>
 <h4>JSONP</h4>
 <p>Về <b>JSONP</b>, như tôi đã đề cập trước đó. Thực tế, việc dùng nó để giải quyết vấn đề Same Origin Policy được xem là lợi dụng một "lổ hỏng". Nhưng không sao, tất cả cũng là để hoàn thành đại cuộc "khúc tuyến cứu quốc" <a title="Khúc tuyến cứu quốc" class="note-item" id="khuc-tuyen-cuu-quoc-in-page" href="#khuc-tuyen-cuu-quoc"></a>.</p>
 <p>Như đã biết, thẻ <b>script</b> không bị giới hạn bởi <b>Same Origin Policy</b>. Và phương pháp này thì tận dụng điều đó bằng các thêm tự động các thẻ <b>script</b> vào trang. Đồng thời dùng các xử lý có sẵn (từ server) để lấy được dữ liệu.</p>
-<p>Có một điều tôi muốn nhấn mạnh, đó là phương pháp này hoàn toàn khác với CORS. Đây cũng không phải là một đặc điểm kỹ thuật. Cái thứ mà chúng ta gọi là <b>JSONP</b> thật ra là một các mới trong việc ứng dụng JSON. Hay nói đơn giản, nó chỉ là một đoạn JSON được thêm vào trang thông qua một function.</p>
+<p>Có một điều tôi muốn nhấn mạnh, đó là phương pháp này hoàn toàn khác với CORS. Đây cũng không phải là một đặc điểm kỹ thuật. Cái thứ mà chúng ta gọi là <b>JSONP</b> thật ra là một cách mới trong việc ứng dụng JSON. Hay nói đơn giản, nó chỉ là một đoạn JSON được thêm vào trang thông qua một function.</p>
 <p>Hai thành phần của <b>JSONP</b> đó chính là dữ liệu và callback function. Trong đó, callback function sẽ được gọi khi trang hiện tại có phản hồi. Dữ liệu JSON sẽ được truyền vào bên trong callback function đó. Dưới đây, tôi sẽ mô phỏng quá trình đó của <b>JSONP</b></p>
 <p>Nguyễn tắc của <b>JSONP</b> có thể được tham khảo ở <a target="_blank" href="https://www.cnblogs.com/dowinning/archive/2012/04/19/json-jsonp-jquery.html">đây (tiếng Trung)</a>.</p>
 <p>Mô phỏng ngắn gọn quá tình giao tiếp của JSONP</p>
@@ -570,7 +570,7 @@ Do đó, việc sử dụng proxy server như là một giải pháp trong việ
 <p>Cuối cùng, tôi sẽ thực hiện một ví dụ về sử dụng proxy server nhằm vượt qua phần bảo mật của WeChat.</p>
 <h4>Vậy làm cách nào để vượt qua cơ chế chống trộm của WeChat?</h4>
 <p>Giả sử chúng ta có một trang website, thẻ <b>img</b> sẽ tham chiếu đến một hình ảnh của WeChat. Hãy xem điều gì xảy ra sau đây.</p>
-<img src="https://image-static.segmentfault.com/421/039/421039463-5a229c046dade_articlex" alt="">
+<img src="public/img/giai-phap-cho-cross-domain-o-frontend/1.png" alt="">
 <p>Đây là cái tôi gọi là cơ chế chống trộm.</p>
 <p>Bây giờ, hãy thử tạo một proxy server. Code của nó như sau:</p>
 <pre><code class="javascript">
@@ -581,7 +581,7 @@ var app = express();
 app.use("/static", express.static("public"));
 
 app.get("/getwxImg", (req, res) => {
-    //如果单纯的去获取会出现参数丢失的情况，因为出现了两个问号
+    // xử lý không bị mất url vì có hai dấu chấm hỏi
     var url = req.url.substring(req.url.indexOf("param=") + 6);
     res.writeHead(200, {
         'Content-Type': 'image/*'
@@ -610,19 +610,25 @@ app.listen(4001, (err) => {
 </code></pre> 
 <p>Bằng cách này, chúng ta có thể thay thế url đến server thực, bằng cách gọi đến proxy server và sử dụng url đó như là một tham số.</p>
 <pre><code class="html">
-&lt;!-- 这是有代理的情况 --&gt;
+&lt;!-- sử dụng proxy server --&gt;
 &lt;img src="http://localhost:4001/getwxImg?param=http://mmbiz.qpic.cn/mmbiz/CoJreiaicGKekEsuheJJ7Xh53AFe1BJKibyaQzsFiaxfHHdYibsHzfnicbcsj6yBmtYoJXxia9tFufsPxyn48UxiaccaAA/640?wx_fmt=jpeg&wxfrom=5&wx_lazy=1&tp=webp"&gt;
-&lt;!-- 下面是没有代理的情况 --&gt;
+&lt;!-- dùng các thông thường --&gt;
 &lt;img src="http://mmbiz.qpic.cn/mmbiz/CoJreiaicGKekEsuheJJ7Xh53AFe1BJKibyaQzsFiaxfHHdYibsHzfnicbcsj6yBmtYoJXxia9tFufsPxyn48UxiaccaAA/640?wx_fmt=jpeg&wxfrom=5&wx_lazy=1&tp=webp"&gt;
 </code></pre> 
 <p>Kết quả như sau:</p>
-<img src="https://image-static.segmentfault.com/611/865/611865811-5a229c0476b4a_articlex" alt="">
+<img src="public/img/giai-phap-cho-cross-domain-o-frontend/2.png" alt="">
 <p>Đúng là một kết quả hiển nhiên đúng không nào? Đây chính là một ví dụ về proxy server. Các bạn có thể xem toàn bộ code ở <a href="https://github.com/stevennzhou/weixinPictureReverseUrl" target="_blank">đây</a></p>
 <p>Một số nguồn tham khảo:</p>
 <p>Same Origin Policy: <a href="https://developer.mozilla.org/zh-CN/docs/Web/Security/Same-origin_policy">https://developer.mozilla.org/zh-CN/docs/Web/Security/Same-origin_policy</a></p>
 <p>Cookie và Session: <a href="http://www.cnblogs.com/linguoguo/p/5106618.html">http://www.cnblogs.com/linguoguo/p/5106618.html</a></p>
 <p>CORS: <a href="http://www.ruanyifeng.com/blog/2016/04/cors.html">http://www.ruanyifeng.com/blog/2016/04/cors.html</a></p>
 
+<div class="blog-break-line"></div>
+<h4><i>Chú thích</i></h4>
+<ul class="noted">
+    <li id="khuc-tuyen-cuu-quoc"><b>Khúc tuyến cứu quốc:</b>: Nguyên gốc hán tự là <i>曲线救国</i>. Đây là một từ xuất hiện trong thời kháng Nhật. 
+    Chúng ta cũng có thể đọc là "gián tiếp cứu nước". Tronng giai đoạn này, người Trung Quốc làm đủ cách để làm chậm quá trình xâm chiếm của Nhật từ đánh du kích, biểu tình... Hy sinh việc nhỏ vì việc lớn. Câu này dùng trong bài với hàm ý là vì việc lớn mà bỏ qua tiểu tiết (vì muốn giải quyết vấn đề cross-domain mà dùng JSONP. Một cách mà tác giả xem đó là một "lỗ hỏng") <a href="#khuc-tuyen-cuu-quoc-in-page">[<span class="fa fa-angle-double-up"></span>]</a></li>
+</ul>
 <div class="blog-detail-comments">
     <!-- <div id="show-comment-box">
         Comment
