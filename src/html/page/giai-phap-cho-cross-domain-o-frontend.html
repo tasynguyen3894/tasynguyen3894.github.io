@@ -1,8 +1,8 @@
-<!-- build:title -->[Dịch] Những giải pháp cho vấn đề cross-domain ở frontend<!-- /build:title -->
+<!-- build:title -->[Dịch] Những giải pháp cho vấn đề cross-domain của frontend<!-- /build:title -->
 
 <!-- build:meta -->
-<meta name="description" content="Phần đầu trong chuỗi bài về quá trình học Javascipt của mình">
-<meta name="keywords" content="Javascipt, jQuery, html, css, my stories">
+<meta name="description" content="Các giải pháp cho vấn đề chia sẻ tài nguyên cho cross-domain">
+<meta name="keywords" content="Javascipt, html, server, nodejs, frontend, translate">
 <meta name="author" content="Tasy Nguyen">
 <!-- /build:meta -->
 
@@ -18,7 +18,7 @@ Erwin Rommel
 <!-- /build:quotes -->
 <!-- https://segmentfault.com/a/1190000012256432 -->
 <!-- build:body -->
-<h1>[Dịch] Những giải pháp cho vấn đề cross-domain ở frontend</h1>
+<h1>[Dịch] Những giải pháp cho vấn đề cross-domain của frontend</h1>
 <div class="home-content">
 <div class="blog-detail">
 <div class="blog-detail-date">Đăng lúc 16/07/2018</div>
@@ -28,6 +28,7 @@ Erwin Rommel
     <span><a href="tags.html?tag=server">server</a></span>
     <span><a href="tags.html?tag=node.js">node.js</a></span>
     <span><a href="tags.html?tag=frontend">frontend</a></span>
+    <span><a href="tags.html?tag=translate">translate</a></span>
 </div>
 <h4>Browser Same Origin Policy</h4>
 <div class="blog-break-line"></div>
@@ -244,7 +245,7 @@ User-Agent: Mozilla/5.0...
 <p><b>Access-Control-Request-Headers</b></p>
 <p>Trường này là một chuỗi được phân cách bằng dấu phẩy chỉ định những thông tin mà trong header của CORS request sẽ gửi thêm (ngoài những thông tin mặc định). Như đã thất ở trên đó là <b>X-Custom-Header</b>.</p>
 <p><b>Access-Control-Request-Headers</b></p>
-<p>Sau khi nhận được request "tiền trạm" thì server sẽ kiểm tra các trường <b>Origin</b>, <b>Access-Control-Request-Method</b> vaf <b>Access-Control-Request-Headers</b>. Nếu hợp lệ, server sẽ phản hồi lại cho trình duyệt như sau:</p>
+<p>Sau khi nhận được request "tiền trạm" thì server sẽ kiểm tra các trường <b>Origin</b>, <b>Access-Control-Request-Method</b> và <b>Access-Control-Request-Headers</b>. Nếu hợp lệ, server sẽ phản hồi lại cho trình duyệt như sau:</p>
 <pre><code class="http">
 HTTP/1.1 200 OK
 Date: Mon, 01 Dec 2008 01:15:39 GMT
@@ -506,7 +507,71 @@ $.ajax({
 </code></pre>
 <p>Trong AJAX, thiết lập dataType là jsonp. Còn đối với jsonp thì có mặc định là callback. Còn với jsonpCallback thì giá trị được jQuery tạo mặc định. Nếu bạn muốn tự định nghĩa function lại, các bạn có thể thiết lập lại jsonpCallback như trong đoạn code trên. Trong đoạn code trên, đoạn url cuối cùng được gửi sẽ là <i>http://example.com?callback=responseCallback</i></p>
 <h4>Sử dụng proxy server để chuyển tiếp các request</h4>
+<p>Bởi vì Same Origin Policy chỉ tồn tại trong trình duyệt. Nên trong giao tiếp giữa server và server, thì không bị giới hạn bởi sự tương đồng.<br />
+Do đó, việc sử dụng proxy server như là một giải pháp trong việc giải quyết các vấn đề của cross-domain, cũng là một cách phổ biển trong quá trình phát triển phần mềm hàng ngày của chúng tôi.</p>
+<p>Cách triển khai cũng rất đơn giản, chỉ cần <b>Node</b> và <b>Express</b>.</p>
+<p>Bạn cũng nên lưu ý rằng thường thì server sẽ có cơ chế xác minh riêng. Ví dụ: các bài viết của WeChat sẽ không thể tải được trong iframe, bởi vì server được xác minh bởi referer. Ngoài ra, đối với một số server còn đòi hỏi cung cấp xác minh như phải gửi một chuỗi uid... Do đó, khi dùng proxy server, chúng ta nên tập trung vào các tham số của request để có thể mô phỏng chính xác nhất request cần mô phần, góp phần đảm bảo quá trình chuyển tiếp chính xác nhất.</p>
+<p>Điểm qua một các tổng quan về cách mà proxy server thực hiện chuyển tiếp request:</p>
+<ul>
+    <li>Phân tích các tham số cần thiết của request url.</li>
+    <li>Proxy server sẽ gọi api. Chức năng thực tế của giai đoạn này request đến server thật.</li>
+    <li>Sau đó, proxy server mà bạn đã tạo sẽ giúp bạn chuyển tiếp request mà bạn muốn đến server thật sự với các tham số cần thiết.</li>
+</ul>
+<p>Cuối cùng, tôi sẽ thực hiện một ví dụ về sử dụng proxy server nhằm vượt qua phần bảo mật của WeChat.</p>
+<h4>Vậy làm cách nào để vượt qua cơ chế chống trộm của WeChat?</h4>
+<p>Giả sử chúng ta có một trang website, thẻ <b>img</b> sẽ tham chiếu đến một hình ảnh của WeChat. Hãy xem điều gì xảy ra sau đây.</p>
+<img src="https://image-static.segmentfault.com/421/039/421039463-5a229c046dade_articlex" alt="">
+<p>Đây là cái tôi gọi là cơ chế chống trộm.</p>
+<p>Bây giờ, hãy thử tạo một proxy server. Code của nó như sau:</p>
+<pre><code class="javascript">
+var express = require("express");
+var superagent = require("superagent");
+var app = express();
 
+app.use("/static", express.static("public"));
+
+app.get("/getwxImg", (req, res) => {
+    //如果单纯的去获取会出现参数丢失的情况，因为出现了两个问号
+    var url = req.url.substring(req.url.indexOf("param=") + 6);
+    res.writeHead(200, {
+        'Content-Type': 'image/*'
+    });
+    superagent.get(url)
+        .set('Referer', '')
+        .set("User-Agent",
+        'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36'
+        )
+        .end(function (err, result) {
+            if (err) {
+                return false;
+            }
+            res.end(result.body);
+            return;
+        });
+});
+
+app.listen(4001, (err) => {
+    if (err) {
+        console.log(err);
+    } else {
+        console.log("server run!");
+    }
+});
+</code></pre> 
+<p>Bằng cách này, chúng ta có thể thay thế url đến server thực, bằng cách gọi đến proxy server và sử dụng url đó như là một tham số.</p>
+<pre><code class="html">
+&lt;!-- 这是有代理的情况 --&gt;
+&lt;img src="http://localhost:4001/getwxImg?param=http://mmbiz.qpic.cn/mmbiz/CoJreiaicGKekEsuheJJ7Xh53AFe1BJKibyaQzsFiaxfHHdYibsHzfnicbcsj6yBmtYoJXxia9tFufsPxyn48UxiaccaAA/640?wx_fmt=jpeg&wxfrom=5&wx_lazy=1&tp=webp"&gt;
+&lt;!-- 下面是没有代理的情况 --&gt;
+&lt;img src="http://mmbiz.qpic.cn/mmbiz/CoJreiaicGKekEsuheJJ7Xh53AFe1BJKibyaQzsFiaxfHHdYibsHzfnicbcsj6yBmtYoJXxia9tFufsPxyn48UxiaccaAA/640?wx_fmt=jpeg&wxfrom=5&wx_lazy=1&tp=webp"&gt;
+</code></pre> 
+<p>Kết quả như sau:</p>
+<img src="https://image-static.segmentfault.com/611/865/611865811-5a229c0476b4a_articlex" alt="">
+<p>Đúng là một kết quả hiển nhiên đúng không nào? Đây chính là một ví dụ về proxy server. Các bạn có thể xem toàn bộ code ở <a href="https://github.com/stevennzhou/weixinPictureReverseUrl" target="_blank">đây</a></p>
+<p>Một số nguồn tham khảo:</p>
+<p>Same Origin Policy: <a href="https://developer.mozilla.org/zh-CN/docs/Web/Security/Same-origin_policy">https://developer.mozilla.org/zh-CN/docs/Web/Security/Same-origin_policy</a></p>
+<p>Cookie và Session: <a href="http://www.cnblogs.com/linguoguo/p/5106618.html">http://www.cnblogs.com/linguoguo/p/5106618.html</a></p>
+<p>CORS: <a href="http://www.ruanyifeng.com/blog/2016/04/cors.html">http://www.ruanyifeng.com/blog/2016/04/cors.html</a></p>
 
 <div class="blog-detail-comments">
     <!-- <div id="show-comment-box">
