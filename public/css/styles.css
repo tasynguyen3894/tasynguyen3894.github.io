@@ -611,3 +611,9 @@ table td, table th {
 a.note-item::before {
   content: '(*)';
   color: #E4630B; }
+
+code {
+  max-height: 350px !important;
+  overflow-y: scroll;
+  overflow: auto;
+}

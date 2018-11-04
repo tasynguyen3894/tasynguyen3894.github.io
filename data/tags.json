@@ -1,5 +1,12 @@
 [
     {
+        "title": "[Dịch] Những giải pháp cho vấn đề cross-domain của frontend",
+        "url": "giai-phap-cho-cross-domain-o-frontend.html",
+        "tags": [
+            "javascript", "html", "server", "nodejs", "frontend", "translate"
+        ]
+    },
+    {
         "title": "[Dịch] Cùng khám phá về deep copy trong javascript",
         "url": "cung-kham-pha-ve-deep-copy-trong-javascipt.html",
         "tags": [
