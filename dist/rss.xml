@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+    <channel>
+        <title>Tasy Nguyen Blog</title>
+        <link>https://tasynguyen3894.github.io/</link>
+        <description>Tasy Nguyen Blog RSS Feed</description>
+        <lastBuildDate>Mon, 05 Nov 2018 09:02:49 GMT</lastBuildDate>
+        <docs>http://blogs.law.harvard.edu/tech/rss</docs>
+        <generator>https://github.com/jpmonette/feed</generator>
+        <item>
+            <title><![CDATA[[Dịch] Những giải pháp cho vấn đề cross-domain của frontend]]></title>
+            <link>https://tasynguyen3894.github.io/giai-phap-cho-cross-domain-o-frontend.html</link>
+            <guid>https://tasynguyen3894.github.io/giai-phap-cho-cross-domain-o-frontend.html</guid>
+            <description><![CDATA[[Dịch] Những giải pháp cho vấn đề cross-domain của frontend]]></description>
+        </item>
+        <item>
+            <title><![CDATA[[Dịch] Cùng khám phá về deep copy trong javascript]]></title>
+            <link>https://tasynguyen3894.github.io/cung-kham-pha-ve-deep-copy-trong-javascipt.html</link>
+            <guid>https://tasynguyen3894.github.io/cung-kham-pha-ve-deep-copy-trong-javascipt.html</guid>
+            <description><![CDATA[[Dịch] Cùng khám phá về deep copy trong javascript]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Tôi đã đến với javascript như thế nào (Phần 3): First Love]]></title>
+            <link>https://tasynguyen3894.github.io/toi-da-den-voi-javascript-nhu-the-nao-p3.html</link>
+            <guid>https://tasynguyen3894.github.io/toi-da-den-voi-javascript-nhu-the-nao-p3.html</guid>
+            <description><![CDATA[Tôi đã đến với javascript như thế nào (Phần 3): First Love]]></description>
+        </item>
+        <item>
+            <title><![CDATA[[Dịch] Những câu hỏi phổ biến khi phỏng vấn Vue. Có thể bạn đã biết?]]></title>
+            <link>https://tasynguyen3894.github.io/nhung-cau-hoi-khi-phong-van-vue-va-ban-co-the-tra-loi-khong.html</link>
+            <guid>https://tasynguyen3894.github.io/nhung-cau-hoi-khi-phong-van-vue-va-ban-co-the-tra-loi-khong.html</guid>
+            <description><![CDATA[[Dịch] Những câu hỏi phổ biến khi phỏng vấn Vue. Có thể bạn đã biết?]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Quyển văn mẫu lớp tám]]></title>
+            <link>https://tasynguyen3894.github.io/quyen-van-mau-lop-tam.html</link>
+            <guid>https://tasynguyen3894.github.io/quyen-van-mau-lop-tam.html</guid>
+            <description><![CDATA[Quyển văn mẫu lớp tám]]></description>
+        </item>
+        <item>
+            <title><![CDATA[[Dịch] Các designer học frontend như thế nào?]]></title>
+            <link>https://tasynguyen3894.github.io/cac-designer-hoc-frontend-nhu-the-nao.html</link>
+            <guid>https://tasynguyen3894.github.io/cac-designer-hoc-frontend-nhu-the-nao.html</guid>
+            <description><![CDATA[[Dịch] Các designer học frontend như thế nào?]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Seminar: Thiết kế RESTFUL API document với Swagger]]></title>
+            <link>https://tasynguyen3894.github.io/seminar-swagger.html</link>
+            <guid>https://tasynguyen3894.github.io/seminar-swagger.html</guid>
+            <description><![CDATA[Seminar: Thiết kế RESTFUL API document với Swagger]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Trên đại lộ, ngoài cửa kính đến căn phòng nhỏ. Mưa và sự vô định.]]></title>
+            <link>https://tasynguyen3894.github.io/tren-dai-lo-ben-ngoai-cua-kinh-den-can-phong-nho-mua-va-su-vo-dinh.html</link>
+            <guid>https://tasynguyen3894.github.io/tren-dai-lo-ben-ngoai-cua-kinh-den-can-phong-nho-mua-va-su-vo-dinh.html</guid>
+            <description><![CDATA[Trên đại lộ, ngoài cửa kính đến căn phòng nhỏ. Mưa và sự vô định.]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Tôi đã đến với javascript như thế nào (Phần 2): Đây là game sinh tồn!]]></title>
+            <link>https://tasynguyen3894.github.io/toi-da-den-voi-javascript-nhu-the-nao-p2.html</link>
+            <guid>https://tasynguyen3894.github.io/toi-da-den-voi-javascript-nhu-the-nao-p2.html</guid>
+            <description><![CDATA[Tôi đã đến với javascript như thế nào (Phần 2): Đây là game sinh tồn!]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Tôi đã đến với javascript như thế nào (Phần 1): Javascript thật đáng sợ]]></title>
+            <link>https://tasynguyen3894.github.io/toi-da-den-voi-javascript-nhu-the-nao-p1.html</link>
+            <guid>https://tasynguyen3894.github.io/toi-da-den-voi-javascript-nhu-the-nao-p1.html</guid>
+            <description><![CDATA[Tôi đã đến với javascript như thế nào (Phần 1): Javascript thật đáng sợ]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Cải thiện khả năng giao tiếp (Phần 0): Nước tương và tô hủ tíu gõ]]></title>
+            <link>https://tasynguyen3894.github.io/cai-thien-kha-nang-giao-tiep-p0.html</link>
+            <guid>https://tasynguyen3894.github.io/cai-thien-kha-nang-giao-tiep-p0.html</guid>
+            <description><![CDATA[Cải thiện khả năng giao tiếp (Phần 0): Nước tương và tô hủ tíu gõ]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Deploy Angular 4 app đơn giản với Express]]></title>
+            <link>https://tasynguyen3894.github.io/deploy-angular-4-app-don-gian-voi-express.html</link>
+            <guid>https://tasynguyen3894.github.io/deploy-angular-4-app-don-gian-voi-express.html</guid>
+            <description><![CDATA[Deploy Angular 4 app đơn giản với Express]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Những điều nên tránh khi làm việc với những lập trình viên mới vào nghề]]></title>
+            <link>https://tasynguyen3894.github.io/nhung-dieu-nen-tranh-khi-lam-viec-voi-lap-trinh-vien-moi-vao-nghe.html</link>
+            <guid>https://tasynguyen3894.github.io/nhung-dieu-nen-tranh-khi-lam-viec-voi-lap-trinh-vien-moi-vao-nghe.html</guid>
+            <description><![CDATA[Những điều nên tránh khi làm việc với những lập trình viên mới vào nghề]]></description>
+        </item>
+    </channel>
+</rss>
