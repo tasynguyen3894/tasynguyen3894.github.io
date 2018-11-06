@@ -253,6 +253,9 @@ body {
 				display: none;
 			}
 			.navbar-menu {
+				div {
+					display: none;
+				}
 				ul {
 					list-style: none;
 					margin: 0px;
@@ -817,22 +820,55 @@ body {
 	
 		.container {
 			width: 100%;
-			padding: 10px;
+			padding: 0px;
 			.container-content {
 				width: 100%;
 				margin: 0px;
 				.navbar-menu {
 					text-align: right;
-					ul {
-						li {
-							a {
-								padding: 0px 15px 5px 0px;
+					div {
+						display: block;
+						&.title-mobile {
+							border: 2px solid #333;
+							> a {
+								display: block;
+								text-align: center;
+								padding: 8px 0px;
+								font-weight: bold;
+								color: #333;
+								text-decoration: none;
 							}
+							span {
+								padding: 5px;
+								color: #333;
+								position: absolute;
+								right: 0;
+								top: 0;
+								padding: 10px;
+							}
+						}
+					}
+					ul {
+						display: none;
+						position: absolute;
+						width: 100%;
+						background: #FFF;
+						border-bottom: 3px solid #333;
+						li {
+							display: block;
+							border-bottom: 1px solid #ccc;
+							a {
+								font-size: 18px;
+								padding: 5px 15px 5px 0px;
+							}
+						}
+						&.active {
+							display: block;
 						}
 					}
 				}
 				.main-content {
-					padding: 15px 0px 0px 0px;
+					padding: 15px 10px 0px 10px;
 					h1 {
 						margin: 15px 0px 10px 0px;
 						font-size: 30px;

@@ -17,7 +17,7 @@ posts.forEach(post => {
     title: post.title,
     guid: "https://tasynguyen3894.github.io/" + post.url,
     link: "https://tasynguyen3894.github.io/" + post.url,
-    description: post.title,
+    description: post.description,
   });
 });
  
@@ -30,7 +30,7 @@ posts.forEach(post => {
 // // });
 
 let rss = feed.rss2();
-// console.log(rss)
+
 fs.writeFile('dist/rss.xml', rss, function (err) {
     if (err) throw err;
     console.log('Saved!');
