@@ -159,6 +159,8 @@ body {
       margin: 0px auto; }
       body .container .container-content .navbar-button {
         display: none; }
+      body .container .container-content .navbar-menu div {
+        display: none; }
       body .container .container-content .navbar-menu ul {
         list-style: none;
         margin: 0px;
@@ -560,16 +562,46 @@ body {
     transition: 0.3s; }
   body .container {
     width: 100%;
-    padding: 10px; }
+    padding: 0px; }
     body .container .container-content {
       width: 100%;
       margin: 0px; }
       body .container .container-content .navbar-menu {
         text-align: right; }
-        body .container .container-content .navbar-menu ul li a {
-          padding: 0px 15px 5px 0px; }
+        body .container .container-content .navbar-menu div {
+          display: block; }
+          body .container .container-content .navbar-menu div.title-mobile {
+            border: 2px solid #333; }
+            body .container .container-content .navbar-menu div.title-mobile > a {
+              display: block;
+              text-align: center;
+              padding: 8px 0px;
+              font-weight: bold;
+              color: #333;
+              text-decoration: none; }
+            body .container .container-content .navbar-menu div.title-mobile span {
+              padding: 5px;
+              color: #333;
+              position: absolute;
+              right: 0;
+              top: 0;
+              padding: 10px; }
+        body .container .container-content .navbar-menu ul {
+          display: none;
+          position: absolute;
+          width: 100%;
+          background: #FFF;
+          border-bottom: 3px solid #333; }
+          body .container .container-content .navbar-menu ul li {
+            display: block;
+            border-bottom: 1px solid #ccc; }
+            body .container .container-content .navbar-menu ul li a {
+              font-size: 18px;
+              padding: 5px 15px 5px 0px; }
+          body .container .container-content .navbar-menu ul.active {
+            display: block; }
       body .container .container-content .main-content {
-        padding: 15px 0px 0px 0px; }
+        padding: 15px 10px 0px 10px; }
         body .container .container-content .main-content h1 {
           margin: 15px 0px 10px 0px;
           font-size: 30px; }
@@ -611,9 +643,3 @@ table td, table th {
 a.note-item::before {
   content: '(*)';
   color: #E4630B; }
-
-code {
-  max-height: 350px !important;
-  overflow-y: scroll;
-  overflow: auto;
-}
