@@ -826,6 +826,10 @@ body {
 				margin: 0px;
 				.navbar-menu {
 					text-align: right;
+					position: fixed;
+					display: block;
+					background: #FFF;
+					width: 100%;
 					div {
 						display: block;
 						&.title-mobile {
@@ -868,7 +872,7 @@ body {
 					}
 				}
 				.main-content {
-					padding: 15px 10px 0px 10px;
+					padding: 30px 10px 0px 10px;
 					h1 {
 						margin: 15px 0px 10px 0px;
 						font-size: 30px;

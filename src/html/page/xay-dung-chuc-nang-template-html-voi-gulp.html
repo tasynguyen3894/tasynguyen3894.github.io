@@ -1,0 +1,161 @@
+<!-- build:title -->Xây dựng chức năng template html với Gulp<!-- /build:title -->
+
+<!-- build:meta -->
+<meta name="description" content="Cách thức sử dụng gulp, gulp-template-html để xây dựng một tool dev có khả năng dựng template bằng html">
+<meta name="keywords" content="gulp, html, javascript">
+<meta name="author" content="Tasy Nguyen">
+<!-- /build:meta -->
+
+<!-- build:menu --><div class="navbar-fixed home-bg"><!-- /build:menu -->
+
+<!-- build:quotes -->
+<div class="navbar-quotes-content">
+    When there's no clear option, it's better to do nothing.
+</div>
+<div class="navbar-quotes-speaker">
+    Erwin Rommel
+</div>
+<!-- /build:quotes -->
+
+<!-- build:body -->
+<h1>Xây dựng chức năng template html với Gulp</h1>
+<div class="home-content">
+    <div class="blog-detail">
+        <div class="blog-detail-date">Đăng lúc 09/12/2017</div>
+        <div class="tags">
+            <span><a href="tags.html?tag=gulp">gulp</a></span>
+            <span><a href="tags.html?tag=html">html</a></span>
+            <span><a href="tags.html?tag=javascript">javascript</a></span>
+        </div>
+        <p>Template cho các file HTML trong một project gồm các file tĩnh. Tại sao không? Hôm nay, mình sẽ hướng dẫn về cách dùng Gulp để thực hiện điều đó.</p>
+        <p>Trong quá trình xây dựng một project gồm nhiều site tĩnh HTML trên cùng một template. Sẽ có nhiều thành phần bạn sẽ dùng lại ở mỗi page ví dụ như header, footer, sidebar. Nếu không sử dụng các ngôn ngữ backend với các framework hỗ trợ chức năng template thì rất có thể bạn sẽ phải copy những phần đó lại mỗi khi tạo một file mới. Mệt mỏi hơn nửa khi bạn muốn cập nhật lại những thành phần đó bạn phải đi sửa lại từng file html một. Hãy tưởng tượng bạn làm một project với số lượng file html khoảng trên 20 màn hình thôi và bạn thường xuyên nhận feedback về việc thay đổi các thành phần chung thì việc cập nhật đi, lại số file đó thì tốn kha khá thời gian và mệt mỏi.</p>
+        <p>Mệt mỏi hơn nửa là khi bạn phải đưa ra sản phẩm là một folder những file html thành phẩm. Nếu thế bạn sẽ khó mà sử dụng các framework backend vì chúng chỉ giúp bạn hiện thị trên nên web thôi.</p>
+        <p>Để giải quyết vấn đề trên hôm nay mình sẽ hướng dẫn các bạn một cách đơn giản đó là sử dụng Gulp template html để build template cho project frontend.</p>
+        <h4>Install</h4>
+        <p>Để bắt đầu chúng ta sẽ tiến hành cài đặt Gulp global với lệnh sau</p>
+        <pre><code class="bash">npm install gulp -g</code></pre>
+        <p>Sau khi cài đặt xong Gulp. Mình sẽ tạo một project mẫu tên là tasy-gulp-template. Như với các project khác, đầu tiên chúng ta sẽ khởi tạo file package.json với lệnh sau:</p>
+        <pre><code class="bash">npm init</code></pre>
+        <p>Sau khi chạy xong, chúng ta sẽ tiến hành cài đặt Gulp và Gulp-template-html bằng lệnh sau:</p>
+        <pre><code class="bash">npm install gulp gulp-template-html --save</code></pre>
+        <h4>Cấu trúc project</h4>
+        <p>Sau khi cài đặt xong mình sẽ tiến hành tạo cái folder để làm việc.</p>
+        <p>Đầu tiên là folder src là nơi làm việc, trong đó có 2 folder là pages chứa các file content html và cuối cùng là folder template chứa file template của project.</p>
+        <p>Thứ hai là folder dist là nơi chứa các file html thành phẩm.</p>
+        <p>Sau khi tạo xong, project của chúng ta sẽ có dạng như sau:</p>
+        <img src="https://chickendeveloper.files.wordpress.com/2017/12/screen-shot-2017-12-06-at-9-40-51-am.png" alt="">
+        <h4>Cấu hình gulpfile.js</h4>
+        <p>Như các chức năng khác của Gulp, đầu tiên chúng ta sẽ tạo file gulpfile.js để cấu hình các chắc năng về Gulp cho project.</p>
+        <p>Đầu tiên chúng ta khai báo hai biến cho gulp và gulp-template-html</p>
+<pre><code class="javascript">
+var gulp = require('gulp');
+
+var template = require('gulp-template-html');
+</code></pre>
+        <p>Sau khi khởi tạo xong các biến, bước tiếp theo chúng ta sẽ cấu hình task cho Gulp. Ở đây, chúng ta sẽ tạo một task mới tên là build-template bằng đoạn code dưới đây</p>
+<pre><code class="javascript">
+gulp.task("build-template", function() {
+    return gulp.src("./src/pages/*.html")
+        .pipe(template("./src/template/main.html"))
+        .pipe(gulp.dest("./dist"));
+});
+</code></pre>
+<p>Ý nghĩa đoạn code trên là:</p>
+<ul>
+    <li>Chúng ta sẽ tạo thêm một task tên làm build-template.</li>
+    <li>Nơi chứa các file html chứa content (file con) là thư mục src/pages.</li>
+    <li>File template sẽ là có đường dẫn là src/template/main.html (trong bước tiếp theo mình sẽ nói rõ hơn về file này)</li>
+    <li>Sản phẩm cuối cùng khi build ra sẽ được sinh ra ở folder dist.</li>
+</ul>
+<p>Đoạn code đầy đủ lúc này của chúng ta sẽ như sau:</p>
+<img src="https://chickendeveloper.files.wordpress.com/2017/12/screen-shot-2017-12-06-at-11-53-25-am.png" alt="">
+<h4>Cấu hình file template</h4>
+<p>Sau khi cấu hình xong gulpfile thì chúng ta sẽ cấu hình cho file template của project. Nhưng lúc đầu mình đã nói, làm việc với template là đều hết sức bình thường trong các framework backend nên nếu bạn nào từng làm việc với các framework backend thì sẽ không quá lạ lẫm với việc này.</p>
+<p>Nhưng nếu các bạn nào chỉ làm frontend và chưa có khái niệm nhiều về việc làm việc với template thì mình xin giải thích nhanh là template sẽ là một bộ khung có các trang trong project của chúng ta. Nói các khác, nơi đó sẽ là nơi khai báo cho các phần dùng đi, dùng lại trong tất cả các trang trong project ví dụ như header hoặc footer. Trong file này chúng ta sẽ khai báo các thành phần chung đó và khai báo tên cho các khu vực “động” mà chúng ta sẽ thay đổi ở các trang khác nhau trong project.</p>
+<p>Nhưng đã khai báo ở trong gulpfile ở trên. Chúng ta sẽ tạo một file html theo đường dẫn sau src/template/main.html.</p>
+<p>Trong file này mình sẽ chèn đoạn code mẫu như hình bên dưới</p>
+<img src="https://chickendeveloper.files.wordpress.com/2017/12/screen-shot-2017-12-06-at-10-53-38-am.png" alt="">
+<p>Như chúng ta thấy đây chỉ là một file html rất căn bản gồm 3 phần header, section và footer. Điểm cần chú ý ở đây là 2 đoạn comment bên dưới</p>
+<pre><code class="html">
+&lt;!-- build:title -->
+&lt;!-- build:content -->
+</code></pre>
+<p>Hai đoạn chú thích này mình đặt ở 2 phần mà mình cho là động trong ví dụ này đó là title và content (chứa trong thẻ section) của các trang web. Cú pháp để khai báo các phần động là &lt;!– build:<tên phần động> –&gt;.</p>
+<p>Lý do chúng ta phải khai báo tên phần động đó là ở những trang con chúng ta sẽ lấy tên đó để gulp-template-html nhận biết khi build từ file con vào file template để cho ra file sản phẩm.</p>
+<h4>Cấu hình cho các file html chi tiết</h4>
+<p>Sau khi có template khung mẫu cho project, chúng ta sẽ tiến hành làm việc với các file con. Đầu tiên mình tạo một file tên là index.html với nội dung như sau:</p>
+<pre><code class="html">
+&lt;!-- build:title --&gt;Index&lt;!-- /build:title --&gt;
+&lt;!-- build:content --&gt;This is index page&lt;!-- /build:content --&gt;
+</code></pre>
+<p>Như mình đã nói ở phía trên phần tên trong cấu hình trong file template.html sẽ là tên để gulp-template-html nhận biết nơi chúng sẽ lấy source và nơi chúng sẽ để vào để build template. Nếu bạn nào đã làm việc với template ở backend như Laravel, Rails hoặc Express thì sẽ biết điều này.</p>
+<p>Cú pháp ở đây gần giống ở file template nhưng chỉ khác là chúng ta thêm một thẻ đóng lại như trong đoạn code trên. Nội dung của trang chúng ta sẽ code ở giữa 2 comment này.</p>
+<p>Sau khi tạo xong, lúc này project của chúng ta sẽ có những thành phần như sau:</p>
+<img src="https://chickendeveloper.files.wordpress.com/2017/12/screen-shot-2017-12-06-at-11-15-47-am.png" alt="">
+<h4>Chạy thử thôi nào!</h4>
+<p>Sau khi cấu hình xong như trên, chúng ta sẽ chạy thử bằng cách gọi task build-template mà chúng ta đã khai báo bằng lệnh như sau:</p>
+<pre><code class="bash">gulp build-template</code></pre>
+<p>Sau khi gọi xong chúng ta sẽ có được một file index.html trong folder dist có nội dung như sau:</p>
+<img src="https://chickendeveloper.files.wordpress.com/2017/12/screen-shot-2017-12-06-at-11-19-54-am.png" alt="">
+<p>Nhưng vậy là chúng ta đã có file thành phẩm tên index.html trong folder dist được compile từ file content index.html và template main.html.</p>
+<h4>Kiểm tra các chức năng</h4>
+<p>Chúng ta sẽ có hai kiểm tra như sau:</p>
+<p>Tạo thêm một file content tên là about.html với nội dung như sau:</p>
+<pre><code class="html">
+&lt;!-- build:title --&gt;About&lt;!-- /build:title --&gt;
+&lt;!-- build:content --&gt;This is about page&lt;!-- /build:content --&gt;
+</code></pre>
+<p>Sau khi tạo xong, chúng ta chạy lại lênh gulp template-build lần nửa. Lúc này, chúng ta sẽ có được một file about.html trong dist với nội dung như bên dưới:</p>
+<img src="https://chickendeveloper.files.wordpress.com/2017/12/screen-shot-2017-12-06-at-11-29-57-am.png" alt="">
+<p>Như vậy là chúng ta có thể thấy mội lần chạy lệnh template-build gulp sẽ compile các file con vào template và xuất ra sản phẩn ở folder dist.</p>
+<p>Tiếp theo chúng ta sẽ thử cập nhật file tempalte main.html một tí như sau:</p>
+<img src="https://chickendeveloper.files.wordpress.com/2017/12/screen-shot-2017-12-06-at-11-32-22-am.png" alt="">
+<p>Sau đó, chúng ta chạy lại lệnh template-build lần nửa. Lúc này, nội dung của hai file index.html và about.html trong dist sẽ như sau:</p>
+<img src="https://chickendeveloper.files.wordpress.com/2017/12/screen-shot-2017-12-06-at-11-34-47-am.png" alt="">
+<p>Phần header và footer của cả hai file đều đã cập nhật lại. Rất đơn giản và tiện dụng đúng không nào. Nhưng vậy là chúng ta đã hoàn thành việc cấu hình gulp để sự dụng template cho frontend.</p>
+<p>Công việc của các bản chỉ là sau khi thêm, xoá, sửa các file content và cập nhật file template chỉ cần chạy lệnh template-build để gulp build lại sản phẩm.</p>
+<h4>Note:</h4>
+<ul>
+    <li>Các bạn có thể tích hợp task này với browser-sync để mỗi lúc các bạn save các file thì gulp sẽ tự động cập nhật và reload lại browser. Các bạn có thể tìm hiểu thêm về cách cấu hình browser-sync ở đây <a href="https://chickendeveloper.wordpress.com/2017/07/02/reload-browser-voi-gulp-va-browser-sync/" target="_blank">Reload browser với Gulp và Browser-sync</a> </li>
+    <li>Các file styles (css, js, photo) các bạn nên để trong folder dist.</li>
+    <li>Các bạn có thể thay đổi template-build thành default để để chạy mặc định khi gọi lệnh gulp</li>
+</ul>
+<p>Hy vọng với bài viết này các bạn có thể tự cấu hình template cho project frontend của mình và giúp ích cho công việc của các bạn.</p>
+
+
+        <div class="blog-detail-comments">
+            <!-- <div id="show-comment-box">
+                Comment
+            </div> -->
+            <div id="post-comment" style="">
+                <div id="disqus_thread"></div>
+                <script>
+                /**
+                *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+                *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+                /*
+                var disqus_config = function () {
+                this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+                this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                };
+                */
+                (function() { // DON'T EDIT BELOW THIS LINE
+                var d = document, s = d.createElement('script');
+                s.src = 'https://https-tasynguyen3894-github-io.disqus.com/embed.js';
+                s.setAttribute('data-timestamp', +new Date());
+                (d.head || d.body).appendChild(s);
+                })();
+                </script>
+                <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+            </div>
+        </div>
+        <div class="blog-break-line"></div>
+        <div class="blog-recommend">
+            <h4>Read more post</h4>
+            <ul>
+                <li><a href="toi-da-den-voi-javascript-nhu-the-nao-p1.html">Tôi đã đến với javascript như thế nào (Phần 1): Javascript thật đáng sợ</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- /build:body -->

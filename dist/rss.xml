@@ -4,7 +4,7 @@
         <title>Tasy Nguyen Blog</title>
         <link>https://tasynguyen3894.github.io/</link>
         <description>Tasy Nguyen Blog RSS Feed</description>
-        <lastBuildDate>Tue, 06 Nov 2018 07:07:14 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 07 Nov 2018 06:20:37 GMT</lastBuildDate>
         <docs>http://blogs.law.harvard.edu/tech/rss</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <item>
@@ -71,6 +71,12 @@
             <link>https://tasynguyen3894.github.io/deploy-angular-4-app-don-gian-voi-express.html</link>
             <guid>https://tasynguyen3894.github.io/deploy-angular-4-app-don-gian-voi-express.html</guid>
             <description><![CDATA[Đã rất lâu rồi mình không viết blog, hôm nay mình xin chia sẻ về cách deploy đơn giản một project Angular 4 cùng với ExpressJS.]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Xây dựng chức năng template html với Gulp]]></title>
+            <link>https://tasynguyen3894.github.io/xay-dung-chuc-nang-template-html-voi-gulp.html</link>
+            <guid>https://tasynguyen3894.github.io/xay-dung-chuc-nang-template-html-voi-gulp.html</guid>
+            <description><![CDATA[Template cho các file HTML trong một project gồm các file tĩnh. Tại sao không? Hôm nay, mình sẽ hướng dẫn về cách dùng Gulp để thực hiện điều đó.]]></description>
         </item>
         <item>
             <title><![CDATA[Những điều nên tránh khi làm việc với những lập trình viên mới vào nghề]]></title>
