@@ -88,6 +88,14 @@
         "description": "Đã rất lâu rồi mình không viết blog, hôm nay mình xin chia sẻ về cách deploy đơn giản một project Angular 4 cùng với ExpressJS."
     },
     {
+        "title": "Xây dựng chức năng template html với Gulp",
+        "url": "xay-dung-chuc-nang-template-html-voi-gulp.html",
+        "tags": [
+            "gulp", "html", "javascript"
+        ],
+        "description": "Template cho các file HTML trong một project gồm các file tĩnh. Tại sao không? Hôm nay, mình sẽ hướng dẫn về cách dùng Gulp để thực hiện điều đó."
+    },
+    {
         "title": "Những điều nên tránh khi làm việc với những lập trình viên mới vào nghề",
         "url": "nhung-dieu-nen-tranh-khi-lam-viec-voi-lap-trinh-vien-moi-vao-nghe.html",
         "tags": [
