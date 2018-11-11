@@ -1,5 +1,13 @@
 [
     {
+        "title": "Tôi đã đến với javascript như thế nào (Phần 4): New Deal",
+        "url": "toi-da-den-voi-javascript-nhu-the-nao-p4.html",
+        "tags": [
+            "javascript", "my-stories", "gulp", "angulario", "expressjs"
+        ],
+        "description": "Nếu ở phần trước, câu chuyện của mình ở phần trước không đề cập quá nhiều về việc mình làm việc nhiều với Javascript, thì lần này sẽ là một khoảng thời gian ăn ngủ (theo cả nghĩa đen) với Javascript."
+    },
+    {
         "title": "[Dịch] Những giải pháp cho vấn đề cross-domain của frontend",
         "url": "giai-phap-cho-cross-domain-o-frontend.html",
         "tags": [
