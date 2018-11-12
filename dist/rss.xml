@@ -4,9 +4,15 @@
         <title>Tasy Nguyen Blog</title>
         <link>https://tasynguyen3894.github.io/</link>
         <description>Tasy Nguyen Blog RSS Feed</description>
-        <lastBuildDate>Wed, 07 Nov 2018 06:20:37 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 12 Nov 2018 02:11:42 GMT</lastBuildDate>
         <docs>http://blogs.law.harvard.edu/tech/rss</docs>
         <generator>https://github.com/jpmonette/feed</generator>
+        <item>
+            <title><![CDATA[Tôi đã đến với javascript như thế nào (Phần 4): New Deal]]></title>
+            <link>https://tasynguyen3894.github.io/toi-da-den-voi-javascript-nhu-the-nao-p4.html</link>
+            <guid>https://tasynguyen3894.github.io/toi-da-den-voi-javascript-nhu-the-nao-p4.html</guid>
+            <description><![CDATA[Nếu ở phần trước, câu chuyện của mình ở phần trước không đề cập quá nhiều về việc mình làm việc nhiều với Javascript, thì lần này sẽ là một khoảng thời gian ăn ngủ (theo cả nghĩa đen) với Javascript.]]></description>
+        </item>
         <item>
             <title><![CDATA[[Dịch] Những giải pháp cho vấn đề cross-domain của frontend]]></title>
             <link>https://tasynguyen3894.github.io/giai-phap-cho-cross-domain-o-frontend.html</link>
