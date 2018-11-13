@@ -1,0 +1,157 @@
+<!-- build:title -->[Dịch] Cùng khám phá về deep copy trong javascript<!-- /build:title -->
+
+<!-- build:meta -->
+<meta name="description" content="Định nghĩa deep copy trong Javascript và các phương pháp thực hiện">
+<meta name="keywords" content="javascript,deepcopy,copy,tasynguyen3894,js">
+<meta name="author" content="Tasy Nguyen">
+<!-- /build:meta -->
+
+<!-- build:menu --><div class="navbar-fixed home-bg"><!-- /build:menu -->
+
+<!-- build:quotes -->
+<div class="navbar-quotes-content">
+Raised up by Xiao He, cast down by Xiao He.
+</div>
+<div class="navbar-quotes-speaker">
+</div>
+<!-- /build:quotes -->
+
+<!-- build:body -->
+<h1>[Dịch] Cùng khám phá về deep copy trong javascript</h1>
+<div class="home-content">
+<div class="blog-detail">
+<div class="blog-detail-date">Đăng lúc 29/10/2018</div>
+<div class="tags">
+    <span><a href="tags.html?tag=javascript">javascript</a></span>
+    <span><a href="tags.html?tag=translate">translate</a></span>
+</div>
+<!-- https://segmentfault.com/a/1190000013314893 -->
+<p>Nội dung bài viết này chủ yếu nói về quá trình cập nhật bất đồng bộ của DOM  và cơ chế <b>nextTick</b> trong <b>Vue</b>. Do đó, đòi hỏi bạn đọc cần có một tí kinh nghiệm về Vue và event loop của Javascript.</p>
+<p>Giới thiệu: Cập nhật bất đồng bộ của DOM</p>
+<pre><code class="html">
+&lt;template&gt;
+    &lt;div&gt;
+        &lt;div ref="test"&gt;{{test}}&lt;/div&gt;
+        &lt;button @click="handleClick"&gt;tet&lt;/button&gt;
+    &lt;/div&gt;
+&lt;/template&gt;
+
+</code></pre>
+
+<pre><code class="javascript">
+export default {
+    data () {
+        return {
+            test: 'begin'
+        };
+    },
+    methods () {
+        handleClick () {
+            this.test = 'end';
+            console.log(this.$refs.test.innerText); // xuất ra "begin"
+        }
+    }
+}
+
+</code></pre>
+<p>Kết quả khi in ra lại là <i>begin</i> thay vì <i>end</i> như chúng ta đã set. Điều này cho thấy, đã có sự không đồng bộ trong quá trình cập nhật DOM</p>
+<p>Điều này cũng đã được giải thích trong tài liệu chính thức của <b>Vue</b></p>
+<div class="blog-detail-quote">
+    Có thể bạn không nhận ra, <b>Vue</b> thực hiện cập nhật DOM một cách không đồng bộ. Bất cứ sự thay đổi nào của các dữ liệu được quan sát. Khi đó <b>Vue</b> sẽ tạo ra một hàng đợi và đặt những thay đổi đó vào trong một event loop. Nếu một <b>watcher</b> được trigger nhiều lần thì nó cũng sẽ chỉ đẩy vào hàng đợi một lần thôi. Việc loại bỏ các hành động trùng lặp này rất quan trọng, vì nó tránh việc phải thực hiện các tính toán không cần thiết cùng các thao tác thừa thải ở DOM. Sau đó, trong event loop <i>"tick"</i> tiếp theo, <b>Vue</b> sẽ làm mới hàng đợi và thực hiện các công việc thực tế (đã bị loại bỏ).
+</div>
+<p>Tóm lại, tất cả những thay đổi dữ liệu được diễn ra trong một vòng lặp sự kiện hiện tại sẽ được kích hoạt trong sự kiện <b>tick</b> của vòng lặp tiếp theo, đây cũng được xem là một "batch". (Lưu ý rằng 
+    <!-- Dịch sau khi đọc code -->
+    )</p>
+<h4>Watcher queue</h4>
+<p>Quan sát source code của <b>Watcher</b>, chúng ta có thể tìm ra một điều rằng  hoạt động cập nhật của <b>watcher</b> cũng không thật sự đồng bộ (Lưu ý: thuộc tính <b>sync</b> mặc định là <i>false</i>, nghĩa là không đồng bộ)</p>
+<pre><code class="javascript">
+update () {
+    /* istanbul ignore else */
+    if (this.lazy) {
+        this.dirty = true
+    } else if (this.sync) {
+        /* Nếu đồng bộ thì sẽ chạy thẳng hàm run để render lại view */
+        this.run()
+    } else {
+        /* Nếu xữ lý không đồng bộ thì sẽ cho vào hàng đợi. Tick tiếp theo sẽ thực thi nó */
+        queueWatcher(this)
+    }
+}
+
+</code></pre>
+<p>Code của <b>queueWatcher(this)</b> như sau:</p>
+<pre><code class="javascript">
+// Đưa observer object vào hàng đợi. Nếu đã tồn tại trong hàng đợi, đối tượng sẽ bị bỏ qua. Trừ khi hàng đợi được làm mới.
+export function queueWatcher (watcher: Watcher) {
+    /* Lấy id của watcher */
+    const id = watcher.id
+    /* Kiểm tra lại xem id có tồn tại hay chưa. Nếu có sẽ bị bỏ qua. Set giá trị vào has nếu nó tồn tại. Để lần tiếp theo có thể kiểm tra. */
+    if (has[id] == null) {
+        has[id] = true
+        if (!flushing) {
+            /* Nếu không có flush, watcher sẽ được push vào hàng đợi. */
+            queue.push(watcher)
+        } else {
+        ...
+        }
+        // queue the flush
+        if (!waiting) {
+            waiting = true
+            nextTick(flushSchedulerQueue)
+        }
+    }
+}
+        
+</code></pre>
+<p>Có vài điều cần lưu ý ở đoạn code này:</p>
+<ul>
+    <li>Điều đầu tiên bạn cần biết là khi <b>watcher</b> thực hiện <b>update</b> mặc định sẽ không đồng bộ. Nó sẽ thực hiện hai điều sau đây:
+        <ul>
+            <li>Xác định xem <i>id</i> của <b>watcher</b> có nằm trong <b>has</b> hay không.</li>
+            <li>Nếu có, bạn sẽ không cần thêm <b>watcher</b> vào hàng đợi. Nếu không thì không cần làm gì cả.</li>
+        </ul>
+    </li>
+    <li>Bên trong <b>nextTick(flushSchedulerQueue)</b>, hàm <b>flushScheduleQueue</b> có chức năng cập nhật lại <i>view</i>. Nó sẽ lấy tất cả các <b>watcher</b> trong <b>queue</b> để thực hiện cập nhật view tương ứng.</li>
+    <li>Cốt lõi thật ra nằm ở hàm <b>nextTick</b>. Vì vậy chúng ta hãy xem thử về hàm <b>nextTick</b></li>
+</ul>
+<h4>nextTick</h4>
+
+
+
+
+
+
+
+
+
+
+<div class="blog-detail-comments">
+    <!-- <div id="show-comment-box">
+        Comment
+    </div> -->
+    <div id="post-comment" >
+        <div id="disqus_thread"></div>
+        <script>
+        /**
+        *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+        *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+        /*
+        var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        };
+        */
+        (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = 'https://https-tasynguyen3894-github-io.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+</div>
+<div class="blog-break-line"></div>
+</div>
+</div>
+<!-- /build:body -->
