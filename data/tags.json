@@ -1,5 +1,13 @@
 [
     {
+        "title": "Tôi đã đến với javascript như thế nào (Phần 5): Nhân sinh hà xứ bất tương phùng",
+        "url": "toi-da-den-voi-javascript-nhu-the-nao-p5.html",
+        "tags": [
+            "javascript", "my-stories", "gulp", "vue", "laravel"
+        ],
+        "description": "Như đã kể ở phần trước thì phần này sẽ là phần cuối trong series. Đồng thời mình cũng không có nhiều thứ để chia sẽ về quá trình đến với Javascript nửa. Đơn giản vì khi này mình đã là một Javasript developer."
+    },
+    {
         "title": "Tôi đã đến với javascript như thế nào (Phần 4): New Deal",
         "url": "toi-da-den-voi-javascript-nhu-the-nao-p4.html",
         "tags": [
