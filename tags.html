@@ -5,6 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>Tags | Tasy Nguyen</title>
         <!-- build:meta -->
+        <link rel="shortcut icon" type="image/png" href="/public/img/css/tasynguyen.png"/>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="/public/css/styles.css">
@@ -15,7 +16,7 @@
     <body>
         <div class="navbar-fixed product-bg">
             <div class="navbar-content">
-                <div class="navbar-button">
+                <!-- <div class="navbar-button">
                     <span id="nav-info-toggle">
                         <span class="fa fa-code" ></span> 
                         <span class="toggle-content">Tasy Nguyen</span>
@@ -23,7 +24,7 @@
                 </div>
                 <div class="navbar-button-close" id="nav-info-mobile-close">
                     <span class="fa fa-arrow-left"></span>
-                </div>
+                </div> -->
                 <div class="navbar-short-info" id="nav-info">
                     <div class="navbar-short-info-avatar">
                         <img src="https://avatars3.githubusercontent.com/u/18634365?s=400&v=4" alt="">
@@ -40,7 +41,7 @@
                 <div class="navbar-quotes" id="navbar-quotes">
                     
 <div class="navbar-quotes-content">
-    Wise people learn when they can; fools learn when they must.
+    Wise people learn when they can, fools learn when they must.
 </div>
 <div class="navbar-quotes-speaker">
     Duke of Wellington
@@ -51,16 +52,21 @@
         </div>
         <div class="container">
             <div class="container-content">
-                <div class="navbar-button">
+                <!-- <div class="navbar-button">
                     <span class="fa fa-arrow-right" id="nav-info-mobile-open"></span>
 
-                </div>
+                </div> -->
                 <div class="navbar-menu">
-                    <ul>
+                    <div class="title-mobile">
+                        <a href="index.html">Tasy Nguyen Blog</a>
+                        <span id="toggle-button-mb" class="fa fa-bars"></span>
+                    </div>
+                    <ul id="menu-mobile">
                         <li><a href="index.html">Blog</a></li>
                         <li><a href="product.html">Products</a></li>
                         <li><a href="me.html">Me</a></li>
                         <li><a href="notes.html">Notes</a></li>
+                        <li><a href="rss.xml" target="_blank" >RSS</a></li>
                     </ul>
                 </div>
                 <div class="main-content">
@@ -82,8 +88,8 @@
                     <a href="?tag=javascript">javascript</a>
                     <a href="?tag=my-stories">my stories</a>
                     <a href="?tag=angulario">angulario</a>
-                    <a href="?tag=communication-skill">communication skill</a>
-                    <a href="?tag=teamwork">teamwork</a>
+                    <!-- <a href="?tag=communication-skill">communication skill</a> -->
+                    <!-- <a href="?tag=teamwork">teamwork</a> -->
                     <a href="?tag=gulp">gulp</a>
                     <a href="?tag=medium">medium</a>
                     <a href="?tag=lan-man">lan man</a>
@@ -111,44 +117,7 @@
         <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.13.1/build/highlight.min.js"></script>
         <script>hljs.initHighlightingOnLoad();</script>
         
-<script>
-    function getParameterByName(name, url) {
-        if (!url) url = window.location.href;
-        name = name.replace(/[\[\]]/g, '\\$&');
-        var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
-            results = regex.exec(url);
-        if (!results) return null;
-        if (!results[2]) return '';
-        return decodeURIComponent(results[2].replace(/\+/g, ' '));
-    }
-
-    function init() {
-        var tag = getParameterByName('tag');
-        if(tag) {
-            $('#post-by-tag').show();
-            $.ajax({
-                url: "/data/tags.json", 
-                success: function(result){
-                    var listPost = '';
-                    result.forEach(post => {
-                        if(post.tags.indexOf(tag) > -1) {
-                            listPost += '<a href="' + post.url + '">- ' + post.title + '</a>';
-                        }
-                    });
-                    setTimeout(function() {
-                        $('#tag-post').append(listPost);
-                        $('#tag-load').hide();
-                        $('#post-by-tag').show();
-                        $('#tag-post').show();
-                    }, 1000);
-                }
-            });
-            $('#tag-search').text('#' + tag);
-        }
-    }
-
-    init();
-</script>
+<script src="public/js/tags.js"></script>
 
     </body>
 </html>

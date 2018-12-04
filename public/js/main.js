@@ -25,6 +25,20 @@ $('#nav-info-mobile-close').click(function () {
 	}
 });
 
+$('#toggle-button-mb').click(function () {
+	if($('#menu-mobile').hasClass('active')) {
+		$('#menu-mobile').removeClass('active');
+		$(this).removeClass('fa-times');
+		$(this).addClass('fa-bars');
+	} else {
+		$('#menu-mobile').addClass('active');
+		$(this).removeClass('fa-bars');
+		$(this).addClass('fa-times');
+	}
+});
+
+
+
 $('#show-comment-box').click(function () {
 	$('#post-comment').show();
 	$(this).hide();
