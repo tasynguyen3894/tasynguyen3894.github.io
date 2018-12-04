@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>[Dịch] Cùng khám phá về deep copy trong javascript | Tasy Nguyen</title>
+        <title>[Dịch] Vấn đề cập nhật DOM không đồng bộ và cơ chế nextTick trong Vue | Tasy Nguyen</title>
         
 <meta name="description" content="Định nghĩa deep copy trong Javascript và các phương pháp thực hiện">
 <meta name="keywords" content="javascript,deepcopy,copy,tasynguyen3894,js">
@@ -74,7 +74,7 @@ Raised up by Xiao He, cast down by Xiao He.
                 </div>
                 <div class="main-content">
                     
-<h1>[Dịch] Cùng khám phá về deep copy trong javascript</h1>
+<h1>[Dịch] Vấn đề cập nhật DOM không đồng bộ và cơ chế nextTick trong Vue</h1>
 <div class="home-content">
 <div class="blog-detail">
 <div class="blog-detail-date">Đăng lúc 29/10/2018</div>
@@ -172,12 +172,68 @@ export function queueWatcher (watcher: Watcher) {
     <li>Cốt lõi thật ra nằm ở hàm <b>nextTick</b>. Vì vậy chúng ta hãy xem thử về hàm <b>nextTick</b></li>
 </ul>
 <h4>nextTick</h4>
-
-
-
-
-
-
+<p>Hàm <b>nextTick</b> thực hiện hai việc sau. Một là tạo ra một <b>timerFunc</b>, tham gia vào callback dưới dạng <b>microTask</b> hoặc <b>marcoTask</b> bên trong một event loop. Hai là đặt những callback đó vào một callback queue, đồng thời chờ đến thời điểm thích hợp để thực thi.</p>
+<p></p>
+<pre><code class="javascript">
+if (typeof Promise !== 'undefined' && isNative(Promise)) {
+    /*使用Promise*/
+    var p = Promise.resolve()
+    var logError = err => { console.error(err) }
+    timerFunc = () => {
+        p.then(nextTickHandler).catch(logError)
+        // in problematic UIWebViews, Promise.then doesn't completely break, but
+        // it can get stuck in a weird state where callbacks are pushed into the
+        // microTask queue but the queue isn't being flushed, until the browser
+        // needs to do some other work, e.g. handle a timer. Therefore we can
+        // "force" the microTask queue to be flushed by adding an empty timer.
+        if (isIOS) setTimeout(noop)
+    }
+} else if (typeof MutationObserver !== 'undefined' && (
+    isNative(MutationObserver) ||
+    // PhantomJS and iOS 7.x
+    MutationObserver.toString() === '[object MutationObserverConstructor]'
+    )) {
+    // use MutationObserver where native Promise is not available,
+    // e.g. PhantomJS IE11, iOS7, Android 4.4
+    /*新建一个textNode的DOM对象，用MutationObserver绑定该DOM并指定回调函数，在DOM变化的时候则会触发回调,该回调会进入主线程（比任务队列优先执行），即textNode.data = String(counter)时便会触发回调*/
+    var counter = 1
+    var observer = new MutationObserver(nextTickHandler)
+    var textNode = document.createTextNode(String(counter))
+    observer.observe(textNode, {
+        characterData: true
+    })
+    timerFunc = () => {
+        counter = (counter + 1) % 2
+        textNode.data = String(counter)
+    }
+} else {
+    // fallback to setTimeout
+    /* istanbul ignore next */
+    /*使用setTimeout将回调推入任务队列尾部*/
+    timerFunc = () => {
+        setTimeout(nextTickHandler, 0)
+    }
+}
+        
+</code></pre>
+<p>Cần lưu ý rằng các callback sẽ được gọi theo thứ tự ưu tiên như sau <b>Promise</b>, <b>MutationObserver</b> và <b>setTimeout</b>. Vơi hai trường hợp đầu tiên thì sẽ tạo ra <b>microTask</b>, còn trường hợp còn lại sẽ tạo ra <b>marcoTask</b></p>
+<!-- Tối nghĩa, cần dịch lại sau khi hiểu code -->
+<p>Lý do của việc phân chia độ ưu tiên để xem xét sự tương thích của các trình duyệt (IE thì có hỗ trợ sẵn Promise). Bên cạnh đó, <b>Promise</b> có độ ưu tiên cao nhất là vì <i>Promise.resolve().then</i> thuộc về một <b>microTask</b>. Sau khi trình duyệt thi hành <b>marcoTask</b> trong một <b>Tick</b>, nó sẽ xóa toàn bộ các <b>microTask</b> trong <b>Tick</b>, đồng thời render lại UI. Quá trình cập nhật DOM được hoàn thành trong lúc <b>Tick</b> đang thực hiện <b>microTask</b>. UI render sẽ ít hơn một lần nếu sử dụng <b>marcoTask</b> được tạo ra bởi <b>setTimeout</b>.</p>
+<!-- Thiếu -->
+<p>Chức năng của <b>nextTickHandler</b></p> 
+<pre><code class="javascript">
+function nextTickHandler () {
+    pending = false
+    /* Thực hiện tất cả callback */
+    const copies = callbacks.slice(0)
+    callbacks.length = 0
+    for (let i = 0; i < copies.length; i++) {
+        copies[i]()
+    }
+}
+</code></pre>
+<p>Biến <i>callbacks</i> được sử dụng bởi hàm <b>nextTickHandler</b>. Và nhưng tôi đã nói ở trên về chức năng thứ hai của <b>nextTick</b> đó là "chờ đợi thời điểm thích hợp để triển khai" đó là bởi vì thời điểm thực hiện của <b>timerFunc</b> là khác nhau. Nếu là <b>Promise</b>/<b>MutationObserver</b> callback của <b>nextTickHandler</b> sẽ là một <b>microTask</b>, nó sẽ được kết thúc ở cuối <b>Tick</b> hiện tại. Nếu là <b>setTimeout</b> thì callback của <b>nextTickHandler</b> sẽ là một <b>marcoTask</b>, nó sẽ được thực hiện trong <b>Tick</b> tiếp theo.</p>
+<p></p>
 
 
 
