@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Redis là single-thread, tại sao Redis lại có thể có tốc độ nhanh như vậy? | Tasy Nguyen</title>
+        
+<meta name="description" content="Nếu chọn một trong những cuốn sách đã thay đổi cách sống và cách suy nghĩ của tôi thì tôi nghĩ tôi sẽ chọn ngay cuốn Những bài văn hay lớp 8">
+<meta name="keywords" content="Văn học, my stories, bài văn mẫu">
+<meta name="author" content="Tasy Nguyen">
+
+        <link rel="shortcut icon" type="image/png" href="/public/img/css/tasynguyen.png"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="/public/css/styles.css">
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.13.1/build/styles/default.min.css">
+        <link rel="alternate" type="application/rss+xml" title="Tasy Nguyen Blog" href="rss.xml">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    </head>
+    <body>
+        <div class="navbar-fixed home-bg">
+            <div class="navbar-content">
+                <!-- <div class="navbar-button">
+                    <span id="nav-info-toggle">
+                        <span class="fa fa-code" ></span> 
+                        <span class="toggle-content">Tasy Nguyen</span>
+                    </span>
+                </div>
+                <div class="navbar-button-close" id="nav-info-mobile-close">
+                    <span class="fa fa-arrow-left"></span>
+                </div> -->
+                <div class="navbar-short-info" id="nav-info">
+                    <div class="navbar-short-info-avatar">
+                        <img src="https://avatars3.githubusercontent.com/u/18634365?s=400&v=4" alt="">
+                    </div>
+                    <h3>Nguyen Thai Sang</h3>
+                    <h4>Web developer</h4>
+                    <p>Hello world!</p>
+                    <div class="navbar-shor-info-contact">
+                        <a class="twitter" target="_blank" href="https://twitter.com/tasyit"><span class="fa fa-twitter"></span></a>
+                        <a class="linkedin" target="_blank" href="https://linkedin.com/in/thaisangnguyen3894/"><span class="fa fa-linkedin"></span></a>
+                        <a class="github" target="_blank" href="https://github.com/tasynguyen3894/"><span class="fa fa-github"></span></a>
+                    </div>
+                </div>
+                <div class="navbar-quotes" id="navbar-quotes">
+                    
+<div class="navbar-quotes-content">
+<b>Classic</b> - a book which people praise and don't read.
+</div>
+<div class="navbar-quotes-speaker">
+Mark Twain
+</div>
+
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="container-content">
+                <!-- <div class="navbar-button">
+                    <span class="fa fa-arrow-right" id="nav-info-mobile-open"></span>
+
+                </div> -->
+                <div class="navbar-menu">
+                    <div class="title-mobile">
+                        <a href="index.html">Tasy Nguyen Blog</a>
+                        <span id="toggle-button-mb" class="fa fa-bars"></span>
+                    </div>
+                    <ul id="menu-mobile">
+                        <li><a href="index.html">Blog</a></li>
+                        <li><a href="product.html">Products</a></li>
+                        <li><a href="me.html">Me</a></li>
+                        <li><a href="notes.html">Notes</a></li>
+                        <li><a href="rss.xml" target="_blank" >RSS</a></li>
+                    </ul>
+                </div>
+                <div class="main-content">
+                    
+<h1>Redis là single-thread, tại sao Redis lại có thể có tốc độ nhanh như vậy?</h1>
+<div class="home-content">
+<div class="blog-detail">
+<div class="blog-detail-date">Đăng lúc 06/12/2017</div>
+<div class="tags">
+    <span><a href="tags.html?tag=lan-man">lan man</a></span>
+    <span><a href="tags.html?tag=my-stories">my stories</a></span>
+</div>
+<!-- intro -->
+<p>Tôi không phải là người hay nghe nhạc Rock. Nói đúng hơn là tôi cũng chả có kiến thức gì về dòng nhạc này. Những ấn tượng đầu tiên của tôi với dòng nhạc này là... gào. Ngày còn nhỏ, tôi hay nghe các ca sĩ Việt Nam hát rock trên TV, họ hát các bài dân ca hoặc hiện đại. Nhưng điểm chung là gào lên nghe mà mệt mỏi. Cả nhà tôi chẳng ai thích nghe. Tôi cũng chẳng thích nghe. Tôi có luôn cái thành kiến với dòng nhạc đó kể từ lúc đó. Đến khi mà tôi lớn hơn được tí. Trong một lần, xem một cuộc thi tôi tình cờ nghe được bài <b>Forever And One</b>. Thời đó, sau cái chương trình đó, đi ra net bọn con nít toàn gào lên <i>Phò rè vơ en quan...</i> nghe mà não nùng. Bởi bọn nhóc dân quê chúng tôi có biết câu nào khác trong bài ngoài câu đó đâu. Sau cái thời gian đó, khi lên cao đẳng. Tôi tình cờ xem được một clip trên mạng tên là <b>Burning Don't Cry</b>, trong clip đó có một bài nhạc nghe thật sướng tai làm sao. Tôi đọc bình luận và biết được tên bài hát là <b>Don't Cry</b> của <b>Guns n Rose</b>. Thế là từ đó, tôi cứ nghe bài đó suốt. Thời đó, tôi hay nói chuyện với một cô gái. Chị ấy rất thích nghe <b>Guns n Rose</b>. Rôi sau đó chúng tôi "yêu thử". Sau một tuần, tình yêu đó chôn vùi vào quá khứ và tôi cũng chẳng còn nghe <b>Guns n Rose</b> nửa...</p>
+<p>Đến lúc sắp ra trường, tôi tình cờ nghe được một bài hát tên là <b>真的爱你</b> của <b>Beyond</b> - một ban nhạc đến từ Hong Kong. Tôi không biết tiếng Quảng Đông nhiều nên nghe bài đó tôi không hiểu gì cả. Chỉ biết nghe giai điệu rất hay thôi. Nhưng muốn kể đến bài hát mà tôi thật sự làm tôi đến với Beyond phải là <b>谁伴我闯荡</b> (Ai cùng tôi phiêu bạc?). Thật sự tôi cũng chẳng hiểu lời có nó là gì đâu (tôi dốt tiếng Quảng Đông). Tôi chỉ biết mỗi cái tựa thôi. Nhưng mà không hiểu do bài nhạc hay do chính tôi tự tưởng tượng ra. Mà đến tận bây giờ khi nghe bài hát đó, tôi vẫn cảm thấy một cảm giác cô đơn và lạc lỏng.</p>
+
+
+
+<div class="blog-detail-comments">
+    <!-- <div id="show-comment-box">
+        Comment
+    </div> -->
+    <div id="post-comment" >
+        <div id="disqus_thread"></div>
+        <script>
+        /**
+        *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+        *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+        /*
+        var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        };
+        */
+        (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = 'https://https-tasynguyen3894-github-io.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+</div>
+</div>
+</div>
+
+                </div>
+                <footer>
+                    <div>Created with <a href="https://github.com/tasynguyen3894/1989stack">1989Stack</a>
+                        | <a href="tags.html"><span class="fa fa-tag"></span></a>
+                        <a href="https://twitter.com/tasyit"><span class="fa fa-twitter"></span></a>
+                        <a href="https://github.com/tasynguyen3894"><span class="fa fa-github"></span></a>
+                    </div>
+                    <div><a href="/">thaisang.nguyen3894.github.io</a> - <a href="versions.html">Verison 1.2.0</a> &copy 2018</div>
+                </footer>
+            </div>
+        </div>
+        <script src="/public/js/main.js"></script>
+        <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.13.1/build/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+        <!-- build:script -->
+    </body>
+</html>
