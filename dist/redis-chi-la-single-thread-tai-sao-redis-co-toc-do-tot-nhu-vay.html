@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Redis là single-thread, tại sao Redis lại có thể có tốc độ nhanh như vậy? | Tasy Nguyen</title>
+        <title>[Dịch] Redis là single-thread, tại sao Redis lại có thể có tốc độ nhanh như vậy? | Tasy Nguyen</title>
         
 <meta name="description" content="Nếu chọn một trong những cuốn sách đã thay đổi cách sống và cách suy nghĩ của tôi thì tôi nghĩ tôi sẽ chọn ngay cuốn Những bài văn hay lớp 8">
 <meta name="keywords" content="Văn học, my stories, bài văn mẫu">
@@ -75,7 +75,12 @@ Mark Twain
                 </div>
                 <div class="main-content">
                     
-<h1>Redis là single-thread, tại sao Redis lại có thể có tốc độ nhanh như vậy?</h1>
+<h1>[Dịch] Redis là single-thread, tại sao Redis lại có thể có tốc độ nhanh như vậy?</h1>
+
+
+
+
+
 <div class="home-content">
 <div class="blog-detail">
 <div class="blog-detail-date">Đăng lúc 06/12/2017</div>
@@ -84,9 +89,14 @@ Mark Twain
     <span><a href="tags.html?tag=my-stories">my stories</a></span>
 </div>
 <!-- intro -->
-<p>Tôi không phải là người hay nghe nhạc Rock. Nói đúng hơn là tôi cũng chả có kiến thức gì về dòng nhạc này. Những ấn tượng đầu tiên của tôi với dòng nhạc này là... gào. Ngày còn nhỏ, tôi hay nghe các ca sĩ Việt Nam hát rock trên TV, họ hát các bài dân ca hoặc hiện đại. Nhưng điểm chung là gào lên nghe mà mệt mỏi. Cả nhà tôi chẳng ai thích nghe. Tôi cũng chẳng thích nghe. Tôi có luôn cái thành kiến với dòng nhạc đó kể từ lúc đó. Đến khi mà tôi lớn hơn được tí. Trong một lần, xem một cuộc thi tôi tình cờ nghe được bài <b>Forever And One</b>. Thời đó, sau cái chương trình đó, đi ra net bọn con nít toàn gào lên <i>Phò rè vơ en quan...</i> nghe mà não nùng. Bởi bọn nhóc dân quê chúng tôi có biết câu nào khác trong bài ngoài câu đó đâu. Sau cái thời gian đó, khi lên cao đẳng. Tôi tình cờ xem được một clip trên mạng tên là <b>Burning Don't Cry</b>, trong clip đó có một bài nhạc nghe thật sướng tai làm sao. Tôi đọc bình luận và biết được tên bài hát là <b>Don't Cry</b> của <b>Guns n Rose</b>. Thế là từ đó, tôi cứ nghe bài đó suốt. Thời đó, tôi hay nói chuyện với một cô gái. Chị ấy rất thích nghe <b>Guns n Rose</b>. Rôi sau đó chúng tôi "yêu thử". Sau một tuần, tình yêu đó chôn vùi vào quá khứ và tôi cũng chẳng còn nghe <b>Guns n Rose</b> nửa...</p>
-<p>Đến lúc sắp ra trường, tôi tình cờ nghe được một bài hát tên là <b>真的爱你</b> của <b>Beyond</b> - một ban nhạc đến từ Hong Kong. Tôi không biết tiếng Quảng Đông nhiều nên nghe bài đó tôi không hiểu gì cả. Chỉ biết nghe giai điệu rất hay thôi. Nhưng muốn kể đến bài hát mà tôi thật sự làm tôi đến với Beyond phải là <b>谁伴我闯荡</b> (Ai cùng tôi phiêu bạc?). Thật sự tôi cũng chẳng hiểu lời có nó là gì đâu (tôi dốt tiếng Quảng Đông). Tôi chỉ biết mỗi cái tựa thôi. Nhưng mà không hiểu do bài nhạc hay do chính tôi tự tưởng tượng ra. Mà đến tận bây giờ khi nghe bài hát đó, tôi vẫn cảm thấy một cảm giác cô đơn và lạc lỏng.</p>
-
+<p>Gần như các cuộc phỏng vấn <b>Java</b> đều hỏi về vấn đề lưu trữ dữ liệu. Các câu hỏi cơ bản thường sẽ là <i>"định luật 2 8 là gì?"</i>, trình bày về <i>"cold data và hot data"</i>. Hay phức tạp hơn sẽ là những câu hỏi về Cache avalanche, Cache penetration, Cache warming, Cache update, Cache downgrade, v.v... Nhưng những khái niệm này dường như không quá phổ biến với chúng tôi. Những cache server mà chúng tôi thường dùng là <b>Redis</b> và <b>Memcached</b>.</p>
+<p>Nếu bạn chưa từng gặp một người phỏng vấn nào hỏi bạn câu <i>"Tại sao Redis là single-threaded mà lại có tốc độ nhanh như vậy"</i>. Sau đó, bạn đọc được bài viết này, điều đó thật tuyệt vời đúng không nhỉ? Còn nếu bạn là một người phỏng vấn, bạn cũng có thể dùng câu hỏi này để hỏi ứng viên, người mà các bạn đang <i>vọng xuyên thu thủy</i>. Một câu hỏi khá tốt để kiểm tra khả năng nắm bắt của cậu ta.</p>
+<p>Hảo lơ! Bước vào chủ đề chính nào. Trước tiên chúng ta sẽ cùng tìm hiểu <b>Redis</b> là gì? Tại sao <b>Redis</b> lại nhanh và tại sao nó lại là single-threaded.</p>
+<h4>1. Giới thiệu về Redis</h4>
+<p><b>Redis</b> là một mã nguồn mở, và là một hệ thống lưu trữ cấu trúc dữ liệu trên bộ nhớ. Được sử dụng như là một databse, cache hoặc messaging middleware.</p>
+<p><b>Redis</b> thì hỗ trợ nhiều loại cấu trúc dữ liệu như String, Hash, List, Set, Ordered Set (Sorted Set hoặc là ZSet) và Range Query, Bitmaps, Hyperloglogs và các lưu trữ địa lý (Geospatial). Các cấu trúc dữ liệu phổ biến là String, List, Set, Hash và ZSet.</p>
+<p><b>Redis</b> được tích hợp Replication, Lua scripting, LRU eviction, Transactions, hỗ trợ Persistence, Sentinel, phân vùng tự động (Cluster)và High Availability</p>
+<p><b>Redis</b> cũng cung cấp các tùy chọn dành cho</p>
 
 
 <div class="blog-detail-comments">
