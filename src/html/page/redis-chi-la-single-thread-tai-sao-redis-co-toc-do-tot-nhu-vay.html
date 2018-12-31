@@ -40,7 +40,31 @@ Mark Twain
 <p><b>Redis</b> là một mã nguồn mở, và là một hệ thống lưu trữ cấu trúc dữ liệu trên bộ nhớ. Được sử dụng như là một databse, cache hoặc messaging middleware.</p>
 <p><b>Redis</b> thì hỗ trợ nhiều loại cấu trúc dữ liệu như String, Hash, List, Set, Ordered Set (Sorted Set hoặc là ZSet) và Range Query, Bitmaps, Hyperloglogs và các lưu trữ địa lý (Geospatial). Các cấu trúc dữ liệu phổ biến là String, List, Set, Hash và ZSet.</p>
 <p><b>Redis</b> được tích hợp Replication, Lua scripting, LRU eviction, Transactions, hỗ trợ Persistence, Sentinel, phân vùng tự động (Cluster)và High Availability</p>
-<p><b>Redis</b> cũng cung cấp các tùy chọn dành cho</p>
+<p><b>Redis</b> cũng cung cấp các tùy chọn dành cho persistence nhằm cho phép người dùng có thể lưu trữ dữ liệu của họ vào đĩa. Trong thực tế, dữ liệu ghi lại có thể được snapshot điều đặn hoặc thêm vào command log (AOF nghĩa là  Append Only File). Sau đó, <b>Redis</b> sẽ thực thi lệnh ghi để sao chép những dữ liệu đó xuống ổ đĩa. Bạn hoàn toàn có thể tắt chức năng persistence và sử dụng <b>Redis</b> như một nơi lưu trữ dữ liệu.</p>
+<p><b>Redis</b> thì không sử dụng bảng, cơ sở dụng liệu của <b>Redis</b> cũng không được xác định trước hoặc ép người dùng phải liên kết các dữ liệu khác nhau được lưu trữ bên trong nó.</p>
+<p>Các chế độ làm việc với cơ sở dữ liệu có thể chia ra gồm: cơ sở dữ liệu ở ổ đĩa cứng và cơ sở dữ liệu ở memory. <b>Redis</b> nếu lưu trữ ở memory thì việc đọc và ghi dữ liệu sẽ không bị giới hạn bởi tốc độ I/O của ổ đĩa cứng. Do đó, nó cực kì nhanh.</p>
+<h4>(1) Chế độ làm việc của cơ sở dữ liệu ở ổ đĩa cứng</h4>
+<img src="https://image-static.segmentfault.com/138/520/1385200693-5c132350476c3_articlex" alt="">
+<p>
+    <b>储存索引:</b> <i>Lưu trữ chỉ mục (index)</i><br>
+    <b>储存值:</b> <i>Lưu trữ giá trị</i>
+</p>
+<h4>(2) chế độ làm việc trong memory</h4>
+<img src="https://image-static.segmentfault.com/163/408/1634085670-5c1323bea2c77_articlex" alt="">
+<p>Sau khi nhìn vào mô tả phía trên, bạn có thể biết một số câu hỏi phỏng vấn khác phổ biến liên quan đến <b>Redis</b> như: <b>Redis</b> là gì? Những kiểu dữ liệu cơ bản của <b>Redis</b> hoặc là giải thích về <b>Redis persistence</b></p>
+<h4>2. Redis nhanh như thế nào?</h4>
+<p><b>Redis</b> sử dụng mô hình cơ sở dữ liệu key - value trong memory với mô hình xử lý đơn được viết bằng C. Dữ liệu chính thức lên đến hơn 100000 QPS (Query counts per second)</p>
+<p>Lượng dữ liệu xử lý này không hề tệ tí nào khi so với một cơ sở dữ liệu key - value khác cũng được lưu trên bộ nhớ là <b>Memcached</b>. Mặc dù <b>Memcached</b> thực hiện xử lý đa luồng.</p>
+<img src="https://image-static.segmentfault.com/192/958/1929582735-5c1323e2c2f44_articlex" alt="">
+<p>Trục hoành chính là số lượng kết nối. Trục tung chính là lượng QPS. Nhìn vào biểu đồ chúng ta có thể thấy được sử thay đổi dựa trên cường độ. Tôi hy vọng các bạn có thể mô tả chính xác điều đó trong cuộc phỏng vấn. Câu trả lời các bạn của có thể thấy là hai cột sẽ tỉ lệ nghịch với nhau.</p>
+<h4>3. Tại sao Redis lại nhanh?</h4>
+<p>1. Nền tảng hoàn toàn dựa trên memory, hầu hết các request đều hoạt động thuần túy trên memory nên tốc độ rất nhanh. Dữ liệu tồn tại trong bộ nhớ, tương tự như HashMap. Ưu điểm của HashMap đó là độ phức tạp của việc tra cứu và vận hành là O(1)</p>
+<p>2. Cấu trúc dữ liệu đơn giản, cách thao tác với dữ liệu cũng đơn giản. Cấu trúc dữ liệu trong <b>Redis</b> được thiết kế đặt biệt.</p>
+<p>3. Single threaded tránh được hầu hết các vấn đề về context switch (*) và race conditions (*). Đồng thời việc không sử dụng đa luồng cũng giảm tải được việc tiêu thụ CPU. Đồng thời nhờ vậy nên cũng không cần phải xem xét các vấn đề liên quan đến khóa hệ thống, sẽ tránh được việc xảy ra deadlock. (*)</p>
+<p>4. Sử dụng mô hình ghép kênh I/O multiplexing, non-blocking IO.</p>
+<p>5. </p>
+
+
 
 
 <div class="blog-detail-comments">

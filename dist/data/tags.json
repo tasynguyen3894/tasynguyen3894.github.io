@@ -1,5 +1,13 @@
 [
     {
+        "title": "2018 nhìn lại",
+        "url": "2018-review.html",
+        "tags": [
+            "lan-man", "my-stories"
+        ],
+        "description": "Nói sao về năm 2018 của mình nhỉ? Quá nhiều biến động, từ công việc nên nơi ở lẫn các mối quan hệ."
+    },
+    {
         "title": "Tôi đã đến với javascript như thế nào (Phần 5): Nhân sinh hà xứ bất tương phùng",
         "url": "toi-da-den-voi-javascript-nhu-the-nao-p5.html",
         "tags": [
