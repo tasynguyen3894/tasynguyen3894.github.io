@@ -4,9 +4,21 @@
         <title>Tasy Nguyen Blog</title>
         <link>https://tasynguyen3894.github.io/</link>
         <description>Tasy Nguyen Blog RSS Feed</description>
-        <lastBuildDate>Mon, 12 Nov 2018 02:11:42 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 03 Jan 2019 04:18:57 GMT</lastBuildDate>
         <docs>http://blogs.law.harvard.edu/tech/rss</docs>
         <generator>https://github.com/jpmonette/feed</generator>
+        <item>
+            <title><![CDATA[2018 nhìn lại]]></title>
+            <link>https://tasynguyen3894.github.io/2018-review.html</link>
+            <guid>https://tasynguyen3894.github.io/2018-review.html</guid>
+            <description><![CDATA[Nói sao về năm 2018 của mình nhỉ? Quá nhiều biến động, từ công việc nên nơi ở lẫn các mối quan hệ.]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Tôi đã đến với javascript như thế nào (Phần 5): Nhân sinh hà xứ bất tương phùng]]></title>
+            <link>https://tasynguyen3894.github.io/toi-da-den-voi-javascript-nhu-the-nao-p5.html</link>
+            <guid>https://tasynguyen3894.github.io/toi-da-den-voi-javascript-nhu-the-nao-p5.html</guid>
+            <description><![CDATA[Như đã kể ở phần trước thì phần này sẽ là phần cuối trong series. Đồng thời mình cũng không có nhiều thứ để chia sẽ về quá trình đến với Javascript nửa. Đơn giản vì khi này mình đã là một Javasript developer.]]></description>
+        </item>
         <item>
             <title><![CDATA[Tôi đã đến với javascript như thế nào (Phần 4): New Deal]]></title>
             <link>https://tasynguyen3894.github.io/toi-da-den-voi-javascript-nhu-the-nao-p4.html</link>
