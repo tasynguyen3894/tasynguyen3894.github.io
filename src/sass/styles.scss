@@ -353,6 +353,20 @@ body {
 	}
 
 	.home-content {
+		.product-detail {
+			img {
+				margin: 15px auto;
+				display: block;
+			}
+
+			ul {
+				padding: 0px;
+				margin: 5px 15px;
+				li {
+					margin: 5px 0px;
+				}
+			}
+		}
 		.about {
 			h4 {
 				text-align: center;
