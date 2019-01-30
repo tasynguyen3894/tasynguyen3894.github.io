@@ -223,6 +223,14 @@ body {
     background: url("../img/css/notes.jpg");
     background-size: cover;
     background-position: 40% 50%; }
+  body .home-content .product-detail img {
+    margin: 15px auto;
+    display: block; }
+  body .home-content .product-detail ul {
+    padding: 0px;
+    margin: 5px 15px; }
+    body .home-content .product-detail ul li {
+      margin: 5px 0px; }
   body .home-content .about h4 {
     text-align: center;
     margin: 5px 0px; }
