@@ -441,6 +441,12 @@ body {
 				margin: 5px 0px 15px 0px;
 				line-height: 22px;
 				word-spacing: 2px;
+				&.talk {
+					margin-bottom: 5px;
+				}
+				&.talk-last {
+					margin-bottom: 15px;
+				}
 			}
 			h4 {
 				font-size: 18px;
@@ -667,6 +673,9 @@ body {
 				h3 {
 					text-decoration: underline;
 					font-size: 20px;
+					a {
+						color: #333;
+					}
 				}
 				.tags {
 					span {
