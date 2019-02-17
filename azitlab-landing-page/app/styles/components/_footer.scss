@@ -1,0 +1,26 @@
+footer{
+  background-color: $secondary-color;
+  color: #FFF;
+
+  h1, h2, h3, h4, h5, p{
+    color: inherit;
+  }
+
+  p{
+    opacity: 0.8;
+    font-size: 14px;
+  }
+
+  .footer-title{
+    border-bottom: 1px solid #FFF;
+    padding-bottom: 18px;
+    margin-bottom: 30px;
+  }
+
+  .social-contacts{
+    li.social-item{
+      margin-right: 10px;
+      font-size: 22px;
+    }
+  }
+}
