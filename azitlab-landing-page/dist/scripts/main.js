@@ -1,1 +1,0 @@
-$(document).ready(function(){$headerElement=$("#page-header"),$heroSection=$("#hero-section"),$(window).on("scroll",function(e){$(document).scrollTop()>$heroSection.outerHeight()-50?$headerElement.hasClass("show-bg")||$headerElement.addClass("show-bg"):$headerElement.hasClass("show-bg")&&$headerElement.removeClass("show-bg")})});
