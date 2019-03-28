@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Khi tôi vô tình mở Pandora (phần 1): Vue Server Side Render | Tasy Nguyen</title>
+        <title>Seminar: Sử dụng một domain ngrok cho nhiều project | Tasy Nguyen</title>
         <!-- build:meta -->
         <link rel="shortcut icon" type="image/png" href="/public/img/css/tasynguyen.png"/>
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -41,10 +41,10 @@
                 <div class="navbar-quotes" id="navbar-quotes">
                     
 <div class="navbar-quotes-content">
-	Without training, they lacked knowledge. Without knowledge, they lacked confidence. Without confidence, they lacked victory.
+	The programmers of tomorrow are the wizards of the future.
 </div>
 <div class="navbar-quotes-speaker">
-	Julius Caesar
+	Gabe Newell
 </div>
 
                 </div>
@@ -71,13 +71,27 @@
                 </div>
                 <div class="main-content">
                     
-<h1>Khi tôi vô tình mở Pandora (phần 1): Vue Server Side Render</h1>
+<h1>Seminar: Sử dụng một domain ngrok cho nhiều project</h1>
 <div class="home-content">
-	<div class="blog-detail"> 
-		<div class="blog-detail-date">Đăng lúc 17/07/2018</div>
-		<p>Pandora là một thứ quá quen thuộc đối với một người rồi đúng không nhỉ? Một cái hộp chứa những thứ... nếu được thì Google hộ mình nhé. Trong quá trình ngụp lặn với nghề code dạo tôi cũng đã vô tình (hoặc bị ép) mở những chiếc hộp như thế.</p>
-		<p>Thứ tôi vô tình giải phóng trong lần này mang tên là Vue Server side render.</p>
-		<!--<div class="blog-detail-comments">
+	<div class="blog-detail">
+		<div class="blog-detail-date">Đăng lúc 03/08/2018</div>
+		<div class="tags">
+            <span><a href="tags.html?tag=laravel">laravel</a></span>
+            <span><a href="tags.html?tag=nginx">nginx</a></span>
+            <span><a href="tags.html?tag=seminar">seminar</a></span>
+		</div>
+        <h4>Mở đầu</h4>
+        <p>Hiện tại, vì hệ thống sử dụng micro service nên sẽ có nhiều hệ thống nhỏ được chia tách. Đi kèm mỗi hệ thống chính là domain khác nhau. Các hệ thống sẽ làm việc với nhau chủ yếu qua API. Đôi lúc việc này sẽ gây ảnh hưởng đến quá trình làm việc. Có thể thấy trong các ví dụ sau:</p>
+        <ul>
+            <li>Chúng ta cần làm một chức năng liên quan đến webhook và app. App thì cần https để đăng nhập và làm một số việc khác. Webhook cũng cần một địa chỉ ngrok để nhận request từ shopify.</li>
+            <li>Sự khác nhau của port docker và port máy tính. Có thể lấy ví dụ như có một port của ES ở docker là 83 và ở ngoài là 8003. Lúc này sẽ khá bối rối khi chúng ta chỉ có một key trong .env để định nghĩa cho domain của ES.</li>
+        </ul>
+        <p>Thật sự những vấn đề trên đều có thể giải quyết được với một ngrok như hiện tại. Ở trường hợp đầu là chúng ta có thể chuyển đổi ngrok cho webhook hoặc app khi nào cần kiểm tra các chức năng trên chúng. Với trường hợp port thì cũng có nhiều cách như tạo ra hai key trong .env kiểu như ES_FRONTEND_DOMAIN và ES_BACKEND_DOMAIN. Hay đơn giản hơn là cho 2 port trùng nhau là xong.</p>
+        <p>Nhưng có cũng tốt, vì vậy bài viết này được ra đời. Cách thức thực hiện thì cũng khá dễ làm. Đơn giản chỉ là sử dụng proxy pass. Có thể dùng Apache hoặc Nginx tùy vào điều kiện của dự án.</p>
+        <h4>Triển khai proxy pass</h4>
+        <p>Vì nhiều anh em sử dụng Laradock kèm theo nginx nên mình sẽ nói về việc triển khai proxy_pass với nginx trước.</p>
+        <p></p>
+        <!-- <div class="blog-detail-comments">
 			<div id="disqus_thread"></div>
 			<script>
 			/**
@@ -97,7 +111,7 @@
 			})();
 			</script>
 			<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-		</div>-->
+		</div> -->
 	</div>
 </div>
 
