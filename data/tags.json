@@ -1,5 +1,21 @@
 [
     {
+        "title": "Seminar: Nghịch phá một số thứ linh tinh cùng Laravel (Phần 2)",
+        "url": "seminar-laravel-trick-p2.html",
+        "tags": [
+            "seminar", "laravel"
+        ],
+        "description": ""
+    },
+    {
+        "title": "Seminar: Nghịch phá một số thứ linh tinh cùng Laravel (Phần 1)",
+        "url": "seminar-laravel-trick-p1.html",
+        "tags": [
+            "seminar", "laravel"
+        ],
+        "description": ""
+    },
+    {
         "title": "2018 nhìn lại",
         "url": "2018-review.html",
         "tags": [
