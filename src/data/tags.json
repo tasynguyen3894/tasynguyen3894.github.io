@@ -1,14 +1,14 @@
 [
     {
-        "title": "Seminar: Nghịch phá một số thứ linh tinh cùng Laravel (Phần 2)",
+        "title": "Nghịch phá một số thứ linh tinh cùng Laravel: Chạy một ngrok cho nhiều dự án",
         "url": "seminar-laravel-trick-p2.html",
         "tags": [
-            "seminar", "laravel"
+            "seminar", "laravel", "nginx", "docker"
         ],
         "description": ""
     },
     {
-        "title": "Seminar: Nghịch phá một số thứ linh tinh cùng Laravel (Phần 1)",
+        "title": "Seminar: Nghịch phá một số thứ linh tinh cùng Laravel: Chạy nhiều dự án với Laradock",
         "url": "seminar-laravel-trick-p1.html",
         "tags": [
             "seminar", "laravel"
