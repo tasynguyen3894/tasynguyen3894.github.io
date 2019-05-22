@@ -13,6 +13,7 @@
     "gulp-sass": "^4.0.1",
     "gulp-template-html": "^0.2.0",
     "gulp-typescript": "^5.0.0-alpha.3",
+    "natives": "^1.1.6",
     "sass": "^1.9.1",
     "typescript": "^2.9.2"
   },
