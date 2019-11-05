@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+    <channel>
+        <title>Tasy Nguyen Blog</title>
+        <link>https://tasynguyen3894.github.io/</link>
+        <description>Tasy Nguyen Blog RSS Feed</description>
+        <lastBuildDate>Sun, 03 Feb 2019 14:05:22 GMT</lastBuildDate>
+        <docs>http://blogs.law.harvard.edu/tech/rss</docs>
+        <generator>https://github.com/jpmonette/feed</generator>
+        <item>
+            <title><![CDATA[2018 nhìn lại]]></title>
+            <link>https://tasynguyen3894.github.io/2018-review.html</link>
+            <guid>https://tasynguyen3894.github.io/2018-review.html</guid>
+            <description><![CDATA[Nói sao về năm 2018 của mình nhỉ? Quá nhiều biến động, từ công việc nên nơi ở lẫn các mối quan hệ.]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Tôi đã đến với javascript như thế nào (Phần 5): Nhân sinh hà xứ bất tương phùng]]></title>
+            <link>https://tasynguyen3894.github.io/toi-da-den-voi-javascript-nhu-the-nao-p5.html</link>
+            <guid>https://tasynguyen3894.github.io/toi-da-den-voi-javascript-nhu-the-nao-p5.html</guid>
+            <description><![CDATA[Như đã kể ở phần trước thì phần này sẽ là phần cuối trong series. Đồng thời mình cũng không có nhiều thứ để chia sẽ về quá trình đến với Javascript nửa. Đơn giản vì khi này mình đã là một Javasript developer.]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Tôi đã đến với javascript như thế nào (Phần 4): New Deal]]></title>
+            <link>https://tasynguyen3894.github.io/toi-da-den-voi-javascript-nhu-the-nao-p4.html</link>
+            <guid>https://tasynguyen3894.github.io/toi-da-den-voi-javascript-nhu-the-nao-p4.html</guid>
+            <description><![CDATA[Nếu ở phần trước, câu chuyện của mình ở phần trước không đề cập quá nhiều về việc mình làm việc nhiều với Javascript, thì lần này sẽ là một khoảng thời gian ăn ngủ (theo cả nghĩa đen) với Javascript.]]></description>
+        </item>
+        <item>
+            <title><![CDATA[[Dịch] Những giải pháp cho vấn đề cross-domain của frontend]]></title>
+            <link>https://tasynguyen3894.github.io/giai-phap-cho-cross-domain-o-frontend.html</link>
+            <guid>https://tasynguyen3894.github.io/giai-phap-cho-cross-domain-o-frontend.html</guid>
+            <description><![CDATA[Cũng như các bài dịch trước, sau khi đi làm về, mình lang thang trên segmentfault tìm xem có gì đó đọc không để đỡ tối cổ.]]></description>
+        </item>
+        <item>
+            <title><![CDATA[[Dịch] Cùng khám phá về deep copy trong javascript]]></title>
+            <link>https://tasynguyen3894.github.io/cung-kham-pha-ve-deep-copy-trong-javascipt.html</link>
+            <guid>https://tasynguyen3894.github.io/cung-kham-pha-ve-deep-copy-trong-javascipt.html</guid>
+            <description><![CDATA[Hôm trước khi làm việc với Vue mình gặp phải một vấn đề với JavaScript về việc sao chép các đối tượng tham chiếu. Trong lúc lang thang trên segmentfault mình vô tình tìm được một bài viết khá hay và chi tiết về vấn đề này. Nên mình quyết định dịch ra tiếng Việt để chia sẽ cho các bạn.]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Tôi đã đến với javascript như thế nào (Phần 3): First Love]]></title>
+            <link>https://tasynguyen3894.github.io/toi-da-den-voi-javascript-nhu-the-nao-p3.html</link>
+            <guid>https://tasynguyen3894.github.io/toi-da-den-voi-javascript-nhu-the-nao-p3.html</guid>
+            <description><![CDATA[Theo các tiểu thuyết võ hiệp hoặc các sử thi thì tình yêu và thời loạn luôn là một cặp đôi khá phổ biến. Thì chặng đường của mình với javascript hôm nay cũng thế. Đúng nghĩa một mối tình đầu sinh ra trong thời loạn thế.]]></description>
+        </item>
+        <item>
+            <title><![CDATA[[Dịch] Những câu hỏi phổ biến khi phỏng vấn Vue. Có thể bạn đã biết?]]></title>
+            <link>https://tasynguyen3894.github.io/nhung-cau-hoi-khi-phong-van-vue-va-ban-co-the-tra-loi-khong.html</link>
+            <guid>https://tasynguyen3894.github.io/nhung-cau-hoi-khi-phong-van-vue-va-ban-co-the-tra-loi-khong.html</guid>
+            <description><![CDATA[Hôm nay mình sẽ chia sẽ một tí về những thứ hay ho được hỏi trong cuộc phỏng vấn Vue. Mình khá thích framework này và cũng đang làm việc với Vue trong các dự án.]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Quyển văn mẫu lớp tám]]></title>
+            <link>https://tasynguyen3894.github.io/quyen-van-mau-lop-tam.html</link>
+            <guid>https://tasynguyen3894.github.io/quyen-van-mau-lop-tam.html</guid>
+            <description><![CDATA[Nếu chọn một trong những cuốn sách đã thay đổi cách sống và cách suy nghĩ của tôi thì tôi nghĩ tôi sẽ chọn ngay cuốn Những bài văn hay lớp 8 của tôi. Quyển văn mẫu cuối cùng và cũng là quyển văn mẫu đáng giá nhất đối với tôi.]]></description>
+        </item>
+        <item>
+            <title><![CDATA[[Dịch] Các designer học frontend như thế nào?]]></title>
+            <link>https://tasynguyen3894.github.io/cac-designer-hoc-frontend-nhu-the-nao.html</link>
+            <guid>https://tasynguyen3894.github.io/cac-designer-hoc-frontend-nhu-the-nao.html</guid>
+            <description><![CDATA[Như trong mục I follow mình có liệt kê một người là Huang Xuan. Anh ta là một designer đồng thời là một lập trình viên nổi tiếng ở Trung Quốc. Hôm nay, mình sẽ dịch một bài blog cũ của anh ta nói về việc designer học frontend như thế nào.]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Seminar: Thiết kế RESTFUL API document với Swagger]]></title>
+            <link>https://tasynguyen3894.github.io/seminar-swagger.html</link>
+            <guid>https://tasynguyen3894.github.io/seminar-swagger.html</guid>
+        </item>
+        <item>
+            <title><![CDATA[Trên đại lộ, ngoài cửa kính đến căn phòng nhỏ. Mưa và sự vô định.]]></title>
+            <link>https://tasynguyen3894.github.io/tren-dai-lo-ben-ngoai-cua-kinh-den-can-phong-nho-mua-va-su-vo-dinh.html</link>
+            <guid>https://tasynguyen3894.github.io/tren-dai-lo-ben-ngoai-cua-kinh-den-can-phong-nho-mua-va-su-vo-dinh.html</guid>
+            <description><![CDATA[Mưa, thứ thời tiết thú vị nhất với tôi. Hiếm có loại thời tiết nào làm cho tôi có nhiều cảm xúc như thế, nhất là khi bắt gặp một cơn mưa ở Sài Gòn.]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Tôi đã đến với javascript như thế nào (Phần 2): Đây là game sinh tồn!]]></title>
+            <link>https://tasynguyen3894.github.io/toi-da-den-voi-javascript-nhu-the-nao-p2.html</link>
+            <guid>https://tasynguyen3894.github.io/toi-da-den-voi-javascript-nhu-the-nao-p2.html</guid>
+            <description><![CDATA[Cuộc sống là một trò chơi nhưng tùy vào mỗi người mà nó sẽ mang thể loại khác nhau. Đi làm cũng thế, với mình những ngày đầu thì đi làm đúng nghĩa là một trò chơi sinh tồn.]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Tôi đã đến với javascript như thế nào (Phần 1): Javascript thật đáng sợ]]></title>
+            <link>https://tasynguyen3894.github.io/toi-da-den-voi-javascript-nhu-the-nao-p1.html</link>
+            <guid>https://tasynguyen3894.github.io/toi-da-den-voi-javascript-nhu-the-nao-p1.html</guid>
+            <description><![CDATA[Hãy tưởng tượng một hôm nào đó, văn phòng bị cúp điện vào cỡ 7h tối và mọi người đang chờ có điện lại. Mọi người tổ chức kể chuyện ma. Và mình bắt đầu với cái giọng thều thào "Ngày nảy, ngày nay, có một ngôn ngữ tên là JavaScript"]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Deploy Angular 4 app đơn giản với Express]]></title>
+            <link>https://tasynguyen3894.github.io/deploy-angular-4-app-don-gian-voi-express.html</link>
+            <guid>https://tasynguyen3894.github.io/deploy-angular-4-app-don-gian-voi-express.html</guid>
+            <description><![CDATA[Đã rất lâu rồi mình không viết blog, hôm nay mình xin chia sẻ về cách deploy đơn giản một project Angular 4 cùng với ExpressJS.]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Xây dựng chức năng template html với Gulp]]></title>
+            <link>https://tasynguyen3894.github.io/xay-dung-chuc-nang-template-html-voi-gulp.html</link>
+            <guid>https://tasynguyen3894.github.io/xay-dung-chuc-nang-template-html-voi-gulp.html</guid>
+            <description><![CDATA[Template cho các file HTML trong một project gồm các file tĩnh. Tại sao không? Hôm nay, mình sẽ hướng dẫn về cách dùng Gulp để thực hiện điều đó.]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Những điều nên tránh khi làm việc với những lập trình viên mới vào nghề]]></title>
+            <link>https://tasynguyen3894.github.io/nhung-dieu-nen-tranh-khi-lam-viec-voi-lap-trinh-vien-moi-vao-nghe.html</link>
+            <guid>https://tasynguyen3894.github.io/nhung-dieu-nen-tranh-khi-lam-viec-voi-lap-trinh-vien-moi-vao-nghe.html</guid>
+            <description><![CDATA[Mỗi lập trình viên trong chúng ta đều có từng trãi qua gian đoạn chập chững vào nghề với những câu chuyện khác nhau. Với tôi sau đây là những điều nên tránh khi làm việc với người mới.]]></description>
+        </item>
+    </channel>
+</rss>
