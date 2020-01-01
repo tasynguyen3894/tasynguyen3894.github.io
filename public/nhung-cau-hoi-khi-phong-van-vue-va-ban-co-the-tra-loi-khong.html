@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>[Dịch] Những câu hỏi phổ biến khi phỏng vấn Vue. Có thể bạn đã biết?
+ | Tasy Nguyen</title>
+        
+<meta name="description" content="Hôm nay mình sẽ chia sẽ một tí về những thứ hay ho được hỏi trong cuộc phỏng vấn Vue">
+<meta name="keywords" content="vue, javascript, interview">
+<meta name="author" content="Tasy Nguyen">
+
+        <link rel="shortcut icon" type="image/png" href="/public/img/css/tasynguyen.png"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="/public/css/styles.css">
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.13.1/build/styles/default.min.css">
+        <link rel="alternate" type="application/rss+xml" title="Tasy Nguyen Blog" href="rss.xml">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    </head>
+    <body>
+        
+<div class="navbar-fixed home-bg">
+    
+            <div class="navbar-content">
+                <!-- <div class="navbar-button">
+                    <span id="nav-info-toggle">
+                        <span class="fa fa-code" ></span> 
+                        <span class="toggle-content">Tasy Nguyen</span>
+                    </span>
+                </div>
+                <div class="navbar-button-close" id="nav-info-mobile-close">
+                    <span class="fa fa-arrow-left"></span>
+                </div> -->
+                <div class="navbar-short-info" id="nav-info">
+                    <div class="navbar-short-info-avatar">
+                        <img src="https://avatars3.githubusercontent.com/u/18634365?s=400&v=4" alt="">
+                    </div>
+                    <h3>Nguyen Thai Sang</h3>
+                    <h4>Web developer</h4>
+                    <p>Hello world!</p>
+                    <div class="navbar-shor-info-contact">
+                        <a class="twitter" target="_blank" href="https://twitter.com/tasyit"><span class="fa fa-twitter"></span></a>
+                        <a class="linkedin" target="_blank" href="https://linkedin.com/in/thaisangnguyen3894/"><span class="fa fa-linkedin"></span></a>
+                        <a class="github" target="_blank" href="https://github.com/tasynguyen3894/"><span class="fa fa-github"></span></a>
+                    </div>
+                </div>
+                <div class="navbar-quotes" id="navbar-quotes">
+                    
+    <div class="navbar-quotes-content">
+        Go as far as you can see when you get there, you'll be able to see farther.
+    </div>
+    <div class="navbar-quotes-speaker">
+        JP Morgan
+    </div>
+    
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="container-content">
+                <!-- <div class="navbar-button">
+                    <span class="fa fa-arrow-right" id="nav-info-mobile-open"></span>
+
+                </div> -->
+                <div class="navbar-menu">
+                    <div class="title-mobile">
+                        <a href="index.html">Tasy Nguyen Blog</a>
+                        <span id="toggle-button-mb" class="fa fa-bars"></span>
+                    </div>
+                    <ul id="menu-mobile">
+                        <li><a href="index.html">Blog</a></li>
+                        <li><a href="product.html">Products</a></li>
+                        <li><a href="me.html">Me</a></li>
+                        <li><a href="notes.html">Notes</a></li>
+                        <li><a href="rss.xml" target="_blank" >RSS</a></li>
+                    </ul>
+                </div>
+                <div class="main-content">
+                    
+    <h1>[Dịch] Những câu hỏi phổ biến khi phỏng vấn Vue. Có thể bạn đã biết?</h1>
+    <div class="home-content">
+        <div class="blog-detail">
+            <div class="blog-detail-date">Đăng lúc 16/10/2018</div>
+            <div class="tags">
+                <span>
+                    <a href="tags.html?tag=vue">vue</a>
+                </span>
+                <span>
+                    <a href="tags.html?tag=javascript">javascript</a>
+                </span>
+                <span>
+                    <a href="tags.html?tag=translate">translate</a>
+                </span>
+            </div>
+            <p>Hôm nay mình sẽ chia sẽ một tí về những thứ hay ho được hỏi trong cuộc phỏng vấn Vue. Mình khá thích framework
+                này và cũng đang làm việc với Vue trong các dự án. Trong một lần tình cờ lang thang trên một trang mạng của
+                Trung Quốc mình tìm được bài viết này nên mình gom các ý hay ho vào trong bài dịch hôm nay. Dưới đây là các
+                mục mà mình sẽ đề cập trong bài viết hôm nay.</p>
+            <p>Link bài viết gốc
+                <a href="https://segmentfault.com/a/1190000016603212" target="_blank">Vue 常见面试问题，你可能都知道，但能答好吗？</a>
+            </p>
+            <ul>
+                <li>Sự khác biệt và các trường hợp sử dụng của
+                    <b>computed</b>,
+                    <b>methods</b> và
+                    <b>watch</b>
+                </li>
+                <li>Sự hiểu biết về Vue life cycle</li>
+                <li>Vue two-way binding. Tại sao khi bạn thay đổi data và view biết được sự thay đổi đó?</li>
+                <li>Diễn tả ngắn gọn mô hình MVVM của Vue</li>
+                <li>Diễn tả sự khác biệt giữa history mode và hash mode của Vue-router</li>
+                <li>Sự khác biệt giữa $route và $router trong Vue-router</li>
+            </ul>
+            <h4>Sự khác biệt và các trường hợp sử dụng của
+                <b>computed</b>,
+                <b>methods</b> và
+                <b>watch</b>
+            </h4>
+            <div class="blog-detail-code">
+                methods vs computed
+            </div>
+            <p>
+                Chúng ta có thể định nghĩa một hàm là
+                <b>method</b> thay vì là
+                <b>computed</b>. Bởi vì cơ bản hai thứ này điều trả về kết quả giống nhau. Tuy nhiên điểm khác nhau nằm ở chổ
+                những dữ liệu mà chúng phụ thuộc vào. Computed chỉ được tính toán lại khi các dữ liệu mà nó phụ thuộc thay
+                đổi. Ví dụ như ta có một state (hoặc prop) là
+                <i>message</i> không thay đổi thì những truy vấn vào computed tương tác với
+                <i>message</i> là
+                <i>reversedMessage</i> sẽ lập tức trả về kết quả của phép tính trước đó mà không cần tính toán lại. Ngược lại,
+                chỉ cần được gọi ra thì
+                <b>method</b> sẽ luôn luôn thực thi tính toán. Tóm lại, nếu thuật toán của bạn cần tính toán lớn và nặng bạn
+                nên chọn
+                <b>computed</b>. Nhưng nếu bạn không muốn dùng lại những kết quả bị "cache" lại thì bạn có thể chọn
+                <b>method</b>.
+            </p>
+            <div class="blog-detail-code">
+                watch vs computed
+            </div>
+            <p>
+                Khi bạn sử dụng các phương thức logic phức tạp với template, bạn nên sử dụng computed
+            </p>
+            <p>
+                watch được viết dưới dạng là một object mà key của nó là một thứ cần được
+                <i>"watch"</i> (ví dụ như data, prop) và giá trị là một function sẽ được gọi tương ứng khi có thay đổi. Giá
+                trị cũng có thể là một method hoặc là một object chứa các tùy chọn. Nếu bạn có một số dữ liệu cần thay đổi
+                khi dữ liệu khác thay đổi. Hoặc khi bạn cần phải thực hiện asynchronous hoặc các hành động tốn kém khi dữ
+                liệu thay đổi thì bạn có thể dùng
+                <b>watch</b>
+            </p>
+
+            <h4>Sự hiểu biết về Vue life cycle</h4>
+            <div class="blog-detail-code">
+                beforeCreate</div>
+            <p>
+                Thực hiện sau khi instance được khởi tạo, data observer và event/watcher được tạo trong bước này.
+            </p>
+            <div class="blog-detail-code">
+                created</div>
+            <p>
+                Được gọi khi instance đã tạo xong. Trong bước này, data observer đã khởi tạo xong, các methods đã hoạt động (có thể dùng),
+                watch/event cũng có thể gọi. Tuy nhiên, lúc này giai đoạn mount vẫn chưa bắt đầu, $el vẫn đang tạm ẩn.
+            </p>
+            <p>
+                <div class="blog-detail-code">
+                    beforeMount</div>
+
+                <p>
+                    Được gọi khi bắt đầu quá trình mount: Những function liên quan đến render được call lần đầu tiên
+                    <br/> Hook này thì không được gọi trong SSR. Các chu kì sau cũng sẽ không được gọi trong SSR
+                </p>
+                <div class="blog-detail-code">
+                    mounted</div>
+                <p>el được thay thế bằng vm.$el vừa được tạo. </p>
+                <div class="blog-detail-code">
+                    beforeUpdate</div>
+                <p>
+                    Được gọi khi dữ liệu được cập nhật, trước khi những sự thay đổi của DOM ảo được render ra các DOM hiện tại. Đây là lúc thích
+                    hợp để chúng ta có thể access vào các DOM đã tồn tại trước khi chúng được update, ví dụ như xóa một số
+                    function thủ công được thêm vào event listener.
+                </p>
+                <div class="blog-detail-code">
+                    updated</div>
+                <p>
+                    Hook này thì được gọi sau các sự thay đổi từ DOM ảo được render.
+                </p>
+                <div class="blog-detail-code">
+                    activated</div>
+                <p>
+                    <i>keep-alive</i> được gọi khi hook này kích hoạt
+                </p>
+                <div class="blog-detail-code">
+                    deactivated</div>
+                <p>
+                    <i>keep-alive</i> bị hủy khi hook này kích hoạt
+                </p>
+                <div class="blog-detail-code">
+                    beforeDestroy</div>
+                <p>
+                    Được gọi trước khi instance bị hủy. Trong bước này, instance vẫn còn tồn tại.
+                </p>
+                <div class="blog-detail-code">
+                    destroyed</div>
+                <p>
+                    Được gọi sau khi Vue instance bị hủy. Sau khi được gọi, hầu như mọi thứ thuộc Vue instance đều bị bỏ đi mọi ràng buộc, các
+                    event listener sẽ bị xóa bỏ và tất cả các component con cũng đều bị hủy.
+                </p>
+                <h4>Vue two-way binding. Tại sao khi bạn thay đổi data và view biết được sự thay đổi đó</h4>
+                <p>Vue chứa một tập hợp các phương thức có thể quan sát sự thay đổi của mảng và những phương thức đó sẽ trigger
+                    để update lại view. Những phương thức đó là:</p>
+                <p>push(), pop(), shift() ,unshift(), splice(), sort(), reverse()</p>
+                <p>Với filter(), concat() và slice(). Những phương thức này không làm thay đổi mảng ban đầu nhưng sẽ trả về
+                    một mảng mới. Do vậy khi bạn sử dụng những phương thức này bạn có thể thay đổi mảng cũ bằng mảng mới
+                    (được trả về)</p>
+                <p>Do sự giới hạn của Javascript, Vue không thể detect được sự thay đổi của mảng với những thay đổi như sau:</p>
+                <ul>
+                    <li>Khi bạn cập nhật trực tiếp bằng index (chỉ mục): vm.items[indexOfItem] = newValue</li>
+                    <li>Khi bạn sửa độ dài của mảng: vm.items.length = newLength</li>
+                </ul>
+                <p>Giải pháp:</p>
+                <ul>
+                    <li>Vue.set(vm.items, indexOfItem, newValue)</li>
+                    <li>vm.items.splice(indexOfItem, 1, newValue)</li>
+                </ul>
+                <h4>Diễn tả ngắn gọn mô hình MVVM của Vue</h4>
+                <p>Vue là một data-driven mà chính bản thân Vue liên kết DOM với dữ liệu. Khi "binding" được khởi tạo, thì DOM
+                    và dữ liệu sẽ được giữ liên kết với nhau. Những khi dữ liệu bị thay đổi, DOM sẽ được thay đổi theo.</p>
+                <p>ViewModel là cốt lõi của Vue, nó là một instance của Vue. Vue instance sau khi được áp dụng cho một phần
+                    tử HTML, phần tử HTML đó có thể là body, cũng có thể là một phần tử được chỉ định bằng id. Các DOM Listener
+                    và các Data Binding chính là chìa khóa trong việc thực hiện two-way binding. Các DOM Listener thì lắng
+                    nghe các sự thay đổi trong tất cả các View trên các phần tử DOM của page，mỗi khi có sự biến đổi xảy ra，các
+                    dự liệu được liên kết với model sẽ thay đổi theo. Các Data Binding lắng nghe các dữ liệu từ Model. Khi
+                    dữ liệu thay đổi thì DOM chứa View của dữ liệu đó sẽ thay đổi theo.</p>
+                <h4>Diễn tả sự khác biệt giữa history và hash mode của Vue-router</h4>
+                <p>hash mode diễn ra ở trong URL những không bao gồm các request http và sẽ không xảy ra tác động với backend
+                    và những thay đổi đó sẽ không làm reload trang.</p>
+                <p>history mode tận dụng lợi thế từ các phương thức mới của
+                    <b>HTML5 history interface</b> như pushState() và replaceState(). Hai phương thức này được áp dụng cho browser
+                    record stack, cung cấp khả năng sửa đổi history ngay ở trang hiện tại. Khi thực hiện các cập nhật, mặc
+                    dù URL hiện tại bị thay đổi nhưng trình duyệt không lập tức gửi yêu cầu tới backend ngay lúc đó.</p>
+                <b>Nguyên tắc</b>
+                <p>Nguyên tắc của hash mode là sự kiện onhashchange được lắng nghe từ window</p>
+                <p>history: nếu hashchange thì chỉ có thể thay đổi những nội dung phía sau dấu #. Thì history api (pushState,
+                    replaceState, go, back, forward) giúp có frontend có thể tự do tương tác với URL bởi nó được lắng nghe
+                    bởi event popState() từ window.</p>
+                <h4>Sự khác biệt giữa $route và $router trong Vue-router</h4>
+                <p>
+                    <b>$route</b> là "đối tượng thông tin định tuyến" chứa các thông tin của một thông số của một định tuyến
+                    như path, params, hash, query, fullPath, matched, name v.v...</p>
+                <p>
+                    <b>$router</b> là một instance định tuyến. Nó chứa các phương thức và các function liên quan đến định tuyến</p>
+
+                <h4>Kết (người dịch)</h4>
+                <p>Hy vọng với bài dịch này các bạn sẽ có thể bổ sung kiến thức căn bản về Vue và giúp ích trong công việc của các bạn hàng ngày cũng như trong các cuộc phỏng vấn.</p>
+                <div class="blog-detail-comments">
+                    <div id="disqus_thread"></div>
+                    <script>
+                        /**
+                        *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+                        *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+                        /*
+                        var disqus_config = function () {
+                        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+                        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                        };
+                        */
+                        (function () { // DON'T EDIT BELOW THIS LINE
+                            var d = document, s = d.createElement('script');
+                            s.src = 'https://https-tasynguyen3894-github-io.disqus.com/embed.js';
+                            s.setAttribute('data-timestamp', +new Date());
+                            (d.head || d.body).appendChild(s);
+                        })();
+                    </script>
+                    <noscript>Please enable JavaScript to view the
+                        <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+                    </noscript>
+                </div>
+        </div>
+    </div>
+    
+                </div>
+                <footer>
+                    <div>Created with <a href="https://github.com/tasynguyen3894/1989stack">1989Stack</a>
+                        | <a href="tags.html"><span class="fa fa-tag"></span></a>
+                        <a href="https://twitter.com/tasyit"><span class="fa fa-twitter"></span></a>
+                        <a href="https://github.com/tasynguyen3894"><span class="fa fa-github"></span></a>
+                    </div>
+                    <div><a href="/">thaisang.nguyen3894.github.io</a> - <a href="versions.html">Verison 1.2.0</a> &copy 2018</div>
+                </footer>
+            </div>
+        </div>
+        <script src="/public/js/main.js"></script>
+        <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.13.1/build/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+        <!-- build:script -->
+    </body>
+</html>
