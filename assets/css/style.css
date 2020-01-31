@@ -1,7 +1,7 @@
 body {
   margin: 0px;
   font-family: Raleway,sans-serif;
-  background: url(https://picsum.photos/1920/1080); }
+  background: url(https://images.unsplash.com/photo-1535952548450-d7447587e733?ixlib=rb-1.2.1&auto=format&fit=crop&w=1651&q=30); }
 
 body .container {
   width: 650px;
@@ -25,7 +25,7 @@ body .text-content {
     text-align: left; }
 
 body header {
-  background: rgba(0, 0, 0, 0.75); }
+  background: rgba(0, 0, 0, 0.55); }
   body header ul {
     margin: 0px;
     padding: 0px;
@@ -50,6 +50,14 @@ body footer {
   position: fixed;
   bottom: 0px;
   padding: 10px;
-  color: #FFF; }
+  color: #FFF;
+  overflow: hidden;
+  box-sizing: border-box;
+  width: 100%;
+  font-size: 13px; }
   body footer a {
     color: #FFF; }
+  body footer .left {
+    float: left; }
+  body footer .right {
+    float: right; }
