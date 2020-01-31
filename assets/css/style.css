@@ -60,3 +60,15 @@ body footer {
     float: left; }
   body footer .right {
     float: right; }
+
+@media screen and (max-width: 767px) {
+  body .container {
+    width: 100%; }
+  body .main-page {
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 90px;
+    padding: 15px 20px 40px 20px;
+    line-height: 160%; }
+    body .main-page a {
+      color: #333; } }
