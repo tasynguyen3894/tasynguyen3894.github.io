@@ -208,7 +208,7 @@ body {
   body .quotes::after {
     content: ' ”'; }
   body .home-bg {
-    background: url("../img/css/home.jpg");
+    background: url("../files/css/home.jpg");
     background-size: cover;
     background-position: 50% 50%; }
   body .product-bg {
