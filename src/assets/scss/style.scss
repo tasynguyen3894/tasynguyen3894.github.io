@@ -11,13 +11,14 @@ body {
         margin: 0px auto;
     }
     .main-page {
-        text-align: center;
-        margin-top: 150px;
-        background: rgba($color: #e5e5e5, $alpha: 0.3);
+        width: 500px;
+        margin-top: 90px;
+        background: rgba($color: #e5e5e5, $alpha: 0.65);
         padding: 15px 20px 40px 20px;
         a {
             color: #333;
         }
+        line-height: 160%;
     }
     .text-content {
         text-align: center;

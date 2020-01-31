@@ -33,8 +33,8 @@ let jsAssetCopy = function () {
 }
 
 let fileAssetCopy = function () {
-    return src([`./${sourceDir}/${assetsDir}/img/**/*`])
-            .pipe(dest(`./${buildDir}/${assetsDir}/img/`))
+    return src([`./${sourceDir}/${assetsDir}/files/**/*`])
+            .pipe(dest(`./${buildDir}/${assetsDir}/files/`))
 }
 
 let filterDataTwig = function (file, t) {
