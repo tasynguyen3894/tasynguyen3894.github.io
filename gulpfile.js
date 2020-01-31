@@ -7,6 +7,7 @@ const path = require('path')
 const fs = require('fs')
 const ghPages = require('gulp-gh-pages')
 const browserSync = require('browser-sync').create()
+const buildIgnore = require("./buildignore")
 
 const buildDir = `build`;
 const sourceDir = `src`;
@@ -65,14 +66,18 @@ function watchFile() {
 }
 
 function deployGhPages() {
-    return src(`./${buildDir}`)
+    return src(`./${buildDir}/**/*`)
             .pipe(ghPages({
                 branch: deployBranch
             }))
 }
 
 function clearTmp() {
-    return del([`${buildDir}`])
+    let delList = [`${buildDir}/**/*`];
+    buildIgnore.forEach(element => {
+        delList.push(`!${buildDir}/${element}`)
+    });
+    return del(delList)
 }
 
 function requireUncached(module){
