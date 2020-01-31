@@ -8,10 +8,11 @@ body .container {
   margin: 0px auto; }
 
 body .main-page {
-  text-align: center;
-  margin-top: 150px;
-  background: rgba(229, 229, 229, 0.3);
-  padding: 15px 20px 40px 20px; }
+  width: 500px;
+  margin-top: 90px;
+  background: rgba(229, 229, 229, 0.65);
+  padding: 15px 20px 40px 20px;
+  line-height: 160%; }
   body .main-page a {
     color: #333; }
 
