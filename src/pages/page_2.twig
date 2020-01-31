@@ -1,0 +1,17 @@
+{% extends "shared/main.twig" %}
+
+{% block content %}
+<div class="container text-content">
+    <h1>Page {{ page_number }}</h1>
+    <h5>Full text:</h5>
+    <p>
+        {{ content }}
+    </p>
+    <h5>Limted text:</h5>
+    <p>
+        {{ limitText(content) }}
+    </p>
+</div>
+{% endblock %}
+
+{% block title %}Page {{ page_number }}{% endblock %}

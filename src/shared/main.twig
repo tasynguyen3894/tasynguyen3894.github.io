@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <title>{% block title %}{% endblock %}</title>
+</head>
+    <body>
+        <header>
+            <ul>
+                <li><a href="/">HOME</a></li>
+                <li><a href="/page_1.html">Page 1</a></li>
+                <li><a href="/page_2.html">Page 2</a></li>
+            </ul>
+        </header>
+        {% block content %}{% endblock %}
+        <footer>
+            <a href="http://sangnguyen.dev">sangnguyen.dev</a> &copy 2020
+        </footer>
+    </body>
+</html>
