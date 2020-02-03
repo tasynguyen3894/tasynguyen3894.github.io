@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Tôi đã đến với javascript như thế nào (Phần 5): Nhân sinh hà xứ bất tương phùng | Sang Nguyen | Blog</title>
+        <meta name="description" content="Phần 5 trong chuỗi bài về câu chuyện của mình với Javascript">
+<meta name="keywords" content="Javascript, Gulp, my stories, Vue, Laravel">
+<meta name="author" content="Tasy Nguyen">
+        <link rel="shortcut icon" type="image/png" href="/public/img/css/tasynguyen.png"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="/assets/css/blog_style.css">
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.13.1/build/styles/default.min.css">
+        <link rel="alternate" type="application/rss+xml" title="Tasy Nguyen Blog" href="rss.xml">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    </head>
+    <body>
+        <div class="navbar-fixed home-bg">            <div class="navbar-content">
+                <!-- <div class="navbar-button">
+                    <span id="nav-info-toggle">
+                        <span class="fa fa-code" ></span> 
+                        <span class="toggle-content">Tasy Nguyen</span>
+                    </span>
+                </div>
+                <div class="navbar-button-close" id="nav-info-mobile-close">
+                    <span class="fa fa-arrow-left"></span>
+                </div> -->
+                <div class="navbar-short-info" id="nav-info">
+                    <div class="navbar-short-info-avatar">
+                        <img src="https://avatars3.githubusercontent.com/u/18634365?s=400&v=4" alt="">
+                    </div>
+                    <h3>Nguyen Thai Sang</h3>
+                    <h4>Web developer</h4>
+                    <p>Hello world!</p>
+                    <div class="navbar-shor-info-contact">
+                        <a class="twitter" target="_blank" href="https://twitter.com/tasyit"><span class="fa fa-twitter"></span></a>
+                        <a class="linkedin" target="_blank" href="https://linkedin.com/in/thaisangnguyen3894/"><span class="fa fa-linkedin"></span></a>
+                        <a class="github" target="_blank" href="https://github.com/tasynguyen3894/"><span class="fa fa-github"></span></a>
+                    </div>
+                </div>
+                <div class="navbar-quotes" id="navbar-quotes">
+                    <div class="navbar-quotes-content">
+    Duyên phận tùy phong phiêu lãng <br />
+    Duyên tận thử sanh dã thủ vọng
+    </div>
+    <div class="navbar-quotes-speaker">
+    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="container-content">
+                <!-- <div class="navbar-button">
+                    <span class="fa fa-arrow-right" id="nav-info-mobile-open"></span>
+
+                </div> -->
+                <div class="navbar-menu">
+                    <div class="title-mobile">
+                        <a href="index.html">Tasy Nguyen Blog</a>
+                        <span id="toggle-button-mb" class="fa fa-bars"></span>
+                    </div>
+                    <ul id="menu-mobile">
+                        <li><a href="/blog">Blog</a></li>
+                        <li><a href="/">Sangnguyen.dev</a></li>
+                    </ul>
+                </div>
+                <div class="main-content">
+                    <h1>Tôi đã đến với javascript như thế nào (Phần 5): Nhân sinh hà xứ bất tương phùng</h1>
+<div class="home-content">
+<div class="blog-detail">
+<div class="blog-detail-date">Đăng lúc 4/12/2018</div>
+<div class="tags">
+    <span><a href="tags.html?tag=javascript">javascript</a></span>
+    <span><a href="tags.html?tag=my-stories">my stories</a></span>
+    <span><a href="tags.html?tag=gulp">gulp</a></span>
+    <span><a href="tags.html?tag=laravel">laravel</a></span>
+    <span><a href="tags.html?tag=vue">vue</a></span>
+</div>
+<ul class="series">
+    <li>Các bài viết trong series</li>
+    <li><a href="toi-da-den-voi-javascript-nhu-the-nao-p1.html">Javascript thật đáng sợ</a></li>
+    <li><a href="toi-da-den-voi-javascript-nhu-the-nao-p2.html">Đây là game sinh tồn!</a></li>
+    <li><a href="toi-da-den-voi-javascript-nhu-the-nao-p3.html">First love</a></li>
+    <li><a href="toi-da-den-voi-javascript-nhu-the-nao-p4.html">New Deal</a></li>
+    <li><a class="current" href="toi-da-den-voi-javascript-nhu-the-nao-p5.html">Nhân sinh hà xứ bất tương phùng</a></li>
+</ul>
+<p>Như đã kể ở phần trước thì phần này sẽ là phần cuối trong series. Đồng thời mình cũng không có nhiều thứ để chia sẽ về quá trình đến với Javascript nửa. Đơn giản vì khi này mình đã là một Javasript developer.</p>
+<p>Do đó, nội dung của phần này mình sẽ tập trung kể sơ về tình hình hiện tại của mình khi viết bài này. Tiếp đó là nói sơ về quá trình xây dựng trang cá nhân <a href="https://tasynguyen3894.github.io">tasynguyen3894.github.io</a></p>
+<h4>Tình hình hiện tại</h4>
+<p>Như ở phần trước mình có kể về việc lần đầu mình lên <b>ITViec</b> xin việc với từ khóa <i>JavaScript</i>. Điều làm mình có phần bất ngờ lúc này đó là <b>Vue</b> bắt đầu xuất hiện nhiều hơn trong các bảng tin tuyển dụng. Thế là mình cũng apply vào một số công ty để xem thế nào. Nhưng phần đó, mình sẽ kể vào đoạn cuối của bài hôm nay,</p>
+<h4>Xây dựng trang cá nhân</h4>
+<p>Nói về trang cá nhân thì ngày xưa mình có một cái blog trên wordpress.com có tên là <a target="_blank" href="https://chickendeveloper.wordpress.com/">chickendeveloper.wordpress.com</a> dùng để đăng các bài viết của mình lên. Sau đó, một ngày kia mình quyết định rời bỏ công việc lúc đó (mình đã từng đề cập trong phần <a href="toi-da-den-voi-javascript-nhu-the-nao-p3.html" target="_blank">First love</a>. Lúc đó, mình cũng biết được việc <b>Github</b> cung cấp cho mình một domain theo dạng <i>*.github.io</i>. Nên mình quyết định tạo một trang trên đó luôn, mục đích là để nhét vào CV xem cho đẹp một tí. Phải nói là phiên bản đầu tiên đó... khá ẹ. Được xây dựng từ những file html riêng lẻ. Hay nói dễ hiểu hơn là mỗi lần thay đổi header hay footer gì đó là vỡ mồm ngay. Đương nhiên là trong bài viết giới thiệu về <i>*.github.io</i>, anh tác giả cũng đã đề cập đến <b>jekyll</b>. Nhưng khổ nổi, lúc đó mình đến npm còn không biết thì Ruby cũng mù thôi. Thêm một phần, khi đó mình là đứa rất ngại cài môi trường để làm cái gì đó. Khi đi học mình ớn Java, đi làm thì sợ NPM, muốn thử web Python thì lại ngại PIP... Nên có thể xem đó là phần nào lý do mình chỉ ôm khư khư PHP. Mà nói đúng hơn là PHP với Window. Chứ hồi xưa khi dùng Ubuntu mình còn phải để một ông bạn chỉ từng lệnh một khi cài LAMP. Nói ra thật xấu hổ mà :((. Mà lan man tí, quay lại việc làm trang cá nhân. Sau khi code xong một trang web xấu tệ thì mình bỏ xó nó và bắt đầu đi xin việc</p>
+<p>Sau khi vào công ty mới, nhưng mình đã kể ở phần trước, mình học được thêm một lô các thứ hay ho về Javascript. Trong đó, có project mình bỏ một mớ những thứ liên quan đến <b>Gulp</b> vào. Mình gọi project đó là <a href="https://github.com/tasynguyen3894/1989stack" target="_blank">1989 Stack</a>. Cái stack này lúc đó có nhiệm vụ build các file thành phẩm HTML từ các một file template và các file con. Đồng thời có thêm chức năng dịch SCSS, Typescript sang CSS và JS. Đương nhiên, mình cũng bổ sung thêm chức năng live reload để quá trình làm việc được thoải mái hơn. Tuy nhiên, lúc đó mình chưa dùng nó để làm trang cá nhân. Để một khoảng thời gian sau, mình được rãnh rỗi một tí nên định build lại trang cá nhân. Lúc đó, mình bị ảnh hưởng khá nhiều bởi blog của <a href="https://brianflove.com/" target="_blank">Brian Love</a> - một anh chàng chuyên viết về Angular. Lúc đó, trang của mình vẫn là một trang cá nhân với các mục giới thiệu này nọ thôi. Còn về việt viết bài thì mình định sẽ chuyển từ <b>Wordpress.com</b> sang <b>Medium</b> cho những bài về kỹ thuật. Riêng với những chủ đề khác thì mình sẽ viết trên <b>Spiderum</b>.</p>
+<h4>Những bài blog đầu tiên</h4>
+<p>Sau khi nghỉ việc, mình đến làm cho một công ty startup. Nhưng vì không hợp với môi trường nên mình xin nghỉ khá chóng vánh. Trong khoảng thời gian trước khi nghỉ, mình cũng khá rãnh rồi nên ngồi nghiên cú cái này cái kia. Từ cũng cố lại Vue, đến học React, nghịch Nuxt hay tập viết HTTP Test cho Express và Unit test cho Vue... Trong những việc đó thì mình cũng dành tí thời gian để xây lại trang cá nhân của mình. Lúc này, mình tự thiết kế luôn (thay vì vay mượn phần lớn ý tưởng như hai phiên bản trước). Đó cũng chính là cái giao diện hiện tại của blog. Sau đó, mình cũng quyết định xem đây là nơi chứa các bài viết của mình (thay vì <b>Medium</b> và <b>Spiderum</b>). Trong thời gian đó, mình đã viết hai phần đầu của series <b>Tôi đã đến với javascript như thế nào</b> cùng một số bài mình bê bên <b>Wordpress</b> sang. Thời gian sau đó, mình bổ sung dần các chức năng này nọ như RSS, Tag, Comment...</p>
+<h4>Hiện tại và tương lai</h4>
+<p>Tình hình hiện tại khi mình viết bài này thì khá ổn. Công việc của mình hiện nay như một lập trình viên fullstack. Ở backend mình làm việc với PHP (Laravel). Ở frontend thì... hmmmm. Như ở trên các bạn cũng đã thấy cái tiêu đề của bài viết này rồi <i>Nhân sinh hà xứ bất tương phùng</i>. Ở đây mình được gặp lại một người đồng sự cũ mà mình lâu rồi không gặp - <b>Vue</b>.</p>
+<p>Hiện tại cũng khá ổn, còn tương lai thì có thể mình sẽ viết thêm một series nữa có liên quan đến <b>Vue</b>. Dịch một số bài viết technical tiếng Trung. Đồng thời danh thêm thời gian cho văn học.</p>
+<h4>Kết</h4>
+<p>Đến đây thì series của mình cũng đã kết thúc rồi. Một series bắt đầu từ một thằng ghét cay, ghét đắng Javascript và kết thúc là việc hiện tại mình đang làm JS dev. Rất cảm ơn những ai đã theo dõi series này của mình. Đồng thời mình cũng hy vọng những series tiếp theo cũng sẽ được mọi người ủng hộ.
+</p>
+<div class="blog-detail-comments">
+    <div id="disqus_thread"></div>
+    <script>
+    /**
+    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+    /*
+    var disqus_config = function () {
+    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://https-tasynguyen3894-github-io.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+</div>
+</div>
+                </div>
+                <footer>
+                    <div>Created with <a href="https://github.com/tasynguyen3894/1989stack">1989Stack</a>
+                        | <a href="tags.html"><span class="fa fa-tag"></span></a>
+                        <a href="https://twitter.com/tasyit"><span class="fa fa-twitter"></span></a>
+                        <a href="https://github.com/tasynguyen3894"><span class="fa fa-github"></span></a>
+                    </div>
+                    <div><a href="/">sangnguyen.dev</a> - <a href="versions.html">Verison 1.2.0</a> &copy 2018</div>
+                </footer>
+            </div>
+        </div>
+        <script src="/public/js/main.js"></script>
+        <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.13.1/build/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+            </body>
+</html>
