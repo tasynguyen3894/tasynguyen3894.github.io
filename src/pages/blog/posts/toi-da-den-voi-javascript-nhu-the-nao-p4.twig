@@ -1,0 +1,98 @@
+{% extends "shared/blog_layout.twig" %}
+
+{% block content %}
+<h1>Tôi đã đến với javascript như thế nào (Phần 4): New Deal</h1>
+<div class="home-content">
+<div class="blog-detail">
+<div class="blog-detail-date">Đăng lúc 12/11/2018</div>
+<div class="tags">
+    <span><a href="tags.html?tag=javascript">javascript</a></span>
+    <span><a href="tags.html?tag=my-stories">my stories</a></span>
+    <span><a href="tags.html?tag=gulp">gulp</a></span>
+    <span><a href="tags.html?tag=expressjs">ExpressJS</a></span>
+    <span><a href="tags.html?tag=angulario">Angular IO</a></span>
+</div>
+<ul class="series">
+    <li>Các bài viết trong series</li>
+    <li><a href="toi-da-den-voi-javascript-nhu-the-nao-p1.html">Javascript thật đáng sợ</a></li>
+    <li><a href="toi-da-den-voi-javascript-nhu-the-nao-p2.html">Đây là game sinh tồn!</a></li>
+    <li><a href="toi-da-den-voi-javascript-nhu-the-nao-p3.html">First love</a></li>
+    <li><a class="current" href="toi-da-den-voi-javascript-nhu-the-nao-p4.html">New Deal</a></li>
+    <li><a href="toi-da-den-voi-javascript-nhu-the-nao-p5.html">Nhân sinh hà xứ bất tương phùng</a></li>
+</ul>
+<p>Nếu ở phần trước, câu chuyện của mình ở phần trước không đề cập quá nhiều về việc mình làm việc nhiều với Javascript, thì lần này sẽ là một khoảng thời gian ăn ngủ (theo cả nghĩa đen) với Javascript.</p>
+<h4>Đi xin việc</h4>
+<p>Như mình đã kể ở phần trước, mình nghỉ làm ở công ty và lại đi xin việc. Nếu cách đó một năm, trong lần nhảy việc trước mình khá tự tin trong việc tạo ra một nấc thang mới trong sự nghiệp. Thì lần này, mình không hề tự tin như thế nửa vì mình thấy sau tám tháng thì khả năng mình không hơn là bao (PHP). Thậm chí, mình còn thấy mình tụt lùi so với những anh em cùng ngồi nhậu be bét ở Phạm Văn Đồng năm xưa. Nếu các bạn có thắc mắc về Vue, thì mình cũng xin kể là thời đó lên ITViec không có nhiều job về Vue. Thậm chí, một số người còn xem Vue như một thứ "hàng Tàu" khi mình đề cập trong quá trình phỏng vấn. Thêm một phần là mình chưa thật sự có tự tin với Javascript. Minh chứng là một lần mình đi phỏng vấn một cái jobs về Javascript. Ở công ty đó, mình có một ông anh người quen đang làm. Đối diện công ty đó lại là công ty mà một trong những "ân sư" năm xưa đang làm. Mình vượt qua được vòng technical. Sau đó, mình gặp anh department head ở nói chuyện. Mình hơi run tay, thêm một phần vì mình chỉ tự tin với PHP nên mình xin từ chối phỏng vấn tiếp. Anh ấy cũng rất lịch sự khi nói với mình nếu suy nghĩ lại thì có thể email lại cho công ty.</p>
+<p>Sau đó, mình phỏng vấn một công ty Nhật. Phỏng vấn cũng bình thường, vị trí đúng như mình muốn - PHP developer. Mình cũng khá thích cách bài trí của công ty. Thêm nửa, được cấp con iMac nên cũng thấy vui vui. Nên khi đậu phỏng vấn mình quyết định chọn công ty đó.</p>
+<h4>Thời gian đầu đi làm</h4>
+<p>Công ty luôn có một cuộc họp ngắn mỗi ngày của các leader với team. Trong cuộc họp đó, mỗi thành viên sẽ báo cáo những công việc làm trong ngày. Lúc đó, trong team của mình có một chị frontend. Mình nhớ rằng cả tuần liền chị ấy luôn báo cáo là "tìm hiểu Webpack". Mình cũng biết về Webpack từ trước, có điều mình chả biết dùng nó để làm gì cả (đến ES6 mình còn chả biết nó là gì mà). Nhưng mình vẫn nghịch thử, chạy cũng được mấy lệnh như build hoặc watch. Thấy cũng hay hay, nhưng mình vẫn chả biết nó để làm gì cả.</p>
+<p>Mà để nói đến việc mình nghịch các thứ linh tinh của Javascript (thay vì Laravel) thì có một trợ thủ đó là... iMac. Tuy buồn cười, nhưng đó là sự thật. Từ khi dùng Mac mình bỗng bớt đi phần nào rụt rè khi làm việc với JS (mà ở đây là NPM, Webpack...). Có thể do phần Terminal của nó quá tuyệt vời, hoặc cũng có thể là được xài một cái máy mới (công ty cũ mình không cấp máy, mình phải xài laptop cá nhân). Do chưa có yêu cầu dự án, nên mình rãnh khá nhiều. Trong thời gian đó, mình chợt nhớ lại cái hôm ông anh Frontend ở công ty cũ cài đặt Javascript để tải lại trang mỗi khi lưu file. Cũng rãnh, nên mình tìm hiểu thử và tìm ra các phương pháp với Webpack, Gulp, Grunt... Sau khi bó tay với webpack, mình chuyển qua sử dụng gulp. May mắn sao, mình làm được (sau hơn hai ngày vò đầu). Phải nói là lúc đó mình vui lắm, cảm giác như tìm được một cái gì đó rất mầu nhiệm vậy. Rồi sau đó, mình cũng thử tải các thứ linh tinh khác của gulp nhưng gulp-sass, gulp-typescript... Mỗi lần tích hợp được cái gì đó vào cái cục gulpfile, phải nói cảm giác nó tuyệt vời lắm. Như kiểu trong truyện kiếm hiệp mà võ công được thêm một tầng mới vậy. Nhưng đáng kể nhất, là mình đã biết cách dùng NPM để kéo các package về, cũng như hiểu được sơ sơ rằng package.json là file lưu trữ thông tin của các thư viện được dùng trong project.</p>
+<p>Sau khi làm được mấy trò mèo đó, mình thử sức với Nodejs (server) với Expressjs. Đầu tiên là mình tạo một project thuần với từng file. Giai đoạn đầu không quá khó khăn, vì mình đã quen sơ với việc sử dụng Javascript. Cộng thêm Express cũng khá tương đồng với Laravel ở một số chổ. Sau cỡ nửa ngày, mình cũng chạy được sơ sơ vài trang (lúc đó mình chưa làm REST). Giữa lúc đó, một bạn intern nói với mình về Heroku. Mình cũng tìm hiểu thử, cũng khá dễ xài và tương đồng với GIT. Nên mình cũng tạo thử một tài khoản và deploy một trang Express đơn giản lên đó. Nhưng project hiện tại vẫn chưa có cơ sở dữ liệu. Mình lúc đó hay nghe giang hồ đồn rằng Nodejs phải cặp với Mongodb như kiểu chân dài phải đi với đại gia thế mới chất. Mình cũng thử nghịch luôn vì mình cũng không bận lắm. Cũng không quá khó khăn để cài đặt và làm việc với các collection. Như thế là cái project của mình đã có thể chạy những chức năng cơ bản mà mình có thể làm với PHP rồi. Sẵn đó mình cũng tìm hiểu tí về <b>mlab</b> để có thể tạo một cái cơ sở dữ liệu cho cái trang trên Heroku. Nhưng rồi có một chuyện khác xảy ra.</p>
+<h4>Winter is coming</h4>
+<p>Đương nhiên, đi làm mà, không phải đi chơi. Thời gian rãnh rỗi kết thúc khi dự án về. Đó là một dự án khá rộng về nền tảng cùng ngôn ngữ. API được viết bằng Ruby on rails, có một Native App iOS, một số trang làm bằng PHP. Nhưng trong số đó, có một thứ làm mình khá lo lắng đó làm một trang web chỉ nhận API (không hề có backend). Lúc mình hỏi rằng vậy mình sẽ làm bằng cái gì. Thì mình được câu trả lời khá mơ hồ đó là... jQuery. Mình cảm thấy không ổn lắm, nên mình trình bày với leader và manager về mối lo đó. Sau đó, manager nói mình qua xin ý kiến của technical lead. Sau khi, trình bày thì ảnh cũng hiểu được những nguy cơ nếu dùng jQuery cho toàn project. Sau đó, mọi người đưa ra quyết định rằng sẽ sử dụng Angular 4. Lúc đó, mình vẫn còn khá mù mờ nên mình thắc mắc tiếp về các vấn đề như bảo mật, router này nọ Angular 4 có xử lý được không. Anh tech lead nói là làm được tất. Vậy là sau hôm đó, mình bắt đầu làm quen với một anh bạn mới đó là Angular 4.</p> 
+<p>Lúc trước mình từng có lên W3S nghịch một tí về Angularjs nên cũng biết chút ít về nó nhưng mình nghe các anh em trong công ty nói rằng Angular 4 với Angularjs là hai thế giới luôn. Nên mình cũng khá mơ hồ, không rõ cách nào nó có thể xử lý được các vấn đề như router, session... Rồi thêm khái niệm về component lúc đó của mình cũng khá mù tịt nên có thể nói mình bước vào Augular 4 với một mớ kiến thức chấp vá trong đầu. Việc đầu tiên của mình đương nhiên là tải <b>CLI</b> về để có một project mẫu để nghịch phá. Cũng tương tự khi nghịch Laravel hay Express ngày xưa, mình lượn một vòng qua cách tạo các trang, khai báo route cho các trang đó, cách lấy biến từ url, gọi API... Nghịch được hơn một tuần thì có thể nói là mình đã có cái nhìn khác đi rất nhiều đối với Javascript, đồng thời mình cũng dần bỏ đi cái bức tường tự ti của mình đối với ngôn ngữ này. Điều thú vị khi làm việc với Angular 4 khi đó là mình tiếp cận nó theo cả hai hướng. Một là cách tiếp cận đối theo kiểu lập trình web bằng các việc mình đã làm ở trên (route, url params, call API...). Còn cách còn lại là tiếp cận kiểu làm App như thời mình còn học ở trường với C#. Với cách tiếp cận thứ hai, mình phải tìm hiểu thêm cách các component làm việc với các thành phần được bố trí trên nó như cái <b>input</b>, có <b>label</b>, hiển thị các mảng dưới dạng <b>select</b>... Rồi cách để các component giao tiếp với nhau (tương tự việc các <b>form</b> giao tiếp với nhau như hồi mình làm việc với C# hoặc VB.net). Khá may cho mình là Angular 4 cũng có một vài chổ tương đồng với C# mình học ngày xưa. Ví dụ ở chổ nó chia các Component theo class và các dữ liệu là các property, cùng các method để thực hiện tương tác nên mình cũng đỡ bỡ ngỡ hơn. Còn về phần tương tác với view thì nhờ mình từng làm việc với Vue nên việc sử dụng các <b>ngFor</b> hay <b>ngIf</b> hoặc <b>(click)</b> cũng không khác mấy so với <b>v-for</b>, <b>v-if</b>, <b>@click</b> của Vue lúc trước. Nhờ những sự may mắn đó mà khoảng thời gian đầu làm quen với Angular mình không gặp quá nhiều khó khăn. Nhưng... mới làm quen thôi mà. Tiến tới cái gì đó đương nhiên sẽ không hề dễ như thế.</p>
+<h4>Hoàn lương</h4>
+<p>Như mình đã nói ở trên, giai đoạn làm quen khá ổn. Sau đó, mình chính bắt đầu làm dự án. Thời gian đầu dự án khá chậm chạp do việc thay đổi yêu cầu liên tục. Vì thế nên kéo theo quá trình xây dựng API cũng khá chậm. Trong thời gian API đang xây dựng, mình cũng bắt đầu đặt những viên gạch đầu tiên cho dự án ở phần frontend. Trong giai đoạn này, mình cũng được tiếp thu khá nhiều về việc xây dựng cấu trúc thư mục trong Angular 4. Project được chia ra làm có module theo các cụm chức năng, mỗi module sẽ chứa các component liên quan đến chức năng đó. Thêm một thư mục <b>services</b> để chứa các class làm nhiệm vụ tương tác với dữ liệu và API. Một thư mục <b>models</b> để chứa các model trong project. Kèm theo là các config và các component shared.</p>
+<p>Ngoài  cấu trúc thư mục, ở đây mình còn gặp lại một người bạn cũ của mình. Git. Như mình nói ở lần trước, trong gần một năm trước mình không dùng Git mà dùng Svn. Nhưng việc sử dụng Svn cũng khá là mang tính hình tượng theo kiểu cho có. Còn trong project hiện tại, Git được áp dụng một cách khá tốt. Từ việc chia branch mới từ develop mỗi khi có chức năng mới, commit mỗi khi xong một phần của task, tạo pull request để yêu cầu review code và merge khi hoàn thành chức năng.</p>
+<p>Thời gian đầu, mình cảm thấy khá là không quen khi phải làm việc với sự "bài bản" như trên. Như ở phần trước mình từng kể về môi trường trước của mình. Nơi mình được ôm cả một module riêng và đồng thời mọi thứ gần như chả có quy chuẩn gì. Nhưng cũng trong thời gian ở đây, mình dần tìm lại được phong cách làm việc cũ (thời còn làm công ty đầu tiên) bị mất đi sau một năm tha hóa kia.</p>
+<h4>Mùa đông sao quá dài</h4>
+<div class="blog-detail-quote">
+    Yêu em sậu đậm, chân tình như thế <br />
+    Vẫn phải nghe em nói câu chối từ<br />
+    Đã mười năm nay Thượng Hải chằng hể có tuyết rơi<br />
+    Nay bỗng dưng hóa ngợp trời</br >
+    Chính là phút giây em buông lời chia tay
+</div>
+<p>Do team đảm nhận phần frontend của dự án là team PHP nên đa số các anh em đều chưa có nhiều kiến thức về Javascript (như mình lúc xưa). Nên khoảng thời gian đầu làm quen với Angular 4 cũng gặp kha khá vấn đề. Nhất là khi đi sâu vào các màn hình có các chức năng phức tạp (gồm nhiều bước để hoàn thành công việc) thì cũng có một số vấn đề xảy ra. Thêm việc yêu cầu không đầy đủ, thường hay thay đổi làm tiến độ cũng không thật sự tốt. Nhưng nhờ thế mà mình được đối mặt với đủ loại vấn đề khi làm việc với Angular 4 nói riêng và Javascript nói chung. Đương nhiên do deadline đuổi gấp quá nên việc mình đi đường rừng cũng không phải là hiếm. Nhưng cũng may mắn là lúc đó công ty có các anh em khá cứng tay về Javascript nên mình cũng được học hỏi khá nhiều thứ. Ví dụ như các thư viện phổ biến như <b>Lodash</b>, <b>Momentjs</b>, <b>HandleBars</b>... Được làm việc với Rxjs, sử dụng ES6. Cải thiện cách viết và cách tối ưu code. Ngoài Javascript ra thì mình cũng củng cố được một số kiến thức về HTML, CSS nửa chứ. Do phần frontend của công ty thứ ba cung cấp không được tốt nên mình kiêm luôn phần HTML, CSS giúp team (trước khi viện binh frontend của công ty đến). Vấn đề xảy ra là việc yêu cầu thay đổi liên tục gây ra việc mình phải làm đi làm lại công việc ở các màn hình một cách vô nghĩa. Đôi khi có các thay đổi kéo theo không chỉ bên mình mà cả bên iOS cũng phải đổi theo.</p> 
+<p>Giữa lúc đó thì mình được tạm trở về với PHP khi mà phần PHP của dự án chính thứ bắt đầu. Mình phụ trách một số phần tương tự với bên Angular 4 mình đã làm. Làm cũng khá mệt vì project đó khá cũ và dùng PHP thuần. Yêu cầu cũng bị thay đổi liên tục như bên Angular 4. Cái lợi lớn nhất của mình khi làm phần đó là được làm việc với PHP. Đồng thời cũng được tham gia viết các câu SQL. Do phần logic ở phía frontend của project PHP này cũng khá phức tạm như bên Angular 4. Nhưng có điều là dùng jQuery nên mình cũng được ôn lại tí tí về nó. Đồng thời, nhờ anh leader phần đó của mình thường review code nên mình code của mình cũng được cải thiện khá nhiều. Có điều mùa đông kéo dài quá nên tinh thần của mình cũng xuống khá thấp. Nếu bạn nào từng chơi <b>Don't starve</b> sẽ biết rằng khi tinh thần cạn kiệt mọi thứ sẽ đáng sợ ra sao. Thiếu ăn, thiếu ngủ và cả cái vòng hoa đội đầu cũng không có thì thốn lắm. Một phần nửa là việc ngày ngày các thành viên cùng team được làm việc với Laravel hay một thứ gì đó hay ho hơn. Riêng mình vẫn cặm cụi làm việc với đống code từ thế kỷ trước nên cũng khá nản. Cộng thêm lúc đó răng mình khá tệ (mình không thể nhai được), bệnh ho cũng trở nặng. Làm mình cảm thấy khá mệt mỏi. Cộng thêm anh em đồng chí ra đi càng làm cho sĩ khí đi xuống. Cũng may mắn rằng trong cái mùa đông đó thì có một sự kiện diễn ra... Tết. Mình mang cái răng đau đó về quê nghỉ Tết và hy vọng qua Tết mọi thứ sẽ đỡ hơn.</p>
+<h4>Đinh Mùi</h4>
+<p>Sau khi trãi qua một kỳ nghỉ Tết mà chả ăn được gì, mình lên lại Sài Gòn với hy vọng mọi thứ sẽ đỡ hơn. Tiếc là mọi chuyện vẫn không có gì đó khả quan. Nên mình quyết định tìm kiếm một cơ hội mới mặc dù rất quý anh em. Có thể khoảng thời gian mình ở đây mình đã học hỏi được rất nhiều thứ. Từ quy trình làm việc đến các kiến thức mà đáng lẻ ra ai cũng biết. Riêng Javascript thì mình không còn sợ hãi nó như ba phần trước nửa. Lần đầu tiên trong đời, mình dám lên <b>ITViec</b> tìm job với từ khóa là <i>Javascript</i>.</p>
+<p>Giải thích một tí về chử Đinh Mùi phía trên. Năm Đinh Mùi mình nhắc đến đó là năm 1787, năm mà tướng <b>Nguyễn Văn Trương</b> quy hàng chúa <b>Nguyễn Phúc Ánh</b>. Sau đó, ông trở thành một trong Gia Định Ngũ Hổ Tướng, được giao cai quản thủy quân Gia Định hùng mạnh. Trong trận Trấn Ninh, việc thủy quân của ông đổ bộ lên đất liền có thể xem như là dấu chấm hết cho triều đại <b>Tây Sơn</b>. Sau khi thắng trận đó, chúa <b>Nguyễn Phúc Ánh</b> lên ngôi hoàng đế lấy hiệu là <b>Gia Long</b>. Quân Gia Định tấn công Bắc Hà và thống nhất giang sơn sau hơn nhiều năm chia cách, nội loạn.</p>
+<h4>Kết</h4>
+<p>Câu chuyện của mình từ một thằng sợ hãi frontend đến một Javascript developer có lẻ cũng sẽ chỉ còn một phần nửa thôi. Ở phần tới mình sẽ chia sẽ một tí về tình hình hiện tại và một phần quá trình xây dựng trang web này.</p>
+
+
+
+<div class="blog-detail-comments">
+    <div id="disqus_thread"></div>
+    <script>
+    /**
+    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+    /*
+    var disqus_config = function () {
+    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://https-tasynguyen3894-github-io.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+</div>
+</div>
+{% endblock %}
+
+{% block title %}Tôi đã đến với javascript như thế nào (Phần 4): New Deal{% endblock %}
+
+{% block menu %}<div class="navbar-fixed home-bg">{% endblock %}
+
+{% block quotes %}
+<div class="navbar-quotes-content">
+    I'm not the smartest fellow in the world, but I can sure pick smart colleagues.
+</div>
+<div class="navbar-quotes-speaker">
+    Franklin D. Roosevelt
+</div>
+{% endblock %}
+
+{% block meta %}
+<meta name="description" content="Phần 4 trong chuỗi bài về câu chuyện của mình với Javascript">
+<meta name="keywords" content="Javascript, Gulp, my stories, Angular io, Expressjs">
+<meta name="author" content="Tasy Nguyen">
+{% endblock %}
