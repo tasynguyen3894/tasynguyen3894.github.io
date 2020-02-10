@@ -2,6 +2,15 @@ module.exports = {
     data: {
         posts: [
             {
+                url: "ben-que-va-quan-bia-hoi-quan-8.html",
+                title: "Bến quê và quán bia hơi Quận 8",
+                tags: [
+                    {text: "lan man", code: "lan-man"},
+                    {text: "my stories", code: "my-stories"}
+                ],
+                content: "Bến quê và quán bia hơi Quận 8"
+            },
+            {
                 url: "2019-rewind.html",
                 title: "2019 nhìn lại",
                 tags: [
