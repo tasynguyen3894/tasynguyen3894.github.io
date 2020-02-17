@@ -7,10 +7,10 @@ body.no-background {
   background: none; }
 
 body .container {
+  width: 650px;
   margin: 0px auto; }
 
 body .main-page, body .code-page {
-  width: 800px;
   margin-top: 90px;
   padding: 15px 20px 40px 20px;
   line-height: 160%; }
