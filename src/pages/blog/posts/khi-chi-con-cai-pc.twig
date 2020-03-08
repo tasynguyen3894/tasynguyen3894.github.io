@@ -1,0 +1,62 @@
+{% extends "shared/blog_layout.twig" %}
+
+{% block content %}
+<h1>Khi chỉ còn cái PC</h1>
+<div class="home-content">
+<div class="blog-detail">
+<div class="blog-detail-date">Đăng lúc 09/03/2020</div>
+<div class="tags">
+    <span><a href="tags.html?tag=my-stories">my stories</a></span>
+</div>
+    <p>Được nghỉ hai ngày cuối tuần, không có cái hẹn cà phê hay cái gì đại loại thế. Hai ngày cuối tuần của mình là hai ngày chỉ làm bạn với cái PC.</p>
+    <p>Ngoài việc không có cái hẹn nào thì cuối tuần này cũng tương đối không giống với các cuối tuần khác khi vừa xong một giai đoạn alpha của dự án và sắp tới là giai đoạn tối ưu code. Có lẻ do kết thúc một giai đoạn làm việc liên tục từ trước Tết nên hai ngày này tôi cũng chẳng buồn chạm với cái Macbook. Không chỉ cái Macbook mà dường như tôi cũng bỏ quên sạch những thứ trong balo của mình như Nintendo Switch hay Kindle, thậm chí là cuốn sách tôi mới mua... Đến giờ khi thời khắc đã qua không giờ và trên lịch là ngày chín tháng ba thì tôi vẫn nghe nhạc trên PC và viết những dòng này macbook. Nhìn lại hai ngày qua ngoài một chiều ngẫu hứng ghé Tiếu Già ngó nước lên thì thời gian còn lại tôi toàn ngồi PC. Những ngày qua, tôi chỉ đơn giản làm đi làm lại mấy thứ như chơi CSGO, xem Naruto, nghe nhạc Indie và xem mấy bộ phim về ăn uống trên Netflix và giờ là nghe The Beatles.</p>
+    <p>Mọi thứ mông lung đến lạ lùng... nhưng ngày mai sẽ khác?</p>
+<div class="blog-detail-comments">
+    <!-- <div id="show-comment-box">
+        Comment
+    </div> -->
+    <div id="post-comment">
+        <div id="disqus_thread"></div>
+        <script>
+        /**
+        *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+        *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+        /*
+        var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        };
+        */
+        (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = 'https://https-tasynguyen3894-github-io.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+</div>
+<div class="blog-break-line"></div>
+</div>
+</div>
+{% endblock %}
+
+{% block title %}Khi chỉ còn cái PC{% endblock %}
+
+{% block menu %}<div class="navbar-fixed home-bg">{% endblock %}
+
+{% block quotes %}
+<div class="navbar-quotes-content">
+    Ngày nào đó tôi còn thèm ánh sáng kinh đô
+</div>
+<div class="navbar-quotes-speaker">
+Hàn Châu
+</div>
+{% endblock %}
+
+{% block meta %}
+<meta name="description" content="Khi chỉ còn cái PC">
+<meta name="keywords" content="Javascipt, jQuery, html, css, my stories">
+<meta name="author" content="Tasy Nguyen">
+{% endblock %}

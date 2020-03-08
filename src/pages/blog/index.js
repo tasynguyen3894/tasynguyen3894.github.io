@@ -2,13 +2,21 @@ module.exports = {
     data: {
         posts: [
             {
+                url: "khi-chi-con-cai-pc.html",
+                title: "Khi chỉ còn cái PC",
+                tags: [
+                    {text: "my stories", code: "my-stories"}
+                ],
+                content: "Được nghỉ hai ngày cuối tuần, không có cái hẹn cà phê hay cái gì đại loại thế. Hai ngày cuối tuần của mình là hai ngày chỉ làm bạn với cái PC."
+            },
+            {
                 url: "ben-que-va-quan-bia-hoi-quan-8.html",
                 title: "Bến quê và quán bia hơi Quận 8",
                 tags: [
                     {text: "lan man", code: "lan-man"},
                     {text: "my stories", code: "my-stories"}
                 ],
-                content: "Bến quê và quán bia hơi Quận 8"
+                content: "Đã lâu lắm rồi tôi không viết cái gì nửa, hôm nay tự nhiên rãnh rỗi nên ngồi trước máy tính gõ vài dòng kể về đời sống ăn nhậu tai hại của mình."
             },
             {
                 url: "2019-rewind.html",
