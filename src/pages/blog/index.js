@@ -89,6 +89,14 @@ module.exports = {
                 ],
                 content: "Hãy tưởng tượng một hôm nào đó, văn phòng bị cúp điện vào cỡ 7h tối và mọi người đang chờ có điện lại. Mọi người tổ chức kể chuyện ma. Và mình bắt đầu với cái giọng thều thào \"Ngày nảy, ngày nay, có một ngôn ngữ tên là JavaScript\""
             },
+            {
+                url: "cac-designer-hoc-frontend-nhu-the-nao.html",
+                title: "Các designer học frontend như thế nào?",
+                tags: [
+                    {text: "frontend", code: "frontend"}
+                ],
+                content: "Một bài dịch từ tác giả Huang Xuan. Anh ta là một designer đồng thời là một lập trình viên Trung Quốc. Hôm nay, mình sẽ dịch một bài blog cũ của anh ta nói về việc designer học frontend như thế nào."
+            },
         ]
     }
 }
