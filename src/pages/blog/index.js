@@ -2,6 +2,14 @@ module.exports = {
     data: {
         posts: [
             {
+                url: "di-giua-thanh-pho-khong-con-em.html",
+                title: "Đi giữa thành phố không có em",
+                tags: [
+                    {text: "my stories", code: "my-stories"}
+                ],
+                content: "Hè về, mưa lác đác và đêm một mình giữa căn phòng nhỏ. Mọi thứ ảm đạm chẳng còn gì để nói. Cũng lâu lâu rồi chẳng biết viết gì, nay rãnh rỗi tôi gõ lại vài dòng cho vui."
+            },
+            {
                 url: "khi-chi-con-cai-pc.html",
                 title: "Khi chỉ còn cái PC",
                 tags: [
