@@ -2,6 +2,14 @@ module.exports = {
     data: {
         posts: [
             {
+                url: "doi-luc-toi-chi-muon-nghe-george-harrison-va-choi-cs-source.html",
+                title: "Đôi lúc tôi chỉ muốn nghe George Harrison và chơi CS Source",
+                tags: [
+                    {text: "my stories", code: "my-stories"}
+                ],
+                content: "Đôi lúc có những thứ hai làm cho người ta lười biếng tới khó tả, thứ hai hôm nay là một thứ hai như thế"
+            },
+            {
                 url: "di-giua-thanh-pho-khong-con-em.html",
                 title: "Đi giữa thành phố không có em",
                 tags: [
