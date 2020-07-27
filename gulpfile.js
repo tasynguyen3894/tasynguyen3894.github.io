@@ -14,43 +14,53 @@ const sourceDir = `src`;
 const assetsDir = `assets`;
 const deployBranch = `master`;
 
+const convert = path => {
+	const isExtendedLengthPath = /^\\\\\?\\/.test(path);
+	const hasNonAscii = /[^\u0000-\u0080]+/.test(path); // eslint-disable-line no-control-regex
+
+	if (isExtendedLengthPath || hasNonAscii) {
+		return path;
+	}
+
+	return path.replace(/\\/g, '/');
+};
 
 let twigPageCompile = function () {
     pages = [];
-    return src([`./${sourceDir}/pages/**/*.twig`])
+    return src([convert(`./${sourceDir}/pages/**/*.twig`)])
             .pipe(tap(filterDataTwig))
 }
 
 let sassAssetComplile = function () {
-    return src([ `./${sourceDir}/${assetsDir}/scss/**/*.scss`])
+    return src([ convert(`./${sourceDir}/${assetsDir}/scss/**/*.scss`)])
             .pipe(sass().on('error', sass.logError))
-            .pipe(dest(`./${buildDir}/${assetsDir}/css/`));
+            .pipe(dest(convert(`./${buildDir}/${assetsDir}/css/`)));
 } 
 
 let jsAssetCopy = function () {
-    return src([`./${sourceDir}/${assetsDir}/js/**/*.js`])
-            .pipe(dest(`./${buildDir}/${assetsDir}/js/`))
+    return src([convert(`./${sourceDir}/${assetsDir}/js/**/*.js`)])
+            .pipe(dest(convert(`./${buildDir}/${assetsDir}/js/`)))
 }
 
 let fileAssetCopy = function () {
-    return src([`./${sourceDir}/${assetsDir}/files/**/*`])
-            .pipe(dest(`./${buildDir}/${assetsDir}/files/`))
+    return src([convert(`./${sourceDir}/${assetsDir}/files/**/*`)])
+            .pipe(dest(convert(`./${buildDir}/${assetsDir}/files/`)))
 }
 
 let filterDataTwig = function (file, t) {
-    let fileName = file.relative;
+    let fileName = convert('./' + file.relative)
     fileName = fileName.split("/");
     fileName.pop();
     fileName = fileName.join("/")
-    let fileDataPath = `./${sourceDir}/pages/` + file.relative.replace(/.twig([^.twig]*)$/, ".js" + '$1')
+    let fileDataPath = convert(`./${sourceDir}/pages/`) + file.relative.replace(/.twig([^.twig]*)$/, ".js" + '$1')
     let init = {
-        base: `./${sourceDir}`
+        base: convert(`./${sourceDir}`)
     }
     
     if(fs.existsSync(fileDataPath)) {
         init = Object.assign(init, requireUncached(fileDataPath))
     }
-    return src(file.path).pipe(twig(init)).pipe(dest(`./${buildDir}/` + fileName));
+    return src(file.path).pipe(twig(init)).pipe(dest(convert(`./${buildDir}/` + fileName)));
 }
 
 function watchFile() {
@@ -60,13 +70,13 @@ function watchFile() {
         }
     })
     watch([`./${buildDir}/**/*`]).on("change", browserSync.reload)
-    watch([`./${sourceDir}/**/*.twig`, `./${sourceDir}/**/*.html`, `./${sourceDir}/pages/**/*.js`], twigPageCompile)
+    watch([`./${sourceDir}/pages/**/*.twig`, `./${sourceDir}/**/*.html`, `./${sourceDir}/pages/**/*.js`], twigPageCompile)
     watch([`./${sourceDir}/${assetsDir}/scss/**/*.scss`], sassAssetComplile)
     watch([`./${sourceDir}/${assetsDir}/js/**/*.js`], jsAssetCopy)
 }
 
 function deployGhPages() {
-    return src(`./${buildDir}/**/*`)
+    return src(convert(`./${buildDir}`))
             .pipe(ghPages({
                 branch: deployBranch
             }))
