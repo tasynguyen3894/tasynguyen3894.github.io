@@ -1,0 +1,71 @@
+{% extends "shared/blog_layout.twig" %}
+
+{% block content %}
+<h1>Phòng nhân sự cần tôi xuất file excel</h1>
+<div class="home-content">
+<div class="blog-detail">
+<div class="blog-detail-date">Đăng lúc 29/07/2020</div>
+<div class="tags">
+    <span><a href="tags.html?tag=my-stories">my stories</a></span>
+</div>
+
+<p>Ngày trước mình từng có thời gian làm việc ở hai công ty sản xuất, nơi mà phòng IT chỉ là một bộ phận phụ trợ. Do đó mình có cơ hội được làm việc với các phòng ban khác như nhân sự, kế toán hoặc bán hàng của công ty. Nhờ đó cũng hiểu thêm kha khá các thứ bên ngoài chuyên môn, đặt biệt là làm việc với các file excel.</p>
+<p>
+Ở các công ty mình làm, phòng IT vì là phòng hỗ trợ nên công việc chính gần như là hiện đại hóa các công việc chân tay, thủ công của các phòng ban bạn. Đương nhiên để làm thủ công thì các phòng ban sẽ thường dùng excel để tính toán và thống kê. Hệ thống ERP cũng bên mình làm cũng bám sát theo việc đó bằng các xuất cho họ các file excel với dữ liệu được tổng hợp sẵn từ các nguồn khác nhau (doanh số, ngày công, giá cả đối tác...) để họ có thể sử dụng cho các công đoạn sau trong luồng làm việc của họ. Trong phần này mình từng gặp phải vấn đề khá đau đầu đó là in dữ liệu liên quan đến ngày công của nhân viên trong tháng ra để nhân sự có thể dựa vào đó để tính lương, thưởng cho nhân viên. Vấn đề mình gặp phải kha khá nhiều đó là công thức tính công phức tạp, cấu trúc cơ sở dữ liệu hiện tại không tốt và các vấn đề khác. Nhưng mình sẽ không đề cập đến các vấn đề đó ở đay mà thay vào đó mình sẽ nói về vấn đề của việc xuất file excel. Đầu tiên là lượng dữ liệu lớn của khoảng gần mười ngàn nhân viên và các thông tin giờ làm, nghỉ phép của họ cộng với một cơ sở dữ liệu không thiết kế phù hợp cho các chức năng đó là cho các công thức tính toán trong các câu truy vấn và xử lý backend (PHP) cực kỳ rườm rà dẫn đến thời gian xuất file cực kỳ chậm. Thứ hai là vì lượng dữ liệu lớn và nhiều cột nên khi xuất ra việc kiểm thử cực kỳ tốn công sức và luôn gây ra cả giác chông chênh khiến nhân sự phải than rằng có hệ thống còn mệt hơn thời làm thủ công. Do mình khá gà thời điểm đó nên toàn làm những cách rất junior và chấp vá, đương nhiên hiệu quả cũng chẳng đâu ra đâu. Sau đó, vì sợ sẽ "ngu" thêm nên mình chuyển để một công ty khác với hy vọng được "đỡ đần".
+</p>
+<p>
+Sau cú đỡ đần đó, sau này mình lại trở lại làm việc trong một công ty sản xuất khác. Mình lại gặp vấn đề tương tự như lúc trước. May mắn hơn là lần này mình được tham gia phát triển từ đầu nên cấu trúc dữ liệu tương đối tốt để phát triển nhưng thử thác cũng nhiều hơn khi mà kèm theo việc tính công là... tính lương. Mình vẫn nhớ file dữ liệu mẫu với một mới cột lương 1, lương 2... lương n và đủ các loại thuế khấu trừ. Nhưng cái khó ló cái lầy. Lần này phòng nhân sự hỗ trợ khá tốt cho mình khi mình được nhận một file excel mẫu... có kèm công thức excel và chị nhân sự cũng khá chuyên nghiệp. Sau khi nắm các công thức và mình triển khai như ở công ty cũ, đương nhiên vẫn gặp những vấn đề cũ. Chỉ khác thay vì nhảy vào tối ưu hiệu năng hoặc cố làm sau cho ít bug ở backend thì mình quyết định làm một trò đó là... in ra các công thức excel thay vì là các con số. Đơn giản lúc đó mình nghĩ là thực tế phòng nhân sự hoàn toàn có thể tính được lương bằng excel, thứ họ cần chỉ là những thông tin ngày công, phép, cấp bậc lương... việc của mình chỉ là xuất sẵn những thông tin đó đồng thời in sẵn công thức (mà được họ cho trong file mẫu) để giúp họ đỡ phải tốn công. Nghĩ lầy làm lầy. Mình triển khai luôn và kết quả khá tốt khi mà file xuất ra nhanh hơn vì các câu truy vấn lấy ra dữ liệu cơ bản không nặng lắm và xữ lý backend lúc này cũng chỉ là xuất những công thức excel như <b>=A1+A2</b>, thêm nữa gánh nặng khi kiểm tra của phòng nhân sự cũng được giảm bớt vì họ giờ chỉ cần xem sơ qua các công thức xem đặt đúng chưa và các cột cơ bản như lương và ngày công có sai sót không. Những trường hợp cần chỉnh sửa tay thì cũng đỡ hơn khi họ chỉ cần chỉnh vào cột gốc và tự động excel sẽ tính toán lại thay vì phải vào hệ thống hoặc nhờ tới IT.
+</p>
+<p>
+Đây không phải là một bài nói về kỹ thuật gì cả mà chỉ là kể một câu chuyện về cách tiếp cận vấn đề và tìm hướng giải quyết. Thời gian làm việc ở các công ty sản xuất có thể nói là không quá thú vị với mình nhưng nó cũng giúp mình có những kỹ năng phụ trợ khá hay ho và đây là một trong số những thứ mình học được trong thời gian này.
+</p>
+
+<div class="blog-detail-comments">
+    <!-- <div id="show-comment-box">
+        Comment
+    </div> -->
+    <div id="post-comment">
+        <div id="disqus_thread"></div>
+        <script>
+        /**
+        *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+        *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+        /*
+        var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        };
+        */
+        (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = 'https://https-tasynguyen3894-github-io.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+</div>
+<div class="blog-break-line"></div>
+</div>
+</div>
+{% endblock %}
+
+{% block title %}Phòng nhân sự cần tôi xuất file excel{% endblock %}
+
+{% block menu %}<div class="navbar-fixed home-bg">{% endblock %}
+
+{% block quotes %}
+<div class="navbar-quotes-content">
+    Sweat saves blood, blood saves lives, but brains saves both.
+</div>
+<div class="navbar-quotes-speaker">
+    Erwin Rommel
+</div>
+{% endblock %}
+
+{% block meta %}
+<meta name="description" content="Phòng nhân sự cần tôi xuất file excel">
+<meta name="keywords" content="Javascipt, jQuery, html, css, my stories">
+<meta name="author" content="Tasy Nguyen">
+{% endblock %}

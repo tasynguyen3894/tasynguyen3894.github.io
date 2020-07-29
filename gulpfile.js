@@ -76,7 +76,7 @@ function watchFile() {
 }
 
 function deployGhPages() {
-    return src(convert(`./${buildDir}`))
+    return src(convert(`./${buildDir}/**/*`))
             .pipe(ghPages({
                 branch: deployBranch
             }))
