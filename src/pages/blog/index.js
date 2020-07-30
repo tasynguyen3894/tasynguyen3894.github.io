@@ -2,6 +2,14 @@ module.exports = {
     data: {
         posts: [
             {
+                url: "phong-nhan-su-can-toi-xuat-file-excel.html",
+                title: "Phòng nhân sự cần tôi xuất file excel",
+                tags: [
+                    {text: "frontend", code: "frontend"}
+                ],
+                content: "Ngày trước mình từng có thời gian làm việc ở hai công ty sản xuất, nơi mà phòng IT chỉ là một bộ phận phụ trợ. Do đó mình có cơ hội được làm việc với các phòng ban khác như nhân sự, kế toán hoặc bán hàng của công ty. Nhờ đó cũng hiểu thêm kha khá các thứ bên ngoài chuyên môn, đặt biệt là làm việc với các file excel."
+            },
+            {
                 url: "giai-phap-cho-cross-domain-o-frontend.html",
                 title: "[Dịch] Những giải pháp cho vấn đề cross-domain của frontend",
                 tags: [
