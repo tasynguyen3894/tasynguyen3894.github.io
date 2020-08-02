@@ -282,9 +282,10 @@ body {
     content: "\f10e";
     font-family: FontAwesome; }
   body .home-content .blog-detail p {
+    font-family: "Lato", sans-serif;
     font-size: 16px;
     margin: 5px 0px 15px 0px;
-    line-height: 22px;
+    line-height: 1.5;
     word-spacing: 2px; }
     body .home-content .blog-detail p.talk {
       margin-bottom: 5px; }
