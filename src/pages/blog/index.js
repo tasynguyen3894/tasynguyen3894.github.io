@@ -2,6 +2,14 @@ module.exports = {
     data: {
         posts: [
             {
+                url: "neu-khong-biet-viet-gi-hay-thu-til.html",
+                title: "Nếu không biết viết gì hãy thử Today I learned",
+                tags: [
+                    {text: "frontend", code: "frontend"}
+                ],
+                content: "Lại là một bài không liên quan gì đến kỹ thuật. Dạo gần đây mình đọc một số bài viết của các người anh đi trước và có trò chuyện với họ. Đồng thời nhiều bạn cũng nói về việc viết blog rằng không biết viết như thế nào và cảm thấy khó khăn về chủ đề cũng như hành văn... Hôm nay mình xin chia sẽ về một cách là Today I learned."
+            },
+            {
                 url: "phong-nhan-su-can-toi-xuat-file-excel.html",
                 title: "Phòng nhân sự cần tôi xuất file excel",
                 tags: [
