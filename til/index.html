@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sangnguyen.dev | Today I learned</title>
+</head>
+<body>
+    <style>
+        .main {
+            max-width: 700px;
+            margin: 20px auto;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .main .header {
+            border-bottom: 2px solid rgb(50, 75, 97);
+            margin-bottom: 5px;
+        }
+
+        .main .footer {
+            margin-top: 5px;
+            border-top: 1px solid rgb(50, 75, 97);
+            padding: 5px 0px;
+        }
+
+        .main .footer a {
+            color: rgb(50, 75, 97);
+        }
+    </style>
+    <div class="main">
+        <h1 class="header">Today, I learned</h1>
+        <div>
+            <h2 id="20200813">2020-08-13</h2>
+<ul>
+<li><p>Use <code>!!</code> in command to paste previous command</p>
+<pre><code>sudo !!
+</code></pre></li>
+<li><p>In React, you can display html string to html tag with dangerouslySetInnerHTML. It similar to <code>v-html</code> in Vue. Ex:</p>
+<pre><code class="html language-html">&lt;div dangerouslySetInnerHTML={{
+    __html: 'Hi &lt;b&gt;Dude&lt;/b&gt;'
+}}&gt;&lt;/div&gt;
+</code></pre></li>
+</ul>
+<h2 id="20200812">2020-08-12</h2>
+<ul>
+<li><p>If you want to make your SVG element's color inherited their color, you can use <code>fill="currentColor</code></p></li>
+<li><p>In python, use <code>join()</code> to join array string is better than loop with <code>+</code>. Good to look and good performance too. Read more in <a href="https://towardsdatascience.com/do-not-use-to-join-strings-in-python-f89908307273">this article</a></p></li>
+</ul>
+<h2 id="20200811">2020-08-11</h2>
+<ul>
+<li><p>In PHP, use this code may make some stupid error</p>
+<pre><code class="php language-php">$a = ['name' =&gt; 'John'];
+if(isset($a['age']) || $a['age'] &gt; 5) {
+    return false;
+}
+</code></pre></li>
+<li><p>In PHP, <code>@</code> is used to suppressed error messages.
+<code>
+Don't fucking use this shit!!!
+</code></p></li>
+</ul>
+<h2 id="20200810">2020-08-10</h2>
+<ul>
+<li>We can display git history tree in command with <code>git log --graph</code></li>
+</ul>
+<h2 id="20200806">2020-08-06</h2>
+<ul>
+<li>You can create repository in github with name as same with your account. The repository's README.md will display in your Github profile like a landing page
+`</li>
+</ul>
+<h2 id="20200803">2020-08-03</h2>
+<ul>
+<li>Today is my birthday.</li>
+<li>Beside <code>fs.readFile</code>, we also use <code>readline</code>, <code>stream</code> to make a action similar to lazy load for read a large file.</li>
+<li>explainshell.com - useful website to explain command</li>
+</ul>
+<h2 id="20200731">2020-07-31</h2>
+<ul>
+<li>Use <code>xargs</code> to apply command for input (<code>grep</code>, <code>find</code>…)</li>
+<li>Remove branch which aren't exists on remote <code>git remote prune origin</code></li>
+</ul>
+<h2 id="20200730">2020-07-30</h2>
+<ul>
+<li>In Javascript with the + operator, variable type is converted to string and the rest operator will convert to string (need improve)</li>
+</ul>
+<h2 id="20200729">2020-07-29</h2>
+<ul>
+<li><p>If you want use gulp-gh-pages, you must put <code>/**/*</code> in the end of dist path</p></li>
+<li><p>Event <code>beforeunload</code> will not work if there is not user interaction.</p></li>
+</ul>
+<h2 id="20200727">2020-07-27</h2>
+<p>Wrap email html in table tag like this code</p>
+<pre><code class="html language-html">&lt;table&gt;
+    &lt;tr&gt;
+        &lt;td&gt;
+            Content
+        &lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+</code></pre>
+<h2 id="20200724">2020-07-24</h2>
+<p>In gmail app, if your mail is sended which the same as previous content, them will be clipped by gmail.</p>
+<h2 id="20200723">2020-07-23</h2>
+<p>[<code>sql</code>] If you want excute this query <code>select * from table limit 10 offset 50</code> (haven't anywhere clause) with large record. You shound use <code>select * from table where id &gt; 50 limit 10</code> </p>
+<h2 id="20200721">2020-07-21</h2>
+<p>Use <code>prettier</code> to format code. Prettier help we avoid some problem about format code.</p>
+        </div>
+        <div class="footer">
+            Simple pages by <a href="https://sangnguyen.dev">Sang Nguyen</a>
+        </div>
+    </div>
+</body>
+</html>
