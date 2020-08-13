@@ -1,13 +1,15 @@
 const { src, dest, watch, series, parallel, lastRun } = require('gulp');
 const del = require('del');
-var twig = require('gulp-twig')
+var twig = require('gulp-twig');
 var sass = require('gulp-sass');
-var tap = require('gulp-tap')
-const path = require('path')
-const fs = require('fs')
+var tap = require('gulp-tap');
+const path = require('path');
+const fs = require('fs');
 const ghPages = require('gulp-gh-pages')
 const browserSync = require('browser-sync').create()
-const buildIgnore = require("./buildignore")
+const showdown  = require('showdown');
+const converter = new showdown.Converter();
+const buildIgnore = require("./buildignore");
 
 const buildDir = `build`;
 const sourceDir = `src`;
@@ -82,6 +84,20 @@ function deployGhPages() {
             }))
 }
 
+let tilBuild = function () {
+    const tilMd = fs.readFileSync(`./${sourceDir}/til/til.md`, 
+            {encoding:'utf8', flag:'r'}); 
+    html = converter.makeHtml(tilMd);
+    return src(convert(`./${sourceDir}/til/*.twig`))
+        .pipe(twig({
+            base: convert(`./${sourceDir}`),
+            data: {
+                content: html
+            }
+        }))
+        .pipe(dest(convert(`./${buildDir}/til`)));
+}
+
 function clearTmp() {
     let delList = [`${buildDir}/**/*`];
     buildIgnore.forEach(element => {
@@ -99,7 +115,8 @@ const compile = parallel(
     twigPageCompile, 
     sassAssetComplile, 
     jsAssetCopy, 
-    fileAssetCopy
+    fileAssetCopy,
+    tilBuild
 )
 
 exports.watch = series(clearTmp, compile, watchFile)
