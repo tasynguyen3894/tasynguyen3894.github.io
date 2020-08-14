@@ -1,3 +1,23 @@
+## 2020-08-14
+
+- Make git alias with `git config --global alias.<alias> <git command>`. Ex:
+
+    ```
+    git config --global alias.co checkout
+    ```
+
+- You can show git log as your format with `git log --format="<Format>"`. Read more in [here](https://git-scm.com/docs/pretty-formats)
+
+    ```
+    git log --format="%h - %an"
+    8b105eb8 - tasynguyen3894
+    f0f7fc63 - tasynguyen3894
+    560a6d61 - tasynguyen3894
+    42a0fd6d - tasynguyen3894
+    d29377c0 - tasynguyen3894
+    9f770a6f - tasynguyen3894
+    ```
+
 ## 2020-08-13
 
 - Use `!!` in command to paste previous command
@@ -22,6 +42,7 @@
 ## 2020-08-11
 
 - In PHP, use this code may make some stupid error
+
     ```php
     $a = ['name' => 'John'];
     if(isset($a['age']) || $a['age'] > 5) {
@@ -30,6 +51,7 @@
     ```
 
 - In PHP, `@` is used to suppressed error messages.
+
     ```
     Don't fucking use this shit!!!
     ```
@@ -65,26 +87,26 @@
 
 ## 2020-07-27
 
-Wrap email html in table tag like this code
+- Wrap email html in table tag like this code
 
-```html
-<table>
-    <tr>
-        <td>
-            Content
-        </td>
-    </tr>
-</table>
-```
+    ```html
+    <table>
+        <tr>
+            <td>
+                Content
+            </td>
+        </tr>
+    </table>
+    ```
 
 ## 2020-07-24
 
-In gmail app, if your mail is sended which the same as previous content, them will be clipped by gmail.
+- In gmail app, if your mail is sended which the same as previous content, them will be clipped by gmail.
 
 ## 2020-07-23
 
-[`sql`] If you want excute this query `select * from table limit 10 offset 50` (haven't anywhere clause) with large record. You shound use `select * from table where id > 50 limit 10` 
+- [`sql`] If you want excute this query `select * from table limit 10 offset 50` (haven't anywhere clause) with large record. You shound use `select * from table where id > 50 limit 10` 
 
 ## 2020-07-21
 
-Use `prettier` to format code. Prettier help we avoid some problem about format code.
+- Use `prettier` to format code. Prettier help we avoid some problem about format code.

@@ -72,6 +72,7 @@ function watchFile() {
         }
     })
     watch([`./${buildDir}/**/*`]).on("change", browserSync.reload)
+    watch([`./${sourceDir}/til/*.md`], tilBuild)
     watch([`./${sourceDir}/pages/**/*.twig`, `./${sourceDir}/**/*.html`, `./${sourceDir}/pages/**/*.js`], twigPageCompile)
     watch([`./${sourceDir}/${assetsDir}/scss/**/*.scss`], sassAssetComplile)
     watch([`./${sourceDir}/${assetsDir}/js/**/*.js`], jsAssetCopy)
