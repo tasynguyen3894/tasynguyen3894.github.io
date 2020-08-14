@@ -1,9 +1,10 @@
 ## 2020-08-14
 
-- Make git alias with `git config --global alias.<alias> <git command>`. Ex:
+- Make git alias with `git config --global alias.<alias> <git command>`. If you want to define git command with parameter, you must put them in double quotes. Ex:
 
     ```
     git config --global alias.co checkout
+    git config --global alias.small-graph "log --oneline --graph"
     ```
 
 - You can show git log as your format with `git log --format="<Format>"`. Read more in [here](https://git-scm.com/docs/pretty-formats)
