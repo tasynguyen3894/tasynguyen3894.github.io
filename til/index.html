@@ -33,8 +33,9 @@
         <div>
             <h2 id="20200814">2020-08-14</h2>
 <ul>
-<li><p>Make git alias with <code>git config --global alias.&lt;alias&gt; &lt;git command&gt;</code>. Ex:</p>
+<li><p>Make git alias with <code>git config --global alias.&lt;alias&gt; &lt;git command&gt;</code>. If you want to define git command with parameter, you must put them in double quotes. Ex:</p>
 <pre><code>git config --global alias.co checkout
+git config --global alias.small-graph "log --oneline --graph"
 </code></pre></li>
 <li><p>You can show git log as your format with <code>git log --format="&lt;Format&gt;"</code>. Read more in <a href="https://git-scm.com/docs/pretty-formats">here</a></p>
 <pre><code>git log --format="%h - %an"
