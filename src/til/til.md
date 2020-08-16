@@ -19,6 +19,14 @@
     9f770a6f - tasynguyen3894
     ```
 
+- Use pipe `pbcopy` to copy output command to clipboard in MacOS
+
+    ```
+    pwd | pbcopy
+    ```
+
+- Get current git branch with command `git rev-parse --abbrev-ref HEAD`
+
 ## 2020-08-13
 
 - Use `!!` in command to paste previous command
