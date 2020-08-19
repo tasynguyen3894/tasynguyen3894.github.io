@@ -31,7 +31,17 @@
     <div class="main">
         <h1 class="header">My config</h1>
         <div>
-            <h2 id="20200814">2020-08-14</h2>
+            <h2 id="20200819">2020-08-19</h2>
+<ul>
+<li><p>You can use vim like a pipeline</p>
+<pre><code>git log | vim
+</code></pre></li>
+<li><p><code>td</code> is command line utility for translating or deleting characters.</p>
+<pre><code>echo "hehehe" | tr "[:lower:]" "[:upper:]"
+pwd | tr -d '\n'
+</code></pre></li>
+</ul>
+<h2 id="20200814">2020-08-14</h2>
 <ul>
 <li><p>Make git alias with <code>git config --global alias.&lt;alias&gt; &lt;git command&gt;</code>. If you want to define git command with parameter, you must put them in double quotes. Ex:</p>
 <pre><code>git config --global alias.co checkout
