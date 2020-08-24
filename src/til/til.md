@@ -1,3 +1,41 @@
+## 2020-08-21
+
+- `in` and `Object.prototype.hasOwnProperty()` are the strategy  for determining if a property exists in an object with one exception. But you should use `in` carefully. Let see this example:
+
+    ```js
+    const Resorts = function () {
+    this.Telluride = 4425;
+    this.Vail = 3450;
+    }
+
+    // Brian's object of Resorts
+    const brianResorts = new Resorts();
+
+    // Jesse's object of Resorts
+    const jesseResorts = new Resorts();
+
+    // modify function prototype
+    Resorts.prototype.Breckenridge = 3398;
+
+    const breckInBrianResorts = 'Breckenridge' in brianResorts; // true
+    const breckInJesseResorts = 'Breckenridge' in jesseResorts; // true
+    ```
+
+## 2020-08-19
+
+- You can use vim like a pipeline
+
+    ```
+    git log | vim
+    ```
+
+- `td` is command line utility for translating or deleting characters.
+
+    ```
+    echo "hehehe" | tr "[:lower:]" "[:upper:]"
+    pwd | tr -d '\n'
+    ```
+
 ## 2020-08-14
 
 - Make git alias with `git config --global alias.<alias> <git command>`. If you want to define git command with parameter, you must put them in double quotes. Ex:
