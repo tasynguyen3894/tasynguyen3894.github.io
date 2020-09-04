@@ -1,3 +1,24 @@
+## 2020-09-04
+
+- Use `call`, `bind`, `apply` to excute function with custom `this`. With `bind`, we create new instance and bind our function as this varible. With `call`, `apply`, we call this function with our this.
+    ```js
+    var car = {
+        name: 'Audi',
+        getCarName: function () {
+            return this.name
+        }
+    }
+
+    var carNamePrice = function (price) {
+        return this.getCarName() + `'s price is $${price}`;
+    }
+
+    var review = carNameReview.bind(car);
+    review(5000); // Audi's price is $5000
+    carNameReview.call(car, 5000);  // Audi's price is $5000
+    carNameReview.apply(car, [5000]);  // Audi's price is $5000
+    ```
+
 ## 2020-08-26
 
 - Show differrent between two branchs in `git`. Git give us many helpful arguments (`--stat`, `--name-status`, `--color`)
