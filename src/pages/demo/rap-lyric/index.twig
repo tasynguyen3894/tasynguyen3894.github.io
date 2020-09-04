@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rap lyric</title>
+</head>
+<body>
+    <style>
+        .input-container {
+            overflow: hidden;
+        }
+
+        .input-container label {
+            margin-bottom: 5px;
+            display: inline-block;
+        }
+
+        .input-container .input-lyric {
+            float: left;
+            margin-right: 20px;
+            width: 45%;
+        }
+
+        .input-container .input-lyric textarea {
+            border: 1px solid #ccc;
+        }
+
+        .input-container .input-lyric button {
+            background: #FFF;
+            box-shadow: none;
+            padding: 5px 10px;
+            border: 2px solid #333;
+            cursor: pointer;
+        }
+
+        .input-container .input-lyric button:hover {
+            background: #333;
+            color: #FFF;
+        }
+
+        .input-container .input-result {
+            float: left;
+            width: 50%;
+        }
+
+        .input-container .input-result p {
+            border: 1px solid #ccc;
+            padding: 5px;
+            margin: 0px;
+            height: 445px;
+            overflow: scroll;
+        }
+
+        body {
+            font-family: monospace;
+        }
+
+        .footer {
+            padding: 5px;
+            text-align: center;
+            border-top: 1px solid #ccc;
+            margin-top: 10px;
+        }
+
+        .footer a {
+            color: #699940;
+        }
+
+        .title {
+            text-align: center;
+        }
+
+        .title span {
+            display: inline-block;
+            font-family: fantasy;
+            font-size: 30px;
+            margin-bottom: 30px;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 10px;
+        }
+    </style>
+    <div>
+        <div class="title">
+            <span>Funny tool about rap lyric :)</span>
+        </div>
+        <div class="input-container">
+            <div class="input-lyric">
+                <label for="">Lyric</label>
+                <textarea style="width: 100%;" name="" id="lyric" rows="30">{{demo}}</textarea>
+                <button id="btn-lyric">Highlight</button>
+            </div>
+            <div class="input-result">
+                <label for="">Result</label>
+                <p id="result"></p>
+            </div>
+        </div>
+        <div class="footer">
+            Made by <a href="https://sangnguyen.dev">Sang Nguyen</a>
+        </div>
+    </div>
+    <script src='/assets/js/lyric.js'></script>
+</body>
+</html>
