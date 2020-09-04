@@ -31,7 +31,67 @@
     <div class="main">
         <h1 class="header">My config</h1>
         <div>
-            <h2 id="20200814">2020-08-14</h2>
+            <h2 id="20200904">2020-09-04</h2>
+<ul>
+<li><p>Use <code>call</code>, <code>bind</code>, <code>apply</code> to excute function with custom <code>this</code>. With <code>bind</code>, we create new instance and bind our function as this varible. With <code>call</code>, <code>apply</code>, we call this function with our this.</p>
+<pre><code class="js language-js">var car = {
+    name: 'Audi',
+    getCarName: function () {
+        return this.name
+    }
+}
+
+var carNamePrice = function (price) {
+    return this.getCarName() + `'s price is $${price}`;
+}
+
+var review = carNameReview.bind(car);
+review(5000); // Audi's price is $5000
+carNameReview.call(car, 5000);  // Audi's price is $5000
+carNameReview.apply(car, [5000]);  // Audi's price is $5000
+</code></pre></li>
+</ul>
+<h2 id="20200826">2020-08-26</h2>
+<ul>
+<li><p>Show differrent between two branchs in <code>git</code>. Git give us many helpful arguments (<code>--stat</code>, <code>--name-status</code>, <code>--color</code>)</p>
+<pre><code>git diff &lt;arguments&gt; branch_a..branch_b &lt;path/to/file&gt;
+</code></pre></li>
+<li><p>Show file content in other branch in <code>git</code></p>
+<pre><code>git show &lt;branch&gt;:&lt;file&gt;
+</code></pre></li>
+</ul>
+<h2 id="20200821">2020-08-21</h2>
+<ul>
+<li><p><code>in</code> and <code>Object.prototype.hasOwnProperty()</code> are the strategy  for determining if a property exists in an object with one exception. But you should use <code>in</code> carefully. Let see this example:</p>
+<pre><code class="js language-js">const Resorts = function () {
+this.Telluride = 4425;
+this.Vail = 3450;
+}
+
+// Brian's object of Resorts
+const brianResorts = new Resorts();
+
+// Jesse's object of Resorts
+const jesseResorts = new Resorts();
+
+// modify function prototype
+Resorts.prototype.Breckenridge = 3398;
+
+const breckInBrianResorts = 'Breckenridge' in brianResorts; // true
+const breckInJesseResorts = 'Breckenridge' in jesseResorts; // true
+</code></pre></li>
+</ul>
+<h2 id="20200819">2020-08-19</h2>
+<ul>
+<li><p>You can use vim like a pipeline</p>
+<pre><code>git log | vim
+</code></pre></li>
+<li><p><code>td</code> is command line utility for translating or deleting characters.</p>
+<pre><code>echo "hehehe" | tr "[:lower:]" "[:upper:]"
+pwd | tr -d '\n'
+</code></pre></li>
+</ul>
+<h2 id="20200814">2020-08-14</h2>
 <ul>
 <li><p>Make git alias with <code>git config --global alias.&lt;alias&gt; &lt;git command&gt;</code>. If you want to define git command with parameter, you must put them in double quotes. Ex:</p>
 <pre><code>git config --global alias.co checkout
