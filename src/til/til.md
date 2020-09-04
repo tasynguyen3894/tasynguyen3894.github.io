@@ -1,3 +1,17 @@
+## 2020-08-26
+
+- Show differrent between two branchs in `git`. Git give us many helpful arguments (`--stat`, `--name-status`, `--color`)
+
+    ```
+    git diff <arguments> branch_a..branch_b <path/to/file>
+    ```
+
+- Show file content in other branch in `git`
+
+    ```
+    git show <branch>:<file>
+    ```
+
 ## 2020-08-21
 
 - `in` and `Object.prototype.hasOwnProperty()` are the strategy  for determining if a property exists in an object with one exception. But you should use `in` carefully. Let see this example:
