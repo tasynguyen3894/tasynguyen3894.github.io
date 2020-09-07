@@ -11,6 +11,11 @@
             font-family: Arial, Helvetica, sans-serif;
         }
 
+        .container {
+            width: 300px;
+            margin: 0px auto;
+        }
+
         .attr {
             background: #333;
             color: #FFF;
@@ -43,9 +48,45 @@
             padding: 0px;
             margin: 2px;
         }
+
+        .modal {
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        .modal > label {
+            font-weight: bold;
+            padding: 10px 10px;
+            display: inline-block;
+            border-bottom: 1px solid #ccc;
+            width: 100%;
+            margin-bottom: 5px;
+            box-sizing: border-box;
+        }
+
+        .modal > div {
+            padding: 5px;
+        }
+
+        .modal > div.form > div {
+            font-size: 13px;
+            margin: 10px 0px;
+            box-sizing: border-box;
+        }
+
+        .modal > div.form > div label {
+            display: block;
+            margin-bottom: 3px;
+        }
+
+        .modal > div.form > div  input {
+            width: 100%;
+            box-sizing: border-box;
+        }
     </style>
-    <div>
-        <div>
+    <div class="container">
+        <div class="modal">
             <label for="">Attribute</label>
             <div>
                 <div><input name="git-attribute" type="checkbox" value="-p"> Show the patch introduced with each commit</div>
@@ -56,35 +97,54 @@
                 <div><input name="git-attribute" type="checkbox" value="--abbrev-commit">Show only the first few characters of the SHA-1 checksum instead of all 40</div>
                 <div><input name="git-attribute" type="checkbox" value="--relative-date">Display the date in a relative format (for example, “2 weeks ago”) instead of using the full date format</div>
                 <div><input name="git-attribute" type="checkbox" value="--graph">Display an ASCII graph of the branch and merge history beside the log output</div>
+                <div><input name="git-attribute" type="checkbox" value="--reverse">Reverse</div>
             </div>
         </div>
-        <div>
+        <div class="modal">
             <label for="">Format</label>
-            <div contenteditable="true" class="log-format-input" id="format"></div>
-            <div class="attr-btn">
-                <button onclick="addFormat(event)"><span data-symbol="%H" contenteditable="false" class="attr">Commit hash</span></button>
-                <button onclick="addFormat(event)"><span data-symbol="%h" contenteditable="false" class="attr">Abbreviated commit hash</span></button>
-                <button onclick="addFormat(event)"><span data-symbol="%T" contenteditable="false" class="attr">Tree hash</span></button>
-                <button onclick="addFormat(event)"><span data-symbol="%t" contenteditable="false" class="attr">Abbreviated tree hash</span></button>
-                <button onclick="addFormat(event)"><span data-symbol="%P" contenteditable="false" class="attr">Parent hashes</span></button>
-                <button onclick="addFormat(event)"><span data-symbol="%p" contenteditable="false" class="attr">Abbreviated parent hashes</span></button>
-                <button onclick="addFormat(event)"><span data-symbol="%an" contenteditable="false" class="attr">Author name</span></button>
-                <button onclick="addFormat(event)"><span data-symbol="%ae" contenteditable="false" class="attr">Author email</span></button>
-                <button onclick="addFormat(event)"><span data-symbol="%ad" contenteditable="false" class="attr">Author date</span></button>
-                <button onclick="addFormat(event)"><span data-symbol="%ar" contenteditable="false" class="attr">Author date, relative</span></button>
-                <button onclick="addFormat(event)"><span data-symbol="%cn" contenteditable="false" class="attr">Committer name</span></button>
-                <button onclick="addFormat(event)"><span data-symbol="%ce" contenteditable="false" class="attr">Committer email</span></button>
-                <button onclick="addFormat(event)"><span data-symbol="%cd" contenteditable="false" class="attr">Committer date</span></button>
-                <button onclick="addFormat(event)"><span data-symbol="%cr" contenteditable="false" class="attr">Committer date, relative</span></button>
-                <button onclick="addFormat(event)"><span data-symbol="%s" contenteditable="false" class="attr">Subject</span></button>
+            <div>
+                <div contenteditable="true" class="log-format-input" id="format"></div>
+                <div class="attr-btn">
+                    <button onclick="addFormat(event)"><span data-symbol="%H" contenteditable="false" class="attr">Commit hash</span></button>
+                    <button onclick="addFormat(event)"><span data-symbol="%h" contenteditable="false" class="attr">Abbreviated commit hash</span></button>
+                    <button onclick="addFormat(event)"><span data-symbol="%T" contenteditable="false" class="attr">Tree hash</span></button>
+                    <button onclick="addFormat(event)"><span data-symbol="%t" contenteditable="false" class="attr">Abbreviated tree hash</span></button>
+                    <button onclick="addFormat(event)"><span data-symbol="%P" contenteditable="false" class="attr">Parent hashes</span></button>
+                    <button onclick="addFormat(event)"><span data-symbol="%p" contenteditable="false" class="attr">Abbreviated parent hashes</span></button>
+                    <button onclick="addFormat(event)"><span data-symbol="%an" contenteditable="false" class="attr">Author name</span></button>
+                    <button onclick="addFormat(event)"><span data-symbol="%ae" contenteditable="false" class="attr">Author email</span></button>
+                    <button onclick="addFormat(event)"><span data-symbol="%ad" contenteditable="false" class="attr">Author date</span></button>
+                    <button onclick="addFormat(event)"><span data-symbol="%ar" contenteditable="false" class="attr">Author date, relative</span></button>
+                    <button onclick="addFormat(event)"><span data-symbol="%cn" contenteditable="false" class="attr">Committer name</span></button>
+                    <button onclick="addFormat(event)"><span data-symbol="%ce" contenteditable="false" class="attr">Committer email</span></button>
+                    <button onclick="addFormat(event)"><span data-symbol="%cd" contenteditable="false" class="attr">Committer date</span></button>
+                    <button onclick="addFormat(event)"><span data-symbol="%cr" contenteditable="false" class="attr">Committer date, relative</span></button>
+                    <button onclick="addFormat(event)"><span data-symbol="%s" contenteditable="false" class="attr">Subject</span></button>
+                </div>
             </div>
         </div>
-        <div>
+        <div class="modal">
             <label for="">Filter</label>
-            <div>
+            <div class="form">
+                <div>
+                    <label for="">Author</label>
+                    <input type="text" data-type="filter" data-symbol="--author">
+                </div>
                 <div>
                     <label for="">Grep</label>
-                    <input type="number" data-type="filter" data-symbol="--grep">
+                    <input type="text" data-type="filter" data-symbol="--grep">
+                </div>
+                <div>
+                    <label for="">Committer</label>
+                    <input type="text" data-type="filter" data-symbol="--committer">
+                </div>
+                <div>
+                    <label for="">Adding or removing code matching the string</label>
+                    <input type="text" data-type="filter" data-symbol="-S">
+                </div>
+                <div>
+                    <label for="">Limit log</label>
+                    <input min="1" type="number" id="limit">
                 </div>
             </div>
         </div>
@@ -121,13 +181,31 @@
             for(let i = 0; i < attr.length; i++) {
                 attrValue.push(attr[i].value);
             }
+
+            let filter = document.querySelectorAll("input[data-type=filter]")
+            let filterValue = [];
+            for(let i = 0; i < filter.length; i++) {
+                if(filter[i].value !== "") {
+                    filterValue.push(`${filter[i].getAttribute('data-symbol')}="${filter[i].value}"`);
+                }
+            }
+
             let htmlFormat = document.getElementById('format').innerHTML;
             let format = htmlFormat.replace(/<span (.*?)>(.*?)<\/span>/g, function (value) {
                 let dom = document.createElement('div');
                 dom.innerHTML = value;
                 return dom.firstChild.getAttribute('data-symbol');
             }).trim()
-            document.getElementById('cmd').innerHTML = `git log ${attrValue.join(' ')} --format="${format}"`;
+
+            if(format !== "") {
+                format = `--format "${format}"`
+            }
+
+            let limit = "";
+            if(document.getElementById('limit').value > 0) {
+                limit = `-n ${document.getElementById('limit').value}`;
+            }
+            document.getElementById('cmd').innerHTML = `git log ${attrValue.join(' ')} ${filterValue.join(' ')} ${format} ${limit}`;
         }
     </script>
 </body>
