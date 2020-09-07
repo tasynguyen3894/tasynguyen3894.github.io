@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Git command builder</title>
+</head>
+<body>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .attr {
+            background: #333;
+            color: #FFF;
+            display: inline-block;
+            padding: 3px 5px;
+            cursor: pointer;
+            border-radius: 3px;
+            font-size: 12px;
+        }
+
+        .log-format-input {
+            padding: 5px 10px;
+            border: 1px solid #ccc;
+            border-radius: 2px;
+        }
+
+        .log-format-input:focus {
+            border-color: #333;
+        }
+
+        #cmd {
+            background: #ccc;
+            padding: 5px 10px;
+            border: 1px solid #ccc;
+            color: #333;
+            font-size: 12px;
+        }
+
+        .attr-btn button {
+            padding: 0px;
+            margin: 2px;
+        }
+    </style>
+    <div>
+        <div>
+            <label for="">Attribute</label>
+            <div>
+                <div><input name="git-attribute" type="checkbox" value="-p"> Show the patch introduced with each commit</div>
+                <div><input name="git-attribute" type="checkbox" value="--stat"> Show statistics for files modified in each commit</div>
+                <div><input name="git-attribute" type="checkbox" value="--shortstat">Display only the changed/insertions/deletions line from the --stat command</div>
+                <div><input name="git-attribute" type="checkbox" value="--name-only">Show the list of files modified after the commit information</div>
+                <div><input name="git-attribute" type="checkbox" value="--name-status">Show the list of files affected with added/modified/deleted information as well</div>
+                <div><input name="git-attribute" type="checkbox" value="--abbrev-commit">Show only the first few characters of the SHA-1 checksum instead of all 40</div>
+                <div><input name="git-attribute" type="checkbox" value="--relative-date">Display the date in a relative format (for example, “2 weeks ago”) instead of using the full date format</div>
+                <div><input name="git-attribute" type="checkbox" value="--graph">Display an ASCII graph of the branch and merge history beside the log output</div>
+            </div>
+        </div>
+        <div>
+            <label for="">Format</label>
+            <div contenteditable="true" class="log-format-input" id="format"></div>
+            <div class="attr-btn">
+                <button onclick="addFormat(event)"><span data-symbol="%H" contenteditable="false" class="attr">Commit hash</span></button>
+                <button onclick="addFormat(event)"><span data-symbol="%h" contenteditable="false" class="attr">Abbreviated commit hash</span></button>
+                <button onclick="addFormat(event)"><span data-symbol="%T" contenteditable="false" class="attr">Tree hash</span></button>
+                <button onclick="addFormat(event)"><span data-symbol="%t" contenteditable="false" class="attr">Abbreviated tree hash</span></button>
+                <button onclick="addFormat(event)"><span data-symbol="%P" contenteditable="false" class="attr">Parent hashes</span></button>
+                <button onclick="addFormat(event)"><span data-symbol="%p" contenteditable="false" class="attr">Abbreviated parent hashes</span></button>
+                <button onclick="addFormat(event)"><span data-symbol="%an" contenteditable="false" class="attr">Author name</span></button>
+                <button onclick="addFormat(event)"><span data-symbol="%ae" contenteditable="false" class="attr">Author email</span></button>
+                <button onclick="addFormat(event)"><span data-symbol="%ad" contenteditable="false" class="attr">Author date</span></button>
+                <button onclick="addFormat(event)"><span data-symbol="%ar" contenteditable="false" class="attr">Author date, relative</span></button>
+                <button onclick="addFormat(event)"><span data-symbol="%cn" contenteditable="false" class="attr">Committer name</span></button>
+                <button onclick="addFormat(event)"><span data-symbol="%ce" contenteditable="false" class="attr">Committer email</span></button>
+                <button onclick="addFormat(event)"><span data-symbol="%cd" contenteditable="false" class="attr">Committer date</span></button>
+                <button onclick="addFormat(event)"><span data-symbol="%cr" contenteditable="false" class="attr">Committer date, relative</span></button>
+                <button onclick="addFormat(event)"><span data-symbol="%s" contenteditable="false" class="attr">Subject</span></button>
+            </div>
+        </div>
+        <div>
+            <label for="">Filter</label>
+            <div>
+                <div>
+                    <label for="">Grep</label>
+                    <input type="number" data-type="filter" data-symbol="--grep">
+                </div>
+            </div>
+        </div>
+        <div>
+            <button onclick="generate(event)">Generate</button>
+            <div id="cmd">git log</div>
+        </div>
+    </div>
+    <script>
+        let attrTags = document.getElementsByClassName('attr');
+
+        function addFormat(e) {
+            let node = e.target.cloneNode(true)
+            insertTextAtCursor(node);
+        }
+        
+        function insertTextAtCursor(node) {
+            document.getElementById('format').focus();
+            var sel, range, html;
+            sel = window.getSelection();
+            range = sel.getRangeAt(0);
+            range.deleteContents();
+            // var textNode = document.createTextNode(node);
+            let textNode = node;
+            range.insertNode(textNode);
+            range.setStartAfter(textNode);
+            sel.removeAllRanges();
+            sel.addRange(range);
+        }
+
+        function generate(e) {
+            let attr = document.querySelectorAll("input[type=checkbox][name=git-attribute]:checked")
+            let attrValue = [];
+            for(let i = 0; i < attr.length; i++) {
+                attrValue.push(attr[i].value);
+            }
+            let htmlFormat = document.getElementById('format').innerHTML;
+            let format = htmlFormat.replace(/<span (.*?)>(.*?)<\/span>/g, function (value) {
+                let dom = document.createElement('div');
+                dom.innerHTML = value;
+                return dom.firstChild.getAttribute('data-symbol');
+            }).trim()
+            document.getElementById('cmd').innerHTML = `git log ${attrValue.join(' ')} --format="${format}"`;
+        }
+    </script>
+</body>
+</html>
