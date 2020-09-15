@@ -1,3 +1,8 @@
+## 2020-09-15
+
+- Basic Authentication for Nginx with `apache2-utils` 
+- The iterable is a interface that specifies that an object can be accessible if it implements a method who is key is [symbol.iterator]
+
 ## 2020-09-04
 
 - Use `call`, `bind`, `apply` to excute function with custom `this`. With `bind`, we create new instance and bind our function as this varible. With `call`, `apply`, we call this function with our this.
