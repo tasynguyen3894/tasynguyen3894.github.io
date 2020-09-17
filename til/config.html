@@ -31,7 +31,15 @@
     <div class="main">
         <h1 class="header">My config</h1>
         <div>
-            <h2 id="20200915">2020-09-15</h2>
+            <h2 id="20200917">2020-09-17</h2>
+<ul>
+<li><p>You need convert value from <code>innerText</code> before compare them with pure string data. Some character may make errors. 
+Ex:</p>
+<pre><code class="js language-js">document.getElementById('div').innetText; // "Haha "
+document.getElementById('div').innetText === "Haha " // false
+</code></pre></li>
+</ul>
+<h2 id="20200915">2020-09-15</h2>
 <ul>
 <li>Basic Authentication for Nginx with <code>apache2-utils</code> </li>
 <li>The iterable is a interface that specifies that an object can be accessible if it implements a method who is key is [symbol.iterator]</li>
