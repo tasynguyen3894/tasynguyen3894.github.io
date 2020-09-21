@@ -31,7 +31,20 @@
     <div class="main">
         <h1 class="header">My config</h1>
         <div>
-            <h2 id="20200917">2020-09-17</h2>
+            <h2 id="20200921">2020-09-21</h2>
+<ul>
+<li><p>You can custom <code>JSON.stringify</code> output with parameter <code>replacer</code> and <code>space</code>. Read more in <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify">here</a></p>
+<pre><code class="js language-js">const foo = {age: '26', name: 'Tasy'}
+JSON.stringify(foo, ['name']); // '{"name": "Tasy"}'
+JSON.stringify(foo, function (key, value) {
+    if(key === 'age') { 
+        return parseInt(value) + 1; 
+    } 
+    return value; 
+}); // '{"age":27,"name":"Tasy"}'
+</code></pre></li>
+</ul>
+<h2 id="20200917">2020-09-17</h2>
 <ul>
 <li><p>You need convert value from <code>innerText</code> before compare them with pure string data. Some character may make errors. 
 Ex:</p>
