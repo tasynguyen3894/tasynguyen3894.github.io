@@ -1,3 +1,29 @@
+## 2020-09-21
+
+- You can custom `JSON.stringify` output with parameter `replacer` and `space`. Read more in [here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify)
+
+    ```js
+    const foo = {age: '26', name: 'Tasy'}
+    JSON.stringify(foo, ['name']); // '{"name": "Tasy"}'
+    JSON.stringify(foo, function (key, value) {
+        if(key === 'age') { 
+            return parseInt(value) + 1; 
+        } 
+        return value; 
+    }); // '{"age":27,"name":"Tasy"}'
+    ```
+
+## 2020-09-17
+
+- You need convert value from `innerText` before compare them with pure string data. Some character may make errors. 
+Ex:
+
+    ```js
+    document.getElementById('div').innetText; // "Haha "
+    document.getElementById('div').innetText === "Haha " // false
+    ```
+
+
 ## 2020-09-15
 
 - Basic Authentication for Nginx with `apache2-utils` 
