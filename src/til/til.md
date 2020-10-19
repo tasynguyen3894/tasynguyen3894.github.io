@@ -1,3 +1,7 @@
+## 2020-10-05
+
+- Read so much about range and selection in `js`
+
 ## 2020-09-22
 
 - You can use `proxy` to create proxy for another object. Read more in [here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy)
