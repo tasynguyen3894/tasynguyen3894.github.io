@@ -69,7 +69,8 @@ function watchFile() {
     browserSync.init({
         server: {
             baseDir: `./${buildDir}/`
-        }
+        },
+        port: 3300
     })
     watch([`./${buildDir}/**/*`]).on("change", browserSync.reload)
     watch([`./${sourceDir}/til/*.md`], tilBuild)

@@ -1,3 +1,7 @@
+## 2020-09-22
+
+- You can use `proxy` to create proxy for another object. Read more in [here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy)
+
 ## 2020-09-21
 
 - You can custom `JSON.stringify` output with parameter `replacer` and `space`. Read more in [here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify)
@@ -12,6 +16,8 @@
         return value; 
     }); // '{"age":27,"name":"Tasy"}'
     ```
+
+- In `PHP`, you can get information about class with `ReflectionClass `
 
 ## 2020-09-17
 
