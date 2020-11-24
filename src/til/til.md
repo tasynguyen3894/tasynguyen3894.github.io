@@ -17,6 +17,8 @@
     }); // '{"age":27,"name":"Tasy"}'
     ```
 
+- In `PHP`, you can get information about class with `ReflectionClass `
+
 ## 2020-09-17
 
 - You need convert value from `innerText` before compare them with pure string data. Some character may make errors. 
