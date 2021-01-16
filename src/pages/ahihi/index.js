@@ -10,6 +10,14 @@ module.exports = {
                 content: "Nếu nói đến game thẻ bài trong một bài viết hơi hướng hoài cổ thì chắc nhiều người sẽ nghĩ tới Yugi Oh hay là Pokemon gì đó. Nhưng thú thiệt là mấy cái đó quá xa vời với bọn con nít chợ xã bọn tôi. Cái trò mà hôm nay tôi kể là một trò sưu tầm thẻ làm từ... bao thuốc lá"
             },
             {
+                url: "that-mai-mia.html",
+                title: "Thật mai mỉa",
+                tags: [
+                    {text: "my stories", code: "my-stories"}
+                ],
+                content: "Nếu nói đến game thẻ bài trong một bài viết hơi hướng hoài cổ thì chắc nhiều người sẽ nghĩ tới Yugi Oh hay là Pokemon gì đó. Nhưng thú thiệt là mấy cái đó quá xa vời với bọn con nít chợ xã bọn tôi. Cái trò mà hôm nay tôi kể là một trò sưu tầm thẻ làm từ... bao thuốc lá"
+            },
+            {
                 url: "di-giua-thanh-pho-khong-co-em.html",
                 title: "Đi giữa thành phố không có em",
                 tags: [
