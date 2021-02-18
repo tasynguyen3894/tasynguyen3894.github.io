@@ -2,6 +2,14 @@ module.exports = {
     data: {
         posts: [
             {
+                url: "co-nhung-ngay-nhu-the.html",
+                title: "Có những ngày như thế",
+                tags: [
+                    {text: "my stories", code: "my-stories"}
+                ],
+                content: "Nếu nói đến game thẻ bài trong một bài viết hơi hướng hoài cổ thì chắc nhiều người sẽ nghĩ tới Yugi Oh hay là Pokemon gì đó. Nhưng thú thiệt là mấy cái đó quá xa vời với bọn con nít chợ xã bọn tôi. Cái trò mà hôm nay tôi kể là một trò sưu tầm thẻ làm từ... bao thuốc lá"
+            },
+            {
                 url: "phai-chang-moi-thu-roi-se-tan-phai.html",
                 title: "Phải chăng mọi thứ rồi sẽ tàn phai?",
                 tags: [
