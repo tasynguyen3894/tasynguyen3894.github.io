@@ -1,3 +1,4 @@
+require('dotenv').config();
 const { src, dest, watch, series, parallel, lastRun } = require('gulp');
 const del = require('del');
 var twig = require('gulp-twig');
@@ -8,7 +9,7 @@ const fs = require('fs');
 const ghPages = require('gulp-gh-pages')
 const browserSync = require('browser-sync').create()
 const showdown  = require('showdown');
-const converter = new showdown.Converter();
+const converter = new showdown.Converter({ tables: true });
 const buildIgnore = require("./buildignore");
 
 const buildDir = `build`;
@@ -62,6 +63,28 @@ let filterDataTwig = function (file, t) {
     if(fs.existsSync(fileDataPath)) {
         init = Object.assign(init, requireUncached(fileDataPath))
     }
+
+    if(fileName === './blog/posts') {
+        const dataPosts = requireUncached('./src/admin/data/posts.json')
+        let post = dataPosts.filter((post) => {
+            return fileDataPath.indexOf(post.id) > -1 ? true : false;
+        });
+        if(post.length > 0) {
+            post = post[0];
+            let contentMd = fs.readFileSync(`./${sourceDir}/admin/content/blog/posts/${post.id}.md`, 
+                    {encoding:'utf8', flag:'r'}); 
+            content = converter.makeHtml(contentMd);
+            init = Object.assign(init, {
+                data: {
+                    post: {
+                        ...post,
+                        content: content
+                    }
+                }
+            })
+        }
+    }
+
     return src(file.path).pipe(twig(init)).pipe(dest(convert(`./${buildDir}/` + fileName)));
 }
 
@@ -70,11 +93,17 @@ function watchFile() {
         server: {
             baseDir: `./${buildDir}/`
         },
-        port: 3300
+        port: process.env.GULP_PORT || 3300
     })
     watch([`./${buildDir}/**/*`]).on("change", browserSync.reload)
     watch([`./${sourceDir}/til/*.md`], tilBuild)
-    watch([`./${sourceDir}/pages/**/*.twig`, `./${sourceDir}/**/*.html`, `./${sourceDir}/pages/**/*.js`], twigPageCompile)
+    watch([
+        `./${sourceDir}/pages/**/*.twig`, 
+        `./${sourceDir}/**/*.html`, 
+        `./${sourceDir}/pages/**/*.js`,
+        `./${sourceDir}/admin/content/**/*.md`,
+        `./${sourceDir}/admin/data/posts.json`
+    ], twigPageCompile)
     watch([`./${sourceDir}/${assetsDir}/scss/**/*.scss`], sassAssetComplile)
     watch([`./${sourceDir}/${assetsDir}/js/**/*.js`], jsAssetCopy)
 }

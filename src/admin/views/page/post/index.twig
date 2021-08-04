@@ -1,0 +1,15 @@
+{% extends "layouts/main.twig" %}
+
+{% block content %}
+<div>
+    <h1>Post</h1>
+    <div><a href="/posts/create">Create</a></div>
+    <div>
+        {% for post in posts %}
+        <div class="blog-item">
+            <a href="/posts/edit/{{ post.id }}">{{ post.title }}</a>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
