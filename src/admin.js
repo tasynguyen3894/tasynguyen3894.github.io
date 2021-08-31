@@ -11,6 +11,8 @@ app.set('twig options', {
     strict_variables: false
 });
 
+app.use('/simplemde', express.static(__dirname + '/../node_modules/simplemde/dist/'));
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
     extended: true

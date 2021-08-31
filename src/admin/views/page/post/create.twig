@@ -14,11 +14,15 @@
         </div>
         <div>
             <label for="content">Content</label><br>
-            <textarea name="content" style="width: 100%" rows="30"></textarea>
+            <textarea name="content" id="content" style="width: 100%" rows="30"></textarea>
         </div>
         <div>
             <button type="submit">Create</button>
         </div>
     </form>
 </div>
+<script src="/simplemde/simplemde.min.js"></script>
+<script>
+    var simplemde = new SimpleMDE({ element: document.getElementById("content") });
+</script>
 {% endblock %}
