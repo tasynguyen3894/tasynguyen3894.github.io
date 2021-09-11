@@ -9,16 +9,21 @@
             <input type="text" name="title" value="{{ post.title }}">
         </div>
         <div>
+            <label for="published_at">Published at</label>
+            <input type="date" name="published_at" value="{{ post.published_at }}">
+        </div>
+        <div>
             <label for="content">Content</label><br>
             <textarea name="content" id="content" style="width: 100%" rows="30">{{ post.content }}</textarea>
+        </div>
+        <div>
+            <label for="published_at">Publish</label>
+            <input type="checkbox" {{ post.status ? 'checked' : '' }} name="status" value="1">
         </div>
         <div>
             <button type="submit">Update</button>
         </div>
     </form>
 </div>
-<script src="/simplemde/simplemde.min.js"></script>
-<script>
-    var simplemde = new SimpleMDE({ element: document.getElementById("content") });
-</script>
+{% include 'layouts/script_create.twig' %}
 {% endblock %}

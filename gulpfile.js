@@ -63,26 +63,34 @@ let filterDataTwig = function (file, t) {
     if(fs.existsSync(fileDataPath)) {
         init = Object.assign(init, requireUncached(fileDataPath))
     }
-
-    if(fileName === './blog/posts') {
+    if(fileName === './blog/posts' || fileName === './blog') {
         const dataPosts = requireUncached('./src/admin/data/posts.json')
-        let post = dataPosts.filter((post) => {
-            return fileDataPath.indexOf(post.id) > -1 ? true : false;
-        });
-        if(post.length > 0) {
-            post = post[0];
-            let contentMd = fs.readFileSync(`./${sourceDir}/admin/content/blog/posts/${post.id}.md`, 
-                    {encoding:'utf8', flag:'r'}); 
-            content = converter.makeHtml(contentMd);
+        if(fileName === './blog/posts') {
+            let post = dataPosts.filter((post) => {
+                return fileDataPath.indexOf(post.id) > -1 ? true : false;
+            });
+            if(post.length > 0) {
+                post = post[0];
+                let contentMd = fs.readFileSync(`./${sourceDir}/admin/content/blog/posts/${post.id}.md`, 
+                        {encoding:'utf8', flag:'r'}); 
+                content = converter.makeHtml(contentMd);
+                init = Object.assign(init, {
+                    data: {
+                        post: {
+                            ...post,
+                            content: content
+                        }
+                    }
+                })
+            }
+        } else {
             init = Object.assign(init, {
                 data: {
-                    post: {
-                        ...post,
-                        content: content
-                    }
+                    posts: dataPosts
                 }
             })
         }
+        
     }
 
     return src(file.path).pipe(twig(init)).pipe(dest(convert(`./${buildDir}/` + fileName)));

@@ -18,7 +18,7 @@ route.get('/create', (req, res) => {
 route.post('/create', (req, res) => {
     let rawdata = fs.readFileSync(__dirname + '/data/posts.json');
     let posts = JSON.parse(rawdata);
-    let { content = '', title = '', id = '' } = req.body;
+    let { content = '', title = '', id = '', published_at = null, status = false } = req.body;
     id = id.split(' ').join('-');
     let post = posts.filter((post) => {
         return post.id === id;
@@ -30,8 +30,9 @@ route.post('/create', (req, res) => {
     } else {
         let post = {
             id: id,
-            content: content,
             title: title,
+            published_at: published_at,
+            status: status ? true : false,
             tags: [
                 {text: "frontend", code: "frontend"}
             ],
@@ -39,7 +40,7 @@ route.post('/create', (req, res) => {
         fs.writeFileSync(__dirname + `/content/blog/posts/${post.id}.md`, content); 
         posts.push(post);
         fs.writeFileSync(__dirname + `/data/posts.json`, JSON.stringify(posts)); 
-        fs.writeFileSync(__dirname + `/../pages/blog/posts/${post.id}.twig`, '{% extends "shared/blog/post_layout.twig" %}'); 
+        fs.writeFileSync(__dirname + `/../pages/blog/posts/${post.id}.twig`, '{% extends "shared/blog/short_post_layout.twig" %}'); 
     }
     res.redirect('/posts')
 });
@@ -72,18 +73,23 @@ route.post('/edit/:id', (req, res) => {
     })
     post = post.length > 0 ? post[0] : null;
 
-    const { content = '', title = '' } = req.body;
+    const { content = '', title = '', published_at = null, status = false } = req.body;
     if(post) {
         fs.writeFileSync(__dirname + `/content/blog/posts/${post.id}.md`, content); 
-        post.content = content;
+        
         posts = posts.map((post) => {
             if(post.id === id) {
+                delete post.content;
+                post.status = status ? true : false;
                 post.title = title;
+                post.published_at = published_at;
             }
             return post;
         });
         fs.writeFileSync(__dirname + `/data/posts.json`, JSON.stringify(posts)); 
+        fs.writeFileSync(__dirname + `/../pages/blog/posts/${post.id}.twig`, '{% extends "shared/blog/short_post_layout.twig" %}'); 
         post.title = title;
+        post.content = content;
     }
     res.render('page/post/edit', {
         post: post
