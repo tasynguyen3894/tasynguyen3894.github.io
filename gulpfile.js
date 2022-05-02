@@ -2,7 +2,7 @@ require('dotenv').config();
 const { src, dest, watch, series, parallel, lastRun } = require('gulp');
 const del = require('del');
 var twig = require('gulp-twig');
-var sass = require('gulp-sass');
+var sass = require('gulp-sass')(require('sass'));
 var tap = require('gulp-tap');
 const path = require('path');
 const fs = require('fs');
