@@ -1,0 +1,33 @@
+{% extends "layouts/main.twig" %}
+
+{% block content %}
+<div>
+    <h1>Post create</h1>
+    <form class="form-post" action="" method="post">
+        <div>
+            <label for="id">Id</label>
+            <input type="text" id="id" name="id" value=""> <button onclick="generateId()" type="button">Generate from title</button>
+        </div>
+        <div>
+            <label for="title">Title</label>
+            <input type="text" id="title" name="title" value="">
+        </div>
+        <div>
+            <label for="published_at">Published at</label>
+            <input type="date" name="published_at" value="">
+        </div>
+        <div>
+            <label for="content">Content</label><br>
+            <textarea name="content" id="content" style="width: 100%" rows="30"></textarea>
+        </div>
+        <div>
+            <label for="published_at">Publish</label>
+            <input type="checkbox" name="status" value="1">
+        </div>
+        <div>
+            <button type="submit">Create</button>
+        </div>
+    </form>
+</div>
+{% include 'layouts/script_create.twig' %}
+{% endblock %}

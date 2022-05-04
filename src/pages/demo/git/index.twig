@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Git command builder</title>
+</head>
+<body>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .container {
+            width: 300px;
+            margin: 0px auto;
+        }
+
+        .attr {
+            background: #333;
+            color: #FFF;
+            display: inline-block;
+            padding: 3px 5px;
+            cursor: pointer;
+            border-radius: 3px;
+            font-size: 12px;
+        }
+
+        .log-format-input {
+            padding: 5px 10px;
+            border: 1px solid #ccc;
+            border-radius: 2px;
+        }
+
+        .log-format-input:focus {
+            border-color: #333;
+        }
+
+        #cmd {
+            background: #ccc;
+            padding: 5px 10px;
+            border: 1px solid #ccc;
+            color: #333;
+            font-size: 12px;
+        }
+
+        .attr-btn button {
+            padding: 0px;
+            margin: 2px;
+        }
+
+        .modal {
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        .modal > label {
+            font-weight: bold;
+            padding: 10px 10px;
+            display: inline-block;
+            border-bottom: 1px solid #ccc;
+            width: 100%;
+            margin-bottom: 5px;
+            box-sizing: border-box;
+        }
+
+        .modal > label > span {
+            float: right;
+        }
+
+        .modal > label > span::before {
+            content: '';
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border-right: 2px solid #333;
+            border-bottom: 2px solid #333;
+            transform: rotate(45deg);
+            transition: 0.5s;
+            cursor: pointer;
+        }
+
+        .modal > label > span.active::before {
+            transform: rotate(-45deg);
+        }
+
+        .modal > div {
+            padding: 5px;
+        }
+
+        .modal > div.form > div {
+            font-size: 13px;
+            margin: 10px 0px;
+            box-sizing: border-box;
+        }
+
+        .modal > div.form > div label {
+            display: block;
+            margin-bottom: 3px;
+        }
+
+        .modal > div.form > div  input {
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .invisible {
+            display: none;
+            transition: 0.5s;
+        }
+
+        #body-attr {
+            font-size: 14px;
+        }
+
+        #body-attr > div {
+            overflow: hidden;
+            margin-bottom: 7px;
+            border-bottom: 1px solid #ccc;
+            padding: 7px 0px;
+        }
+
+        #body-attr > div > input[type=checkbox] {
+            float: left;
+        }
+
+        #body-attr > div > span {
+            float: left;
+            width: calc(100% - 35px);
+            margin-left: 5px;
+        }
+
+        .cmd {
+            position: sticky;
+            position: -webkit-sticky;
+            top: 0;
+            z-index: 1000;
+            margin: 10px 0px;
+            background: #FFF;
+        }
+
+        .cmd button {
+            background: #333;
+            border: 1px solid #333;
+            color: #FFF;
+            padding: 5px 10px;
+            display: block;
+            width: 100%;
+            margin-bottom: 5px;
+            cursor: pointer;
+        }
+
+        .footer {
+            padding: 5px;
+            text-align: center;
+            border-top: 1px solid #ccc;
+            margin-top: 10px;
+        }
+
+        .footer a {
+            color: #699940;
+        }
+    </style>
+    <div class="container">
+        <div class="cmd">
+            <button onclick="generate(event)">Generate</button>
+            <div id="cmd">git log</div>
+        </div>
+        <div class="modal">
+            <label for="">
+                Attribute
+                <span class="active" onclick="toggeBody(event, 'body-attr')"></span>
+            </label>
+            <div id="body-attr" class="invisible">
+                <div><input name="git-attribute" type="checkbox" value="-p"> <span>Show the patch introduced with each commit</span></div>
+                <div><input name="git-attribute" type="checkbox" value="--stat"> <span>Show statistics for files modified in each commit</span></div>
+                <div><input name="git-attribute" type="checkbox" value="--shortstat"><span>Display only the changed/insertions/deletions line from the --stat command</span></div>
+                <div><input name="git-attribute" type="checkbox" value="--name-only"><span>Show the list of files modified after the commit information</span></div>
+                <div><input name="git-attribute" type="checkbox" value="--name-status"><span>Show the list of files affected with added/modified/deleted information as well</span></div>
+                <div><input name="git-attribute" type="checkbox" value="--abbrev-commit"><span>Show only the first few characters of the SHA-1 checksum instead of all 40</span></div>
+                <div><input name="git-attribute" type="checkbox" value="--relative-date"><span>Display the date in a relative format (for example, “2 weeks ago”) instead of using the full date format</span></div>
+                <div><input name="git-attribute" type="checkbox" value="--graph"><span>Display an ASCII graph of the branch and merge history beside the log output</span></div>
+                <div><input name="git-attribute" type="checkbox" value="--reverse"><span>Reverse</div>
+            </div>
+        </div>
+        <div class="modal">
+            <label for="">Format <span class="active" onclick="toggeBody(event, 'setting-format')"></span></label>
+            <div id="setting-format" class="invisible">
+                <div contenteditable="true" class="log-format-input" id="format"></div>
+                <div class="attr-btn">
+                    <button onclick="addFormat(event)"><span data-symbol="%H" contenteditable="false" class="attr">Commit hash</span></button>
+                    <button onclick="addFormat(event)"><span data-symbol="%h" contenteditable="false" class="attr">Abbreviated commit hash</span></button>
+                    <button onclick="addFormat(event)"><span data-symbol="%T" contenteditable="false" class="attr">Tree hash</span></button>
+                    <button onclick="addFormat(event)"><span data-symbol="%t" contenteditable="false" class="attr">Abbreviated tree hash</span></button>
+                    <button onclick="addFormat(event)"><span data-symbol="%P" contenteditable="false" class="attr">Parent hashes</span></button>
+                    <button onclick="addFormat(event)"><span data-symbol="%p" contenteditable="false" class="attr">Abbreviated parent hashes</span></button>
+                    <button onclick="addFormat(event)"><span data-symbol="%an" contenteditable="false" class="attr">Author name</span></button>
+                    <button onclick="addFormat(event)"><span data-symbol="%ae" contenteditable="false" class="attr">Author email</span></button>
+                    <button onclick="addFormat(event)"><span data-symbol="%ad" contenteditable="false" class="attr">Author date</span></button>
+                    <button onclick="addFormat(event)"><span data-symbol="%ar" contenteditable="false" class="attr">Author date, relative</span></button>
+                    <button onclick="addFormat(event)"><span data-symbol="%cn" contenteditable="false" class="attr">Committer name</span></button>
+                    <button onclick="addFormat(event)"><span data-symbol="%ce" contenteditable="false" class="attr">Committer email</span></button>
+                    <button onclick="addFormat(event)"><span data-symbol="%cd" contenteditable="false" class="attr">Committer date</span></button>
+                    <button onclick="addFormat(event)"><span data-symbol="%cr" contenteditable="false" class="attr">Committer date, relative</span></button>
+                    <button onclick="addFormat(event)"><span data-symbol="%s" contenteditable="false" class="attr">Subject</span></button>
+                </div>
+            </div>
+        </div>
+        <div class="modal">
+            <label for="">Filter <span class="active" onclick="toggeBody(event, 'filter')"></span></label>
+            <div id="filter" class="form invisible">
+                <div>
+                    <label for="">Branch name</label>
+                    <input type="text" id="branch_name">
+                </div>
+                <div>
+                    <label for="">Author</label>
+                    <input type="text" data-type="filter" data-symbol="--author">
+                </div>
+                <div>
+                    <label for="">Grep</label>
+                    <input type="text" data-type="filter" data-symbol="--grep">
+                </div>
+                <div>
+                    <label for="">Committer</label>
+                    <input type="text" data-type="filter" data-symbol="--committer">
+                </div>
+                <div>
+                    <label for="">Adding or removing code matching the string</label>
+                    <input type="text" data-type="filter" data-symbol="-S">
+                </div>
+                <div>
+                    <label for="">Limit log</label>
+                    <input min="1" type="number" id="limit">
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            Made by <a href="https://sangnguyen.dev">Sang Nguyen</a>
+        </div>
+    </div>
+    <script>
+        let attrTags = document.getElementsByClassName('attr');
+
+        function addFormat(e) {
+            let node = e.target.cloneNode(true)
+            insertTextAtCursor(node);
+        }
+        
+        function insertTextAtCursor(node) {
+            document.getElementById('format').focus();
+            var sel, range, html;
+            sel = window.getSelection();
+            range = sel.getRangeAt(0);
+            range.deleteContents();
+            // var textNode = document.createTextNode(node);
+            let textNode = node;
+            range.insertNode(textNode);
+            range.setStartAfter(textNode);
+            sel.removeAllRanges();
+            sel.addRange(range);
+        }
+
+        function toggeBody(e, id) {
+            e.target.classList.toggle('active')
+            document.getElementById(id).classList.toggle('invisible')
+        }
+
+        function generate(e) {
+            let attr = document.querySelectorAll("input[type=checkbox][name=git-attribute]:checked")
+            let attrValue = [];
+            for(let i = 0; i < attr.length; i++) {
+                attrValue.push(attr[i].value);
+            }
+
+            let filter = document.querySelectorAll("input[data-type=filter]")
+            let filterValue = [];
+            for(let i = 0; i < filter.length; i++) {
+                if(filter[i].value !== "") {
+                    filterValue.push(`${filter[i].getAttribute('data-symbol')}="${filter[i].value}"`);
+                }
+            }
+
+            let htmlFormat = document.getElementById('format').innerHTML;
+            let format = htmlFormat.replace(/<span (.*?)>(.*?)<\/span>/g, function (value) {
+                let dom = document.createElement('div');
+                dom.innerHTML = value;
+                return dom.firstChild.getAttribute('data-symbol');
+            }).trim()
+
+            if(format !== "") {
+                format = `--format="${format}"`
+            }
+
+            let limit = "";
+            if(document.getElementById('limit').value > 0) {
+                limit = `-n ${document.getElementById('limit').value}`;
+            }
+
+            let branchName = document.getElementById('branch_name').value;
+            document.getElementById('cmd').innerHTML = `git log ${branchName} ${attrValue.join(' ')} ${filterValue.join(' ')} ${format} ${limit}`;
+        }
+    </script>
+</body>
+</html>

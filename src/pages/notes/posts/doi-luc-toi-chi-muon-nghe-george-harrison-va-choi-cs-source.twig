@@ -1,0 +1,62 @@
+{% extends "shared/note_layout.twig" %}
+
+{% block content %}
+<h1>Đôi lúc tôi chỉ muốn nghe George Harrison và chơi CS Source</h1>
+<div class="home-content">
+<div class="blog-detail">
+<div class="blog-detail-date">Đăng lúc 18/05/2020</div>
+<div class="tags">
+    <span><a href="tags.html?tag=my-stories">my stories</a></span>
+</div>
+    <p>Đôi lúc có những thứ hai làm cho người ta lười biếng tới khó tả, thứ hai hôm nay là một thứ hai như thế. Khởi đầu một ngày làm việc như thế thật chẳng tốt tí nào nhưng đôi khi có mấy thứ lặt vặt trong đời mà con người ta không thể kiểm soát được.</p>
+    <p>Là một trong những người đầu tiên bước vào văn phòng ban sáng, nuốt vội bửa sáng và chạy một số thứ trên máy lên tôi ngồi yên dăm phút vô định rồi mở nhạc George Harrison lên và nghe. Điều duy nhất trong hy vọng lúc đó là có thể nghe nhạc một cách thoải mái một chút để phần nào đó giảm bớt sự ì ạch khó đỡ này. May mắn là không ai bật nhạc hay gì đó nên cũng khá ổn. Mà nhắc về mấy cái này tôi nhớ về đợt sắp nghĩ Tết, sáng nào cũng có một người nào đó trong công ty vào bật nhạc sến bằng điện thoại hay loa ngoài lên. Dạo đó đến giờ tôi vẫn hay thắc mắc là tại sao không phải tai nghe mà là loa nhỉ?. Dẫu rằng mình không vui vẻ lắm nhưng cũng chẳng sao, đơn giản vì mình cũng chẳng thể làm gì được. Cuộc sống có quá nhiều thứ "out of control" rồi nên thêm một vài cũng chẳng nhiều nhặng gì. Những ngày như thế này chỉ muốn về nhà bật một lô mấy bài của George Harrison lên và mở CS Source lên chơi. Không biết cái game đó có gì hay ho nhưng mà tôi có thẻ bắn với máy từ ngày này qua tháng nọ. Cũng chỉnh chế độ năm đấu năm đồ, đôi lúc bắt chước đấu giải sau mười lăm round là đổi bên chơi lại từ đầu. Lâu lâu thì mod một mớ súng vào rồi tưởng tượng mình đang chơi trò khá, dù cho tôi có thể mua ngay trò gốc và chơi.</p>
+    <p>Đương nhiên, muốn là muốn thế thôi. Bụng đói cần cơm để đổ vào và một cái đầu mụ mị cũng cần... bia để nó mụ mị hơn nửa. Hẹn George Harrison đêm nay nhé.</p>
+<div class="blog-detail-comments">
+    <!-- <div id="show-comment-box">
+        Comment
+    </div> -->
+    <div id="post-comment">
+        <div id="disqus_thread"></div>
+        <script>
+        /**
+        *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+        *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+        /*
+        var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        };
+        */
+        (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = 'https://https-tasynguyen3894-github-io.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+</div>
+<div class="blog-break-line"></div>
+</div>
+</div>
+{% endblock %}
+
+{% block title %}Đôi lúc tôi chỉ muốn nghe George Harrison và chơi CS Source{% endblock %}
+
+{% block menu %}<div class="navbar-fixed home-bg">{% endblock %}
+
+{% block quotes %}
+<div class="navbar-quotes-content">
+    Love me while you can <br /> Before I'm a dead old man.
+</div>
+<div class="navbar-quotes-speaker">
+    George Harrison
+</div>
+{% endblock %}
+
+{% block meta %}
+<meta name="description" content="Đôi lúc tôi chỉ muốn nghe George Harrison và chơi CS Source">
+<meta name="keywords" content="Javascipt, jQuery, html, css, my stories">
+<meta name="author" content="Tasy Nguyen">
+{% endblock %}

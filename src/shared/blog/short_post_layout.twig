@@ -1,0 +1,25 @@
+{% extends "shared/short_layout.twig" %}
+
+{% block content %}
+    {% if post.status %}
+        <h1>{{ post.title }}</h1>
+        <div class="">
+            <div class="blog-detail-date" style="display: none;">Đăng lúc {{ post.published_at }}</div>
+            <div>
+                {{ post.content }}
+            </div>
+            <div>
+                <a href="../index.html">Back</a>
+            </div>
+        </div>
+    {% else %}
+        <div class="">
+            <p>Content not found</p>
+            <div>
+                <a href="../index.html">Back</a>
+            </div>
+        </div>
+    {%  endif %}
+{% endblock %}
+
+{% block title %}Short{% endblock %}

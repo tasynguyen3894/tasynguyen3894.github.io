@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            padding: 0px;
+            margin: 0px;
+            font-size: 16px;
+            line-height: 22px;
+        }
+
+        body a {
+            color: #333;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .blog-list {
+            /* padding: 10px; */
+        }
+
+        .blog-list .blog-item h3 a {
+            font-size: 16px;
+            text-decoration: underline;
+            color: #333;
+            font-weight: 200;
+            margin-bottom: 0px;
+        }
+
+        .quotes {
+            white-space: pre; font-style: italic; text-align: center; background: #ccc; padding: 5px;
+        }
+
+        body h1 {
+            font-size: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0px auto;
+        }
+
+        @media screen and (max-width: 767px) {
+            body {
+                font-size: 18px;
+                line-height: 24px;
+            }
+            .container {
+                max-width: unset;
+                width: 100%;
+                padding: 10px;
+                box-sizing: border-box;
+            } 
+        }
+
+    </style>
+    <div class="container">
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>

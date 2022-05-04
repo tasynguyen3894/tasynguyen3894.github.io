@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <title>{% block title %}{% endblock %}</title>
+</head>
+    <body class="{% block class_body %}{% endblock %}">
+        {% block content %}{% endblock %}
+        <footer>
+            <div class="right"><a href="http://sangnguyen.dev">sangnguyen.dev</a> &copy 2022</div>
+        </footer>
+    </body>
+</html>

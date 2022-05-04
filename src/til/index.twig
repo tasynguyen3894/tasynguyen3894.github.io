@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sangnguyen.dev | Today I learned</title>
+</head>
+<body>
+    <style>
+        .main {
+            max-width: 700px;
+            margin: 20px auto;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .main .header {
+            border-bottom: 2px solid rgb(50, 75, 97);
+            margin-bottom: 5px;
+        }
+
+        .main .footer {
+            margin-top: 5px;
+            border-top: 1px solid rgb(50, 75, 97);
+            padding: 5px 0px;
+        }
+
+        .main .footer a {
+            color: rgb(50, 75, 97);
+        }
+    </style>
+    <div class="main">
+        <h1 class="header">Today, I learned</h1>
+        <div>
+            {{ content }}
+        </div>
+        <div class="footer">
+            Simple pages by <a href="https://sangnguyen.dev">Sang Nguyen</a>
+        </div>
+    </div>
+</body>
+</html>

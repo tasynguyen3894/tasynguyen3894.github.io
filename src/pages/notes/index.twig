@@ -1,0 +1,34 @@
+{% extends "shared/note_layout.twig" %}
+
+{% block content %}
+<h1>Blog</h1>
+<div class="home-content">
+    <div class="blog-list">
+        {% for post in posts %}
+        <div class="blog-item">
+            <h3><a href="posts/{{ post.url }}">{{ post.title }}</a></h3>
+            <div class="blog-type">
+                {% for tag in post.tags %}
+                <span><a href="tags.html?tag={{ tag.code }}">{{ tag.text }}</a></span>
+                {% endfor %}
+            </div>
+            <p>{{ post.content }}</p>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
+
+{% block title %}Home{% endblock %}
+
+{% block menu %}<div class="navbar-fixed home-bg">{% endblock %}
+
+{% block quotes %}
+<div class="navbar-quotes-content">
+    Live as if you were to die tomorrow. Learn as if you were to live forever
+</div>
+<div class="navbar-quotes-speaker">
+    Mahatma Gandhi
+</div>
+{% endblock %}
+

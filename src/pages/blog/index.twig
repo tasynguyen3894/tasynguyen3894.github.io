@@ -1,0 +1,18 @@
+{% extends "shared/short_layout.twig" %}
+
+{% block content %}
+    <h1>Viết nhãm xíu</h1>
+    <div class="">
+        <div class="blog-list">
+            {% for post in posts %}
+                {% if post.status %}
+                <div class="blog-item">
+                    <h3><a href="posts/{{ post.id }}.html">{{ post.title }}</a></h3>
+                </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
+
+{% block title %}Short{% endblock %}
