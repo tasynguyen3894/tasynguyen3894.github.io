@@ -1,84 +1,97 @@
 body {
   margin: 0px;
-  font-family: Raleway,sans-serif;
-  background: url(https://images.unsplash.com/photo-1535952548450-d7447587e733?ixlib=rb-1.2.1&auto=format&fit=crop&w=1651&q=30); }
+  font-family: Raleway, sans-serif;
+}
 
 body.no-background {
-  background: none; }
-
+  background: none;
+}
 body .container {
   width: 650px;
-  margin: 0px auto; }
-
+  margin: 0px auto;
+}
 body .main-page, body .code-page {
   margin-top: 90px;
   padding: 15px 20px 40px 20px;
-  line-height: 160%; }
-  body .main-page a, body .code-page a {
-    color: #333; }
-
+  line-height: 160%;
+}
+body .main-page a, body .code-page a {
+  color: #333;
+}
 body .code-page {
   margin-top: 50px;
   width: 800px;
-  box-sizing: border-box; }
-  body .code-page ul {
-    padding: 0px;
-    margin: 0px;
-    margin-top: 35px;
-    list-style: none;
-    overflow: hidden; }
-    body .code-page ul li {
-      background: rgba(255, 255, 255, 0.3);
-      width: 48%;
-      float: left;
-      margin-left: 10px;
-      box-sizing: border-box;
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      padding: 10px;
-      margin-bottom: 10px; }
-      body .code-page ul li:first-child {
-        margin-left: 0px; }
-      body .code-page ul li:hover {
-        border: 1px solid #ccc; }
-      body .code-page ul li h3 {
-        font-size: 16px;
-        margin: 0px; }
-      body .code-page ul li a {
-        color: #000; }
-      body .code-page ul li p {
-        margin: 0px;
-        font-size: 16px; }
-
+  box-sizing: border-box;
+}
+body .code-page ul {
+  padding: 0px;
+  margin: 0px;
+  margin-top: 35px;
+  list-style: none;
+  overflow: hidden;
+}
+body .code-page ul li {
+  background: rgba(255, 255, 255, 0.3);
+  width: 48%;
+  float: left;
+  margin-left: 10px;
+  box-sizing: border-box;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 10px;
+  margin-bottom: 10px;
+}
+body .code-page ul li:first-child {
+  margin-left: 0px;
+}
+body .code-page ul li:hover {
+  border: 1px solid #ccc;
+}
+body .code-page ul li h3 {
+  font-size: 16px;
+  margin: 0px;
+}
+body .code-page ul li a {
+  color: #000;
+}
+body .code-page ul li p {
+  margin: 0px;
+  font-size: 16px;
+}
 body .text-content {
   text-align: center;
   margin-top: 50px;
   background: rgba(229, 229, 229, 0.3);
-  padding: 15px 20px 40px 20px; }
-  body .text-content h5, body .text-content p {
-    text-align: left; }
-
+  padding: 15px 20px 40px 20px;
+}
+body .text-content h5, body .text-content p {
+  text-align: left;
+}
 body header {
-  background: rgba(0, 0, 0, 0.55); }
-  body header ul {
-    margin: 0px;
-    padding: 0px;
-    list-style: none; }
-    body header ul li {
-      display: inline-block;
-      padding: 25px 35px; }
-      body header ul li a {
-        color: #D3D5D9;
-        text-transform: uppercase;
-        font-weight: 600;
-        font-size: 13px;
-        letter-spacing: 1px;
-        opacity: .87;
-        text-decoration: none;
-        -webkit-transition: all .15s ease-in 20ms;
-        transition: all .15s ease-in 20ms; }
-        body header ul li a:hover {
-          color: #FFF; }
-
+  background: rgba(0, 0, 0, 0.55);
+}
+body header ul {
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
+}
+body header ul li {
+  display: inline-block;
+  padding: 25px 35px;
+}
+body header ul li a {
+  color: #D3D5D9;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 1px;
+  opacity: 0.87;
+  text-decoration: none;
+  -webkit-transition: all 0.15s ease-in 20ms;
+  transition: all 0.15s ease-in 20ms;
+}
+body header ul li a:hover {
+  color: #FFF;
+}
 body footer {
   position: fixed;
   bottom: 0px;
@@ -87,22 +100,30 @@ body footer {
   overflow: hidden;
   box-sizing: border-box;
   width: 100%;
-  font-size: 13px; }
-  body footer a {
-    color: #FFF; }
-  body footer .left {
-    float: left; }
-  body footer .right {
-    float: right; }
+  font-size: 13px;
+}
+body footer a {
+  color: #FFF;
+}
+body footer .left {
+  float: left;
+}
+body footer .right {
+  float: right;
+}
 
 @media screen and (max-width: 767px) {
   body .container {
-    width: 100%; }
+    width: 100%;
+  }
   body .main-page {
     width: 100%;
     box-sizing: border-box;
     margin-top: 90px;
     padding: 15px 20px 40px 20px;
-    line-height: 160%; }
-    body .main-page a {
-      color: #333; } }
+    line-height: 160%;
+  }
+  body .main-page a {
+    color: #333;
+  }
+}
