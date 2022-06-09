@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Medium Plugin - Brings better experience to Medium readers.</title>
+</head>
+<body>
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      margin: 0px;
+    }
+    
+    .header h1 {
+      font-size: 3.7rem;
+      color: #FFF;
+      display: inline-block;
+    }
+
+    @media only screen and (max-width: 600px) {
+      body {
+        padding: 15px;
+      }
+      
+      .header h1 {
+        font-size: 3rem;
+      }
+
+      .header .header__intro {
+        padding: 20px;
+      }
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 50px;
+      background: #333;
+      padding-bottom: 50px;
+    }
+
+    .header .header__intro {
+      font-size: 20px;
+      color: rgb(227 226 226);
+    }
+
+    .header .header__install {
+      margin-top: 50px;
+    }
+
+    .header .header__install a {
+      border: 2px solid #FFF;
+      padding: 10px 20px;
+      text-decoration: none;
+      background: #FFF;
+      color: #333;
+      font-weight: 700;
+      display: inline-block;
+    }
+
+    .header .header__install a:hover {
+      background: #333;
+      color: #FFF;
+    }
+
+    .feature {
+      overflow: hidden;
+      width: 900px;
+      margin: 100px auto;
+    }
+
+    .features {
+      margin: 0px auto;
+      padding: 20px 0px;
+    }
+
+    .feature__left {
+      float: left;
+      width: 50%;
+      padding: 0px;
+    }
+
+    .feature__right {
+      float: right;
+      width: 50%;
+      padding: 0px;
+    }
+
+    .feature__info {
+      text-align: center;
+    }
+
+    .feature__info h2 {
+      display: inline-block;
+      font-size: 2rem;
+    }
+
+    .feature__info img {
+      width: 100%;
+    }
+
+    .feature__content {
+      text-align: left;
+      width: 400px;
+      margin: 0px auto;
+    }
+
+    .story {
+      background-color: #f4f4f4;
+      text-align: center;
+    }
+
+    .story h2 {
+      display: inline-block;
+    }
+
+    footer {
+      background: #333;
+      color: #FFF;
+      padding: 50px;
+      font-size: 13px;
+      text-align: center;
+    }
+
+    footer a {
+      color: #ff7d2e;
+      text-decoration: none;
+    }
+  </style>
+  <div>
+    <section class="header">
+      <h1>Medium Plugin</h1>
+      <div class="header__intro">
+        Brings better experience to <span style="color: #FFF; font-weight: 700">Medium</span> readers.
+      </div>
+      <div class="header__install">
+        <a href="https://chrome.google.com/webstore/detail/medium-plugin/oipiaoijoipncobppeichegfnnbcbeoa" target="_blank">Install</a>
+      </div>
+    </section>
+    <section class="features">
+      <div class="feature">
+        <div class="feature__info feature__left">
+          <div class="feature__content">
+            <h2>Link to paragraph</h2>
+            <div>
+              Just need one click to get a link to Any paragraph
+            </div>
+          </div>
+        </div>
+        <div class="feature__info feature__right">
+          <img src="/assets/files/medium/copy_link.png" alt="">
+        </div>
+      </div>
+
+      <div class="feature">
+        <div class="feature__info feature__right">
+          <div class="feature__content">
+            <h2>Copy Code</h2>
+            <div>
+              Only one click to copy code in code block
+            </div>
+          </div>
+        </div>
+        <div class="feature__info feature__left">
+          <img src="/assets/files/medium/copy_code.png" alt="">
+        </div>
+      </div>
+
+      <div class="feature">
+        <div class="feature__info feature__left">
+          <div class="feature__content">
+            <h2>Table of Content</h2>
+            <div>
+              Overview article easier with <span>Table of Content</span> sidebar
+            </div>
+          </div>
+        </div>
+        <div class="feature__info feature__right">
+          <img src="/assets/files/medium/table_of_content.png" alt="">
+        </div>
+      </div>
+    </section>
+    <!-- <section class="story">
+      <div>
+        <h2>Why I made it?</h2>
+      </div>
+    </section> -->
+    <footer>
+      Developed and maintained by <a href="https://sangnguyen.dev">Sang Nguyen</a>
+    </footer>
+  </div>
+</body>
+</html>
