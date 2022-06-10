@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="/assets/files/medium/16.png" rel="icon" type="image/x-icon">
   <title>Medium Plugin - Brings better experience to Medium readers.</title>
 </head>
 <body>
@@ -19,23 +20,8 @@
       display: inline-block;
     }
 
-    @media only screen and (max-width: 600px) {
-      body {
-        padding: 15px;
-      }
-      
-      .header h1 {
-        font-size: 3rem;
-      }
-
-      .header .header__intro {
-        padding: 20px;
-      }
-    }
-
     .header {
       text-align: center;
-      margin-bottom: 50px;
       background: #333;
       padding-bottom: 50px;
     }
@@ -93,7 +79,7 @@
 
     .feature__info h2 {
       display: inline-block;
-      font-size: 2rem;
+      font-size: 22px;
     }
 
     .feature__info img {
@@ -104,15 +90,24 @@
       text-align: left;
       width: 400px;
       margin: 0px auto;
+      font-size: 15px;
     }
 
     .story {
       background-color: #f4f4f4;
       text-align: center;
+      padding: 50px 0px;
     }
 
     .story h2 {
       display: inline-block;
+      font-size: 24px;
+      margin-top: 0px;
+    }
+
+    .story__content {
+      line-height: 25px;
+      font-style: italic;
     }
 
     footer {
@@ -127,6 +122,74 @@
       color: #ff7d2e;
       text-decoration: none;
     }
+
+    .features_head {
+      text-align: center;
+      font-size: 24px;
+      margin-top: 45px;
+      text-decoration: underline;
+    }
+
+    @media only screen and (max-width: 600px) {
+      .header h1 {
+        font-size: 3rem;
+      }
+
+      .header .header__intro {
+        padding: 20px;
+      }
+
+      .feature {
+        width: 100%;
+        margin: 0px;
+      }
+
+      .feature .feature__info {
+        width: 100%;
+        float: none;
+      }
+
+      .feature .feature__content {
+        width: 100%;
+        padding: 15px;
+        box-sizing: border-box;
+        text-align: center;
+      }
+
+      .feature__info img {
+        width: calc(100% - 25px);
+      }
+
+      .feature__info h2 {
+        display: inline-block;
+        font-size: 22px;
+        margin-bottom: 10px;
+      }
+
+      .features_head {
+        font-size: 24px;
+        margin-top: 20px;
+        text-decoration: none;
+      }
+
+      .feature::after {
+        content: '';
+        display: block;
+        width: 100px;
+        border-bottom: 1px solid #ccc;
+        height: 1px;
+        clear: both;
+        margin: 20px auto;
+      }
+
+      .feature:last-child::after {
+        display: none;
+      }
+
+      .story__content {
+        padding: 5px;
+      }
+    }
   </style>
   <div>
     <section class="header">
@@ -138,7 +201,21 @@
         <a href="https://chrome.google.com/webstore/detail/medium-plugin/oipiaoijoipncobppeichegfnnbcbeoa" target="_blank">Install</a>
       </div>
     </section>
+    <section class="story">
+      <div>
+        <h2>Why I made it?</h2>
+        <div class="story__content">
+          I'm writer and reader in Medium. <br>
+          Medium editor is awesome and I love it. <br>
+          I also like Markdown, awesome markup language for writing. <br>
+          Have some feature I really like in Github and Markdown and I want to use it in Medium. <br>
+          So I made this plugin. <br>
+          It's a simple and lightweight plugin that I made for Medium. <br>
+        </div>
+      </div>
+    </section>
     <section class="features">
+      <div class="features_head">Let's got <strong>Medium Plugin</strong> for...</div>
       <div class="feature">
         <div class="feature__info feature__left">
           <div class="feature__content">
@@ -181,11 +258,6 @@
         </div>
       </div>
     </section>
-    <!-- <section class="story">
-      <div>
-        <h2>Why I made it?</h2>
-      </div>
-    </section> -->
     <footer>
       Developed and maintained by <a href="https://sangnguyen.dev">Sang Nguyen</a>
     </footer>
