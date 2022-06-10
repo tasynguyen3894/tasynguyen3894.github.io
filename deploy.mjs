@@ -1,22 +1,15 @@
-const fs = require('fs');
-
-const branchDeploy = "master";
-const buildFolder = 'build';
-const temporalyFolder = 'temp';
-const remoteHost = 'https://github.com/tasynguyen3894/tasynguyen3894.github.io.gitt';
-
-if (fs.existsSync(temporalyFolder)) {
-  await $`rm ${temporalyFolder} -rf`;
-}
-
-await $`git submodule add -f https://github.com/tasynguyen3894/tasynguyen3894.github.io.git ${temporalyFolder}`;
-
-await $`rm -rf ${temporalyFolder}/*`;
-
-await $`cp -a ./${buildFolder}/. ./${temporalyFolder}/`;
-
-await $`git add .`;
-
-await $`git commit -m "deploy"`;
-
-await $`git push origin ${branchDeploy}`;
+(async function (branchDeploy = 'master', buildFolder = 'build', temporaryFolder = 'temp') {
+  const remoteHost = (await $`git config --get remote.origin.url`).stdout.trim();
+  require('fs').existsSync(temporaryFolder) && await $`rm ${temporaryFolder} -rf`;
+  await $`git clone --branch ${branchDeploy}  ${remoteHost} ${temporaryFolder}`;
+  await $`rm -rf ./${temporaryFolder}/*`;
+  await $`cp -a ./${buildFolder}/. ./${temporaryFolder}/`;
+  cd(`./${temporaryFolder}`);
+  if ((await $`git ls-files --others -d -m`).stdout.trim()) {
+    await $`git add .`;
+    await $`git commit -m "deploy"`;
+    await $`git push origin ${branchDeploy}`;
+  } else { console.log('No changes'); }
+  cd('..');
+  await $`rm -rf ${temporaryFolder}`;
+})();
