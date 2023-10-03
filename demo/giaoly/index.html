@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.cdnfonts.com/css/leander" rel="stylesheet">
+</head>
+<body>
+  <style>
+    .var::before {
+      content: attr(content)
+    }
+  </style>
+  <style>
+    body {
+      padding: 0;
+      margin: 0;
+      background: url(https://jrsinclair.com/assets/book-bg.jpg) top left;
+    }
+    .quizz {
+      min-height: 100vh;
+      padding: 20px;
+      /* font-family:  "Crimson Text", Georgia, Times, "Times New Roman", serif; */
+      width: 500px;
+      box-sizing: border-box;
+      margin: 0px auto;
+    }
+
+    .header {
+      text-align: center;
+      color: #b95951;
+      font-size: 1.8rem;
+      line-height: 2.625rem;
+      font-weight: bold;
+      /* font-family: Leander, "leanderregular", Georgia, serif; */
+    }
+
+    #question::before {
+      background: url(https://jrsinclair.com/assets/ornate-border.svg) center bottom no-repeat;
+      background-size: contain;
+      content: "";
+      display: block;
+      height: 1.6875rem;
+      margin-top: 1.6875rem;
+      width: 100%;
+      transform: rotate(180deg);
+      margin-bottom: 20px;
+    }
+
+    #question::after {
+      background: url(https://jrsinclair.com/assets/ornate-border.svg) center bottom no-repeat;
+      background-size: contain;
+      content: "";
+      display: block;
+      height: 1.6875rem;
+      margin-top: 1.6875rem;
+      width: 100%;
+    }
+
+    @media only screen and (max-width: 600px) {
+      .quizz {
+        width: 100%;
+        padding: 15px;
+      }
+    }
+
+    .buttons {
+      text-align: center;
+    }
+
+    .buttons button {
+      cursor: pointer;
+      background: #FFF;
+      border: 1px solid #b95951;
+      color: #b95951;
+      padding: 8px 20px;
+      font-size: 16px;
+      border-radius: 10px;
+      font-weight: 600;
+    }
+
+    .buttons button:hover {
+      background: #b95951;
+      color: #FFF;
+    }
+
+    #question {
+      font-size: 20px;
+      margin-bottom: 20px;
+    }
+    
+    #question .question .content {
+      margin-top: 10px;
+    }
+    
+    #question .lesson {
+      font-weight: bold;
+    }
+
+    #question .answer {
+      margin-top: 20px;
+    }
+
+    #question hr {
+      background: url(https://jrsinclair.com/assets/hrule.svg) center center no-repeat;
+      border: 0;
+      display: block;
+      height: 1.5rem;
+    }
+
+    select {
+      width: 100%;
+      margin: 10px 0px;
+      padding: 5px 10px;
+      border-radius: 10px;
+    }
+  </style>
+  <div class="quizz">
+    <div class="header">Bí tích hôn phối</div>
+    <div>
+      <select id="lesson_select">
+        <option value="ALL">Tất cả</option>
+        <option value="BAI_7">Bài 7: Tình yêu vợ chồng</option>
+        <option value="BAI_8">Bài 8: Tính dục và hôn nhân</option>
+        <option value="BAI_9">Bài 9: Hòa hợp vợ chồng: Sự khác biệt giữa nam và nữ</option>
+      </select>
+    </div>
+    <div id="question" style="display: none;">
+    
+    </div>
+    <div class="buttons">
+      <button id="random" type="button">Random</button>
+      <button id="hint" type="button">Hint</button>
+    </div>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const lessons = {
+        BAI_8: 'Bài 8: Tính dục và hôn nhân',
+        BAI_9: 'Bài 9: Hòa hợp vợ chồng: Sự khác biệt giữa nam và nữ',
+        BAI_7: 'Bài 7: Tình yêu vợ chồng',
+      }
+      const questionBase = [
+        {
+          lesson: lessons['BAI_8'],
+          question: 'Tính dục là gì?',
+          answer_type: 'line',
+          explain: '',
+          list: [
+            'Tính dục là khuynh hướng tự nhiên Thiên Chúa đặt nơi con người để ',
+            'tiếp xúc, gặp gỡ với người khác, ',
+            'dù nam hay nữ, ',
+            'hoặc để người nam và người nữ yêu thương nhau hướng tới ',
+            'hôn nhân và gia đình.'
+          ]
+        },
+        {
+          lesson: lessons['BAI_8'],
+          question: 'Tính dục phục vụ cho tình yêu vợ chồng thế nào?',
+          answer_type: 'line',
+          explain: '',
+          list: [
+            'Các hành vi tính dục giúp đem lại ',
+            'niềm hoan lạc cho đời sống vợ chồng ',
+            'và làm cho họ gắn bó nên một với nhau một cách sâu xa. ',
+            'Ngoài ra, còn giúp tình yêu vợ chồng mở ngỏ ',
+            'cho sự sống và diễn tả sự phong phú của Thiên Chúa, ',
+            'cũng như góp phần xây dựng ',
+            'nền văn mình tình yêu'
+          ]
+        },
+        {
+          lesson: lessons['BAI_8'],
+          question: 'Vợ chồng cần nắm vững những nguyên tắc luân lý nào trong đời sống tình dục?',
+          answer_type: 'list',
+          explain: '',
+          list: [
+            'Một là các hành vì tính dục được thực hiện trong khuôn khổ hôn nhân đều chính đáng và cao quý.',
+            'Hai là luân lý Công giáo tôn trọng thân xác, những không quá đề cao hành vi tính dục.',
+            'Ba là đời sống hôn nhân Công giáo phải là đời sống trọng sạch và tiết độ.'
+          ]
+        },
+        {
+          lesson: lessons['BAI_8'],
+          question: 'Sự khiết tịnh trong đời sống hôn nhân là gì?',
+          answer_type: 'line',
+          explain: '',
+          list: [
+            'Sự khiết tịnh trong đời sống hôn nhân là ',
+            'biết làm chủ giới tính, ',
+            'nhờ đó vợ chồng ăn ở với nhau một cách ',
+            'tiết độ'
+          ]
+        },
+        {
+          lesson: lessons['BAI_8'],
+          question: 'Những tội nào phạm đến đức tiết độ?',
+          answer_type: 'line',
+          explain: '',
+          list: [
+            'Những tội này là: ',
+            'dâm ô, ',
+            'thủ dâm, ',
+            'tà dâm, ',
+            'khiêu dâm, ',
+            'mại dâm và ',
+            'hiếp dâm'
+          ]
+        },
+        {
+          lesson: lessons['BAI_8'],
+          question: 'Có những tội nào xúc phạm đến phẩm giá hôn nhân?',
+          answer_type: 'line',
+          explain: '',
+          list: [
+            'Những tội này là: ',
+            'ngoại tình, ',
+            'ly dị, ',
+            'đa phu, ',
+            'đa thê, ',
+            'loạn luân, ',
+            'đồng tính luyến ái ',
+            'và tự do sống chung như vợ chồng'
+          ]
+        },
+        {
+          lesson: lessons['BAI_9'],
+          question: 'Giới tính là gì?',
+          answer_type: 'line',
+          explain: '',
+          list: [
+            'Giới tính là tất cả những phân biệt người nam với người nữ.'
+          ]
+        },
+        {
+          lesson: lessons['BAI_9'],
+          question: 'Giới tính ảnh hưởng thế nào trên con người?',
+          answer_type: 'line',
+          explain: '',
+          list: [
+            'Giới tỉnh ảnh hưởng trên toàn bộ con người, ',
+            'đặc biệt đối với đời sống tình cảm, ',
+            'khả năng yêu thương ',
+            'và truyền sinh.'
+          ]
+        },
+        {
+          lesson: lessons['BAI_9'],
+          question: 'Về phương diện tổng quát, người nam và người nữ khác nhau thế nào?',
+          answer_type: 'line',
+          explain: '',
+          list: [
+            'Người nam và người nữ khác nhau không chỉ về vóc dàng bên ngoài, ',
+            'mà còn khác nhau về tâm tính, ',
+            'các nhận thức ',
+            'và hành động'
+          ]
+        },
+        {
+          lesson: lessons['BAI_9'],
+          question: 'Về phương diện tâm lý, sự khác biệt giữa người nam và người nữ được diễn tả thế nào?',
+          answer_type: 'list',
+          explain: '',
+          list: [
+            'Một là được ưu tiên',
+            'Hai là phân cách',
+            'Ba là chi tiết',
+            'Bốn là bất đồng cảm',
+            'Năm là thính giác'
+          ]
+        },
+        {
+          lesson: lessons['BAI_7'],
+          question: 'Tình yêu vợ chồng có những đặc tính nào?',
+          answer_type: 'list',
+          explain: '',
+          list: [
+            'Một là kết hợp nên một',
+            'Hai là trao hiến trọn vẹn',
+            'Ba là chung thủy suốt đời',
+            'Bốn là đón nhận con cái'
+          ]
+        },
+        {
+          lesson: lessons['BAI_7'],
+          question: 'Vợ chồng có những bổn phận nào?',
+          answer_type: 'line',
+          explain: '',
+          list: [
+            'Người nam được mời gọi là chu toàn bổn phận ',
+            'làm chồng và ',
+            'làm cha; ',
+            'Người nữ được mời gọi là chu toàn bổn phận ',
+            'làm vợ và ',
+            'làm mẹ.',
+          ]
+        },
+        {
+          lesson: lessons['BAI_7'],
+          question: 'Khuôn mẫu của tình yêu vợ chồng là gì?',
+          answer_type: 'line',
+          explain: '',
+          list: [
+            'khuôn mẫu của tình yêu vợ chồng chính là sự kết hợp giữa ',
+            'Đức Kitô và Hội Thánh'
+          ]
+        }
+      ];
+        
+      let questions = questionBase;
+
+      let totalPart = 0;
+      let unlockParts = [];
+      let currentQuestion = -1;
+    
+      function getRandomInt(min, max) {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+      }
+    
+      function random(question) {
+        document.getElementById('question').innerHTML = '';
+        const questionHTML = '<div class="question"><div class="lesson">' + question.lesson + '</div><div class="content">' + question.question + '</div><hr /></div>';
+        const explainHTML = '<div style="display: none" id="explain"><hr />' + question.explain + '</div>';
+        const tagItem = question.answer_type === 'line' ? 'span' : 'li';
+        const itemList = [];
+        question.list.forEach((item, index) => {
+          itemList.push(`<${tagItem} style="background: #000" data-index="part-${index + 1}">${item}</${tagItem}>`)
+        });
+        totalPart = question.list.length;
+        unlockParts = [];
+        const answerHTML = '<div class="answer">' + itemList.join('') + '</div>';
+        document.getElementById('question').innerHTML = questionHTML + answerHTML + explainHTML;
+        document.getElementById('hint').style.display = 'inline';
+        document.getElementById('question').style.display = 'block';
+      }
+    
+      function hint() {
+        let index = -1;
+        if(unlockParts.length !== totalPart) {
+          while(true) {
+            index = getRandomInt(1, totalPart);
+            if(!unlockParts.includes(index)) {
+              unlockParts.push(index);
+              document.querySelector(`[data-index="part-${index}"]`).style.background = 'transparent';
+              if(unlockParts.length === totalPart) {
+                document.getElementById('explain').style.display = 'block';
+                document.getElementById('hint').style.display = 'none';
+              }
+              return;
+            }
+          }
+        }
+      }
+    
+      function getRandomQuestion() {
+        while(true) {
+          const index = getRandomInt(0, questions.length - 1);
+          if(index !== currentQuestion) {
+            currentQuestion = index;
+            return index;
+          }
+        }
+      }
+    
+      document.getElementById('random').addEventListener('click', () => {
+        random(questions[getRandomQuestion()]);
+      });
+    
+      document.getElementById('hint').addEventListener('click', () => {
+        hint();
+      });
+
+      document.getElementById('lesson_select').addEventListener('change', (e) => {
+        const valueSelected = e.target.value;
+        if(valueSelected === 'ALL') {
+          questions = questionBase;
+        } else {
+          questions = questionBase.filter(q => q.lesson === lessons[valueSelected]);
+        }
+
+        totalPart = 0;
+        unlockParts = [];
+        currentQuestion = -1;
+        document.getElementById('question').innerHTML = '';
+        document.getElementById('question').style.display = 'none';
+      })
+    });      
+  </script>
+</body>
+</html>
