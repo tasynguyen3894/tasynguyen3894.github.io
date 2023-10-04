@@ -116,6 +116,20 @@
       padding: 5px 10px;
       border-radius: 10px;
     }
+
+    #total {
+      margin-top: 10px;
+      display: flex;
+    }
+
+    #total > div {
+      flex: 1;
+      height: 0.5rem;
+    }
+
+    #total > div[passed] {
+      background: #b95951;
+    }
   </style>
   <div class="quizz">
     <div class="header">Bí tích hôn phối</div>
@@ -127,11 +141,14 @@
         <option value="BAI_9">Bài 9: Hòa hợp vợ chồng: Sự khác biệt giữa nam và nữ</option>
       </select>
     </div>
+    <div id="total">
+    </div>
     <div id="question" style="display: none;">
     
     </div>
     <div class="buttons">
       <button id="random" type="button">Random</button>
+      <button id="next" type="button" style="display: none;">Next</button>
       <button id="hint" type="button">Hint</button>
     </div>
   </div>
@@ -313,6 +330,7 @@
 
       let totalPart = 0;
       let unlockParts = [];
+      let readParts = [];
       let currentQuestion = -1;
     
       function getRandomInt(min, max) {
@@ -357,17 +375,49 @@
       }
     
       function getRandomQuestion() {
-        while(true) {
-          const index = getRandomInt(0, questions.length - 1);
-          if(index !== currentQuestion) {
-            currentQuestion = index;
+        let index = -1;
+        while(readParts.length !== questions.length) {
+          index = getRandomInt(0, questions.length - 1);
+          if(!readParts.includes(index)) {
+            readParts.push(index);
             return index;
           }
         }
       }
-    
-      document.getElementById('random').addEventListener('click', () => {
+
+      function generatePass() {
+        const passes = ['<div pass-item passed></div>'];
+        for (let i = 0; i < questions.length - 1; i++) {
+          passes.push('<div pass-item></div>');
+        }
+        document.getElementById('total').innerHTML = passes.join('');
+      }
+
+      function updatePass() {
+        let count = 0;
+        document.querySelectorAll(`[pass-item]`).forEach(el => {
+          if(count < readParts.length) {
+            el.setAttribute('passed', true);
+          }
+          count++;
+        });
+      }
+
+      document.getElementById('random').addEventListener('click', (e) => {
+        readParts = [];
         random(questions[getRandomQuestion()]);
+        document.getElementById('next').style.display = 'inline';
+        generatePass();
+      });
+
+      document.getElementById('next').addEventListener('click', (el) => {
+        if(readParts.length !== questions.length) {
+          if(readParts.length === questions.length - 1) {
+            el.target.style.display = 'none'
+          }
+          random(questions[getRandomQuestion()]);
+          updatePass();
+        }
       });
     
       document.getElementById('hint').addEventListener('click', () => {
