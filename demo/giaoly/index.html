@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -218,6 +219,9 @@
         <option value="BAI_7">Bài 7: Tình yêu vợ chồng</option>
         <option value="BAI_8">Bài 8: Tính dục và hôn nhân</option>
         <option value="BAI_9">Bài 9: Hòa hợp vợ chồng: Sự khác biệt giữa nam và nữ</option>
+        <option value="BAI_10">Bài 10: Hòa hợp giữa vợ chồng. Triển nở trong tình yêu</option>
+        <option value="BAI_11">Bài 11. Hòa hợp giữa vợ chồng: Giải quyết những xung đột</option>
+        <option value="BAI_12">Bài 12. Sự phân ly vợ chồng</option>
       </select>
     </div>
     <div id="total">
@@ -248,12 +252,87 @@
   <script>
     document.addEventListener('DOMContentLoaded', function () {
       const lessons = {
-        BAI_8: 'Bài 8: Tính dục và hôn nhân',
-        BAI_9: 'Bài 9: Hòa hợp vợ chồng: Sự khác biệt giữa nam và nữ',
-        BAI_7: 'Bài 7: Tình yêu vợ chồng',
+        BAI_8: 'Bài 8. Tính dục và hôn nhân',
+        BAI_9: 'Bài 9. Hòa hợp vợ chồng: Sự khác biệt giữa nam và nữ',
+        BAI_7: 'Bài 7. Tình yêu vợ chồng',
+        BAI_10: 'Bài 10. Hòa hợp giữa vợ chồng: Triển nở trong tình yêu',
+        BAI_11: 'Bài 11. Hòa hợp giữa vợ chồng: Giải quyết những xung đột',
+        BAI_12: 'Bài 12. Sự phân ly vợ chồng',
       }
-
+  
       const questionsQuizzBase = [
+      {
+          lesson: lessons['BAI_12'],
+          question: 'Hội Thánh có quyền tháo gỡ những cuộc hôn nhân nào?',
+          type: 'multiple',
+          answer: '',
+          quizz: [
+            {
+              text: 'Những cuộc hôn nhân có người ngoại tình và không muốn trở lại với gia đình',
+              correct: false
+            },
+            {
+              text: 'Hôn nhân giữa hai người Công giáo, hoặc là một người Công giáo và không Công giáo, đã thành sự nhưng chưa ăn ở với nhau.',
+              correct: true
+            },
+            {
+              text: 'Có những cuộc hôn nhân vốn đã không thành sự từ đầu, vì mặc phải một hoặc nhiều ngăn trở.',
+              correct: true
+            },
+            {
+              text: 'Hôn nhân tự nhiên giữa hai người chưa được rửa tội. Đây là trường hợp thuộc "đặc ân thánh Phaolô"',
+              correct: true
+            },
+            {
+              text: 'Cuộc hôn nhân đem lại quá nhiều đau khổ về thể xác cũng như tình thần cho một bên.',
+              correct: false
+            }
+          ]
+        },
+        {
+          lesson: lessons['BAI_11'],
+          question: 'Vợ chồng cần có thái độ nào khi xảy ra xung đột?',
+          type: 'multiple',
+          answer: '',
+          quizz: [
+            {
+              text: 'Đối thoại với nhau',
+              correct: true
+            },
+            {
+              text: 'Kiên trì tìm ra lý lẻ đúng',
+              correct: false
+            },
+            {
+              text: 'Tự chủ',
+              correct: true
+            },
+            {
+              text: 'Có thiện chí muốn giải quyết',
+              correct: true
+            },
+            {
+              text: 'Chấp nhận khuyết điểm của mình',
+              correct: true
+            },
+            {
+              text: 'Tạm dừng sinh hoạt vợ chồng đến khi giải quyết được vấn đề',
+              correct: false
+            },
+            {
+              text: 'Cố gắng hàn gắng và làm lành',
+              correct: true
+            },
+            {
+              text: 'Nhờ người làm trung gian hòa giải',
+              correct: true
+            },
+            {
+              text: 'Cầu nguyện để biết cách giải quyết theo tinh thần của Chúa',
+              correct: true
+            },
+          ]
+        },
         {
           lesson: lessons['BAI_8'],
           question: 'Giới tính ảnh hưởng trên toàn bộ con người, đặc biệt đối với đời sống <span data-fill="1">tình cảm</span>, khả năng yêu thương và <span data-fill="2">truyền sinh</span>.',
@@ -420,6 +499,46 @@
           ]
         },
         {
+          lesson: lessons['BAI_10'],
+          question: 'Vợ chồng cần phải làm gì để tình yêu luôn được triển nở?',
+          type: 'multiple',
+          answer: '',
+          quizz: [
+            {
+              text: 'Tôn trọng lẫn nhau',
+              correct: true
+            },
+            {
+              text: 'Sinh con cho nhau',
+              correct: false
+            },
+            {
+              text: 'Đối thoại, chia sẻ tâm tình cho nhau',
+              correct: true
+            },
+            {
+              text: 'Dành thời giờ cho nhau',
+              correct: true
+            },
+            {
+              text: 'Nói những lời âu yếm',
+              correct: true
+            },
+            {
+              text: 'Đi nhà thờ cùng nhau',
+              correct: false
+            },
+            {
+              text: 'Làm tròn bổn phận vợ chồng',
+              correct: true
+            },
+            {
+              text: 'Cầu nguyện với nhau và cho nhau',
+              correct: true
+            }
+          ]
+        },
+        {
           lesson: lessons['BAI_8'],
           question: 'Những tội nào phạm đến đức tiết độ?',
           type: 'multiple',
@@ -504,6 +623,39 @@
       ];
 
       const questionBase = [
+        {
+          lesson: lessons['BAI_12'],
+          question: 'Hôn nhân trọn vẹn và không trọn vẹn là thế nào?',
+          answer_type: 'line',
+          explain: '',
+          list: [
+            'Hôn nhân trọn vẹn là hôn nhân đã thành sự, ',
+            'đã là một bí tích và ',
+            'đã ăn ở với nhau. ',
+            'Còn hôn nhân không trọn vẹn là khi thiếu một trong ba điều trên'
+          ]
+        },
+        {
+          lesson: lessons['BAI_12'],
+          question: 'Hội Thánh có quyền tháo gỡ những cuộc hôn nhân đã trọn vẹn không?',
+          answer_type: 'line',
+          explain: '',
+          list: [
+            'Hội Thánh không có quyền tháo gỡ những cuộc hôn nhân đã trọn vẹn. ',
+            'Vì đó là luật của Thiên Chúa'
+          ]
+        },
+        {
+          lesson: lessons['BAI_12'],
+          question: 'Hội Thánh có quyền tháo gỡ những cuộc hôn nhân nào?',
+          answer_type: 'list',
+          explain: '',
+          list: [
+            'Một là hôn nhân giữa hai người Công giáo, hoặc là một người Công giáo và không Công giáo, đã thành sự nhưng chưa ăn ở với nhau.',
+            'Hai là hôn nhân tự nhiên giữa hai người chưa được rửa tội. Đây là trường hợp thuộc "đặc ân thánh Phaolô"',
+            'Ba là có những cuộc hôn nhân vốn đã không thành sự từ đầu, vì mặc phải một hoặc nhiều ngăn trở như đã kể ở trên'
+          ]
+        },
         {
           lesson: lessons['BAI_8'],
           question: 'Tính dục là gì?',
@@ -666,6 +818,36 @@
           list: [
             'khuôn mẫu của tình yêu vợ chồng chính là sự kết hợp giữa ',
             'Đức Kitô và Hội Thánh'
+          ]
+        },
+        {
+          lesson: lessons['BAI_10'],
+          question: 'Vợ chồng cần phải làm gì để tình yêu luôn được triển nở?',
+          answer_type: 'list',
+          explain: '',
+          list: [
+            'Một là tôn trọng lẫn nhau',
+            'Hai là hy sinh cho nhau',
+            'Ba là đối thoại, chia sẻ tâm tình cho nhau',
+            'Bốn là dành thời giờ cho nhau',
+            'Năm là nói những lời âu yếm',
+            'Sáu là làm tròn bổn phận vợ chồng',
+            'Bảy là cầu nguyện với nhau và cho nhau'
+          ]
+        },
+        {
+          lesson: lessons['BAI_11'],
+          question: 'Vợ chồng cần có thái độ nào khi xảy ra xung đột?',
+          answer_type: 'list',
+          explain: '',
+          list: [
+            'Một là tự chủ',
+            'Hai là có thiện chí muốn giải quyết',
+            'Ba là đối thoại với nhau',
+            'Bốn là chấp nhận khuyết điểm của mình',
+            'Năm là cố gắng hàn gắng và làm lành',
+            'Sáu là nhờ người làm trung gian hòa giải',
+            'Bảy là cầu nguyện để biết cách giải quyết theo tinh thần của Chúa'
           ]
         }
       ];
