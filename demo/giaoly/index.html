@@ -1,5 +1,6 @@
 
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -222,6 +223,8 @@
         <option value="BAI_10">Bài 10: Hòa hợp giữa vợ chồng. Triển nở trong tình yêu</option>
         <option value="BAI_11">Bài 11. Hòa hợp giữa vợ chồng: Giải quyết những xung đột</option>
         <option value="BAI_12">Bài 12. Sự phân ly vợ chồng</option>
+        <option value="BAI_13">Bài 13. Gia đình là Hội Thánh tại gia</option>
+        <option value="BAI_14">Bài 14. Linh đạo hôn nhân và gia đình</option>
       </select>
     </div>
     <div id="total">
@@ -258,10 +261,90 @@
         BAI_10: 'Bài 10. Hòa hợp giữa vợ chồng: Triển nở trong tình yêu',
         BAI_11: 'Bài 11. Hòa hợp giữa vợ chồng: Giải quyết những xung đột',
         BAI_12: 'Bài 12. Sự phân ly vợ chồng',
+        BAI_13: 'Bài 13. Gia đình là Hội Thánh tại gia',
+        BAI_14: 'Bài 14. Linh đạo hôn nhân và gia đình'
       }
   
       const questionsQuizzBase = [
-      {
+        {
+          lesson: lessons['BAI_14'],
+          question: '<div><p>Linh đạo hôn nhân và gia đình được gợi hứng từ đâu?</p></div><div>Theo Tông huấn Gia đình, Linh đạo hôn nhân và gia đình phải được gợi hứng từ các chủ đề về </div>',
+          type: 'multiple',
+          answer: '',
+          quizz: [
+            {
+              text: 'Sáng tạo',
+              correct: true
+            },
+            {
+              text: 'Truyền giáo',
+              correct: false
+            },
+            {
+              text: 'Thập giá',
+              correct: true
+            },
+            {
+              text: 'Giao ước',
+              correct: true
+            },
+            {
+              text: 'Hiệp thông',
+              correct: false
+            },
+            {
+              text: 'Phục sinh',
+              correct: true
+            },
+            {
+              text: 'Dấu hiệu bí tích.',
+              correct: true
+            }
+          ]
+        },
+        {
+          lesson: lessons['BAI_13'],
+          question: '<div><b>Gia đình Kitô hữu tham dự vào sứ mạng của Hội Thánh như thế nào?</b></div><div>Cũng như Hội Thánh, gia đình Kitô hữu được mời gọi trở nên một cộng đồng <span data-fill="1">tin và loan báo</span> Tin mừng, đối thoại với Thiên Chúa và <span data-fill="2">phục vụ</span> con người</div>',
+          type: 'fill_word',
+          answer: '',
+          quizz: [
+            {
+              id: '1',
+              words: [
+                {
+                  text: 'tin và loan báo',
+                  correct: true
+                },
+                {
+                  text: 'học tập và tìm hiểu',
+                  correct: false
+                },
+                {
+                  text: 'gìn giữ và bảo lưu',
+                  correct: false
+                }
+              ]
+            },
+            {
+              id: '2',
+              words: [
+                {
+                  text: 'dẫn dắt',
+                  correct: false
+                },
+                {
+                  text: 'phục vụ',
+                  correct: true
+                },
+                {
+                  text: 'giáo hóa',
+                  correct: false
+                }
+              ]
+            }
+          ]
+        },
+        {
           lesson: lessons['BAI_12'],
           question: 'Hội Thánh có quyền tháo gỡ những cuộc hôn nhân nào?',
           type: 'multiple',
@@ -623,6 +706,114 @@
       ];
 
       const questionBase = [
+        {
+          lesson: lessons['BAI_14'],
+          question: 'Để thực hành linh đạo hôn nhân và gia đình, đôi vợ chồng cần sống thế nào?',
+          answer_type: 'list',
+          explain: '',
+          list: [
+            'Một là tình yêu sáng tạo để sinh sản và giáo dục con cái.',
+            'Hai là tình yêu trung thành để sống lời cam kết hôn nhân mỗi ngày một trọn vẹn hơn.',
+            'Ba là tình yêu hi sinh để vui nhận vác thánh giá hàng ngày.',
+            'Bốn là canh tân đời sống, làm chứng và loan báo Tin Mừng.',
+            'Năm là siêng năng cầu nguyện và lãnh nhận các bí tích.'
+          ]
+        },
+        {
+          lesson: lessons['BAI_14'],
+          question: 'Linh đạo hôn nhân và gia đình được gợi hứng từ đâu?',
+          answer_type: 'line',
+          explain: '',
+          list: [
+            'Theo Tông huấn Gia đình, ',
+            'Linh đạo hôn nhân và gia đình phải được gợi hứng từ các chủ đề về ',
+            'Sáng tạo, ',
+            'Giao ước, ',
+            'Thập giá, ',
+            'Phục sinh ',
+            'và dấu hiệu bí tích'
+          ]
+        },
+        {
+          lesson: lessons['BAI_14'],
+          question: 'Linh đạo hôn nhân và gia đình hệ tại ở điểm nào?',
+          answer_type: 'line',
+          explain: '',
+          list: [
+            'Linh đạo Hôn nhân và gia đình hệ tại ở Tình Yêu, ',
+            'lấy Tình yêu của Thiên Chúa đối với con người ',
+            'và Tình yêu của Đức Kitô đối với Hội Thánh ',
+            'làm khuôn mẫu.'
+          ]
+        },
+        {
+          lesson: lessons['BAI_14'],
+          question: 'Linh đạo hôn nhân và gia đình là gì?',
+          answer_type: 'line',
+          explain: '',
+          list: [
+            'Linh đạo hôn nhân và gia đình là ',
+            'con đường nên thánh dành cho ',
+            'những người sống trong bậc sống hôn nhân và gia đình'
+          ]
+        },
+        {
+          lesson: lessons['BAI_14'],
+          question: 'Những ai trong hội thánh được mới gọi nên thánh?',
+          answer_type: 'line',
+          explain: '',
+          list: [
+            'Mọi Kitô hữu đều có bổn phận nên thánh trong bậc sống của mình'
+          ]
+        },
+        {
+          lesson: lessons['BAI_14'],
+          question: 'Nên thánh là gì?',
+          answer_type: 'line',
+          explain: '',
+          list: [
+            'Nên thánh là "sống hoàn thiện như Cha trên trời", ',
+            'trở nên giống Đức Kitô bằng cách ',
+            'sống yêu thương ',
+            'và chu toàn bổn phận'
+          ]
+        },
+        {
+          lesson: lessons['BAI_13'],
+          question: 'Gia đình Kitô hữu tham dự vào sứ mạng của Hội Thánh như thế nào?',
+          answer_type: 'line',
+          explain: '',
+          list: [
+            'Cũng như Hội Thánh, gia đình Kitô hữu được mời gọi trở nên ',
+            'một cộng đồng tin và loan báo Tin mừng, ',
+            'đối thoại với Thiên Chúa và ',
+            'phục vụ con người'
+          ]
+        },
+        {
+          lesson: lessons['BAI_13'],
+          question: 'Gia đình Kitô hữu tham dự vào sự sống của Hội Thánh như thế nào?',
+          answer_type: 'line',
+          explain: '',
+          list: [
+            'Cũng như Hội Thánh',
+            'Gia đình Kitô hữu được mời gọi sống mầu nhiệm hiệp thông ',
+            'của Thiên Chúa Ba Ngôi, ',
+            'đón nhận và thông truyền ',
+            'ơn cứu rỗi'
+          ]
+        },
+        {
+          lesson: lessons['BAI_13'],
+          question: 'Tại sao gia đình Kitô hữu được gọi là Hội Thánh tại gia?',
+          answer_type: 'line',
+          explain: '',
+          list: [
+            'Gia đình Kitô hữu được gọi là Hội Thánh tại gia vì ',
+            'được tham gia vào sự sống ',
+            'và sứ mạng của Hội Thánh'
+          ]
+        },
         {
           lesson: lessons['BAI_12'],
           question: 'Hôn nhân trọn vẹn và không trọn vẹn là thế nào?',
