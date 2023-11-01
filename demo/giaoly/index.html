@@ -225,6 +225,7 @@
         <option value="BAI_12">Bài 12. Sự phân ly vợ chồng</option>
         <option value="BAI_13">Bài 13. Gia đình là Hội Thánh tại gia</option>
         <option value="BAI_14">Bài 14. Linh đạo hôn nhân và gia đình</option>
+        <option value="BAI_15">Bài 15: Các Bí Tích Trong Đời Sống Hôn Nhân và Gia Đình</option>
       </select>
     </div>
     <div id="total">
@@ -262,10 +263,137 @@
         BAI_11: 'Bài 11. Hòa hợp giữa vợ chồng: Giải quyết những xung đột',
         BAI_12: 'Bài 12. Sự phân ly vợ chồng',
         BAI_13: 'Bài 13. Gia đình là Hội Thánh tại gia',
-        BAI_14: 'Bài 14. Linh đạo hôn nhân và gia đình'
+        BAI_14: 'Bài 14. Linh đạo hôn nhân và gia đình',
+        BAI_15: 'Bài 15: Các Bí Tích Trong Đời Sống Hôn Nhân và Gia Đình'
       }
   
       const questionsQuizzBase = [
+        {
+          lesson: lessons['BAI_15'],
+          question: '<div><b>Vì sao gia đình Kitô hữu phải năng lãnh nhận Bí tích Hoà giải?</b></div><div>Nhờ Bí tích Hoà giải, mọi người nhận ra những lỗi phạm của mình và <span data-fill="1">đón nhận lòng khoan dung</span> của Thiên Chúa, nhờ đó sẽ <span data-fill="2">dễ sống hoà hợp và tha thứ</span> cho nhau.</div>',
+          type: 'fill_word',
+          answer: '',
+          quizz: [
+            {
+              id: '1',
+              words: [
+                {
+                  text: 'chứng nhân cho mầu nhiệm',
+                  correct: false
+                },
+                {
+                  text: 'minh chứng cho uy quyền',
+                  correct: false
+                },
+                {
+                  text: 'đón nhận lòng khoan dung',
+                  correct: true
+                }
+              ]
+            },
+            {
+              id: '2',
+              words: [
+                {
+                  text: 'tôn trọng và tin yêu',
+                  correct: false
+                },
+                {
+                  text: 'dễ sống hoà hợp và tha thứ',
+                  correct: true
+                },
+                {
+                  text: 'thấu hiểu và phó thác',
+                  correct: false
+                }
+              ]
+            }
+          ]
+        },
+        {
+          lesson: lessons['BAI_15'],
+          question: '<div><b>Ai được quyền cử hành Bí tích Rửa tội?</b></div><div>Bình thường là <span data-fill="1">Giám mục, Linh mục và phó tế</span>, nhưng khi khẩn cấp thì <span data-fill="2">bất cứ ai</span> cũng có thể cử hành, miễn là làm theo ý muốn và cách thức của Hội Thánh.</div>',
+          type: 'fill_word',
+          answer: '',
+          quizz: [
+            {
+              id: '1',
+              words: [
+                {
+                  text: 'Linh mục và phó tế',
+                  correct: false
+                },
+                {
+                  text: 'Giám mục',
+                  correct: false
+                },
+                {
+                  text: 'Giám mục, Linh mục và phó tế',
+                  correct: true
+                }
+              ]
+            },
+            {
+              id: '2',
+              words: [
+                {
+                  text: 'bất cứ ai',
+                  correct: true
+                },
+                {
+                  text: 'Linh mục và phó tế',
+                  correct: false
+                },
+                {
+                  text: 'phó tế và các thầy biện',
+                  correct: false
+                }
+              ]
+            }
+          ]
+        },
+        {
+          lesson: lessons['BAI_15'],
+          question: '<div><b>Các bí tích giúp ích gì cho đời sống Hôn nhân và gia đình?</b></div><div>Các bí tích, đặc biệt là bí tích <span data-fill="1">Hôn phối, Thánh Thể và Hoà giải</span> thánh hoá tình yêu vợ chồng, ban nhiều ơn sủng giúp họ chu toàn trách nhiệm đối với nhau và đối với <span data-fill="2">con cái</span>.</div>',
+          type: 'fill_word',
+          answer: '',
+          quizz: [
+            {
+              id: '1',
+              words: [
+                {
+                  text: 'Hôn phối, Hòa giải, Rửa tội',
+                  correct: false
+                },
+                {
+                  text: 'Hôn phối, Thánh Thể, Hòa giải',
+                  correct: true
+                },
+                {
+                  text: 'Hôn phối, Thêm sức, Hòa giải',
+                  correct: false
+                }
+              ]
+            },
+            {
+              id: '2',
+              words: [
+                {
+                  text: 'con cái',
+                  correct: true
+                },
+                {
+                  text: 'Hội Thánh',
+                  correct: false
+                },
+                {
+                  text: 'xã hội',
+                  correct: false
+                }
+              ]
+            }
+          ]
+        },
         {
           lesson: lessons['BAI_14'],
           question: '<div><p>Linh đạo hôn nhân và gia đình được gợi hứng từ đâu?</p></div><div>Theo Tông huấn Gia đình, Linh đạo hôn nhân và gia đình phải được gợi hứng từ các chủ đề về </div>',
@@ -706,6 +834,100 @@
       ];
 
       const questionBase = [
+        {
+          lesson: lessons['BAI_15'],
+          question: 'Bí tích Xức dầu bệnh nhân có liên hệ nào đối với đời sống hôn nhân và gia đình?',
+          answer_type: 'line',
+          explain: '',
+          list: [
+            'Bí tích Xức dầu bệnh nhân nhắc nhở ta quan tâm đến những người đau yếu, ',
+            'bằng cách lo cho họ lãnh nhận bí tích này, ',
+            'để được ơn Chúa nâng đỡ. ',
+            'Đồng thời quan tâm đến những người già cả trong gia đình và lối xóm, ',
+            'bằng cách giúp đỡ và chăm sóc họ, ',
+            'đặc biệt là những người neo đơn.'
+          ]
+        },
+        {
+          lesson: lessons['BAI_15'],
+          question: 'Cha mẹ có bổn phận nào đối với ơn thiên triệu của con cái?',
+          answer_type: 'line',
+          explain: '',
+          list: [
+            'Cha mẹ phải thận trọng giúp đỡ con cái nhận biết ơn gọi. ',
+            'Nếu thấy chúng có ơn thiên triệu thì phải lo nuôi dưỡng ơn thiên triệu ấy.'
+          ]
+        },
+        {
+          lesson: lessons['BAI_15'],
+          question: 'Vì sao gia đình Kitô hữu phải năng lãnh nhận Bí tích Thánh Thể?',
+          answer_type: 'line',
+          explain: '',
+          list: [
+            'Vì Bí tích Thánh Thể là nguồn mạch tình yêu ',
+            'và là sức sống nuôi dưỡng, ',
+            'củng cố và đổi mới tình yêu của đời sống hôn nhân và gia đình.'
+          ]
+        },
+        {
+          lesson: lessons['BAI_15'],
+          question: 'Vì sao gia đình Kitô hữu phải năng lãnh nhận Bí tích Hoà giải?',
+          answer_type: 'line',
+          explain: '',
+          list: [
+            'Nhờ Bí tích Hoà giải, ',
+            'mọi người nhận ra những lỗi phạm của mình và ',
+            'đón nhận lòng khoan dung của Thiên Chúa, ',
+            'nhờ đó sẽ dễ sống hoà hợp và tha thứ cho nhau.'
+          ]
+        },
+        {
+          lesson: lessons['BAI_15'],
+          question: 'Gia đình Kitô hữu sống bí tích Thêm sức như thế nào?',
+          answer_type: 'line',
+          explain: '',
+          list: [
+            'Gia đình Kitô hữu sống bí tích Thêm sức bằng cách lo cho mọi người nhiệt thành sống đức tin, ',
+            'để trở nên nhân chứng của Đức Kitô và ',
+            'góp phần xây dựng Hội Thánh.'
+          ]
+        },
+        {
+          lesson: lessons['BAI_15'],
+          question: 'Trong trường hợp khẩn cấp, phải rửa tội như thế nào?',
+          answer_type: 'line',
+          explain: '',
+          list: [
+            'Phải lấy nước lã, là nước tự nhiên, không pha thứ gì vào, như nước sông, nước biển, nước giếng, nước mưa, ',
+            'rồi đổ trên đầu kẻ chịu phép Rửa tội và đọc: ',
+            '(tên thánh) ta rửa con, nhân danh Cha và Con và Thánh Thần.'
+          ]
+        },
+        {
+          lesson: lessons['BAI_15'],
+          question: 'Ai được quyền cử hành Bí tích Rửa tội?',
+          answer_type: 'line',
+          explain: '',
+          list: [
+            'Bình thường là Giám mục, Linh mục và phó tế, ',
+            'nhưng khi khẩn cấp thì bất cứ ai cũng có thể cử hành, ',
+            'miễn là làm theo ý muốn và cách thức của Hội Thánh.'
+          ]
+        },
+        {
+          lesson: lessons['BAI_15'],
+          question: 'Các bí tích giúp ích gì cho đời sống Hôn nhân và gia đình?',
+          answer_type: 'line',
+          explain: '',
+          list: [
+            'Các bí tích, đặc biệt là bí tích Hôn phối, ',
+            'Thánh Thể và ',
+            'Hoà giải ',
+            'thánh hoá tình yêu vợ chồng, ',
+            'ban nhiều ơn sủng giúp họ chu toàn trách nhiệm đối với nhau ',
+            'và đối với con cái.'
+          ]
+        },
         {
           lesson: lessons['BAI_14'],
           question: 'Để thực hành linh đạo hôn nhân và gia đình, đôi vợ chồng cần sống thế nào?',
