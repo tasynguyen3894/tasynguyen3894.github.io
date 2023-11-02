@@ -226,6 +226,7 @@
         <option value="BAI_13">Bài 13. Gia đình là Hội Thánh tại gia</option>
         <option value="BAI_14">Bài 14. Linh đạo hôn nhân và gia đình</option>
         <option value="BAI_15">Bài 15: Các Bí Tích Trong Đời Sống Hôn Nhân và Gia Đình</option>
+        <option value="BAI_16">Bài 16. Cầu nguyện trong gia đình</option>
       </select>
     </div>
     <div id="total">
@@ -264,10 +265,47 @@
         BAI_12: 'Bài 12. Sự phân ly vợ chồng',
         BAI_13: 'Bài 13. Gia đình là Hội Thánh tại gia',
         BAI_14: 'Bài 14. Linh đạo hôn nhân và gia đình',
-        BAI_15: 'Bài 15: Các Bí Tích Trong Đời Sống Hôn Nhân và Gia Đình'
+        BAI_15: 'Bài 15: Các Bí Tích Trong Đời Sống Hôn Nhân và Gia Đình',
+        BAI_16: 'Bài 16. Cầu nguyện trong gia đình'
       }
   
       const questionsQuizzBase = [
+        {
+          lesson: lessons['BAI_16'],
+          question: '<div><p>Mỗi giờ kinh chung trong gia đình thường gồm mấy yếu tố?</p></div>',
+          type: 'multiple',
+          answer: '',
+          quizz: [
+            {
+              text: 'Lời Chúa',
+              correct: true
+            },
+            {
+              text: 'Lời ước',
+              correct: false
+            },
+            {
+              text: 'Lời ca',
+              correct: true
+            },
+            {
+              text: 'Lời kinh',
+              correct: true
+            },
+            {
+              text: 'Lời cầu',
+              correct: true
+            },
+            {
+              text: 'Sự thinh lặng',
+              correct: true
+            },
+            {
+              text: 'Sự thống hối',
+              correct: false
+            }
+          ]
+        },
         {
           lesson: lessons['BAI_15'],
           question: '<div><b>Vì sao gia đình Kitô hữu phải năng lãnh nhận Bí tích Hoà giải?</b></div><div>Nhờ Bí tích Hoà giải, mọi người nhận ra những lỗi phạm của mình và <span data-fill="1">đón nhận lòng khoan dung</span> của Thiên Chúa, nhờ đó sẽ <span data-fill="2">dễ sống hoà hợp và tha thứ</span> cho nhau.</div>',
@@ -834,6 +872,86 @@
       ];
 
       const questionBase = [
+        {
+          lesson: lessons['BAI_16'],
+          question: 'Mỗi giờ kinh chung trong gia đình thường gồm mấy yếu tố?',
+          answer_type: 'list',
+          explain: '',
+          list: [
+            'Một là Lời Chúa',
+            'Hai là lời ca.',
+            'Ba là lời kinh.',
+            'Bốn là lời cầu.',
+            'Năm là sự thinh lặng.'
+          ]
+        },
+        {
+          lesson: lessons['BAI_16'],
+          question: 'Việc cầu nguyện chung và cầu nguyện riêng liên quan với nhau thế nào?',
+          answer_type: 'line',
+          explain: '',
+          list: [
+            'Việc cầu nguyện chung và cầu nguyện riêng nâng đỡ và bổ túc cho nhau. ',
+            'Nhờ cầu nguyện chung, ta sẽ quen cầu nguyện riêng, ',
+            'đồng thời nếu mọi người trong gia đình năng cầu nguyện riêng, ',
+            'thì giờ kinh chung sẽ càng tốt đẹp.'
+          ]
+        },
+        {
+          lesson: lessons['BAI_16'],
+          question: 'Vì sao việc cầu nguyện chung trong gia đình là quan trọng?',
+          answer_type: 'line',
+          explain: '',
+          list: [
+            'Việc cầu nguyện trong gia đình là quan trọng, ',
+            'vì nó giúp ta kết hiệp với Chúa và với nhau, ',
+            'tạo cho gia đình một bầu khí yêu thương và thánh thiện, ',
+            'giúp chuẩn bị việc cử hành phụng vụ ở nhà thờ ',
+            'và kéo dài phụng vụ ấy ngay trong gia đình.'
+          ]
+        },
+        {
+          lesson: lessons['BAI_16'],
+          question: 'Ta phải có tâm tình nào khi cầu nguyện?',
+          answer_type: 'line',
+          explain: '',
+          list: [
+            'Khi cầu nguyện ta phải có tâm tình khiêm nhường và thống hối.'
+          ]
+        },
+        {
+          lesson: lessons['BAI_16'],
+          question: 'Có mấy hình thức cầu nguyện trong gia đình?',
+          answer_type: 'list',
+          explain: '',
+          list: [
+            'Cầu nguyện chung.',
+            'Cầu nguyện riêng.'
+          ]
+        },
+        {
+          lesson: lessons['BAI_16'],
+          question: 'Tại sao ta phải cầu nguyện?',
+          answer_type: 'line',
+          explain: '',
+          list: [
+            'Ta phải cầu nguyện vì Chúa Giêsu đã truyền dạy, ',
+            'hơn nữa, đời sống thiêng liêng cần được nuôi dưỡng ',
+            'và phát triển bằng sự cầu nguyện.'
+          ]
+        },
+        {
+          lesson: lessons['BAI_16'],
+          question: 'Cầu nguyện là gì?',
+          answer_type: 'line',
+          explain: '',
+          list: [
+            'Cầu nguyện là nâng tâm hồn lên cùng Chúa, ',
+            'để thờ lạy, cảm tạ, ',
+            'xin Ngài tha thứ mọi tội lỗi ',
+            'và ban cho ta các ơn lành hồn xác.'
+          ]
+        },
         {
           lesson: lessons['BAI_15'],
           question: 'Bí tích Xức dầu bệnh nhân có liên hệ nào đối với đời sống hôn nhân và gia đình?',
